@@ -67,3 +67,7 @@ Validate LoginRadius 'IsAuthenticated' property. After successful validation, ac
       <%  
           }  
       %>
+      
+Note: Few providers like Twitter, LinkedIn, etc. doesn't provide email address with User Profile data, so you need to handle these cases in your callback page.
+
+These are the quick and easy steps to integrate Social Login on your Java website, if you have any questions or need a further assistance please contact us at hello@loginradius.com.
