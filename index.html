@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Java-sdk by LoginRadius</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Java-sdk</h1>
+        <p>LoginRadius's Java SDK is a development kit that lets you integrate Social Login such as Facebook, Google, Twitter and over 20 more on a Java website. The SDK also fetches user profile data and can be customized from your LoginRadius user account. Ex: social icon sets, login interface, provider settings, etc.</p>
+
+        <p class="view"><a href="https://github.com/LoginRadius/Java-SDK">View the Project on GitHub <small>LoginRadius/Java-SDK</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/LoginRadius/Java-SDK/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/LoginRadius/Java-SDK/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/LoginRadius/Java-SDK">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>LoginRadius's Java SDK is used to implement Social Login on your Java website</h1>
+
+<p>Description: LoginRadius's Java SDK is a development kit that lets you integrate Social Login through providers such as Facebook, Google, Twitter, and over 20 more on a Java website. The SDK also fetches user profile data and can be customized from your LoginRadius user account. Ex: social icon sets, login interface, provider settings, etc.</p>
+
+<p>Download <a href="https://github.com/downloads/LoginRadius/Java-SDK/LoginRadius-Java-SDK.zip">Social Login JAVA SDK</a></p>
+
+<h1>Steps to implement LoginRadius Java SDK</h1>
+
+<p>Step 1: Add SDK Jar files to your Java project website</p>
+
+<p>Step 2: Create LoginRadius object in your Java file</p>
+
+<p>LoginRadius class has three overload constructors:</p>
+
+<ol>
+<li>
+<p>Input two parameters: 'HttpServletRequest' (request object) and String (LoginRadius API secret)</p>
+
+<pre><code>  LoginRadiusDataObject.Objects.BasicUserLoginRadiusUserProfile user = new LoginRadiusDataObject.Objects.BasicUserLoginRadiusUserProfile();  
+  LoginRadiusSDK.LoginRadius loginradius = new LoginRadiusSDK.LoginRadius(request, "Your API Secret key goes here"); 
+</code></pre>
+</li>
+<li>
+<p>Input additional two parameters along with the above two parameters: String (Proxy host) and int (Proxy Port)</p>
+
+<pre><code>    LoginRadiusDataObject.Objects.BasicUserLoginRadiusUserProfile user = new LoginRadiusDataObject.Objects.BasicUserLoginRadiusUserProfile();
+    LoginRadiusSDK.LoginRadius loginradius = new LoginRadiusSDK.LoginRadius(request, "Your API Secret key goes here", "your proxy host", proxyport );
+</code></pre>
+</li>
+<li>
+<p>Input two more parameters along with the above mentioned four parameters: String (proxy server user name) and String (proxy server password)</p>
+
+<pre><code>    LoginRadiusDataObject.Objects.BasicUserLoginRadiusUserProfile user = new LoginRadiusDataObject.Objects.BasicUserLoginRadiusUserProfile();
+    LoginRadiusSDK.LoginRadius loginradius = new LoginRadiusSDK.LoginRadius(request, "Your API Secret key goes here", "your proxy host", proxyport ,"proxy server user name","proxy server password");
+</code></pre>
+</li>
+</ol><p>Step 3: Validate, authenticate and store data from LoginRadius:</p>
+
+<p>Validate LoginRadius 'IsAuthenticated' property. After successful validation, access user profile data such as ID, FirstName, Email, LastName, BirthDate, Country, NickName, Gender, ProfileName, etc. using getBasicUserprofile() method.</p>
+
+<pre><code>  &lt;%  
+  //you can call one from three overloads   
+  LoginRadiusDataObject.Objects.BasicUserLoginRadiusUserProfile user = new LoginRadiusDataObject.Objects.BasicUserLoginRadiusUserProfile();  
+  LoginRadiusSDK.LoginRadius loginradius = new LoginRadiusSDK.LoginRadius(request, "Your API Secret key goes here");  
+
+  if (loginradius.IsAuthenticated) {  
+      try {  
+          user = loginradius.getBasicUserprofile();  
+      } catch (Exception ex) {  
+      }  
+  %&gt;  
+  &lt;p&gt;FirstName: &lt;%= user.FirstName%&gt; &lt;/p&gt;  
+  &lt;p&gt;BirthDate: &lt;%= user.BirthDate%&gt; &lt;/p&gt;  
+  &lt;p&gt;FullName: &lt;%= user.FullName%&gt; &lt;/p&gt;  
+  &lt;p&gt;ID: &lt;%= user.ID%&gt; &lt;/p&gt;  
+  &lt;p&gt;LastName: &lt;%= user.LastName%&gt; &lt;/p&gt;  
+  &lt;p&gt;MiddleName: &lt;%= user.MiddleName%&gt; &lt;/p&gt;  
+  &lt;p&gt;Prefix: &lt;%= user.Prefix%&gt; &lt;/p&gt;  
+  &lt;p&gt;ProfileName: &lt;%= user.ProfileName%&gt; &lt;/p&gt;  
+  &lt;p&gt;Provider: &lt;%= user.Provider%&gt; &lt;/p&gt;  
+  &lt;p&gt;Suffix: &lt;%= user.Suffix%&gt; &lt;/p&gt;  
+  &lt;%  
+      if (user.Email != null) {  
+          for (int i = 0; i &lt; user.Email.size(); i++) {  
+  %&gt;  
+  &lt;p&gt;Email : &lt;%= user.Email.get(i).Value%&gt; &lt;/p&gt;  
+  &lt;%  
+          }  
+      }  
+      if (user.Country != null) {  
+          %&gt;  
+          &lt;p&gt;country name :&lt;%= user.Country.Name %&gt;&lt;/p&gt;  
+          &lt;p&gt;country code :&lt;%= user.Country.Code %&gt;&lt;/p&gt;                
+          &lt;%  
+      }  
+  %&gt;  
+  &lt;%  
+      }  
+  %&gt;
+</code></pre>
+
+<p>Note: Few providers like Twitter, LinkedIn, etc. doesn't provide email address with User Profile data, so you need to handle these cases in your callback page.</p>
+
+<p>These are the quick and easy steps to integrate Social Login on your Java website, if you have any questions or need a further assistance please contact us at <a href="mailto:hello@loginradius.com">hello@loginradius.com</a>.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/LoginRadius">LoginRadius</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-22321867-5");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
