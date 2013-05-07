@@ -18,16 +18,16 @@ public class Utility {
 
             URL LoginRadiusRestUrl = new URL(url);
 
-            URLConnection yc;
+            HttpURLConnection yc;
 
 
             if (proxy != null) {
-                yc = LoginRadiusRestUrl.openConnection(proxy);
+                yc = (HttpURLConnection)LoginRadiusRestUrl.openConnection(proxy);
             } else {
-                yc = LoginRadiusRestUrl.openConnection();
+                yc = (HttpURLConnection)LoginRadiusRestUrl.openConnection();
             }
             yc.setRequestProperty("Accept", "application/json");
-
+            yc.setRequestProperty("Accept-Charset", "UTF-8");
 
             in = new BufferedReader(
                     new InputStreamReader(
@@ -39,8 +39,7 @@ public class Utility {
                 lrresponse.append(inputLine);
             }
 
-            res = new String(lrresponse.toString().getBytes("ISO-8859-1"), 
-                      "UTF-8") ;
+            res = new String(lrresponse.toString().getBytes(), "UTF-8");
 
         } catch (Exception ex) {
             String message = ex.getMessage();
