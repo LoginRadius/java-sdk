@@ -1,125 +1,360 @@
 <!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Java-sdk by LoginRadius</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Java-sdk</h1>
-        <p>LoginRadius's Java SDK is a development kit that lets you integrate Social Login such as Facebook, Google, Twitter and over 20 more on a Java website. The SDK also fetches user profile data and can be customized from your LoginRadius user account. Ex: social icon sets, login interface, provider settings, etc.</p>
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
 
-        <p class="view"><a href="https://github.com/LoginRadius/Java-SDK">View the Project on GitHub <small>LoginRadius/Java-SDK</small></a></p>
+  <title>Java-sdk</title>
+  <meta name="description" content="LoginRadius's Java SDK is a development kit that lets you integrate Social Login such as Facebook, Google, Twitter and over 20 more on a Java website. The SDK also fetches user profile data and can be customized from your LoginRadius user account. Ex: social icon sets, login interface, provider settings, etc.">
 
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-        <ul>
-          <li><a href="https://github.com/LoginRadius/Java-SDK/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/LoginRadius/Java-SDK/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/LoginRadius/Java-SDK">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>LoginRadius's Java SDK is used to implement Social Login on your Java website</h1>
+</head>
 
-<p>Description: LoginRadius's Java SDK is a development kit that lets you integrate Social Login through providers such as Facebook, Google, Twitter, and over 20 more on a Java website. The SDK also fetches user profile data and can be customized from your LoginRadius user account. Ex: social icon sets, login interface, provider settings, etc.</p>
+<body>
 
-<p>Download <a href="https://github.com/downloads/LoginRadius/Java-SDK/LoginRadius-Java-SDK.zip">Social Login JAVA SDK</a></p>
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Java-sdk</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">LoginRadius's Java SDK is a development kit that lets you integrate Social Login such as Facebook, Google, Twitter and over 20 more on a Java website. The SDK also fetches user profile data and can be customized from your LoginRadius user account. Ex: social icon sets, login interface, provider settings, etc.</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/LoginRadius/Java-SDK/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/LoginRadius/Java-SDK/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/LoginRadius/Java-SDK" class="code">View Java-sdk on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1>LoginRadius library for Java</h1>
 
-<h1>Steps to implement LoginRadius Java SDK</h1>
+<p>Java library for the LoginRadius API. Get social authentication, user profile data and send messages using many social network and email clients such as Facebook, Google, Twitter, Yahoo, LinkedIn, etc.</p>
 
-<p>Step 1: Add SDK Jar files to your Java project website</p>
-
-<p>Step 2: Create LoginRadius object in your Java file</p>
-
-<p>LoginRadius class has three overload constructors:</p>
+<h2>Installation</h2>
 
 <ol>
 <li>
-<p>Input two parameters: 'HttpServletRequest' (request object) and String (LoginRadius API secret)</p>
-
-<pre><code>  LoginRadiusDataObject.Objects.BasicUserLoginRadiusUserProfile user = new LoginRadiusDataObject.Objects.BasicUserLoginRadiusUserProfile();  
-  LoginRadiusSDK.LoginRadius loginradius = new LoginRadiusSDK.LoginRadius(request, "Your API Secret key goes here"); 
-</code></pre>
-</li>
+<strong>Font-end interface:</strong> Add social login interface code from your LoginRadius user account to your webpage.</li>
 <li>
-<p>Input additional two parameters along with the above two parameters: String (Proxy host) and int (Proxy Port)</p>
-
-<pre><code>    LoginRadiusDataObject.Objects.BasicUserLoginRadiusUserProfile user = new LoginRadiusDataObject.Objects.BasicUserLoginRadiusUserProfile();
-    LoginRadiusSDK.LoginRadius loginradius = new LoginRadiusSDK.LoginRadius(request, "Your API Secret key goes here", "your proxy host", proxyport );
-</code></pre>
-</li>
+<strong>Call-back setup:</strong> Set-up the callback URL in your LoginRadius user account, this is the URL where user would be redirected after authentication.</li>
 <li>
-<p>Input two more parameters along with the above mentioned four parameters: String (proxy server user name) and String (proxy server password)</p>
+<strong>Library set-up and installation:</strong> Add the LoginRadius Jar into your Java project and follow the instructions to implement the Jar into your callback page.</li>
+</ol><p>Steps to call the library:</p>
 
-<pre><code>    LoginRadiusDataObject.Objects.BasicUserLoginRadiusUserProfile user = new LoginRadiusDataObject.Objects.BasicUserLoginRadiusUserProfile();
-    LoginRadiusSDK.LoginRadius loginradius = new LoginRadiusSDK.LoginRadius(request, "Your API Secret key goes here", "your proxy host", proxyport ,"proxy server user name","proxy server password");
-</code></pre>
-</li>
-</ol><p>Step 3: Validate, authenticate and store data from LoginRadius:</p>
-
-<p>Validate LoginRadius 'IsAuthenticated' property. After successful validation, access user profile data such as ID, FirstName, Email, LastName, BirthDate, Country, NickName, Gender, ProfileName, etc. using getBasicUserprofile() method.</p>
-
-<pre><code>  &lt;%  
-  //you can call one from three overloads   
-  LoginRadiusDataObject.Objects.BasicUserLoginRadiusUserProfile user = new LoginRadiusDataObject.Objects.BasicUserLoginRadiusUserProfile();  
-  LoginRadiusSDK.LoginRadius loginradius = new LoginRadiusSDK.LoginRadius(request, "Your API Secret key goes here");  
-
-  if (loginradius.IsAuthenticated) {  
-      try {  
-          user = loginradius.getBasicUserprofile();  
-      } catch (Exception ex) {  
-      }  
-  %&gt;  
-  &lt;p&gt;FirstName: &lt;%= user.FirstName%&gt; &lt;/p&gt;  
-  &lt;p&gt;BirthDate: &lt;%= user.BirthDate%&gt; &lt;/p&gt;  
-  &lt;p&gt;FullName: &lt;%= user.FullName%&gt; &lt;/p&gt;  
-  &lt;p&gt;ID: &lt;%= user.ID%&gt; &lt;/p&gt;  
-  &lt;p&gt;LastName: &lt;%= user.LastName%&gt; &lt;/p&gt;  
-  &lt;p&gt;MiddleName: &lt;%= user.MiddleName%&gt; &lt;/p&gt;  
-  &lt;p&gt;Prefix: &lt;%= user.Prefix%&gt; &lt;/p&gt;  
-  &lt;p&gt;ProfileName: &lt;%= user.ProfileName%&gt; &lt;/p&gt;  
-  &lt;p&gt;Provider: &lt;%= user.Provider%&gt; &lt;/p&gt;  
-  &lt;p&gt;Suffix: &lt;%= user.Suffix%&gt; &lt;/p&gt;  
-  &lt;%  
-      if (user.Email != null) {  
-          for (int i = 0; i &lt; user.Email.size(); i++) {  
-  %&gt;  
-  &lt;p&gt;Email : &lt;%= user.Email.get(i).Value%&gt; &lt;/p&gt;  
-  &lt;%  
-          }  
-      }  
-      if (user.Country != null) {  
-          %&gt;  
-          &lt;p&gt;country name :&lt;%= user.Country.Name %&gt;&lt;/p&gt;  
-          &lt;p&gt;country code :&lt;%= user.Country.Code %&gt;&lt;/p&gt;                
-          &lt;%  
-      }  
-  %&gt;  
-  &lt;%  
-      }  
-  %&gt;
+<pre><code> 1. Import the Library reference into your code file
+ 2. Call IsAuthenticated property to check for authentication validation
+ 3. If success, call getBasicUserProfile method to get user's profile data. [For Premium paid plans: You can call getExtendedUserProfile method to get Extended user profile data.] visit the link for more information to get list of data: https://www.loginradius.com/product/user-profile-data
 </code></pre>
 
-<p>Note: Few providers like Twitter, LinkedIn, etc. doesn't provide email address with User Profile data, so you need to handle these cases in your callback page.</p>
+<p><strong>Sample code for authentication and get basic profile data</strong></p>
 
-<p>These are the quick and easy steps to integrate Social Login on your Java website, if you have any questions or need a further assistance please contact us at <a href="mailto:hello@loginradius.com">hello@loginradius.com</a>.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/LoginRadius">LoginRadius</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+<pre><code>  using LoginRadiusSDK          //Import the library reference
+
+  LoginRadius _loginradius = new LoginRadius(request,"Your-LoginRadius-API-Secret-key"); 
+    if(_loginradius.IsAuthenticated) {
+        BasicUserLoginRadiusUserProfile userprofile=_loginradius.getBasicUserProfile();
+        //fetch all properties for profile data  
+          //userprofile.birthdate -- Birth date of user  
+          //if (userprofile.country != null)  
+          //{  
+          //    userprofile.country.code - country code  
+          //    userprofile.country.name - country name  
+          //}  
+          //  
+          //Email id generic list   
+          //if (userprofile.emails != null)   
+          //{  
+          //    for(int i = 0; i &lt; userprofile.emails.size(); i++)  
+          //    {   
+          //        email.type -- email type (like Primary , Secondary)  
+          //        email.value -- email ID  
+          //    }  
+          //} 
+          //userprofile.firstName -- first name of user  
+          //userprofile.fullName -- full name of user   
+          //userprofile.gender -- gender of user  
+          //userprofile.id -- ID of user on provider   
+          //userprofile.lastName -- last name of user  
+          //userprofile.middleName -- middle name of user  
+          //userprofile.nickName -- nick name of user  
+          //userprofile.prefix -- prefix of user's name  
+          //userprofile.profileName -- screenname/username of user   
+          //userprofile.provider -- provider name from where user has authenticated   
+          //userprofile.suffix -- suffix of user's name
+    }
+</code></pre>
+
+<p><strong>Sample code to get Extended user profile (Only for Paid plans - Premium)</strong></p>
+
+<pre><code> if(_loginradius.IsAuthenticated)
+    ExtendedUserLoginRadiusUserProfile userprofile = _loginradius.getExtendedUserprofile();
+</code></pre>
+
+<p><strong>Tip-1:</strong> Few providers like Twitter doesn't provide email address with User Profile data, so you need to handle these cases in your callback page.</p>
+
+<h1>Advance features(for Paid customers only)</h1>
+
+<h2>LoginRaidus Contacts API</h2>
+
+<p>You can use this API to fetch contacts from users social networks/email clients - Facebook, Twitter, LinkedIn, Google, Yahoo.</p>
+
+<blockquote>
+<p>LoginRadius generate a unique session token, when user logs in with
+any of social network. The lifetime of LoginRadius token is 15 mins, get/Save this Token to call this API.</p>
+</blockquote>
+
+<pre><code>Contacts LRContacts = new Contacts();
+
+LoginRadiusContact[] contactlist = LRContacts.getContacts("-LoginRadius-session-Token-", "-Your-LoginRadius-Secret-key-");
+            if (contactlist!= null) {
+                for (int i = 0; i &lt; contactlist.length; i++) {
+                     //contactlist[i].id  - Contact ID
+                     //contactlist[i].name – Contact Name
+                     //contactlist[i].emailId – Contact EmailId
+                     //contactlist[i].gender – Contact Gender
+                     //contactlist[i].phoneNumber – Contact PhoneNumber
+                     //contactlist[i].status – Contact Status
+                     //contactlist[i].industry – Contact Industry
+                     //contactlist[i].imageUrl – Contact Image Url                
+                     //contactlist[i].profileUrl –Contact Profile Url
+                 }
+           }
+</code></pre>
+
+<h2>LoginRadius Post API</h2>
+
+<p>You can use this API to Post data to users social networks/email - Facebook, Twitter, LinkedIn, Google, Yahoo.</p>
+
+<blockquote>
+<p>LoginRadius generate a unique session token, when user logs in with
+any of social network. The lifetime of LoginRadius token is 15 mins, get/Save this Token to call this API.</p>
+</blockquote>
+
+<pre><code>LoginRadiusSDK.Statuses lrstatusmessage = new LoginRadiusSDK.Statuses();
+bool message = lrstatusmessage.postStatus('LoginRadius-session-token', 'Your-LoginRadius-Secret-key',“To”,”Title”,”Url”,”imageurl-”,”status”,”caption”,”description”);
+string success =””;
+if (message) {
+   success = "Your status has been posted successfully.";
+}
+else {
+   success = "Status post failed.";
+}
+</code></pre>
+
+<h2>Get Posts</h2>
+
+<p>You can use this API to get posts from users social network - Facebook</p>
+
+<blockquote>
+<p>LoginRadius generate a unique session token, when user logs in with
+any of social network. The lifetime of LoginRadius token is 15 mins, get/Save this Token to call this API.</p>
+</blockquote>
+
+<pre><code>LoginRadiusSDK.Posts lrPost= new LoginRadiusSDK.Posts();  
+
+LoginRadiusPost[] PostList = lrPost.getPosts("LoginRadius-session-token", "Your-LoginRadius-API-secret-key");    
+      if (PostList!= null) {
+         //fetch all properties like
+          for (int i = 0; i &lt; PostList.length; i++) {
+              // PostList[i].id         -- id of Post
+              // PostList[i].place      -- Place of Post
+              // PostList[i].name       -- Name of Post
+              // PostList[i].likes      -– Likes of Post
+              // PostList[i].startTime  -- Start Time of Post
+              // PostList[i].message    -- Message of Post
+              // PostList[i].picture    -- Picture in Post
+              // PostList[i].title      -– Title of Post
+              // PostList[i].share      -- Share  of Post
+              // PostList[i].updateTime   -- UpdateTime of Post
+           }     
+    }
+</code></pre>
+
+<h2>Get Twitter Mentions</h2>
+
+<p>You can use this API to get mentions from users social network - Twitter.</p>
+
+<blockquote>
+<p>LoginRadius generate a unique session token, when user logs in with
+any of social network. The lifetime of LoginRadius token is 15 mins, get/Save this Token to call this API.</p>
+</blockquote>
+
+<pre><code>LoginRadiusSDK.Mentions lrMention = new
+LoginRadiusSDK.Mentions();   
+
+LoginRadiusDataObject.LoginRadiusStatuses[] MentionList= lrMention.getMention("LoginRadius-session-Token","Your-LoginRadius-Secret-key");
+ if (MentionList!= null)
+ {
+    //fetch all properties like
+       for(int i =0;i&lt; MentionList.length;i++)
+        {
+        // MentionList[i].id        -- id of Mention
+        // MentionList[i].place     -- Place of Mention
+        // MentionList[i].name      -- Name of Mention
+        // MentionList[i].text      -– Text of Mention
+        // MentionList[i].dateTime -- DateTime  of Mention
+        // MentionList[i].imageUrl  -- ImageUrl in Mention
+        // MentionList[i].likes     -- Likes of Mention
+        // MentionList[i].linkUrl   -– LinkUrl of Mention
+        // MentionList[i].source    -- Source  of Mention
+
+         }
+}
+</code></pre>
+
+<h2>Facebook Groups</h2>
+
+<p>You can use this API to get groups from users social network - Facebook.</p>
+
+<blockquote>
+<p>LoginRadius generate a unique session token, when user logs in with
+any of social network. The lifetime of LoginRadius token is 15 mins, get/Save this Token to call this API.</p>
+</blockquote>
+
+<pre><code>LoginRadiusSDK.Groups lrGroups= new LoginRadiusSDK.Groups();   
+
+LoginRadiusGroups[] GroupList= lrGroups.getGroups ("LoginRadius-session-Token","Your-LoginRadius-Secret-key");
+    if (GroupList!= null)
+    {
+           //fetch all properties like
+          for(int i=0;i&lt;GroupList.length;i++)
+           {
+              // GroupList[i].id -- id of event
+              // GroupList[i].name -- Name of Event
+           }
+     }
+</code></pre>
+
+<h2>Get LinkedIn follow companies</h2>
+
+<p>You can use this API to get followed companies list from users social network - LinkedIn.</p>
+
+<blockquote>
+<p>LoginRadius generate a unique session token, when user logs in with
+any of social network. The lifetime of LoginRadius token is 15 mins, get/Save this Token to call this API.</p>
+</blockquote>
+
+<pre><code>LoginRadiusSDK.Compaines lrcompanies = new LoginRadiusSDK.Compaines ();
+
+LoginRadiusCompanyFollow[] companylist = lrcompanies.getCompanies("LoginRadius-session-Token","Your-LoginRadius-Secret-key");
+  if (companylist!= null)
+  {
+     for(int i=0;i&lt;companylist.length;i++)
+     {
+        //companylist[i].id  - followcompany ID
+        //companylist[i].name – followcompany Name    
+     }
+   }
+</code></pre>
+
+<h2>Get Facebook events</h2>
+
+<p>You can use this API to get events from users social network - Facebook.</p>
+
+<blockquote>
+<p>LoginRadius generate a unique session token, when user logs in with
+any of social network. The lifetime of LoginRadius token is 15 mins, get/Save this Token to call this API.</p>
+</blockquote>
+
+<pre><code>LoginRadiusSDK.Events lrEvent = new LoginRadiusSDK.Events ();  
+
+LoginRadiusEvent[] EventList= lrEvent.getEvents ("LoginRadius-session-Token","Your-LoginRadius-Secret-key");
+
+    if (EventList!= null)
+    {
+       //fetch all properties like
+       for(int i=0;i&lt;EventList.length;i++)
+       {
+            //EventList[i].id       -- id of event
+            //EventList[i].location   -- location of event
+            //EventList[i].name     -- Name of Event
+            //EventList[i].rsvpStatus -– Status of event
+            //EventList[i].startTime  -- Start Time of Event
+
+        }
+    }
+</code></pre>
+
+<h2>Get Status</h2>
+
+<p>You can use this API to get status messages from users social network - Facebook.</p>
+
+<blockquote>
+<p>LoginRadius generate a unique session token, when user logs in with
+any of social network. The lifetime of LoginRadius token is 15 mins, get/Save this Token to call this API.</p>
+</blockquote>
+
+<pre><code>LoginRadiusSDK.Statuses lrstatus = new LoginRadiusSDK.Statuses();
+LoginRadiusStatuses[] statuslist = lrstatus. getStatuses ("LoginRadius-session-Token","Your-LoginRadius-Secret-key");
+         if (statuslist!= null)
+         {
+           for(int i=0;i&lt;statuslist.length;i++)
+            {
+                // statuslist[i].id  - status ID
+                // statuslist[i].imageUrl– status Image Url  
+                // statuslist[i].likes – status Likes
+                // statuslist[i].text – status Text
+                // statuslist[i].linkUrl – status LinkUrl
+                // statuslist[i].place – status place
+                // statuslist[i].source – status source
+
+           }
+         }
+</code></pre>
+
+<h2>Direct Message</h2>
+
+<p>You can use this API to send message to users social networks/email - Twitter, LinkedIn.</p>
+
+<blockquote>
+<p>LoginRadius generate a unique session token, when user logs in with
+any of social network. The lifetime of LoginRadius token is 15 mins, get/Save this Token to call this API.</p>
+</blockquote>
+
+<pre><code>LoginRadiusSDK.DirectMessage lrdirectmessage = new LoginRadiusSDK.DirectMessage();
+
+bool directmessage = lrstatusmessage.sendMessage('LoginRadius-session-token', 'Your-LoginRadius-Secret-key',“SendTo”,”Subject”,”Message”);
+string success =””;
+       if (directmessage) {
+             success = "Your message has been sent successfully.";
+        }
+        else {
+             success = "Message sending failed.";
+        }
+</code></pre>
+
+<p><strong>Request:</strong> Please let us know your feedback and comments. If you have any questions or need a further assistance please contact us at <a href="hello@loginradius.com">hello@loginradius.com</a>.</p>
+        </article>
+      </div>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-              <script type="text/javascript">
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/LoginRadius" class="avatar"><img src="https://secure.gravatar.com/avatar/d9882d6df450dc0c42c02cab0f786522?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="48" height="48"/></a> <a href="https://github.com/LoginRadius">LoginRadius</a> maintains <a href="https://github.com/LoginRadius/Java-SDK">Java-sdk</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br/>theme by <a href="http://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/LoginRadius/Java-SDK/tarball/master" class="tar">tar</a><a href="https://github.com/LoginRadius/Java-SDK/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+            <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -130,5 +365,5 @@
             } catch(err) {}
           </script>
 
-  </body>
+</body>
 </html>
