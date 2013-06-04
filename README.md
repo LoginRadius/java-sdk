@@ -53,7 +53,7 @@ Steps to call the library:
 
 **Sample code to get Extended user profile (Only for Paid plans - Premium)**
      
-     if(_loginradius.IsAuthenticated)
+    if(_loginradius.IsAuthenticated)
     	ExtendedUserLoginRadiusUserProfile userprofile = _loginradius.getExtendedUserprofile();
 
 
@@ -69,9 +69,9 @@ You can use this API to fetch contacts from users social networks/email clients 
 > LoginRadius generate a unique session token, when user logs in with
 > any of social network. The lifetime of LoginRadius token is 15 mins, get/Save this Token to call this API.
 
-	Contacts LRContacts = new Contacts();
+	Contacts contact = new Contacts();
  
-  	LoginRadiusContact[] contactlist = LRContacts.getContacts("-LoginRadius-session-Token-", "-Your-LoginRadius-Secret-key-");
+  	LoginRadiusContact[] contactlist = contact.getContacts("-LoginRadius-session-Token-", "-Your-LoginRadius-Secret-key-");
                	if (contactlist!= null) {
                    	for (int i = 0; i < contactlist.length; i++) {
     		             //contactlist[i].id  - Contact ID
@@ -94,14 +94,8 @@ You can use this API to Post data to users social networks/email - Facebook, Twi
 > any of social network. The lifetime of LoginRadius token is 15 mins, get/Save this Token to call this API.
 
 	LoginRadiusSDK.Statuses lrstatusmessage = new LoginRadiusSDK.Statuses();
-    bool message = lrstatusmessage.postStatus('LoginRadius-session-token', 'Your-LoginRadius-Secret-key',“To”,”Title”,”Url”,”imageurl-”,”status”,”caption”,”description”);
-    string success =””;
-    if (message) {
-       success = "Your status has been posted successfully.";
-    }
-    else {
-       success = "Status post failed.";
-    }
+    bool isstatusupdated = lrstatusmessage.postStatus('LoginRadius-session-token', 'Your-LoginRadius-Secret-key',“To”,”Title”,”Url”,”imageurl-”,”status”,”caption”,”description”);
+
 Get Posts
 --
 You can use this API to get posts from users social network - Facebook
@@ -185,7 +179,7 @@ You can use this API to get followed companies list from users social network - 
 > any of social network. The lifetime of LoginRadius token is 15 mins, get/Save this Token to call this API.
 
 
-    LoginRadiusSDK.Compaines lrcompanies = new LoginRadiusSDK.Compaines ();
+    LoginRadiusSDK.Compaines lrcompanies = new LoginRadiusSDK.Compaines();
 
     LoginRadiusCompanyFollow[] companylist = lrcompanies.getCompanies("LoginRadius-session-Token","Your-LoginRadius-Secret-key");
       if (companylist!= null)
@@ -254,14 +248,7 @@ You can use this API to send message to users social networks/email - Twitter, L
 
 	LoginRadiusSDK.DirectMessage lrdirectmessage = new LoginRadiusSDK.DirectMessage();
 
-    bool directmessage = lrstatusmessage.sendMessage('LoginRadius-session-token', 'Your-LoginRadius-Secret-key',“SendTo”,”Subject”,”Message”);
-    string success =””;
-           if (directmessage) {
-              	 success = "Your message has been sent successfully.";
-       		}
-          	else {
-               	 success = "Message sending failed.";
-       		}
+    bool ismessagesent = lrstatusmessage.sendMessage('LoginRadius-session-token', 'Your-LoginRadius-Secret-key',“SendTo”,”Subject”,”Message”);
 
  **Request:** Please let us know your feedback and comments. If you have any questions or need a further assistance please contact us at [hello@loginradius.com][1].
 
