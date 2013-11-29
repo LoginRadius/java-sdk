@@ -11,5 +11,5 @@ package loginradiussdk;
 public class Config {
 
     
-    public static String Domain = "hub.loginradius.com";
+    public static String ApiBaseUrl = "https://hub.loginradius.com";
 }

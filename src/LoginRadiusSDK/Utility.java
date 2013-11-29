@@ -2,6 +2,8 @@ package loginradiussdk;
 
 import java.net.*;
 import java.io.*;
+import java.util.Calendar;
+import java.util.TimeZone;
 import java.util.regex.*;
 
 /**
@@ -22,17 +24,23 @@ public class Utility {
 
 
             if (proxy != null) {
-                yc = (HttpURLConnection)LoginRadiusRestUrl.openConnection(proxy);
+                yc = (HttpURLConnection) LoginRadiusRestUrl.openConnection(proxy);
             } else {
-                yc = (HttpURLConnection)LoginRadiusRestUrl.openConnection();
+                yc = (HttpURLConnection) LoginRadiusRestUrl.openConnection();
             }
+
+            Calendar now = Calendar.getInstance();
+            TimeZone timeZone = now.getTimeZone();
+
+            yc.setRequestProperty("User-Agent", ".Java-SDK/1.0 (Java " + System.getProperty("java.version") + "; " + System.getProperty("os.name") + ";"+timeZone.getRawOffset()/(60*60*1000.0) +";)");
+
             yc.setRequestProperty("Accept", "application/json");
             yc.setRequestProperty("Accept-Charset", "UTF-8");
 
             in = new BufferedReader(
                     new InputStreamReader(
                     yc.getInputStream()));
-           
+
             String inputLine;
 
             while ((inputLine = in.readLine()) != null) {

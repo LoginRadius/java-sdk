@@ -1,17 +1,17 @@
 package loginradiussdk;
 
 
-import loginradiusdataobject.userprofile.*;
 import com.google.gson.Gson;
 import java.io.*;
 import java.net.*;
 import javax.servlet.http.*;
+import loginradiusdataobject.userprofile.*;
 
 
      /**
      * LoginRadius
      *
-     * LoginRadius sdk class which is containing user profile function and overloaded Constructor .
+     * LoginRadius SDK class which is containing user profile function and overloaded Constructor .
      * 
      */
 public class LoginRadius {
@@ -77,7 +77,7 @@ public class LoginRadius {
             if (!request.getParameter(TOKEN).isEmpty()) {
                 Utility util =new Utility();
                 Token = request.getParameter(TOKEN);
-                final String url = "http://"+Config.Domain+"/userprofile.ashx?token=" + Token + "&apisecrete=" + Api_Secrete;
+                final String url = Config.ApiBaseUrl+"/userprofile.ashx?token=" + Token + "&apisecrete=" + Api_Secrete;
                 lrjsonresponse = util.httpGetRequest(url, proxy);
 
                 if (lrjsonresponse != null) {
@@ -105,23 +105,12 @@ public class LoginRadius {
     }
 
     /**
-     * getPremiumUserprofile
-     *
-     * Returns Premium profile data of the user, if premium package is enabled.
-     *
-     */
-    
-    public PremiumUserLoginRadiusUserProfile getPremiumUserprofile() {
-        PremiumUserLoginRadiusUserProfile data = new Gson().fromJson(lrjsonresponse, PremiumUserLoginRadiusUserProfile.class);
-        return data;
-    }
-    /**
      * getUltimateUserprofile
      *
      * Returns Ultimate profile data of the user, if premium plus package is enabled.
      *
      */
-    public UltimateUserLoginRadiusUserProfile getUltimateUserprofile() {
+    public UltimateUserLoginRadiusUserProfile getExtendedUserprofile() {
         UltimateUserLoginRadiusUserProfile data = new Gson().fromJson(lrjsonresponse, UltimateUserLoginRadiusUserProfile.class);
         return data;
     }

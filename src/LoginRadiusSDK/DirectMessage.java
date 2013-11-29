@@ -76,7 +76,7 @@ public class DirectMessage {
 
         if (Utility.isValidGuid(token) && Utility.isValidGuid(secret)) {
 
-            String url = String.format("http://"+Config.Domain+"/directmessage/%s/%s?sendto=%s&subject=%s&message=%s", URLEncoder.encode(secret), URLEncoder.encode(token), URLEncoder.encode(sendto), URLEncoder.encode(subject),URLEncoder.encode( message));
+            String url = String.format(Config.ApiBaseUrl+"/directmessage/%s/%s?sendto=%s&subject=%s&message=%s", URLEncoder.encode(secret), URLEncoder.encode(token), URLEncoder.encode(sendto), URLEncoder.encode(subject),URLEncoder.encode( message));
 
             String interfaceresponse = util.httpGetRequest(url, proxy);
 

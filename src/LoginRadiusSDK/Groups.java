@@ -67,7 +67,7 @@ public class Groups {
         
         if (Utility.isValidGuid(token) && Utility.isValidGuid(secret)) {
 
-            String url = String.format("http://"+Config.Domain+"/GetGroups/%s/%s", URLEncoder.encode(secret), URLEncoder.encode(token));
+            String url = String.format(Config.ApiBaseUrl+"/GetGroups/%s/%s", URLEncoder.encode(secret), URLEncoder.encode(token));
 
             String interfaceresponse = util.httpGetRequest(url, proxy);
 

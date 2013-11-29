@@ -68,7 +68,7 @@ public class Statuses {
 
         if (Utility.isValidGuid(token) && Utility.isValidGuid(secret)) {
 
-            String url = String.format("http://"+Config.Domain+"/status/get/%s/%s", secret, token);
+            String url = String.format(Config.ApiBaseUrl+"/status/get/%s/%s", secret, token);
 
             String interfaceresponse = util.httpGetRequest(url, proxy);
 
@@ -153,7 +153,7 @@ public class Statuses {
 
         if (Utility.isValidGuid(token) && Utility.isValidGuid(secret)) {
 
-            String url = String.format("http://"+Config.Domain+"/status/update/%s/%s?to=%s&title=%s&url=%s&imageurl=%s&status=%s&caption=%s&description=%s", URLEncoder.encode( secret),URLEncoder.encode( token), URLEncoder.encode(to), URLEncoder.encode(title), URLEncoder.encode(link), URLEncoder.encode(imageurl), URLEncoder.encode(message), URLEncoder.encode(caption),URLEncoder.encode( description));
+            String url = String.format(Config.ApiBaseUrl+"/status/update/%s/%s?to=%s&title=%s&url=%s&imageurl=%s&status=%s&caption=%s&description=%s", URLEncoder.encode( secret),URLEncoder.encode( token), URLEncoder.encode(to), URLEncoder.encode(title), URLEncoder.encode(link), URLEncoder.encode(imageurl), URLEncoder.encode(message), URLEncoder.encode(caption),URLEncoder.encode( description));
 
             String interfaceresponse = util.httpGetRequest(url, proxy);
 

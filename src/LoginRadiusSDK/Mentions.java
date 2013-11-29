@@ -64,7 +64,7 @@ public class Mentions {
         
         if (Utility.isValidGuid(token) && Utility.isValidGuid(secret)) {
 
-            String url = String.format("https://"+Config.Domain+"/status/mentions/%s/%s", secret, token);
+            String url = String.format(Config.ApiBaseUrl+"/status/mentions/%s/%s", secret, token);
 
             String interfaceresponse = util.httpGetRequest(url, proxy);
 
