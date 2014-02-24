@@ -50,7 +50,7 @@ Steps to call the library:
 **Sample code to get Extended user profile (Only for Paid plans - Premium)**
      
     if(_loginradius.IsAuthenticated)
-    	ExtendedUserLoginRadiusUserProfile userprofile = _loginradius.getExtendedUserprofile();
+    	UltimateUserLoginRadiusUserProfile userprofile = _loginradius.getExtendedUserprofile();
 
 
 **Tip-1:** Few providers like Twitter doesn't provide email address with User Profile data, so you need to handle these cases in your callback page.
@@ -172,7 +172,7 @@ You can use this API to get followed companies list from users social network - 
 > any of social network. The lifetime of LoginRadius token is 15 mins, get/Save this Token to call this API.
 
 
-    LoginRadiusSDK.Compaines lrcompanies = new LoginRadiusSDK.Compaines();
+    LoginRadiusSDK.Companies lrcompanies = new LoginRadiusSDK.Companies();
 
     LoginRadiusCompanyFollow[] companylist = lrcompanies.getCompanies("LoginRadius-session-Token","Your-LoginRadius-Secret-key");
       if (companylist!= null)
