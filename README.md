@@ -16,7 +16,7 @@ Steps to call the library:
 
 **Sample code for authentication and get basic profile data**
 
-      using LoginRadiusSDK;          //Import the library reference
+      import LoginRadiusSDK;          //Import the library reference
       LoginRadius _loginradius = new LoginRadius(request,"Your-Login Radius-API-Secret-key"); 
         if(_loginradius.IsAuthenticated) 
             {
