@@ -40,7 +40,7 @@ body{color:#444;}
 <center><h2>User Profile Data</h2></center>
 	<%
 	    //LoginRadius helper class initialized with LoginRadius API secret
-		LoginRadiusCallbackHelper callbackhelper = new LoginRadiusCallbackHelper("a7d6741d-76ad-4c3c-8448-521689fd3dc3");
+		LoginRadiusCallbackHelper callbackhelper = new LoginRadiusCallbackHelper("API_SECRET_HERE");
         
 	    //Request for access token
 	    AccessToken token = callbackhelper.GetLoginRadiusToken(request);
