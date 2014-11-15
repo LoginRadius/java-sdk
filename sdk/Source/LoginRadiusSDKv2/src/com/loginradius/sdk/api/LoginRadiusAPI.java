@@ -34,7 +34,7 @@ public abstract class LoginRadiusAPI {
 			LoginRadiusRestErrorResponse error = deserializer.deserializeJson(
 					jsonresponse, LoginRadiusRestErrorResponse.class);
 
-			throw new LoginRadiusException(error.message);
+			throw new LoginRadiusException(error);
 		}
 	}
 
@@ -53,7 +53,7 @@ public abstract class LoginRadiusAPI {
 			LoginRadiusRestErrorResponse error = deserializer.deserializeJson(
 					jsonresponse, LoginRadiusRestErrorResponse.class);
 
-			throw new LoginRadiusException(error.message);
+			throw new LoginRadiusException(error);
 		}
 	}
 }

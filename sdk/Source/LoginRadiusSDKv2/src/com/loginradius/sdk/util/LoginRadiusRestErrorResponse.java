@@ -1,6 +1,6 @@
 package com.loginradius.sdk.util;
 
-public class LoginRadiusRestErrorResponse {
+public class LoginRadiusRestErrorResponse{
 	public String description;
 	public int errorCode;
 	public String message;

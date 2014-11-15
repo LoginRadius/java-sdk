@@ -15,6 +15,7 @@ public class LoginRadiusCallbackHelper {
 
 	String secret;
 
+	
 	LoginRadiusRestRequest restrequest = new LoginRadiusRestRequest();
 	LoginRadiusJsonDeserializer deserializer = new LoginRadiusJsonDeserializer();
 
@@ -47,7 +48,7 @@ public class LoginRadiusCallbackHelper {
 							.deserializeJson(jsonresponse,
 									LoginRadiusRestErrorResponse.class);
 
-					throw new LoginRadiusException(error.message);
+					throw new LoginRadiusException(error);
 				}
 
 			} else {
