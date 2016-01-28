@@ -7,8 +7,10 @@ LoginRadius is now using Maven. At present the jars *are* available from a publi
 
 Use the following dependency in your project:
 
+```
 <dependency>
   <groupId>com.loginradius.sdk</groupId>
   <artifactId>java-sdk</artifactId>
   <version>1.0.0</version>
 </dependency>
+```
