@@ -21,7 +21,7 @@ Please visit [here](http://www.loginradius.com/) for more information.
 
 # Installing
 
-LoginRadius is now using Maven. At present the jars *are* available from a public [maven](http://maven.apache.org/download.html) repository.
+LoginRadius is now using Maven. At present the jars *are* available from a public [maven]( http://search.maven.org/#search%7Cga%7C1%7Cloginradius) repository.
 
 Use the following dependency in your project:
 
