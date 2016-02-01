@@ -34,12 +34,13 @@ Use the following dependency in your project:
 ```
 You can also compile the source as follows. This will generate the javadocs in sdk-java-customer-identity/target/apidocs
 
-    $ git clone git@github.com:twilio/twilio-java
-    $ cd twilio-java
+    $ git clone https://github.com/LoginRadius/sdk-java-customer-identity.git
+    $ cd sdk-java-customer-identity
     $ mvn install       # Requires maven, download from http://maven.apache.org/download.html
   
 The jars are also available [here](http://search.maven.org/#search%7Cga%7C1%7Cloginradius). Select the directory for
 the latest version and download the jar files.
   
-  
+ ## Documentation
 
+[Getting Started](http://apidocs.loginradius.com/docs/java-1) - Everything you need to begin using this SDK.
