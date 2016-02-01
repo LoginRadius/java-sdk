@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class RaaSHashPassword {
 
-	@SerializedName("hashpassword")
+	@SerializedName("PasswordHash")
 	public String HashPassword;
 
 	public String getHashPassword() {
