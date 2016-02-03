@@ -1,6 +1,4 @@
-#User Registration Java Demo
-
-This demo project was compiled using Eclipse Juno with Tomcat 8.0.23
+#Custotmer Identity Java Demo
 
 **Configuration**
 
