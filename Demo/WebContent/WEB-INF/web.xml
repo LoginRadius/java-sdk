@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>JavaDemoNew</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>RegistrationServlet</servlet-name>
+    <servlet-class>Registration.RegistrationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegistrationServlet</servlet-name>
+    <url-pattern>/getRegister</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UserDataServlet</servlet-name>
+    <servlet-class>User.UserDataServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserDataServlet</servlet-name>
+    <url-pattern>/getProfile</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AjaxRequestServlet</servlet-name>
+    <servlet-class>User.AjaxRequestServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>AjaxRequestServlet</servlet-name>
+    <url-pattern>/getDetails/*</url-pattern>
+</servlet-mapping>
+  
+  
+  
+  
+  <context-param>
+    <param-name>LoginRadiusApiKey</param-name>
+    <param-value>78ebd621-71ac-4ab8-a057-3cd230d68cf8</param-value>
+  </context-param>
+  <context-param>
+    <param-name>LoginRadiusSiteName</param-name>
+    <param-value>impl</param-value>
+  </context-param>
+  <context-param>
+    <param-name>BaseDomain</param-name>
+    <param-value>http://localhost:8080/JavaDemoNew/</param-value>
+  </context-param>
+</web-app>
