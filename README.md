@@ -47,4 +47,4 @@ the latest version and download the jar files.
   
  ## Documentation
 
-[Getting Started](http://apidocs.loginradius.com/docs/java-1) - Everything you need to begin using this SDK.
+[Getting Started](http://apidocs.loginradius.com/docs/java-library) - Everything you need to begin using this SDK.
