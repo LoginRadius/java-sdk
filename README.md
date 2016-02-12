@@ -32,7 +32,7 @@ Use the following dependency in your project:
   <version>1.0.0</version>
 </dependency>
 ```
-You can also compile the source as follows. This will generate the javadocs in sdk-java-customer-identity/target/apidocs
+You can also compile the source as follows. This will generate the javadocs in java-sdk/target/apidocs
 
     $ git clone https://github.com/LoginRadius/java-sdk.git
     $ cd java-sdk
