@@ -1,5 +1,5 @@
-# sdk-java-customer-identity
-Customer Identity private repo for Java SDK
+# java-sdk
+Customer Identity public repo for Java SDK
 
 ![Home Image](https://d2lvlj7xfpldmj.cloudfront.net/support/github/banner-1544x500.png)
 
