@@ -38,7 +38,7 @@ You can also compile the source as follows. This will generate the javadocs in s
     $ cd java-sdk
     $ mvn install       # Requires maven, download from http://maven.apache.org/download.html
     $ mvn dependency:copy-dependencies   # This will generate all dependencies here: 
-                                         # sdk-java-customer-identity/target/dependency  
+                                         # java-sdk/target/dependency  
   
 
   
