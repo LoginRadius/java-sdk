@@ -6,9 +6,9 @@
 	<artifactId>java-sdk</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
-	<name>LoginRadius-CustomerIdentity-JavaSDK</name>
+	<name>java-sdk</name>
 	<description>LoginRadius java SDK contains registration and social APIs</description>
-	<url>https://github.com/LoginRadius/sdk-java-customer-identity</url>
+	<url>https://github.com/LoginRadius/java-sdk</url>
 
 	<licenses>
 		<license>
