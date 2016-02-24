@@ -28,9 +28,9 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:git@github.com:LoginRadius/sdk-java-customer-identity.git.git</connection>
-		<developerConnection>scm:git:git@github.com:LoginRadius/sdk-java-customer-identity.git.git</developerConnection>
-		<url>git@github.com:LoginRadius/sdk-java-customer-identity.git.git</url>
+		<connection>scm:git:git@github.com:LoginRadius/java-sdk.git.git</connection>
+		<developerConnection>scm:git:git@github.com:LoginRadius/java-sdk.git.git</developerConnection>
+		<url>git@github.com:LoginRadius/java-sdk.git.git</url>
 	</scm>
 
 	<dependencies>
