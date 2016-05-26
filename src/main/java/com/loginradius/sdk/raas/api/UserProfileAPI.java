@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.loginradius.sdk.social.core.LoginRadiusClient;
+import com.loginradius.sdk.social.models.LoginRadiusPostResponse;
 import com.loginradius.sdk.raas.models.*;
 
 
@@ -33,6 +34,23 @@ public class UserProfileAPI extends  RaaSAPI{
 		String jsonResponse = executeGet("/raas/v1/user", params); 
 		return LoginRadiusClient.formatResponse(jsonResponse, RaaSUserDetails.class);
 	}
+	
+	
+	/**
+	 * 
+	 * @param email
+	 * @return
+	 */
+	
+	public RaaSUserDetails GetUserbyEmail(String email){
+		
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("email", email);
+		String jsonResponse = executeGet("/raas/v1/user", params); 
+		return LoginRadiusClient.formatResponse(jsonResponse, RaaSUserDetails.class);
+		
+	}
+	
 	
 	/**
 	 * 
