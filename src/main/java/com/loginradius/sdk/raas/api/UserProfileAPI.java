@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.loginradius.sdk.social.core.LoginRadiusClient;
+import com.loginradius.sdk.social.models.AccessToken;
 import com.loginradius.sdk.social.models.LoginRadiusPostResponse;
 import com.loginradius.sdk.raas.models.*;
 
@@ -15,23 +16,10 @@ public class UserProfileAPI extends  RaaSAPI{
 	 * @param userId ID generated from RaasProfile
 	 * @return RaasUserProfile with all user data
 	 */
-	public RaaSUserDetails getUser(String userId) {
+	public RaaSUserDetails getUserByUserId(String userId) {
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("userid", userId);		
 		String jsonResponse = executeGet("/raas/v1/user", params);
-		return LoginRadiusClient.formatResponse(jsonResponse, RaaSUserDetails.class);
-	}
-	/**
-	 * 
-	 * @param UserName UserName given by user
-	 * @param Password Password given by user
-	 * @return RaasUserProfile with all user data
-	 */
-	public RaaSUserDetails getUser(String UserName, String Password) {
-		Map<String, String> params = new HashMap<String, String>();
-		params.put("username", UserName);
-		params.put("password", Password);
-		String jsonResponse = executeGet("/raas/v1/user", params); 
 		return LoginRadiusClient.formatResponse(jsonResponse, RaaSUserDetails.class);
 	}
 	
@@ -41,8 +29,7 @@ public class UserProfileAPI extends  RaaSAPI{
 	 * @param email
 	 * @return
 	 */
-	
-	public RaaSUserDetails GetUserbyEmail(String email){
+	public RaaSUserDetails getUserbyEmail(String email){
 		
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("email", email);
@@ -50,6 +37,103 @@ public class UserProfileAPI extends  RaaSAPI{
 		return LoginRadiusClient.formatResponse(jsonResponse, RaaSUserDetails.class);
 		
 	}
+	
+	
+	/**
+	 * 
+	 * @param UserName UserName given by user
+	 * @param Password Password given by user
+	 * @return RaasUserProfile with all user data
+	 */
+	public RaaSUserDetails getUserAfterAuthentication(String UserName, String Password) {
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("username", UserName);
+		params.put("password", Password);
+		String jsonResponse = executeGet("/raas/v1/user", params); 
+		return LoginRadiusClient.formatResponse(jsonResponse, RaaSUserDetails.class);
+	}
+	
+	
+	/**
+	 * checks whether an emaild is available for selection or not
+	 * @param emailId
+	 * @return
+	 */
+	public LoginRadiusPresenceResponse checkEmailAvailability(String emailId) {
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("emailid", emailId);
+		String jsonResponse = executeGet("/raas/v1/user/checkemail", params); 
+		return LoginRadiusClient.formatResponse(jsonResponse, LoginRadiusPresenceResponse.class);
+		
+	}
+	
+	
+	/**
+	 * 
+	 * @param emailId
+	 * @return
+	 */
+	
+	public LoginRadiusForgotPasswordResponse getForgotPassWordToken(String emailId) {
+		
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("emailid", emailId);
+		String jsonResponse = executeGet("/raas/v1/account/password/forgot", params); 
+		return LoginRadiusClient.formatResponse(jsonResponse, LoginRadiusForgotPasswordResponse.class);
+		
+	}
+
+	
+	/**
+	 * 
+	 * @param emailId
+	 * @param link
+	 * @param template
+	 * @return
+	 */
+	
+	public LoginRadiusEmailVerificationTokenResponse getUserEmailVerificationResend(String emailId, 
+			String link, String template){
+		
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("emailid", emailId);
+		params.put("link", link);
+		params.put("template", template);
+		String jsonResponse = executeGet("/raas/v1/account/verificationemail", params); 
+		return LoginRadiusClient.formatResponse(jsonResponse, LoginRadiusEmailVerificationTokenResponse.class);
+
+		
+	}
+	
+	/**
+	 * Validates the access token. Avalilable from api v2 onwards
+	 * @param access_token
+	 * @return
+	 */
+	public AccessToken validateAccessToken(String access_token){
+		
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("access_token", access_token);
+		String jsonResponse = executeGet("/api/v2/access_token/Validate", params); 
+		return LoginRadiusClient.formatResponse(jsonResponse, AccessToken.class);
+		
+	}
+		
+	/**
+	 * This api invalidates the access token.Avalilable from api v2 onwards
+	 * @param access_token
+	 * @return
+	 */
+	public AccessToken invalidateAccessToken(String access_token){
+		
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("access_token", access_token);
+		String jsonResponse = executeGet("/api/v2/access_token/invalidate", params); 
+		return LoginRadiusClient.formatResponse(jsonResponse, AccessToken.class);
+		
+	}
+		
+	
 	
 	
 	/**
@@ -152,5 +236,21 @@ public class UserProfileAPI extends  RaaSAPI{
 		return LoginRadiusClient.formatResponse(jsonResponse, RaaSResponse.class);
 		
 	}
+	
+	
+	public RaaSResponse deleteUserWithEmailConfirmation(String userid, String deleteuserlink, String template){
+		
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("userid", userid);
+		params.put("deleteuserlink", deleteuserlink);
+		params.put("template", template);
+		String jsonResponse = executeGet("/raas/v1/user/deleteuseremail", params); 
+		return LoginRadiusClient.formatResponse(jsonResponse, RaaSResponse.class);
+
+		
+	}
+	
+	
+	
 	
 }

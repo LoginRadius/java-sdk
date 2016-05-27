@@ -1,8 +1,13 @@
 package com.loginradius.sdk.raas.models;
 
-import com.loginradius.sdk.social.models.LoginRadiusPostResponse;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-public class RaaSResponse extends LoginRadiusPostResponse {
+public class LoginRadiusEmailVerificationTokenResponse {
+
+	@SerializedName("Guid")
+	@Expose
+	private String guid;
 
 	private String description;
 	private int errorCode;
@@ -28,5 +33,22 @@ public class RaaSResponse extends LoginRadiusPostResponse {
 
 	public boolean isProviderErrorResponse() {
 		return providerErrorResponse;
+	}
+
+	/**
+	 * 
+	 * @return The guid
+	 */
+	public String getGuid() {
+		return guid;
+	}
+
+	/**
+	 * 
+	 * @param guid
+	 *            The Guid
+	 */
+	public void setGuid(String guid) {
+		this.guid = guid;
 	}
 }

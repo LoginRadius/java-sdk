@@ -1,32 +1,31 @@
 package com.loginradius.sdk.raas.models;
 
-import com.loginradius.sdk.social.models.LoginRadiusPostResponse;
+public class LoginRadiusPresenceResponse {
 
-public class RaaSResponse extends LoginRadiusPostResponse {
-
+	private boolean isExist;
 	private String description;
 	private int errorCode;
 	private boolean isProviderError;
 	private String message;
 	private boolean providerErrorResponse;
-
+	public boolean isExist() {
+		return isExist;
+	}
 	public String getDescription() {
 		return description;
 	}
-
 	public int getErrorCode() {
 		return errorCode;
 	}
-
 	public boolean isProviderError() {
 		return isProviderError;
 	}
-
 	public String getMessage() {
 		return message;
 	}
-
 	public boolean isProviderErrorResponse() {
 		return providerErrorResponse;
 	}
+
+	
 }
