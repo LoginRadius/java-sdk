@@ -41,7 +41,7 @@ public class LoginRadiusEndpoint {
 
 			return combine(sb, "&");
 		} else {
-			return null;
+			return "";
 		}
 	}
 
