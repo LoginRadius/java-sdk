@@ -29,7 +29,7 @@ Use the following dependency in your project:
 <dependency>
   <groupId>com.loginradius.sdk</groupId>
   <artifactId>java-sdk</artifactId>
-  <version>1.0.0</version>
+  <version>2.5.0</version>
 </dependency>
 ```
 You can also compile the source as follows. This will generate the javadocs in sdk-java-customer-identity/target/apidocs
@@ -47,4 +47,4 @@ the latest version and download the jar files.
   
  ## Documentation
 
-[Getting Started](http://apidocs.loginradius.com/docs/java-1) - Everything you need to begin using this SDK.
+[Getting Started](http://apidocs.loginradius.com/docs/java-library) - Everything you need to begin using this SDK.
