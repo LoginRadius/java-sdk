@@ -46,26 +46,26 @@ import com.loginradius.sdk.social.models.userprofile.ProviderAccessCredential;
 
 public class RaaSUserDetails extends LoginRadiusUltimateUserProfile {
 
-	@SerializedName("passowrd")
-	public String password;
+	@SerializedName("password")
+	private String password;
 	@SerializedName("Uid")
-	public String Uid;
-	@SerializedName("emailId")
-	public String emailId;
+	private String Uid;
+	@SerializedName("emailid")
+	private String emailId;
 	
 	@SerializedName("EmailVerified")
-	public boolean emailVerified;
+	private boolean emailVerified;
 	@SerializedName("IsDeleted")
-	public boolean isDeleted;
+	private boolean isDeleted;
 	@SerializedName("FirstLogin")
-	public boolean FirstLogin;
+	private boolean FirstLogin;
 	@SerializedName("IsActive")
-	public boolean IsActive;
+	private boolean IsActive;
 	@SerializedName("IsEmailSubscribed")
-	public boolean IsEmailSubscribed;
+	private boolean IsEmailSubscribed;
 	
 	@SerializedName("CustomFields")
-	public transient JsonObject CustomFields;
+	private JsonObject CustomFields;
 
 	
 	public boolean getIsEmailSubscribed() {
@@ -922,6 +922,12 @@ public class RaaSUserDetails extends LoginRadiusUltimateUserProfile {
 
 	public void setSubscription(LoginRadiusUserSubscription subscription) {
 		Subscription = subscription;
+	}
+	
+	public void setCustomFields(JsonObject customfields) {
+		
+		 this.CustomFields = customfields;
+	
 	}
 
 }
