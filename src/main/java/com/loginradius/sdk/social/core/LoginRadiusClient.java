@@ -16,7 +16,6 @@ public class LoginRadiusClient {
 		_token = new AccessToken();
 		_token.access_token=token;
 		
-	
 	}
 	
 	

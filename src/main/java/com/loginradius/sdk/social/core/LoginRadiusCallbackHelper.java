@@ -23,6 +23,7 @@ public class LoginRadiusCallbackHelper {
 	}
 
 	public AccessToken GetLoginRadiusToken(HttpServletRequest request) {
+		
 
 		if (request.getMethod().equalsIgnoreCase("POST")) {
 			String request_token = request.getParameter("token");

@@ -8,7 +8,6 @@ import com.loginradius.sdk.raas.models.RaaSCustomObjectResponse;
 import com.loginradius.sdk.raas.models.RaaSCustomObjectStats;
 import com.loginradius.sdk.raas.models.RaaSResponse;
 import com.loginradius.sdk.social.core.LoginRadiusClient;
-import com.loginradius.sdk.social.models.LoginRadiusPostResponse;
 
 /**
  * This file contains the apis for custom object

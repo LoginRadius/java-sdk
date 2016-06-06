@@ -65,7 +65,7 @@ public class RaaSUserDetails extends LoginRadiusUltimateUserProfile {
 	private boolean IsEmailSubscribed;
 	
 	@SerializedName("CustomFields")
-	private JsonObject CustomFields;
+	private transient JsonObject CustomFields;
 
 	
 	public boolean getIsEmailSubscribed() {

@@ -15,6 +15,45 @@ import com.loginradius.sdk.social.models.AccessToken;
 public class UserProfileAPI extends  RaaSAPI{
 
 	
+	/*public static void main(String[] args) {
+		
+		
+		
+		 RaaSConfiguration configSettings = new RaaSConfiguration("d7f43e8e-a3ab-4c78-8385-c9a0c5b2b67d",  "8db16ff7-2ccf-4b69-91c0-f9c3f90fa119");
+	        //or
+	        //RaaSConfiguration configSettings = new RaaSConfiguration("YOUR-APP-KEY",  "YOUR-APP-SECRET", "CUSTOM-ONJECT-ID");
+	        new RaaSClientConfig(configSettings);
+	        
+	        UserProfileAPI userAPI= new UserProfileAPI();
+
+	        
+	        
+	        Map<String, String> userDetails = new HashMap<String, String>();
+	        userDetails.put("emailid", "bhattttu@loginradius.com");
+	        
+	        userDetails.put("password", "grand");
+	        try{
+	        
+			RaaSUserDetails user= userAPI.createUser(userDetails);
+	        }catch(LoginRadiusException exp){
+	        	
+	        	System.out.println("App.main() " + exp.getErrorResponse().description);
+	        	System.out.println("App.main() " + exp.getErrorResponse().message);
+	        	System.out.println("App.main() " + exp.getErrorResponse().errorCode);
+
+	        	
+	        }
+			
+		
+		
+		
+		
+		
+	}*/
+	
+	
+	
+	
 	/**
 	 * 
 	 * @param userId ID generated from RaasProfile
@@ -31,7 +70,7 @@ public class UserProfileAPI extends  RaaSAPI{
 	/**
 	 * 
 	 * @param email
-	 * @return
+	 * @return 
 	 */
 	public RaaSUserDetails[] getUserbyEmail(String email){
 		
