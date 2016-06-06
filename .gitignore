@@ -13,6 +13,8 @@
 *.iml
 .idea
 
+.bash_profile
+
 # Java Files that should be ignored
 .class
 
