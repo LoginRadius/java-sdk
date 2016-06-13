@@ -25,18 +25,13 @@ public class CustomObjectAPI extends RaaSAPI {
 	 * @param customObject
 	 * @return
 	 */
-	public RaaSResponse objectCreateUpdate(String accountid, String objectId, Object customObject){
+	public RaaSResponse objectCreateUpdate(String accountid, String objectId, String customObject){
 		
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("objectid", objectId);
 		params.put("accountid", accountid);
-		//customObject.to
 		
-		Map<String, String> postParams = new HashMap<String, String>();
-		postParams.put("custom", customObject.toString());
-		
-		
-		String jsonResponse = executePost("/raas/v1/user/customObject/upsert", params,postParams);
+		String jsonResponse = executePost("/raas/v1/user/customObject/upsert", params,customObject);
 		return LoginRadiusClient.formatResponse(jsonResponse, RaaSResponse.class);
 
 		
@@ -49,14 +44,14 @@ public class CustomObjectAPI extends RaaSAPI {
 	 * @return
 	 */
 	
-	public RaaSCustomObjectResponse getObjectByAccountIds(String objectId, String accountIds){
+	public RaaSCustomObjectResponse[] getObjectByAccountIds(String objectId, String accountIds){
 		
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("objectid", objectId);
 		params.put("accountids", accountIds);
 		
 		String jsonResponse = executeGet("/raas/v1/user/customObject", params);
-		return LoginRadiusClient.formatResponse(jsonResponse, RaaSCustomObjectResponse.class);
+		return LoginRadiusClient.formatResponse(jsonResponse, RaaSCustomObjectResponse[].class);
 		
 	}
 	
@@ -87,12 +82,12 @@ public class CustomObjectAPI extends RaaSAPI {
 	 * @return
 	 */
 	@Deprecated
-	public RaaSCustomObjectResponse getObjectByUniqueObjectid(String objectid){
+	public RaaSCustomObjectResponse[] getObjectByUniqueObjectid(String objectid){
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("objectid", objectid);
 		
 		String jsonResponse = executeGet("/raas/v1/user/customObject", params);
-		return LoginRadiusClient.formatResponse(jsonResponse, RaaSCustomObjectResponse.class);
+		return LoginRadiusClient.formatResponse(jsonResponse, RaaSCustomObjectResponse[].class);
 
 	}
 	
@@ -106,14 +101,14 @@ public class CustomObjectAPI extends RaaSAPI {
 	 * @param indexvalue
 	 * @return
 	 */
-	public RaaSCustomObjectResponse getObjectByQuery(String objectid, String query, String indexvalue){
+	public RaaSCustomObjectResponse[] getObjectByQuery(String objectid, String query, String indexvalue){
 		
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("objectid", objectid);
 		params.put("q", query);
 		params.put("cursor", indexvalue);
 		String jsonResponse = executeGet("/raas/v1/user/customObject", params);
-		return LoginRadiusClient.formatResponse(jsonResponse, RaaSCustomObjectResponse.class);
+		return LoginRadiusClient.formatResponse(jsonResponse, RaaSCustomObjectResponse[].class);
 		
 			
 	}
@@ -125,13 +120,13 @@ public class CustomObjectAPI extends RaaSAPI {
 	 * @param indexvalue
 	 * @return
 	 */
-	public RaaSCustomObjectResponse getObjectByObjectid(String objectid, String indexvalue){
+	public RaaSCustomObjectResponse[] getObjectByObjectid(String objectid, String indexvalue){
 		
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("objectid", objectid);
 		params.put("cursor", indexvalue);
 		String jsonResponse = executeGet("/raas/v1/user/customObject", params);
-		return LoginRadiusClient.formatResponse(jsonResponse, RaaSCustomObjectResponse.class);
+		return LoginRadiusClient.formatResponse(jsonResponse, RaaSCustomObjectResponse[].class);
 		
 	}
 	

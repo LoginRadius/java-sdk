@@ -106,11 +106,13 @@ public class RestRequest {
 			 postContent ="";
 		 }
 	
-		Post post = Http.post(url,postContent.getBytes(),15000,15000);
+		Post post = Http.post(url, postContent)
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json");
 		response.setResponse(post.text());
 		response.setStatusCode(post.responseCode());
 
 		return response;
 	}
-	
+
 }

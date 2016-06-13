@@ -15,44 +15,6 @@ import com.loginradius.sdk.social.models.AccessToken;
 public class UserProfileAPI extends  RaaSAPI{
 
 	
-	/*public static void main(String[] args) {
-		
-		
-		
-		 RaaSConfiguration configSettings = new RaaSConfiguration("d7f43e8e-a3ab-4c78-8385-c9a0c5b2b67d",  "8db16ff7-2ccf-4b69-91c0-f9c3f90fa119");
-	        //or
-	        //RaaSConfiguration configSettings = new RaaSConfiguration("YOUR-APP-KEY",  "YOUR-APP-SECRET", "CUSTOM-ONJECT-ID");
-	        new RaaSClientConfig(configSettings);
-	        
-	        UserProfileAPI userAPI= new UserProfileAPI();
-
-	        
-	        
-	        Map<String, String> userDetails = new HashMap<String, String>();
-	        userDetails.put("emailid", "bhattttu@loginradius.com");
-	        
-	        userDetails.put("password", "grand");
-	        try{
-	        
-			RaaSUserDetails user= userAPI.createUser(userDetails);
-	        }catch(LoginRadiusException exp){
-	        	
-	        	System.out.println("App.main() " + exp.getErrorResponse().description);
-	        	System.out.println("App.main() " + exp.getErrorResponse().message);
-	        	System.out.println("App.main() " + exp.getErrorResponse().errorCode);
-
-	        	
-	        }
-			
-		
-		
-		
-		
-		
-	}*/
-	
-	
-	
 	
 	/**
 	 * 
@@ -223,11 +185,7 @@ public class UserProfileAPI extends  RaaSAPI{
 		
 	}
 	
-	
-	
-	
-	
-	
+
 	
 	/**
 	 * 
@@ -236,6 +194,7 @@ public class UserProfileAPI extends  RaaSAPI{
 	 * @param NewPassword newpassword given by user
 	 * @return returns isPosted with value true
 	 */
+	@Deprecated
 	public RaaSResponse changePassword(String userId, String OldPassword, String NewPassword){
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("userid", userId);		
@@ -252,6 +211,7 @@ public class UserProfileAPI extends  RaaSAPI{
 	 * @param password password given by the admin
 	 * @return returns isPosted with value true
 	 */
+	@Deprecated
 	public RaaSResponse setPassword(String userid, String password) {
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("action", "set");
@@ -284,17 +244,16 @@ public class UserProfileAPI extends  RaaSAPI{
 	 * 
 	 * @param emailId
 	 * @param password
-	 * @param emailId
+	 * @param accountId
 	 * @return
 	 */
-	
 	public RaaSResponse createRegistrationProfile(String emailId, String password, String accountId){
 		
 		Map<String, String> postParams = new HashMap<String, String>();
 		postParams.put("accountid", accountId);
 		postParams.put("emailid",emailId);
 		postParams.put("password",password);
-		String jsonResponse = executePost("/raas/v1/user", null, postParams);
+		String jsonResponse = executePost("raas/v1/account/profile", null, postParams);
 	    return LoginRadiusClient.formatResponse(jsonResponse, RaaSResponse.class);
 	    
 	}

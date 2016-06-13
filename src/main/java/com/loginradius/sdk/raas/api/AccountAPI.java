@@ -136,24 +136,6 @@ public class AccountAPI extends RaaSAPI {
 		return LoginRadiusClient.formatResponse(jsonResponse, RaaSResponse.class);
 	}
 
-	/**
-	 * 
-	 * @param accountId
-	 *            accountID or RaasID of the user
-	 * @param emailId
-	 *            Email ID of the user for which raas profile need to be created
-	 * @param password
-	 *            password of the user
-	 * @return returns isPosted with value true
-	 */
-	public RaaSResponse createRaaSProfile(String accountId, String emailId, String password) {
-		Map<String, String> params = new HashMap<String, String>();
-		params.put("accountid", accountId);
-		params.put("emailid", emailId);
-		params.put("password", password);
-		String jsonResponse = executePost("/raas/v1/account/profile", null, params);
-		return LoginRadiusClient.formatResponse(jsonResponse, RaaSResponse.class);
-	}
 
     /**
      * This API is used to retrieve all of the profile data from each of the linked social provider accounts associated with the account. 
@@ -192,6 +174,12 @@ public class AccountAPI extends RaaSAPI {
 		return LoginRadiusClient.formatResponse(jsonResponse, RaaSHashPassword.class);
 	}
 
+	/***
+	 * 
+	 * @param accountId
+	 * @param isBlock
+	 * @return
+	 */
 	public RaaSResponse setAccountStatus(String accountId, boolean isBlock) {
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("accountid", accountId);

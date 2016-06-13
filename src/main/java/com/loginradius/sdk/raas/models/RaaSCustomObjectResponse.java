@@ -1,27 +1,27 @@
 package com.loginradius.sdk.raas.models;
 
-import java.util.Date;
-
+import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
 
 public class RaaSCustomObjectResponse {
 
-	@SerializedName("id")
-	public String Id;
-	@SerializedName("isactive")
-	public boolean isActive;
-	@SerializedName("datecreated")
-	public Date DateCreated;
-	@SerializedName("datemodified")
-	public Date DateModified;
-	@SerializedName("isdeleted")
-	public boolean isDeleted;
-	@SerializedName("uid")
-	public String Uid;
-	@SerializedName("customobject")
-	public Object customObject;
+	
+	@SerializedName("Id")
+	private String Id;
+	@SerializedName("isActive")
+	private boolean isActive;
+	@SerializedName("DateCreated")
+	private String DateCreated;
+	@SerializedName("DateModified")
+	private String DateModified;
+	@SerializedName("isDeleted")
+	private boolean isDeleted;
+	@SerializedName("Uid")
+	private String Uid;
+	@SerializedName("CustomObject")
+	private JsonObject CustomObject;
 	public String getId() {
-		return Id;
+		return this.Id;
 	}
 	public void setId(String id) {
 		Id = id;
@@ -32,16 +32,16 @@ public class RaaSCustomObjectResponse {
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
-	public Date getDateCreated() {
+	public String getDateCreated() {
 		return DateCreated;
 	}
-	public void setDateCreated(Date dateCreated) {
+	public void setDateCreated(String dateCreated) {
 		DateCreated = dateCreated;
 	}
-	public Date getDateModified() {
+	public String getDateModified() {
 		return DateModified;
 	}
-	public void setDateModified(Date dateModified) {
+	public void setDateModified(String dateModified) {
 		DateModified = dateModified;
 	}
 	public boolean getIsDeleted() {
@@ -56,11 +56,11 @@ public class RaaSCustomObjectResponse {
 	public void setUid(String uid) {
 		Uid = uid;
 	}
-	public Object getCustomObject() {
-		return customObject;
+	public JsonObject getCustomObject() {
+		return CustomObject;
 	}
-	public void setCustomObject(Object customObject) {
-		this.customObject = customObject;
+	public void setCustomObject(JsonObject customObject) {
+		this.CustomObject = customObject;
 	}
 	
 }
