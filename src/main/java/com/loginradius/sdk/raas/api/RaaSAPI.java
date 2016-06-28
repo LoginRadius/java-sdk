@@ -32,7 +32,6 @@ public abstract class RaaSAPI {
 		RestResponse response = restrequest.get(apiRelativepath,reParams);
 	
 		String jsonresponse = response.getResponse();
-		System.out.println("RaaSAPI.jsonresponse " + jsonresponse);
 		if (response.getStatusCode() == 200) {
 			return jsonresponse;
 		} else {

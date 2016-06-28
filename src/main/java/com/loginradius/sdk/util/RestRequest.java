@@ -52,8 +52,11 @@ public class RestRequest {
 
 		String url = LoginRadiusEndpoint.getRequestUrl(serviceUrl, params);
 		
+		//System.out.println("RestRequest.get() \n" + url);
+		
+		//Get get = Http.get(url);
+		
 		Get get = Http.get(url,15000,15000);
-
 		response.setResponse(get.text());
 		response.setStatusCode(get.responseCode());
 
@@ -81,7 +84,8 @@ public class RestRequest {
 	
 		String postContent ="" ;
 		if(postParams !=null){
-		 postContent = LoginRadiusEndpoint.createKeyValueString(postParams);
+		 postContent = Http.map2Content(postParams);
+			
 		}
 		
 		Post post = Http.post(url,postContent.getBytes(),15000,15000);

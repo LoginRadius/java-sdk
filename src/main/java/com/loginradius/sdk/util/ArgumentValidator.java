@@ -45,5 +45,10 @@ public class ArgumentValidator {
 		return match;
 
 	}
+	
+	public static boolean isEmpty( final String s ) {
+		  // Null-safe, short-circuit evaluation.
+		  return s == null || "null".equalsIgnoreCase(s) || s.trim().isEmpty();
+		}
 
 }

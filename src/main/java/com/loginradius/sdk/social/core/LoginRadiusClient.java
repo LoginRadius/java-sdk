@@ -1,5 +1,7 @@
 package com.loginradius.sdk.social.core;
 
+import java.util.Map;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.loginradius.sdk.social.api.LoginRadiusAPI;
@@ -49,4 +51,19 @@ public class LoginRadiusClient {
 	{
 		return api.getResponse(_token.access_token);
 	}
+	
+	 /*
+     * @Description: Method to convert Map to JSON String
+     * @param: map Map<String, String> 
+     * @return: json String
+     */
+    public static String convert(Map<String, String> map) {
+        Gson gson = new Gson();
+        String json = gson.toJson(map);
+        return json;
+    }
+	
+	
+	
+	
 }

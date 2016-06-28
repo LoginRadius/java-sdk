@@ -3,7 +3,7 @@ package com.loginradius.sdk.raas.models;
 import com.google.gson.annotations.SerializedName;
 
 public class LoginRadiusPresenceResponse {
-	@SerializedName("IsExists")
+	@SerializedName("isExist")
 	private boolean isExists;
 	private String description;
 	private int errorCode;

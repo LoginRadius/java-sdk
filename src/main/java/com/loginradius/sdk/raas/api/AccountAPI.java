@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.loginradius.sdk.social.core.LoginRadiusClient;
+import com.loginradius.sdk.util.ArgumentValidator;
 import com.loginradius.sdk.raas.models.RaaSUserDetails;
+import com.loginradius.sdk.raas.models.LoginRadiusPresenceResponse;
 import com.loginradius.sdk.raas.models.RaaSHashPassword;
 import com.loginradius.sdk.raas.models.RaaSResponse;
 
@@ -17,6 +19,9 @@ public class AccountAPI extends RaaSAPI {
 	 * @return
 	 */
 	public RaaSResponse setAccountPassword(String accountid, String password) {
+		if(ArgumentValidator.isEmpty(accountid) || ArgumentValidator.isEmpty(password)){
+			throw new IllegalArgumentException("Accountid/password cannot be empty");
+		}
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("accountid", accountid);
 		params.put("action", "set");
@@ -35,6 +40,7 @@ public class AccountAPI extends RaaSAPI {
 	 * @return
 	 */
 	public RaaSResponse changeUserName(String accountId, String oldusername, String newusername) {
+		
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("accountId", accountId);
 		Map<String, String> postParams = new HashMap<String, String>();
@@ -50,12 +56,15 @@ public class AccountAPI extends RaaSAPI {
 	 * @return
 	 */
 
-	public RaaSResponse checkUserName(String username) {
+	public LoginRadiusPresenceResponse checkUserNameAvailablity(String username) {
 
+		if(ArgumentValidator.isEmpty(username)){
+			throw new IllegalArgumentException("Username cannot be empty");
+		}
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("username", username);
 		String jsonResponse = executeGet("/raas/v1/user/checkusername", params);
-		return LoginRadiusClient.formatResponse(jsonResponse, RaaSResponse.class);
+		return LoginRadiusClient.formatResponse(jsonResponse, LoginRadiusPresenceResponse.class);
 
 	}
 
@@ -67,7 +76,10 @@ public class AccountAPI extends RaaSAPI {
 	 * @return
 	 */
 	
-	public RaaSResponse setUserName(String accountId, String oldusername, String newusername) {
+	public RaaSResponse setUserName(String accountId,String newusername) {
+		if(ArgumentValidator.isEmpty(accountId)  ||  ArgumentValidator.isEmpty(newusername)){
+			throw new IllegalArgumentException("AccountId/oldPassword/newPassword cannot be empty");
+		}
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("accountId", accountId);
 		Map<String, String> postParams = new HashMap<String, String>();
@@ -88,6 +100,9 @@ public class AccountAPI extends RaaSAPI {
 	 * @return
 	 */
 	public RaaSResponse changeAccountPassword(String accountId, String oldPassword, String newPassword) {
+		if(ArgumentValidator.isEmpty(accountId)  ||  ArgumentValidator.isEmpty(oldPassword) ||  ArgumentValidator.isEmpty(newPassword)){
+			throw new IllegalArgumentException("AccountId/oldPassword/newPassword cannot be empty");
+		}
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("accountid", accountId);
 		Map<String, String> postParams = new HashMap<String, String>();
@@ -109,6 +124,9 @@ public class AccountAPI extends RaaSAPI {
 	 * @return returns isPosted with value true
 	 */
 	public RaaSResponse linkAccount(String accountId, String provider, String providerId) {
+		if(ArgumentValidator.isEmpty(accountId) || ArgumentValidator.isEmpty(providerId) ||  ArgumentValidator.isEmpty(provider)){
+			throw new IllegalArgumentException("AccountId/providerId/provider cannot be empty");
+		}
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("accountid", accountId);
 		params.put("provider", provider);
@@ -128,6 +146,9 @@ public class AccountAPI extends RaaSAPI {
 	 * @return returns isPosted with value true
 	 */
 	public RaaSResponse unlinkAccount(String accountId, String provider, String providerId) {
+		if(ArgumentValidator.isEmpty(accountId) || ArgumentValidator.isEmpty(providerId) ||  ArgumentValidator.isEmpty(provider)){
+			throw new IllegalArgumentException("AccountId/providerId/provider cannot be empty");
+		}
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("accountid", accountId);
 		params.put("provider", provider);
@@ -146,6 +167,9 @@ public class AccountAPI extends RaaSAPI {
      * return Array of user profile
      */
 	public RaaSUserDetails[] getAllProfilesFromAccount(String accountId) {
+		if(ArgumentValidator.isEmpty(accountId)){
+			throw new IllegalArgumentException("AccountId cannot be empty");
+		}
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("accountid", accountId);
 		String jsonResponse = executeGet("/raas/v1/account", params);
@@ -168,6 +192,9 @@ public class AccountAPI extends RaaSAPI {
 	 * @return HashedPassword of the user
 	 */
 	public RaaSHashPassword getHashPassword(String accountId) {
+		if(ArgumentValidator.isEmpty(accountId)){
+			throw new IllegalArgumentException("AccountId cannot be empty");
+		}
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("accountid", accountId);
 		String jsonResponse = executeGet("/raas/v1/account/password", params);
@@ -181,6 +208,9 @@ public class AccountAPI extends RaaSAPI {
 	 * @return
 	 */
 	public RaaSResponse setAccountStatus(String accountId, boolean isBlock) {
+		if(ArgumentValidator.isEmpty(accountId)){
+			throw new IllegalArgumentException("AccountId cannot be empty");
+		}
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("accountid", accountId);
 		Map<String, String> postParams = new HashMap<String, String>();
@@ -196,6 +226,9 @@ public class AccountAPI extends RaaSAPI {
 	 * @return returns isPosted with value true
 	 */
 	public RaaSResponse deleteAccount(String accountId) {
+		if(ArgumentValidator.isEmpty(accountId)){
+			throw new IllegalArgumentException("accountId cannot be empty");
+		}
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("accountid", accountId);
 		String jsonResponse = executeGet("/raas/v1/account/delete", params);
@@ -203,6 +236,10 @@ public class AccountAPI extends RaaSAPI {
 	}
 
 	public RaaSResponse deleteAccountWithEmailConfirmation(String accountId, String deleteUserLink, String template) {
+		if(ArgumentValidator.isEmpty(accountId) || ArgumentValidator.isEmpty(deleteUserLink)){
+			throw new IllegalArgumentException("accountId/DeleteUserLink cannot be empty");
+		}
+		
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("accountid", accountId);
 		params.put("deleteUserLink", deleteUserLink);
