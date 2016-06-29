@@ -4,7 +4,7 @@
 
 	<groupId>com.loginradius.sdk</groupId>
 	<artifactId>java-sdk</artifactId>
-	<version>2.5.0</version>
+	<version>2.5.1</version>
 	<packaging>jar</packaging>
 	<name>LoginRadius-CustomerIdentity-JavaSDK</name>
 	<description>LoginRadius java SDK contains registration and social APIs</description>
@@ -52,7 +52,7 @@
 
 		</dependency>
 	</dependencies>
-	
+
 	<distributionManagement>
 		<snapshotRepository>
 			<id>ossrh</id>
