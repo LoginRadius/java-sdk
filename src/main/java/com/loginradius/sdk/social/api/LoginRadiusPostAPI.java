@@ -19,6 +19,7 @@ public class LoginRadiusPostAPI extends LoginRadiusAPI {
 		
 		this.method = method;
 		
+		
 	}
 	
 	

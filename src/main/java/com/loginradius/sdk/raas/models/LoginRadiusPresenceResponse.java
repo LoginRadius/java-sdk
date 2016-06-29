@@ -1,15 +1,17 @@
 package com.loginradius.sdk.raas.models;
 
-public class LoginRadiusPresenceResponse {
+import com.google.gson.annotations.SerializedName;
 
-	private boolean isExist;
+public class LoginRadiusPresenceResponse {
+	@SerializedName("isExist")
+	private boolean isExists;
 	private String description;
 	private int errorCode;
 	private boolean isProviderError;
 	private String message;
 	private boolean providerErrorResponse;
-	public boolean isExist() {
-		return isExist;
+	public boolean isExists() {
+		return isExists;
 	}
 	public String getDescription() {
 		return description;

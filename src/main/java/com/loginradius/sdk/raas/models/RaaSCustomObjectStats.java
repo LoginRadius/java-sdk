@@ -4,12 +4,12 @@ import com.google.gson.annotations.SerializedName;
 
 public class RaaSCustomObjectStats {
 
-	@SerializedName("totalusedmemory")
-	public String TotalUsedMemory;
-	@SerializedName("remainingmemory")
-	public String RemainingMemory;
-	@SerializedName("totalrecords")
-	public String TotalRecords;
+	@SerializedName("TotalUsedMemory")
+	private String TotalUsedMemory;
+	@SerializedName("RemainingMemory")
+	private String RemainingMemory;
+	@SerializedName("TotalRecords")
+	private String TotalRecords;
 	public String getTotalUsedMemory() {
 		return TotalUsedMemory;
 	}

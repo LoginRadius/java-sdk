@@ -61,6 +61,7 @@ public abstract class RaaSAPI {
 		if (response.getStatusCode() == 200) {
 			return jsonresponse;
 		} else {
+
 			LoginRadiusRestErrorResponse error = deserializer.deserializeJson(
 					jsonresponse, LoginRadiusRestErrorResponse.class);
 

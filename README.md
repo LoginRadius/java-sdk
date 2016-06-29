@@ -48,3 +48,16 @@ the latest version and download the jar files.
  ## Documentation
 
 [Getting Started](http://apidocs.loginradius.com/docs/java-library) - Everything you need to begin using this SDK.
+
+
+Initialize the SDK by putting in the app key and app secret
+
+```
+	RaaSConfiguration configSettings = new RaaSConfiguration("YOUR-APP-KEY",  "YOUR-APP-SECRET");
+		//or
+    RaaSConfiguration configSettings = new RaaSConfiguration("YOUR-APP-KEY",  "YOUR-APP-SECRET", "CUSTOM-ONJECT-ID");
+		new RaaSClientConfig(configSettings);
+```
+
+
+
