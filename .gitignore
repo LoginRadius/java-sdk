@@ -2,24 +2,27 @@
 .classpath
 .project
 .settings
+.html
 
 # Macisms
 .DS_Store
 # Where maven compiles by default
-target
+
 
 #IntelliJ project files
 *.iml
 .idea
 
+.bash_profile
+
 # Java Files that should be ignored
-*.class
+.class
 
 # Package Files
-*.jar
 *.war
 *.ear
 
 # Backup files
 *.bak
 scratch
+/target/

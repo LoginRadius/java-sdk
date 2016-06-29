@@ -30,13 +30,12 @@ public abstract class RaaSAPI {
 		if(params!=null)
 		reParams.putAll(params);
 		RestResponse response = restrequest.get(apiRelativepath,reParams);
-		
+	
 		String jsonresponse = response.getResponse();
-		
 		if (response.getStatusCode() == 200) {
 			return jsonresponse;
 		} else {
-
+			
 			LoginRadiusRestErrorResponse error = deserializer.deserializeJson(
 					jsonresponse, LoginRadiusRestErrorResponse.class);
 
@@ -58,9 +57,11 @@ public abstract class RaaSAPI {
 				reParams, postParams);
 
 		String jsonresponse = response.getResponse();
+		
 		if (response.getStatusCode() == 200) {
 			return jsonresponse;
 		} else {
+
 			LoginRadiusRestErrorResponse error = deserializer.deserializeJson(
 					jsonresponse, LoginRadiusRestErrorResponse.class);
 
@@ -86,7 +87,7 @@ public abstract class RaaSAPI {
 		if (response.getStatusCode() == 200) {
 			return jsonresponse;
 		} else {
-
+			
 			LoginRadiusRestErrorResponse error = deserializer.deserializeJson(
 					jsonresponse, LoginRadiusRestErrorResponse.class);
 

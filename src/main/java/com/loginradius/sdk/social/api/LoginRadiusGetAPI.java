@@ -39,6 +39,7 @@ public class LoginRadiusGetAPI extends LoginRadiusAPI {
 		
 		if(!ArgumentValidator.pathValidator(this.method)){
 			
+			
 			throw new LoginRadiusException("Invalid Argument used. Please refer documentation and use the correct argument");
 			
 		}

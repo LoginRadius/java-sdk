@@ -1,5 +1,5 @@
-# java-sdk
-Customer Identity public repo for Java SDK
+# sdk-java-customer-identity
+Customer Identity private repo for Java SDK
 
 ![Home Image](https://d2lvlj7xfpldmj.cloudfront.net/support/github/banner-1544x500.png)
 
@@ -29,16 +29,16 @@ Use the following dependency in your project:
 <dependency>
   <groupId>com.loginradius.sdk</groupId>
   <artifactId>java-sdk</artifactId>
-  <version>1.0.0</version>
+  <version>2.5.1</version>
 </dependency>
 ```
-You can also compile the source as follows. This will generate the javadocs in java-sdk/target/apidocs
+You can also compile the source as follows. This will generate the javadocs in sdk-java-customer-identity/target/apidocs
 
-    $ git clone https://github.com/LoginRadius/java-sdk.git
-    $ cd java-sdk
+    $ git clone https://github.com/LoginRadius/sdk-java-customer-identity.git
+    $ cd sdk-java-customer-identity
     $ mvn install       # Requires maven, download from http://maven.apache.org/download.html
     $ mvn dependency:copy-dependencies   # This will generate all dependencies here: 
-                                         # java-sdk/target/dependency  
+                                         # sdk-java-customer-identity/target/dependency  
   
 
   
@@ -48,3 +48,7 @@ the latest version and download the jar files.
  ## Documentation
 
 [Getting Started](http://apidocs.loginradius.com/docs/java-library) - Everything you need to begin using this SDK.
+
+
+
+
