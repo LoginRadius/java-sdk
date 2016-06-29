@@ -29,7 +29,7 @@ Use the following dependency in your project:
 <dependency>
   <groupId>com.loginradius.sdk</groupId>
   <artifactId>java-sdk</artifactId>
-  <version>2.5.0</version>
+  <version>2.5.1</version>
 </dependency>
 ```
 You can also compile the source as follows. This will generate the javadocs in sdk-java-customer-identity/target/apidocs
@@ -49,15 +49,6 @@ the latest version and download the jar files.
 
 [Getting Started](http://apidocs.loginradius.com/docs/java-library) - Everything you need to begin using this SDK.
 
-
-Initialize the SDK by putting in the app key and app secret
-
-```
-	RaaSConfiguration configSettings = new RaaSConfiguration("YOUR-APP-KEY",  "YOUR-APP-SECRET");
-		//or
-    RaaSConfiguration configSettings = new RaaSConfiguration("YOUR-APP-KEY",  "YOUR-APP-SECRET", "CUSTOM-ONJECT-ID");
-		new RaaSClientConfig(configSettings);
-```
 
 
 
