@@ -19,8 +19,7 @@
 </head>
 <body>
 <%
-RaaSConfiguration configSettings = new RaaSConfiguration("78ebd621-71ac-4ab8-a057-3cd230d68cf8","1757a66f-9bce-49f5-859a-00fed0c2a4da");
-//RaaSConfiguration configSettings = new RaaSConfiguration("d2ee0398-dbd0-42d5-ae6b-8eb4bb944df3","6d34b4bd-7c6e-4b71-a447-4a4bb4f1d525");
+RaaSConfiguration configSettings = new RaaSConfiguration("YOUR-API-KEY","YOUR-API-SECRET");
 
 
 new RaaSClientConfig(configSettings);
