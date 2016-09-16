@@ -47,7 +47,7 @@
                     <a href="/JavaDemoNew">LoginRadius</a>
                 </h1>
 
-                <div class="site-description">User Registration PHP Demo</div>
+                <div class="site-description">User Registration Java Demo</div>
             </div>
         </div>
 
@@ -99,24 +99,7 @@
 </div>
 </body>
 
-<script>
 
-$SL.util.ready(function() {
-	  var raasoption = {};
-	  raasoption.apikey = "78ebd621-71ac-4ab8-a057-3cd230d68cf8";
-	  LoginRadiusRaaS.init(raasoption, 'registration', function(response) {
-	    // On Success
-	    //alert('success');
-	    console.log(response);
-	  }, function(errors) {
-	    // On Errors
-	    //alert('Error')
-	    console.log(errors);
-	  }, "registration-container");
-	});
-	
-	
-</script>
 
 <script>
 
@@ -146,39 +129,23 @@ $SL.util.ready(function() {
 				forgot_password: "A reset link has been sent to your email address, click to reset your email",
 				reset_password: "Your password has been reset"
 			},
-			  /*  success_function: {
-	                register: function(){
-	                    alert('register succeed!');
-	                },
-	                login: function(response) {
-	                	alert(JSON.stringify(response));
-	                    redirect(response.access_token);
-	                },
-	                social_login: function(response) {
-	                    
-	                	alert(JSON.stringify(response));
-	                	
-	                    redirect(response);
-	                }
-			  },  */
 			  success_function: {
 					register: function(){
 						alert('register succeed!');
 					},
 					login: function(response) {
 						
-						alert("data " + JSON.stringify(response));
+						console.log(" response " + JSON.stringify(response));
+						
 						redirect(response.access_token);
-						
-						
-						
 						
 						
 					},
 					social_login: function(response) {
-						//alert("data " + JSON.stringify(response));
+				
 						 
-								
+						console.log('response ' + response);
+	
 								redirect(response);
 								//console.log('data' + data.access_token);
 								//alert("token " + response.access_token);
@@ -210,6 +177,7 @@ $SL.util.ready(function() {
 		
 		
 		function redirect(token) {
+			console.log('redirecting .... ');
 			   var form = document.createElement("form");
 			   form.method = "POST";
 			   form.action = "/JavaDemoNew/getProfile";
@@ -250,12 +218,12 @@ $SL.util.ready(function() {
 		          Sign up with <#=Name#> IOS
 		    </span>
 		</script>
+		
 <script type="text/javascript">
 if(window.location.hash && window.location.hash.indexOf("lr-token")>-1){
 	window.location.hash = window.location.hash.replace("lr-token","lr-access-token");
 }
 
-<script type="text/javascript">
 $('body').on('focus', "#loginradius-raas-registration-birthdate", function () {
     $(this).datepicker({ dateFormat: "mm-dd-yy", changeMonth: true, changeYear: true, yearRange: '1970:2015' });
 });
@@ -265,9 +233,5 @@ $('body').on('focus', "#loginradius-raas-social-registration-birthdate", functio
 </script>
 
 
-
-
-
-</script>
 
 
