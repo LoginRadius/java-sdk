@@ -29,7 +29,7 @@ Use the following dependency in your project:
 <dependency>
   <groupId>com.loginradius.sdk</groupId>
   <artifactId>java-sdk</artifactId>
-  <version>2.5.1</version>
+  <version>2.5.2</version>
 </dependency>
 ```
 You can also compile the source as follows. This will generate the javadocs in sdk-java-customer-identity/target/apidocs
