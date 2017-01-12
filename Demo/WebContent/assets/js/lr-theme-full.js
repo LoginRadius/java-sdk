@@ -200,9 +200,10 @@ var LrRaasTheme = {
 	raasFormInject: function() {
 		$SL.util.ready(function() {
 			LoginRadiusRaaS.init(raasoption, 'registration', function(response) {
+				// console.log( response );
 				var message_header = document.getElementById('lr-register-popup-message');
 				message_header.innerHTML = lrThemeSettings.success_message.register;
-				lrThemeSettings.success_function.register(response);
+				lrThemeSettings.success_function.register();
 			}, function(errors) {
 				var message_header = document.getElementById('lr-register-popup-message');
 				message_header.innerHTML = errors[0].message;
@@ -211,15 +212,14 @@ var LrRaasTheme = {
 			LoginRadiusRaaS.init(raasoption, 'login', function(response) {
 				var message_header = document.getElementById('lr-login-popup-message');
 				message_header.innerHTML = lrThemeSettings.success_message.login;
-				lrThemeSettings.success_function.login(response);
+				lrThemeSettings.success_function.login();
 			}, function(errors) {
-				console.log('response errors ' + JSON.stringify(errors));
-
 				var message_header = document.getElementById('lr-login-popup-message');
 				message_header.innerHTML = errors[0].message;
 			}, "login-div");
 
 			LoginRadiusRaaS.init(raasoption, 'sociallogin', function (response) {
+
 				var social_message_header = document.getElementById('lr-social-popup-message');
 
 				if(document.getElementById('loginradius-raas-social-registration-emailid')) {
@@ -272,7 +272,7 @@ var LrRaasTheme = {
 								LrRaasTheme.showPopup('lr-login-container');
 								var message_header = document.getElementById('lr-login-popup-message');
 								message_header.innerHTML = lrThemeSettings.success_message.login;
-								lrThemeSettings.success_function.login(response);
+								lrThemeSettings.success_function.login();
 							} else {
 								LrRaasTheme.showPopup('lr-login-container');
 								var message_header = document.getElementById('lr-login-popup-message');

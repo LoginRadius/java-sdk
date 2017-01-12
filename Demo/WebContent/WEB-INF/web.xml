@@ -39,14 +39,14 @@
   
   <context-param>
     <param-name>LoginRadiusApiKey</param-name>
-    <param-value></param-value>
+    <param-value>78ebd621-71ac-4ab8-a057-3cd230d68cf8</param-value>
   </context-param>
   <context-param>
     <param-name>LoginRadiusSiteName</param-name>
-    <param-value></param-value>
+    <param-value>impl</param-value>
   </context-param>
   <context-param>
     <param-name>BaseDomain</param-name>
-    <param-value></param-value>
+    <param-value>http://localhost:8080/JavaDemoNew/</param-value>
   </context-param>
 </web-app>

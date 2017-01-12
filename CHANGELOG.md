@@ -17,3 +17,18 @@
 * User create/update and User register can now be used to update custom fields
 * Issue with the method UserEmailAvailabilty is fixed and the method returns isExist=true
 * Issue with Token validate and invalidate methods is fixed and these methods return expected results.
+
+
+
+
+2.5.3 Release notes (2017-01-12)
+=============================================================
+
+
+### Enhancements
+* Significantly improved code performance.
+
+
+### Bugfixes
+* Updated SDK to Fetch Custom Fields.
+
