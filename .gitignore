@@ -1,0 +1,28 @@
+# Make sure to ignore Eclipse files
+.classpath
+.project
+.settings
+.html
+
+# Macisms
+.DS_Store
+# Where maven compiles by default
+
+
+#IntelliJ project files
+*.iml
+.idea
+
+.bash_profile
+
+# Java Files that should be ignored
+.class
+
+# Package Files
+*.war
+*.ear
+
+# Backup files
+*.bak
+scratch
+/target/
