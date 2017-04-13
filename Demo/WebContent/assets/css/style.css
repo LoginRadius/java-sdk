@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 * {
-  margin: 0px;
+ 
   padding: 0px;
 }
 
@@ -8,12 +8,15 @@ html {
   overflow-y: scroll;
 }
 
+
+
+
 body {
   width: 100%;
   font-family: Lato ,sans-serif;
   font-size: 16px;
   line-height: 30px;
-  font-size: 1rem;
+ 
   line-height: 1.875rem;
   color: #444;
   margin: 0;
@@ -31,15 +34,20 @@ p {
   margin: 30px 0px;
 }
 
+
+
 a {
-  display: inline-block;
+  display: block;
+  margin-right:10px;
+  text-align: center;
+  margin-bottom: 8px;
+  padding: 8px;
   text-decoration: none;
-  color: #2299dd;
   font-size: 15px;
-  line-height: 28.125px;
-  font-size: 0.9375rem;
   line-height: 1.7578125rem;
 }
+
+
 
 img {
   display: block;
@@ -47,9 +55,7 @@ img {
 }
 
 .container {
-  max-width: 1180px;
-  padding: 0px 10px;
-  margin: 0px auto;
+ 
 }
 
 a:hover {
@@ -122,7 +128,8 @@ ul, li {
 .main-nav .logo-box h1.logo a {
   font-size: 36px;
   line-height: 90px;
-  width: 170px;
+ width: 150px;
+    margin-left: 10px;
   display: block;
   text-indent: 100%;
   white-space: nowrap;
@@ -134,7 +141,7 @@ ul, li {
 }
 .main-nav .logo-box .site-description {
   position: absolute;
-  top: 51%;
+  top: 44%;
   right: -65px;
   font-size: 14px;
   text-align: right;
@@ -160,7 +167,7 @@ ul, li {
 /*====================table=======================*/
 table {
   width: 100%;
-  text-align: left;
+  text-align: center;
   border: 1px solid #dddddd;
 }
 
@@ -978,9 +985,7 @@ float:right;
 
 .container
 {
-	max-width:1180px;
-	margin:0 auto;
-	padding:0 10px
+	
 }
 .row
 {

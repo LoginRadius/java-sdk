@@ -21,33 +21,14 @@ Please visit [here](http://www.loginradius.com/) for more information.
 
 # Installing
 
-LoginRadius is now using Maven. At present the jars *are* available from a public [maven]( http://search.maven.org/#search%7Cga%7C1%7Cloginradius) repository.
+Use the following jar in your project:
 
-Use the following dependency in your project:
 
-```
-<dependency>
-  <groupId>com.loginradius.sdk</groupId>
-  <artifactId>java-sdk</artifactId>
-  <version>2.5.3</version>
-</dependency>
-```
-You can also compile the source as follows. This will generate the javadocs in sdk-java-customer-identity/target/apidocs
-
-    $ git clone https://github.com/LoginRadius/java-sdk.git
-    $ cd java-sdk
-    $ mvn install       # Requires maven, download from http://maven.apache.org/download.html
-    $ mvn dependency:copy-dependencies   # This will generate all dependencies here: 
-                                         # java-sdk/target/dependency  
-  
-
-  
-The jars are also available [here](http://search.maven.org/#search%7Cga%7C1%7Cloginradius). Select the directory for
-the latest version and download the jar files.
+The jars are available [here](https://github.com/LoginRadius/sdk-java-customer-identity/tree/dev/LoginRadiusJavaDemo/WebContent/WEB-INF/lib).  download the java-sdk-3.0.0.jar files.
   
  ## Documentation
 
-[Getting Started](http://apidocs.loginradius.com/docs/java-library) - Everything you need to begin using this SDK.
+[Getting Started](https://docs.loginradius.com/api/v2/sdk-libraries/java-library) - Everything you need to begin using this SDK.
 
 
 
