@@ -8,6 +8,7 @@ Released on **April 13,  2017**
 
 ##### Enhancements
 
+  - Updated with [api-v2](https://docs.loginradius.com/api/v2/getting-started/introduction)
   - Added new multiple APIs for better user experience.
   - EndUser add and remove multiple Emails.
   - Added update profile feature in SDK.

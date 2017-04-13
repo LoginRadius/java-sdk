@@ -24,7 +24,7 @@ Please visit [here](http://www.loginradius.com/) for more information.
 Use the following jar in your project:
 
 
-The jars are available [here](https://github.com/LoginRadius/sdk-java-customer-identity/tree/dev/LoginRadiusJavaDemo/WebContent/WEB-INF/lib).  download the java-sdk-3.0.0.jar files.
+The jars are available [here](https://github.com/LoginRadius/java-sdk/tree/master/demo/LoginRadiusJavaDemo/WebContent/WEB-INF/lib).  download the loginradius-sdk-3.0.0 jar files.
   
  ## Documentation
 

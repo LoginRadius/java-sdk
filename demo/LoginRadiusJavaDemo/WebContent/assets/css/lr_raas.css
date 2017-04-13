@@ -83,7 +83,30 @@ div#profileeditor-container input[type="submit"] {
     cursor: pointer;
 }
 
-input#loginradius-submit-Login {
+
+div#login-container input[type="submit"] {
+   background-color: #337ab7;
+    border: none;
+       color: white;
+    padding: 9px 32px;
+    text-decoration: none;
+    margin: 22px 35px 20px 93px;  
+    cursor: pointer;
+}
+
+
+div#registration-container input[type="submit"] {
+   background-color: #337ab7;
+    border: none;
+       color: white;
+    padding: 9px 32px;
+    text-decoration: none;
+    margin: 22px 35px 20px 93px;  
+    cursor: pointer;
+}
+
+
+div#forgotpassword-container input[type="submit"] {
    background-color: #337ab7;
     border: none;
        color: white;
