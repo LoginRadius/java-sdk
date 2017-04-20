@@ -41,7 +41,7 @@ public class Sott {
 
 		String token = encrypt(plaintext, secret);
 		String hash = createMd5(token);
-		String finalToken = token.replace("+", "%2B") + "*" + hash;
+		String finalToken = token + "*" + hash;
 
 		return finalToken;
 	}
