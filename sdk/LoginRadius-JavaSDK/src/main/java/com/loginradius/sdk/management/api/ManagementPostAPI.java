@@ -56,25 +56,16 @@ public class ManagementPostAPI extends LRManagementAPI {
 			}
 		}
 
-		switch (method) {
-		case "createaccount":
+		if ("createaccount".equals(method)) {
 			finalpath = Endpoint.getV2_ManagementCreateAccount();
-			break;
-		case "createcustomobject":
+		}else if ("createcustomobject".equals(method )) {
 			params.remove("uid");
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_ManagementCreateCustomObject() + "/" + uid + "/customobject";
-			break;
-		case "createrole":
+		}else if ("createrole".equals(method )) {
 			finalpath = Endpoint.getV2_ManagementCreateRole();
-
-			break;
-
-		default:
-			break;
-
 		}
-
+		
 		return executePost(finalpath, params, json);
 
 	}

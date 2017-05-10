@@ -44,48 +44,34 @@ public class ManagementGetAPI extends LRManagementAPI {
 				uid = map.get("uid");
 			}
 		}
-
-		switch (method) {
-
-		case "emaillogin":
+		
+		
+		
+		if ("emaillogin".equals(method)) {
 			finalpath = Endpoint.getV2_ManagementCreateAccount();
-			break;
-		case "usernamelogin":
+		}else if ("usernamelogin".equals(method )) {
 			finalpath = Endpoint.getV2_ManagementCreateAccount();
-			break;
-		case "loginbyphone":
+		}else if ("loginbyphone".equals(method )) {
 			finalpath = Endpoint.getV2_ManagementCreateAccount();
-			break;
-		case "loginbyuid":
+		}else if ("loginbyuid".equals(method )) {
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid;
-			break;
-		case "getpassword":
+		}else if ("getpassword".equals(method )) {
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid + "/password";
-			break;
-		case "customobjectbyuid":
-			params.remove("uid");
-			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid + "/customobject";
-			break;
-		case "customobjectbyid":
+		}else if ("customobjectbyuid".equals(method )) {
 			params.remove("objectRecordId");
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid + "/customobject/" + objectRecordId;
-			break;
-
-		case "getrole":
+		}else if ("getrole".equals(method )) {
 			finalpath = Endpoint.getV2_ManagementCreateRole();
-			break;
-		case "getrolesbyuid":
-
+		}else if ("getrolesbyuid".equals(method )) {
 			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid + "/role";
-			break;
-
-		default:
-			break;
-
+		}else if ("getrolecontext".equals(method )) {
+			params.remove("uid");
+			finalpath = Endpoint.getV2_ManagementGetRoleContext() + "/" + uid + "/rolecontext";
 		}
+		
 		return executeGet(finalpath, params);
 
 	}

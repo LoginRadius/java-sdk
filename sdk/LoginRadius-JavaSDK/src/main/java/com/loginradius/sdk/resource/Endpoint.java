@@ -21,6 +21,7 @@ public class Endpoint {
 	private static final String LOGINRADIUS_AddEmail = "/identity/v2/auth/email";
 	private static final String LOGINRADIUS_SocialIdentities = "/identity/v2/auth/socialIdentity";
 	private static final String LOGINRADIUS_CheckUserNameAvailability = "/identity/v2/auth/username";
+	private static final String API_V2_AUTO_LOGIN= "/identity/v2/auth/login/autologin";
 	private static final String API_V2_ALBUM = "/api/v2/album";
 	private static final String API_V2_AUDIO = "/api/v2/audio";
 	private static final String API_V2_CHECKIN = "/api/v2/checkin";
@@ -52,6 +53,7 @@ public class Endpoint {
 
 	public static final String API_V2_Management_CreateAccount = "/identity/v2/manage/account";
 	public static final String API_V2_Management_Role = "/identity/v2/manage/role";
+	
 
 	/**
 	 * 
@@ -69,7 +71,32 @@ public class Endpoint {
 	public static final String API_V2_Advanced_Refresh_UserProfile = "/api/v2/userprofile/refresh";
 	public static final String API_V2_Advanced_RefreshToken = "/api/v2/access_token/refresh";
 	public static final String API_V2_Advanced_ShortenURL = "/sharing/v1/shorturl";
-
+	public static final String API_V2_ServerTime = "/identity/v2/serverinfo";
+	
+	
+	
+	
+	/**
+	 * 
+	 * 2FA API EndPoint
+	 **/
+	
+	public static final String API_V2_2FA_LOGIN = "/identity/v2/auth/login/2fa";
+	public static final String API_V2_2FA_GOOGLE_AUTH = "/identity/v2/auth/account/2fa/verification";
+	public static final String API_V2_2FA_VERIFY_GOOGLE_AUTH = "/identity/v2/auth/login/2fa/verification";
+	public static final String API_V2_2FA_BY_TOKEN = "/identity/v2/auth/account/2fa";
+	public static final String API_V2_2FA_BY_LOGIN_BACKUPCODE = "/identity/v2/auth/login/2fa/backupcode";
+	public static final String API_V2_2FA_GET_BACKUPCODE = "/identity/v2/auth/account/2fa/backupcode";
+	public static final String API_V2_2FA_RESET_BACKUPCODE = "/identity/v2/auth/account/2fa/backupcode/reset";
+	public static final String API_V2_2FA_GET_BACKUPCODE_BY_UID = "/identity/v2/auth/manage/account/2fa/backupcode";
+	public static final String API_V2_2FA_RESET_BACKUPCODE_BY_UID="/identity/v2/manage/account/2fa/backupcode/reset";
+	public static final String API_V2_2FA_REMOVE_GOOGLE_AUTH_BY_TOKEN="/identity/v2/auth/account/2fa/authenticator";
+	public static final String API_V2_2FA_REMOVE_GOOGLE_AUTH_BY_UID="/identity/v2/manage/account/2fa/authenticator";
+	
+	
+	
+	
+	
 	/**
 	 * Creates Management API url after appending LoginRadius api root url
 	 * 
@@ -86,6 +113,10 @@ public class Endpoint {
 
 	public static String getV2_ManagementCreateRole() {
 		return LOGINRADIUS_API_ROOT + API_V2_Management_Role;
+	}
+	
+	public static String getV2_ManagementGetRoleContext() {
+		return LOGINRADIUS_API_ROOT + API_V2_Management_CreateAccount;
 	}
 
 	public static String getV2_AdvancedIdentity() {
@@ -209,6 +240,10 @@ public class Endpoint {
 	public static String getLoginUrl() {
 		return LOGINRADIUS_API_ROOT + API_V2_LOGIN;
 	}
+	
+	public static String getAutoLoginUrl() {
+		return LOGINRADIUS_API_ROOT + API_V2_AUTO_LOGIN;
+	}
 
 	public static String getUpdateProfileUrl() {
 		return LOGINRADIUS_API_ROOT + LOGINRADIUS_updateprofile;
@@ -263,7 +298,60 @@ public class Endpoint {
 	public static String getCustomObject() {
 		return LOGINRADIUS_API_ROOT + API_V2_CustomObjects;
 	}
+	
+	public static String getServerTime() {
+		return LOGINRADIUS_API_ROOT + API_V2_ServerTime;
+	}
+	
+	
+	
+	public static String get2FALogin() {
+		return LOGINRADIUS_API_ROOT + API_V2_2FA_LOGIN;
+	}
 
+	
+	public static String getGoogleAuthenticatorCode() {
+		return LOGINRADIUS_API_ROOT + API_V2_2FA_GOOGLE_AUTH;
+	}
+	
+	public static String get2FAByToken() {
+		return LOGINRADIUS_API_ROOT + API_V2_2FA_BY_TOKEN;
+	}
+	
+	public static String getVerifyGoogleAuthenticatorCode() {
+		return LOGINRADIUS_API_ROOT + API_V2_2FA_VERIFY_GOOGLE_AUTH;
+	}
+	
+	
+	public static String getLoginByBackupcode() {
+		return LOGINRADIUS_API_ROOT + API_V2_2FA_BY_LOGIN_BACKUPCODE;
+	}
+	
+	public static String getBackupcode() {
+		return LOGINRADIUS_API_ROOT + API_V2_2FA_GET_BACKUPCODE;
+	}
+	public static String getResetBackupcode() {
+		return LOGINRADIUS_API_ROOT + API_V2_2FA_RESET_BACKUPCODE;
+	}
+	
+	public static String getBackupcodeByUid() {
+		return LOGINRADIUS_API_ROOT + API_V2_2FA_GET_BACKUPCODE_BY_UID;
+	}
+	public static String getResetBackupcodeByUid() {
+		return LOGINRADIUS_API_ROOT + API_V2_2FA_RESET_BACKUPCODE_BY_UID;
+	}
+	
+	public static String getGoogleAuthenticatorByToken() {
+		return LOGINRADIUS_API_ROOT + API_V2_2FA_REMOVE_GOOGLE_AUTH_BY_TOKEN;
+	}
+	
+	public static String getGoogleAuthenticatorByUid() {
+		return LOGINRADIUS_API_ROOT + API_V2_2FA_REMOVE_GOOGLE_AUTH_BY_UID;
+	}
+	
+	
+	
+	
 	/**
 	 * Creates url after appending loginradius api root url and query parameters
 	 * 

@@ -1,4 +1,5 @@
 
+<%@page import="com.loginradius.sdk.models.servertime.ServerTimeResponse"%>
 <%@page import="com.loginradius.sdk.resource.Sott"%>
 <%@page import="com.loginradius.sdk.advanced.api.AdvancedGetAPI"%>
 <%@page import="com.loginradius.sdk.models.resthooks.fields.FieldList"%>
@@ -61,13 +62,14 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 
-<script src="https://auth.lrcontent.com/v2/LoginRadiusV2.js"></script>
+<script src="https://auth.lrcontent.com/v2/js/LoginRadiusV2.js"></script>
 
 <%
 String apikey=application.getInitParameter("LoginRadiusApiKey");
 String apisecret=application.getInitParameter("LoginRadiusSecret");
+
 Sott getsott =new Sott();
-String sott =getsott.main(apisecret,apikey);%>
+String sott =getsott.main(apisecret,apikey,null);%>
 <script>
 function redirect(token) {
     var form = document.createElement("form");

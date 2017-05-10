@@ -26,17 +26,6 @@ public class RestRequest {
 	 * 
 	 */
 
-	/**
-	 * Get to handle get request
-	 *
-	 * 
-	 * @param serviceUrl
-	 *            requesting api's end point
-	 * 
-	 * @param params
-	 *            request parameter
-	 * @return Get response from LoginRadius with GET parameters
-	 */
 
 	public RestResponse get(String serviceUrl, Map<String, String> params) {
 
@@ -45,6 +34,7 @@ public class RestRequest {
 		String url = Endpoint.GetRequestUrl(serviceUrl, params);
 		HttpResponse<String> jsonResponse;
 		try {
+			Unirest.setTimeouts(15000, 15000);
 			jsonResponse = Unirest.get(url).asString();
 
 			if (jsonResponse.getBody().contains("loginRadiusAppJsonLoaded(")) {
@@ -89,6 +79,7 @@ public class RestRequest {
 
 		HttpResponse<JsonNode> jsonResponse;
 		try {
+			Unirest.setTimeouts(15000, 15000);
 			jsonResponse = Unirest.post(url)
 
 					.header("accept", "application/json").header("Content-Type", "application/json").body(payload)
@@ -112,10 +103,10 @@ public class RestRequest {
 
 		HttpResponse<JsonNode> jsonResponse;
 		try {
+			Unirest.setTimeouts(15000, 15000);
 			jsonResponse = Unirest.put(url)
-
-					.header("accept", "application/json").header("Content-Type", "application/json").body(payload)
-					.asJson();
+             .header("accept", "application/json").header("Content-Type", "application/json").body(payload)
+			 .asJson();
 
 			response.setResponse(jsonResponse.getBody().getObject().toString(2));
 			response.setStatusCode(jsonResponse.getStatus());
@@ -134,6 +125,7 @@ public class RestRequest {
 		String url = Endpoint.GetRequestUrl(serviceUrl, getParams);
 		HttpResponse<JsonNode> jsonResponse;
 		try {
+			Unirest.setTimeouts(15000, 15000);
 			jsonResponse = Unirest.delete(url).header("accept", "application/json")
 					.header("Content-Type", "application/json").body(payload).asJson();
 

@@ -21,12 +21,24 @@ Please visit [here](http://www.loginradius.com/) for more information.
 
 # Installing
 
-Use the following jar in your project:
 
+# Installing
 
-The jars are available [here](https://github.com/LoginRadius/java-sdk/tree/master/demo/LoginRadiusJavaDemo/WebContent/WEB-INF/lib).  download the loginradius-sdk-3.0.0 jar files.
-  
- ## Documentation
+LoginRadius is now using Maven. At present the jars *are* available from a public [maven]( http://search.maven.org/#search%7Cga%7C1%7Cloginradius) repository.
+
+Use the following dependency in your project:
+
+```
+<dependency>
+  <groupId>com.loginradius.sdk</groupId>
+  <artifactId>java-sdk</artifactId>
+  <version>3.1.0</version>
+</dependency>
+
+The jars are also available [here](http://search.maven.org/#search%7Cga%7C1%7Cloginradius). Select the directory for
+the latest version and download the jar files.
+
+## Documentation
 
 [Getting Started](https://docs.loginradius.com/api/v2/sdk-libraries/java-library) - Everything you need to begin using this SDK.
 

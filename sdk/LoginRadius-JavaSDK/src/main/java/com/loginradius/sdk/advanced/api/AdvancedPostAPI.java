@@ -52,65 +52,40 @@ public class AdvancedPostAPI extends LRAdvancedAPI {
 
 		}
 
-		switch (method) {
-
-		case "getsocialidentity":
-
+			
+		
+		if ("getsocialidentity".equals(method )) {
 			finalpath = Endpoint.getV2_AdvancedIdentity();
-			break;
-		case "querydata":
-
+		}
+		else if ("querydata".equals(method )) {
 			finalpath = Endpoint.getV2_AdvancedQueryData();
-			break;
-		case "subscriberesthooks":
-
+		}
+		else if ("subscriberesthooks".equals(method )) {
 			finalpath = Endpoint.getV2_AdvancedSubscribeRestHooks();
-			break;
-
-		case "unsubscriberesthooks":
-
+		}
+		else if ("unsubscriberesthooks".equals(method )) {
 			finalpath = Endpoint.getV2_AdvancedUnsubscribeRestHooks();
-			break;
-		case "email":
-			break;
-		case "addemail":
-
+		}else if ("addemail".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getAddEmailUrl();
-			break;
-
-		case "createcustomobject":
-
+		}
+		else if ("createcustomobject".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getCustomObject();
-			break;
-
-		case "forgotpasswordbyotp":
-
+		}
+		else if ("forgotpasswordbyotp".equals(method )) {
 			finalpath = Endpoint.getForgotPasswordUrlMobile();
-			break;
-		case "resendotp":
-
+		}
+		else if ("resendotp".equals(method )) {
 			finalpath = Endpoint.getVerifyotpUrl();
-			break;
-		case "resendotpbytoken":
-
+		}else if ("resendotpbytoken".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getVerifyotpUrl();
-			break;
-
-		case "forgotpasswordbyemail":
-
+		}else if ("forgotpasswordbyemail".equals(method )) {
 			finalpath = Endpoint.getForgotPasswordUrlEmail();
-			break;
-		case "trackablestatusposting":
-
+		}else if ("trackablestatusposting".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_STATUS() + "/trackable";
-			break;
-		default:
-			break;
-
 		}
 
 		return executePost(finalpath, params, json);

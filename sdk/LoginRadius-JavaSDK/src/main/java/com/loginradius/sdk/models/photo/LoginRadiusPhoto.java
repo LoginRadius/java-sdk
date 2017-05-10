@@ -2,7 +2,7 @@ package com.loginradius.sdk.models.photo;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
+import java.util.List;
 public class LoginRadiusPhoto 
 {
 	@SerializedName("ID")
@@ -47,7 +47,9 @@ public class LoginRadiusPhoto
 	@SerializedName("UpdatedDate")
 	@Expose
 	private String updatedDate;
-
+	@SerializedName("Images")
+	@Expose
+	private List<Image> images = null;
 	/**
 	* 
 	* @return
@@ -298,5 +300,13 @@ public class LoginRadiusPhoto
 	*/
 	public void setUpdatedDate(String updatedDate) {
 	this.updatedDate = updatedDate;
+	}
+	
+	public List<Image> getImages() {
+	return images;
+	}
+
+	public void setImages(List<Image> images) {
+	this.images = images;
 	}
 }

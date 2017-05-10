@@ -246,6 +246,27 @@ import com.google.gson.annotations.SerializedName;
     	      @SerializedName("Subscription")
     	     public LoginRadiusUserSubscription Subscription ;
     	     
+    	      @SerializedName("ExternalUserLoginId")
+    	     
+    	      private Object externalUserLoginId;
+    	      @SerializedName("RegistrationProvider")
+    	    
+    	      private Object registrationProvider;
+    	      @SerializedName("IsLoginLocked")
+    	     
+    	      private Boolean isLoginLocked;
+    	      @SerializedName("LastLoginLocation")
+    	      
+    	      private Object lastLoginLocation;
+    	      @SerializedName("RegistrationSource")
+    	     
+    	      private Object registrationSource;
+    	      @SerializedName("IsCustomUid")
+    	     
+    	      private Boolean isCustomUid;
+    	      @SerializedName("UnverifiedEmail")
+    	    
+    	      private List<UnverifiedEmail> unverifiedEmail = null;
 
 
     	 /**
@@ -446,6 +467,62 @@ import com.google.gson.annotations.SerializedName;
     	  this.previousUids = previousUids;
     	 }
     	 
+    	
+    		 public Object getExternalUserLoginId() {
+    		 return externalUserLoginId;
+    		 }
+
+    		 public void setExternalUserLoginId(Object externalUserLoginId) {
+    		 this.externalUserLoginId = externalUserLoginId;
+    		 }
+
+    		 public Object getRegistrationProvider() {
+    		 return registrationProvider;
+    		 }
+
+    		 public void setRegistrationProvider(Object registrationProvider) {
+    		 this.registrationProvider = registrationProvider;
+    		 }
+
+    		 public Boolean getIsLoginLocked() {
+    		 return isLoginLocked;
+    		 }
+
+    		 public void setIsLoginLocked(Boolean isLoginLocked) {
+    		 this.isLoginLocked = isLoginLocked;
+    		 }
+
+    		 public Object getLastLoginLocation() {
+    		 return lastLoginLocation;
+    		 }
+
+    		 public void setLastLoginLocation(Object lastLoginLocation) {
+    		 this.lastLoginLocation = lastLoginLocation;
+    		 }
+
+    		 public Object getRegistrationSource() {
+    		 return registrationSource;
+    		 }
+
+    		 public void setRegistrationSource(Object registrationSource) {
+    		 this.registrationSource = registrationSource;
+    		 }
+
+    		 public Boolean getIsCustomUid() {
+    		 return isCustomUid;
+    		 }
+
+    		 public void setIsCustomUid(Boolean isCustomUid) {
+    		 this.isCustomUid = isCustomUid;
+    		 }
+
+    		 public List<UnverifiedEmail> getUnverifiedEmail() {
+    		 return unverifiedEmail;
+    		 }
+
+    		 public void setUnverifiedEmail(List<UnverifiedEmail> unverifiedEmail) {
+    		 this.unverifiedEmail = unverifiedEmail;
+    		 }
     	 
     	 
     	 

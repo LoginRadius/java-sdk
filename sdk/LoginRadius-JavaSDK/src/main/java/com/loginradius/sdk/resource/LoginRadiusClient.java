@@ -8,6 +8,7 @@ import com.loginradius.sdk.authentication.api.LRAuthenticationAPI;
 import com.loginradius.sdk.management.api.LRManagementAPI;
 import com.loginradius.sdk.models.AccessToken;
 
+
 import java.util.Map;
 
 public class LoginRadiusClient {
@@ -22,6 +23,22 @@ public class LoginRadiusClient {
 		_token = new AccessToken();
 		_token.access_token = token;
 
+	}
+	
+	
+	public LoginRadiusClient() {
+		_token = new AccessToken();
+		_token.access_token = "";
+	}
+	
+	public void setToken(String token) {
+		_token = new AccessToken();
+		_token.access_token = token;
+
+	}
+	
+	public void setToken(AccessToken token) {
+		_token = token;
 	}
 
 	public static <T> T formatResponse(String response, Class<T> cls) {
@@ -77,6 +94,8 @@ public class LoginRadiusClient {
 	public String getStringResponse(LRAdvancedAPI api) {
 		return api.getResponse(_token.access_token);
 	}
+	
+	
 
 	/*
 	 * @Description: Method to convert Map to JSON String

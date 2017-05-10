@@ -28,9 +28,14 @@ public class Sott {
 
 	private static String initVector = "tu89geji340t89u2";
 
-	public static String main(String apisecret, String apikey) throws java.lang.Exception {
+	public static String main(String apisecret, String apikey, Map<String, String> map) throws java.lang.Exception {
 		String secret = apisecret;
 		String key = apikey;
+		String token = null;
+		if(map!=null && map.containsKey("StartTime") && map.containsKey("EndTime")){
+		String plaintext = map.get("StartTime") + "#"+ key +"#" +map.get("EndTime");
+		token = encrypt(plaintext, secret);
+		}else{
 		TimeZone timeZone = TimeZone.getTimeZone("UTC");
 		Calendar calendar = Calendar.getInstance(timeZone);
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/M/d H:m:s", Locale.US);
@@ -38,8 +43,9 @@ public class Sott {
 		String plaintext = dateFormat.format(calendar.getTime()) + "#" + key + "#";
 		calendar.add(Calendar.MINUTE, 10);
 		plaintext += dateFormat.format(calendar.getTime());
-
-		String token = encrypt(plaintext, secret);
+		token = encrypt(plaintext, secret);
+		}
+       
 		String hash = createMd5(token);
 		String finalToken = token.replace("+", "%2B") + "*" + hash;
 

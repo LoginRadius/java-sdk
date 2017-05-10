@@ -34,10 +34,12 @@
         String apisecret=application.getInitParameter("LoginRadiusSecret");
         LoginRadiusCallbackHelper callbackhelper = new LoginRadiusCallbackHelper(apisecret);
         AccessToken token = callbackhelper.GetLoginRadiusToken(request);
-        LoginRadiusClient client = new LoginRadiusClient(token);
+        LoginRadiusClient client = new LoginRadiusClient();
+        client.setToken(token);
         Gson gson = new Gson();
 
         	
+        
         	 
 
 

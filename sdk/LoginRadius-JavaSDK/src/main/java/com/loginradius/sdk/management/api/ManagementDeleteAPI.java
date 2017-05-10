@@ -16,6 +16,7 @@ public class ManagementDeleteAPI extends LRManagementAPI {
 	private String objectRecordId = "";
 	private String uid = "";
 	private String role = "";
+	private String rolecontextname="";
 	private Map<String, String> map = new HashMap<String, String>();
 
 	private JsonObject json;
@@ -58,33 +59,35 @@ public class ManagementDeleteAPI extends LRManagementAPI {
 			}
 			if (map.containsKey("role")) {
 				role = map.get("role");
+			}if (map.containsKey("rolecontextname")) {
+				rolecontextname = map.get("rolecontextname");
 			}
 		}
-
-		switch (method) {
-		case "deleteaccount":
+		
+		
+		
+		
+		if ("deleteaccount".equals(method)) {
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid;
-			break;
-		case "deletecustomobjectbyid":
+		}else if ("deletecustomobjectbyid".equals(method )) {
 			params.remove("uid");
 			params.remove("objectRecordId");
 			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid + "/customobject/" + objectRecordId;
-			break;
-
-		case "deleterole":
+		}else if ("deleterole".equals(method )) {
 			params.remove("role");
-
-			finalpath = Endpoint.getV2_ManagementCreateRole() + "/" + role;
-			break;
-		case "removepermissions":
+            finalpath = Endpoint.getV2_ManagementCreateRole() + "/" + role;
+		}else if ("removepermissions".equals(method )) {
 			params.remove("role");
 			finalpath = Endpoint.getV2_ManagementCreateRole() + "/" + role + "/permission";
-			break;
-
-		default:
-			break;
-
+		}else if ("deletecontext".equals(method )) {
+			params.remove("uid");
+			params.remove("rolecontextname");
+			finalpath = Endpoint.getV2_ManagementGetRoleContext() + "/" + uid + "/rolecontext"+rolecontextname;
+		}else if ("deleteroleandpermission".equals(method )) {
+			params.remove("uid");
+			params.remove("rolecontextname");
+			finalpath = Endpoint.getV2_ManagementGetRoleContext() + "/" + uid + "/rolecontext"+rolecontextname+"/role";
 		}
 
 		return executeDelete(finalpath, params, json);

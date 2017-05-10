@@ -51,62 +51,34 @@ public class AuthenticationPostAPI extends LRAuthenticationAPI {
 			params.putAll(map);
 
 		}
-
-		switch (method) {
-
-		case "status":
+		
+		if ("status".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_STATUS();
-			break;
-		case "message":
+		}else if ("message".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_MESSAGE();
-			break;
-		case "register":
-
+		}else if ("register".equals(method )) {
 			finalpath = Endpoint.getRegistrationUrl();
-			break;
-
-		case "password":
-
+		}else if ("password".equals(method )) {
 			finalpath = Endpoint.getForgotPasswordUrlEmail();
-			break;
-		case "email":
-			break;
-		case "addemail":
-
+		}else if ("addemail".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getAddEmailUrl();
-			break;
-
-		case "createcustomobject":
-
+		}else if ("createcustomobject".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getCustomObject();
-			break;
-
-		case "forgotpasswordbyotp":
-
+		}else if ("forgotpasswordbyotp".equals(method )) {
 			finalpath = Endpoint.getForgotPasswordUrlMobile();
-			break;
-		case "resendotp":
-
+		}else if ("resendotp".equals(method )) {
 			finalpath = Endpoint.getVerifyotpUrl();
-			break;
-		case "resendotpbytoken":
-
+		}else if ("resendotpbytoken".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getVerifyotpUrl();
-			break;
-
-		case "forgotpasswordbyemail":
-
+		}else if ("forgotpasswordbyemail".equals(method )) {
 			finalpath = Endpoint.getForgotPasswordUrlEmail();
-			break;
-		default:
-			break;
-
 		}
+		
 
 		return executePost(finalpath, params, json);
 	}

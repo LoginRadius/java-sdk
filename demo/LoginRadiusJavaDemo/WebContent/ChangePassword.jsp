@@ -18,7 +18,7 @@
  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link rel="stylesheet" type="text/css" href="assets/css/lr_raas.css">
 </head>
-<script src="https://auth.lrcontent.com/v2/LoginRadiusV2.js"></script>
+<script src="https://auth.lrcontent.com/v2/js/LoginRadiusV2.js"></script>
 <script type="text/javascript">
 var commonOptions = {};
 commonOptions.apiKey = "<%=application.getInitParameter("LoginRadiusApiKey")%>";

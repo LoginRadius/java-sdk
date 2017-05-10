@@ -61,34 +61,28 @@ public class ManagementPutAPI extends LRManagementAPI {
 			}
 		}
 
-		switch (method) {
-		case "updateaccount":
+		
+		if ("updateaccount".equals(method)) {
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid;
-			break;
-		case "setpassword":
+		}else if ("setpassword".equals(method )) {
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid + "/password";
-			break;
-
-		case "updateobjectbyrecordid":
+		}else if ("updateobjectbyrecordid".equals(method )) {
 			params.remove("objectRecordId");
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid + "/customobject/" + objectRecordId;
-			break;
-		case "addpermissionstorole":
+		}else if ("addpermissionstorole".equals(method )) {
 			params.remove("role");
 			finalpath = Endpoint.getV2_ManagementCreateRole() + "/" + role + "/permission";
-			break;
-		case "assignroles":
+		}else if ("assignroles".equals(method )) {
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementCreateCustomObject() + "/" + uid + "/role";
-			break;
-		default:
-			break;
-
+		}else if ("addrolecontext".equals(method )) {
+			params.remove("uid");
+			finalpath = Endpoint.getV2_ManagementGetRoleContext() + "/" + uid + "/rolecontext";
 		}
-
+		
 		return executePut(finalpath, params, json);
 	}
 

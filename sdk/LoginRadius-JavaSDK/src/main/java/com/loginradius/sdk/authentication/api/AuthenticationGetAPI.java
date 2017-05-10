@@ -12,6 +12,7 @@ public class AuthenticationGetAPI extends LRAuthenticationAPI {
 	private String method = "";
 	private String finalpath = "";
 	private String objectRecordId = "";
+	private String timeDifferance="";
 
 	private Map<String, String> map = new HashMap<String, String>();
 
@@ -39,138 +40,140 @@ public class AuthenticationGetAPI extends LRAuthenticationAPI {
 			params.putAll(map);
 			if (map.containsKey("objectRecordId")) {
 				objectRecordId = map.get("objectRecordId");
+			}else if (map.containsKey("difference")) {
+				timeDifferance = map.get("difference");
 			}
 		}
-
-		switch (method) {
-
-		case "userprofile":
+		
+		
+		if ("userprofile".equals(method )) {
 			finalpath = Endpoint.getV2_USERPROFILE();
-
-			params.put("access_token", token);
-			break;
-		case "contact":
+            params.put("access_token", token);
+		}else if ("contact".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_CONTACT();
-			break;
-		case "company":
+		}else if ("company".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_COMPANY();
-			break;
-		case "event":
+		}else if ("event".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_EVENT();
-			break;
-		case "group":
+		}else if ("group".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_GROUP();
-			break;
-		case "like":
+		}else if ("like".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_LIKE();
-			break;
-		case "status":
+		}else if ("status".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_STATUS();
-			break;
-		case "album":
+		}else if ("album".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_ALBUM();
-			break;
-		case "checkin":
+		}else if ("checkin".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_CHECKIN();
-			break;
-		case "audio":
+		}else if ("audio".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_AUDIO();
-			break;
-		case "video":
+		}else if ("video".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_VIDEO();
-			break;
-		case "photo":
+		}else if ("photo".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_PHOTO();
-			break;
-		case "post":
+		}else if ("post".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_POST();
-			break;
-
-		case "page":
+		}else if ("page".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_PAGE();
-			break;
-		case "following":
+		}else if ("following".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_FOLLOWING();
-			break;
-		case "mention":
+		}else if ("mention".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_MENTION();
-			break;
-		case "message":
+		}else if ("message".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_MESSAGE();
-			break;
-		case "emaillogin":
+		}else if ("message".equals(method )) {
+			params.put("access_token", token);
+			finalpath = Endpoint.getV2_MESSAGE();
+		}else if ("emailloginemaillogin".equals(method )) {
 			finalpath = Endpoint.getLoginUrl();
-			break;
-		case "verifyemail":
-
+		}else if ("verifyemail".equals(method )) {
 			finalpath = Endpoint.getAddEmailUrl();
-			break;
-		case "checkemailavailability":
-
+		}else if ("checkemailavailability".equals(method )) {
 			finalpath = Endpoint.getAddEmailUrl();
-			break;
-		case "checkusernameavailability":
-
+		}else if ("checkusernameavailability".equals(method )) {
 			finalpath = Endpoint.getUserNameAvailability();
-			break;
-		case "phoneavailability":
-
+		}else if ("phoneavailability".equals(method )) {
 			finalpath = Endpoint.getUpdatephoneUrl();
-			break;
-		case "getsocialidentity":
+		}else if ("getsocialidentity".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getSocialIdentities();
-			break;
-		case "loginbyphone":
-
+		}else if ("loginbyphone".equals(method )) {
 			finalpath = Endpoint.getLoginUrl();
-			break;
-		case "usernamelogin":
+		}else if ("usernamelogin".equals(method )) {
 			finalpath = Endpoint.getLoginUrl();
-			break;
-		case "readaccountbytoken":
-
+		}else if ("readaccountbytoken".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_USERPROFILE();
-			break;
-
-		case "customobjectbytoken":
-
+		}else if ("customobjectbytoken".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getCustomObject();
-			break;
-		case "customobjectbyid":
+		}else if ("customobjectbyid".equals(method )) {
 			params.remove("objectRecordId");
 			params.put("access_token", token);
 			finalpath = Endpoint.getCustomObject() + "/" + objectRecordId;
-			break;
-		case "socialinterface":
-
+		}else if ("socialinterface".equals(method )) {
 			finalpath = Endpoint.getSocialInterfaceUrl(params.get("apikey"));
 			params.remove("apikey");
-			break;
-
-		default:
-			break;
-
+			
+		}else if ("servertime".equals(method )) {
+			if(timeDifferance!=null && timeDifferance!=""){
+			finalpath = Endpoint.getServerTime()+"?";
+			}else{
+			finalpath = Endpoint.getServerTime();
+			}
+		}else if ("2FALogin".equals(method)) {
+			finalpath = Endpoint.get2FALogin();
+		}else if("2FAbyGoogleAuthenticator".equals(method)){
+			finalpath = Endpoint.getGoogleAuthenticatorCode();
+			params.put("access_token", token);
+		}else if("2FAbyToken".equals(method)){
+			finalpath = Endpoint.get2FAByToken();
+			params.put("access_token", token);
+		}else if("2FAVerifybyGoogleAuthenticator".equals(method)){
+			finalpath = Endpoint.getVerifyGoogleAuthenticatorCode();
+			
+		}else if("2FALoginByBackupcode".equals(method)){
+			finalpath = Endpoint.getLoginByBackupcode();
+			
+		}else if("2FAGetBackupcode".equals(method)){
+			finalpath = Endpoint.getBackupcode();
+			params.put("access_token", token);
+		}else if("2FAResetBackupcode".equals(method)){
+			finalpath = Endpoint.getResetBackupcode();
+			params.put("access_token", token);
+		}else if("2FAGetBackupcodeByUid".equals(method)){
+			finalpath = Endpoint.getBackupcodeByUid();
+			
+		}else if("2FAResetBackupcodeByUid".equals(method)){
+			finalpath = Endpoint.getResetBackupcodeByUid();
+			
+		}else if("emailautologin".equals(method)){
+			finalpath = Endpoint.getAutoLoginUrl();
+			
+		}else if("emailautologinping".equals(method)){
+			finalpath = Endpoint.getAutoLoginUrl()+"/ping";
+			
 		}
-
+		
+		
+	
+		
 		return executeGet(finalpath, params);
 
 	}

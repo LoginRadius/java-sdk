@@ -8,7 +8,7 @@ import com.loginradius.sdk.resource.LoginRadiusException;
 import com.loginradius.sdk.util.ArgumentValidator;
 
 public class AdvancedGetAPI extends LRAdvancedAPI {
-
+	
 	private String method = "";
 	private String finalpath = "";
 
@@ -38,67 +38,50 @@ public class AdvancedGetAPI extends LRAdvancedAPI {
 			params.putAll(map);
 
 		}
-
-		switch (method) {
-
-		case "tokenvalidate":
-
+		
+		
+		
+		if ("tokenvalidate".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getExchangetoken() + "/Validate";
-
-			break;
-		case "tokeninvalidate":
+		}
+		else if ("tokeninvalidate".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getExchangetoken() + "/invalidate";
-			break;
-		case "testresthookssettings":
-
+		}
+		else if ("testresthookssettings".equals(method )) {
 			finalpath = Endpoint.getV2_AdvancedRestHooksSettings();
-			break;
-		case "listofresthooks":
-
+		}
+		else if ("listofresthooks".equals(method )) {
 			finalpath = Endpoint.getV2_AdvancedListofRestHooks();
-			break;
-		case "getsubscribedurl":
-
+		}else if ("getsubscribedurl".equals(method )) {
 			finalpath = Endpoint.getV2_AdvancedGetSubscribedurl();
-			break;
-		case "accesstokenviafbtoken":
-
+		}
+		else if ("accesstokenviafbtoken".equals(method )) {
 			finalpath = Endpoint.getV2_AdvancedAccessTokenViaSocialToken() + "facebook";
-			break;
-
-		case "accesstokenviatwtoken":
-
+		}
+		else if ("accesstokenviatwtoken".equals(method )) {
 			finalpath = Endpoint.getV2_AdvancedAccessTokenViaSocialToken() + "twitter";
-			break;
-		case "refreshprofile":
+		}
+		else if ("refreshprofile".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_AdvancedRefreshUserProfile();
-			break;
-
-		case "refreshtoken":
+		}else if ("refreshtoken".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_AdvancedRefreshToken();
-			break;
-		case "shortenURL":
-
+		}
+		else if ("shortenURL".equals(method )) {
 			finalpath = Endpoint.getV2_AdvancedShortenURL();
-			break;
-
-		case "trackablestatusfetching":
-
+		}
+		else if ("trackablestatusfetching".equals(method )) {
 			finalpath = Endpoint.getV2_STATUS() + "/trackable";
-			break;
-		case "gettrackablestatusstats":
+		}
+		else if ("gettrackablestatusstats".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_STATUS() + "/trackable/js";
-			break;
-		default:
-			break;
-
 		}
-
+		
+		
 		return executeGet(finalpath, params);
 
 	}

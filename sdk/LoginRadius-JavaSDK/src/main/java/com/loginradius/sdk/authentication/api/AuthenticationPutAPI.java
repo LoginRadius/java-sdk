@@ -54,65 +54,44 @@ public class AuthenticationPutAPI extends LRAuthenticationAPI {
 			}
 		}
 
-		switch (method) {
-		case "changeusername":
-
+		
+		if ("changeusername".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getUserNameAvailability();
-			break;
-		case "resendemailverification":
-
+		}else if ("resendemailverification".equals(method )) {
 			finalpath = Endpoint.getRegistrationUrl();
-			break;
-		case "resetpassword":
-
+		}else if ("resetpassword".equals(method )) {
 			finalpath = Endpoint.getForgotPasswordUrlEmail();
-			break;
-		case "changepassword":
-
+		}else if ("changepassword".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getForgotPasswordUrlEmail();
-			break;
-
-		case "linksocialidentities":
-
+		}else if ("linksocialidentities".equals(method )) {
 			finalpath = Endpoint.getSocialIdentities();
-			break;
-
-		case "updateobjectbyrecordid":
+		}else if ("updateobjectbyrecordid".equals(method )) {
 			params.remove("objectRecordId");
 			params.put("access_token", token);
 			finalpath = Endpoint.getCustomObject() + "/" + objectRecordId;
-			break;
-
-		case "updatephone":
-
+		}else if ("updatephone".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getUpdatephoneUrl();
-			break;
-		case "resetpasswordbyotp":
-
+		}else if ("resetpasswordbyotp".equals(method )) {
 			finalpath = Endpoint.getForgotPasswordUrlMobile();
-			break;
-
-		case "verifyotp":
-
+		}else if ("verifyotp".equals(method )) {
 			finalpath = Endpoint.getVerifyotpUrl();
-			break;
-		case "verifyotpbytoken":
-
+		}else if ("verifyotpbytoken".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getVerifyotpUrl();
-			break;
-		case "updateaccountbytoken":
-
+		}else if ("updateaccountbytoken".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getUpdateProfileUrl();
-			break;
-		default:
-			break;
-
+		}else if ("2FAUpdatePhoneNumber".equals(method)) {
+			finalpath = Endpoint.get2FALogin();
+		}else if("2FAUpdatePhoneNumberbyToken".equals(method)){
+			finalpath = Endpoint.get2FAByToken();
+			params.put("access_token", token);
 		}
+		
+		
 
 		return executePut(finalpath, params, json);
 	}

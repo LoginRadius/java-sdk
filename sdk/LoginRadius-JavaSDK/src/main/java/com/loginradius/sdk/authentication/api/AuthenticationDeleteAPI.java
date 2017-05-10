@@ -54,34 +54,28 @@ public class AuthenticationDeleteAPI extends LRAuthenticationAPI {
 			}
 		}
 
-		switch (method) {
-		case "removeemail":
-
+		
+		if ("removeemail".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getAddEmailUrl();
-			break;
-		case "deleteaccountwithemailconfirmation":
-
+		}
+		else if ("deleteaccountwithemailconfirmation".equals(method )) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getAddEmailUrl();
-			break;
-		case "unlinksocialidentities":
-
+		}else if ("unlinksocialidentities".equals(method )) {
 			finalpath = Endpoint.getSocialIdentities();
-			break;
-		case "deletecustomobject":
+		}else if ("deletecustomobject".equals(method )) {
 			params.remove("objectRecordId");
 
 			params.put("access_token", token);
 			finalpath = Endpoint.getCustomObject() + "/" + objectRecordId;
-
-			break;
-
-		default:
-			break;
-
+		}else if ("RemoveGoogleAuthenticatorByToken".equals(method)) {
+			finalpath = Endpoint.getGoogleAuthenticatorByToken();
+			params.put("access_token", token);
+		}else if("RemoveGoogleAuthenticatorByUid".equals(method)){
+			finalpath = Endpoint.getGoogleAuthenticatorByUid();
+			
 		}
-
 		return executeDelete(finalpath, params, json);
 	}
 

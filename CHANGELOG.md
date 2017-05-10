@@ -2,6 +2,23 @@
 
 
 
+### Version 3.1.0
+Released on **May 10,  2017**
+
+##### Enhancements
+
+  - Added new Two Factor Authentication [2FA] APIs.
+  - Added new api to get basic server information for sott time validation.
+  - Added new Context based Roles and Permissions Management APIs
+  - Added new fields in APIs response Unverified email ids in UserProfile and Image in PhotoAPI.
+  - Added new email prompt Auto login.
+  - Significantly improved code performance.
+  - Increased custom connection and socket timeout 15000(milliseconds).
+  
+
+
+
+
 ### Version 3.0.0
 Released on **April 13,  2017**
 
