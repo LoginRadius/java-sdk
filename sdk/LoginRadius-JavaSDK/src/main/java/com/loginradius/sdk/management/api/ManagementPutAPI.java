@@ -1,5 +1,12 @@
 package com.loginradius.sdk.management.api;
 
+/* 
+ * 
+ * Created by LoginRadius Development Team on 02/06/2017
+   Copyright © 2017 LoginRadius Inc. All rights reserved.  
+   
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,28 +68,27 @@ public class ManagementPutAPI extends LRManagementAPI {
 			}
 		}
 
-		
 		if ("updateaccount".equals(method)) {
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid;
-		}else if ("setpassword".equals(method )) {
+		} else if ("setpassword".equals(method)) {
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid + "/password";
-		}else if ("updateobjectbyrecordid".equals(method )) {
+		} else if ("updateobjectbyrecordid".equals(method)) {
 			params.remove("objectRecordId");
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid + "/customobject/" + objectRecordId;
-		}else if ("addpermissionstorole".equals(method )) {
+		} else if ("addpermissionstorole".equals(method)) {
 			params.remove("role");
 			finalpath = Endpoint.getV2_ManagementCreateRole() + "/" + role + "/permission";
-		}else if ("assignroles".equals(method )) {
+		} else if ("assignroles".equals(method)) {
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementCreateCustomObject() + "/" + uid + "/role";
-		}else if ("addrolecontext".equals(method )) {
+		} else if ("addrolecontext".equals(method)) {
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementGetRoleContext() + "/" + uid + "/rolecontext";
 		}
-		
+
 		return executePut(finalpath, params, json);
 	}
 

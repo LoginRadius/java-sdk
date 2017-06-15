@@ -1,5 +1,13 @@
 package com.loginradius.sdk.authentication.api;
 
+
+/* 
+ * 
+ * Created by LoginRadius Development Team on 02/06/2017
+   Copyright © 2017 LoginRadius Inc. All rights reserved.  
+   
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,27 +62,24 @@ public class AuthenticationDeleteAPI extends LRAuthenticationAPI {
 			}
 		}
 
-		
-		if ("removeemail".equals(method )) {
+		if ("removeemail".equals(method)) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getAddEmailUrl();
-		}
-		else if ("deleteaccountwithemailconfirmation".equals(method )) {
+		} else if ("deleteaccountwithemailconfirmation".equals(method)) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getAddEmailUrl();
-		}else if ("unlinksocialidentities".equals(method )) {
+		} else if ("unlinksocialidentities".equals(method)) {
 			finalpath = Endpoint.getSocialIdentities();
-		}else if ("deletecustomobject".equals(method )) {
+		} else if ("deletecustomobject".equals(method)) {
 			params.remove("objectRecordId");
-
-			params.put("access_token", token);
+            params.put("access_token", token);
 			finalpath = Endpoint.getCustomObject() + "/" + objectRecordId;
-		}else if ("RemoveGoogleAuthenticatorByToken".equals(method)) {
+		} else if ("RemoveGoogleAuthenticatorByToken".equals(method)) {
 			finalpath = Endpoint.getGoogleAuthenticatorByToken();
 			params.put("access_token", token);
-		}else if("RemoveGoogleAuthenticatorByUid".equals(method)){
+		} else if ("RemoveGoogleAuthenticatorByUid".equals(method)) {
 			finalpath = Endpoint.getGoogleAuthenticatorByUid();
-			
+
 		}
 		return executeDelete(finalpath, params, json);
 	}

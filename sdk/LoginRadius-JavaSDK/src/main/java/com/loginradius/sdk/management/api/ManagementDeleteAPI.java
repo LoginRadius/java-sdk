@@ -1,5 +1,12 @@
 package com.loginradius.sdk.management.api;
 
+/* 
+ * 
+ * Created by LoginRadius Development Team on 02/06/2017
+   Copyright © 2017 LoginRadius Inc. All rights reserved.  
+   
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,7 +23,7 @@ public class ManagementDeleteAPI extends LRManagementAPI {
 	private String objectRecordId = "";
 	private String uid = "";
 	private String role = "";
-	private String rolecontextname="";
+	private String rolecontextname = "";
 	private Map<String, String> map = new HashMap<String, String>();
 
 	private JsonObject json;
@@ -59,35 +66,34 @@ public class ManagementDeleteAPI extends LRManagementAPI {
 			}
 			if (map.containsKey("role")) {
 				role = map.get("role");
-			}if (map.containsKey("rolecontextname")) {
+			}
+			if (map.containsKey("rolecontextname")) {
 				rolecontextname = map.get("rolecontextname");
 			}
 		}
-		
-		
-		
-		
+
 		if ("deleteaccount".equals(method)) {
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid;
-		}else if ("deletecustomobjectbyid".equals(method )) {
+		} else if ("deletecustomobjectbyid".equals(method)) {
 			params.remove("uid");
 			params.remove("objectRecordId");
 			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid + "/customobject/" + objectRecordId;
-		}else if ("deleterole".equals(method )) {
+		} else if ("deleterole".equals(method)) {
 			params.remove("role");
-            finalpath = Endpoint.getV2_ManagementCreateRole() + "/" + role;
-		}else if ("removepermissions".equals(method )) {
+			finalpath = Endpoint.getV2_ManagementCreateRole() + "/" + role;
+		} else if ("removepermissions".equals(method)) {
 			params.remove("role");
 			finalpath = Endpoint.getV2_ManagementCreateRole() + "/" + role + "/permission";
-		}else if ("deletecontext".equals(method )) {
+		} else if ("deletecontext".equals(method)) {
 			params.remove("uid");
 			params.remove("rolecontextname");
-			finalpath = Endpoint.getV2_ManagementGetRoleContext() + "/" + uid + "/rolecontext"+rolecontextname;
-		}else if ("deleteroleandpermission".equals(method )) {
+			finalpath = Endpoint.getV2_ManagementGetRoleContext() + "/" + uid + "/rolecontext" + rolecontextname;
+		} else if ("deleteroleandpermission".equals(method)) {
 			params.remove("uid");
 			params.remove("rolecontextname");
-			finalpath = Endpoint.getV2_ManagementGetRoleContext() + "/" + uid + "/rolecontext"+rolecontextname+"/role";
+			finalpath = Endpoint.getV2_ManagementGetRoleContext() + "/" + uid + "/rolecontext" + rolecontextname
+					+ "/role";
 		}
 
 		return executeDelete(finalpath, params, json);

@@ -1,5 +1,18 @@
-> **LoginRadius Java SDK Change Log** provides information regarding what has changed, more specifically what changes, improvements and bug fix has been made to the SDK. For more details please refer to the [LoginRadius API Documention](https://docs.loginradius.com/api/v2/sdk-libraries/java-library)
+> **LoginRadius Java SDK Change Log** provides information regarding what has changed, more specifically what changes, improvements and bug fix has been made to the SDK. For more details please refer to the [LoginRadius API Documention](https://github.com/LoginRadius/java-sdk)
 
+
+### Version 3.2.0
+Released on **june 15,  2017**
+
+##### Enhancements
+
+  - Added new access token API based on UID (user impersonation) 
+  - Added new Auto Login APIs
+  - Added new backup code API in case of device lost and Google Authenticator enabled.
+  - Significantly improved code performance.
+ 
+##### Bug Fixes
+  - Issue with NULL Support at Update Account APIs.
 
 
 ### Version 3.1.0

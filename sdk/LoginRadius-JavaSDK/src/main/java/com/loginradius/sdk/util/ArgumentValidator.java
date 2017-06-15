@@ -1,5 +1,12 @@
 package com.loginradius.sdk.util;
 
+/* 
+ * 
+ * Created by LoginRadius Development Team on 02/06/2017
+   Copyright © 2017 LoginRadius Inc. All rights reserved.  
+   
+ */
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,7 +34,7 @@ public class ArgumentValidator {
 			"2FAbyGoogleAuthenticator","2FAbyToken","2FAVerifybyGoogleAuthenticator","2FALoginByBackupcode","2FAGetBackupcode",
 			"2FAResetBackupcode","2FAGetBackupcodeByUid","2FAResetBackupcodeByUid","2FAUpdatePhoneNumber","2FAUpdatePhoneNumberbyToken",
 			"RemoveGoogleAuthenticatorByToken","RemoveGoogleAuthenticatorByUid","getrolecontext","addrolecontext","deletecontext","deleteroleandpermission",
-			"emailautologin","emailautologinping"};
+			"emailautologin","emailautologinping","accesstokenbyuid","validateaccesstoken","invalidateaccesstoken"};
 
 	private static List<String> pathNames = new ArrayList<String>();
 

@@ -1,5 +1,13 @@
 package com.loginradius.sdk.advanced.api;
 
+
+/* 
+ * 
+ * Created by LoginRadius Development Team on 02/06/2017
+   Copyright © 2017 LoginRadius Inc. All rights reserved.  
+   
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,38 +60,30 @@ public class AdvancedPostAPI extends LRAdvancedAPI {
 
 		}
 
-			
-		
-		if ("getsocialidentity".equals(method )) {
+		if ("getsocialidentity".equals(method)) {
 			finalpath = Endpoint.getV2_AdvancedIdentity();
-		}
-		else if ("querydata".equals(method )) {
+		} else if ("querydata".equals(method)) {
 			finalpath = Endpoint.getV2_AdvancedQueryData();
-		}
-		else if ("subscriberesthooks".equals(method )) {
+		} else if ("subscriberesthooks".equals(method)) {
 			finalpath = Endpoint.getV2_AdvancedSubscribeRestHooks();
-		}
-		else if ("unsubscriberesthooks".equals(method )) {
+		} else if ("unsubscriberesthooks".equals(method)) {
 			finalpath = Endpoint.getV2_AdvancedUnsubscribeRestHooks();
-		}else if ("addemail".equals(method )) {
+		} else if ("addemail".equals(method)) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getAddEmailUrl();
-		}
-		else if ("createcustomobject".equals(method )) {
+		} else if ("createcustomobject".equals(method)) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getCustomObject();
-		}
-		else if ("forgotpasswordbyotp".equals(method )) {
+		} else if ("forgotpasswordbyotp".equals(method)) {
 			finalpath = Endpoint.getForgotPasswordUrlMobile();
-		}
-		else if ("resendotp".equals(method )) {
+		} else if ("resendotp".equals(method)) {
 			finalpath = Endpoint.getVerifyotpUrl();
-		}else if ("resendotpbytoken".equals(method )) {
+		} else if ("resendotpbytoken".equals(method)) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getVerifyotpUrl();
-		}else if ("forgotpasswordbyemail".equals(method )) {
+		} else if ("forgotpasswordbyemail".equals(method)) {
 			finalpath = Endpoint.getForgotPasswordUrlEmail();
-		}else if ("trackablestatusposting".equals(method )) {
+		} else if ("trackablestatusposting".equals(method)) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_STATUS() + "/trackable";
 		}

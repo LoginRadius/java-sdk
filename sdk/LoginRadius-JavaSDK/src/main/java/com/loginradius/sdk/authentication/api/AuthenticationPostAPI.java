@@ -1,5 +1,13 @@
 package com.loginradius.sdk.authentication.api;
 
+
+/* 
+ * 
+ * Created by LoginRadius Development Team on 02/06/2017
+   Copyright © 2017 LoginRadius Inc. All rights reserved.  
+   
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,34 +59,33 @@ public class AuthenticationPostAPI extends LRAuthenticationAPI {
 			params.putAll(map);
 
 		}
-		
-		if ("status".equals(method )) {
+
+		if ("status".equals(method)) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_STATUS();
-		}else if ("message".equals(method )) {
+		} else if ("message".equals(method)) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_MESSAGE();
-		}else if ("register".equals(method )) {
+		} else if ("register".equals(method)) {
 			finalpath = Endpoint.getRegistrationUrl();
-		}else if ("password".equals(method )) {
+		} else if ("password".equals(method)) {
 			finalpath = Endpoint.getForgotPasswordUrlEmail();
-		}else if ("addemail".equals(method )) {
+		} else if ("addemail".equals(method)) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getAddEmailUrl();
-		}else if ("createcustomobject".equals(method )) {
+		} else if ("createcustomobject".equals(method)) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getCustomObject();
-		}else if ("forgotpasswordbyotp".equals(method )) {
+		} else if ("forgotpasswordbyotp".equals(method)) {
 			finalpath = Endpoint.getForgotPasswordUrlMobile();
-		}else if ("resendotp".equals(method )) {
+		} else if ("resendotp".equals(method)) {
 			finalpath = Endpoint.getVerifyotpUrl();
-		}else if ("resendotpbytoken".equals(method )) {
+		} else if ("resendotpbytoken".equals(method)) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getVerifyotpUrl();
-		}else if ("forgotpasswordbyemail".equals(method )) {
+		} else if ("forgotpasswordbyemail".equals(method)) {
 			finalpath = Endpoint.getForgotPasswordUrlEmail();
 		}
-		
 
 		return executePost(finalpath, params, json);
 	}

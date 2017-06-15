@@ -1,5 +1,12 @@
 package com.loginradius.sdk.authentication.api;
 
+/* 
+ * 
+ * Created by LoginRadius Development Team on 02/06/2017
+   Copyright © 2017 LoginRadius Inc. All rights reserved.  
+   
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,44 +61,41 @@ public class AuthenticationPutAPI extends LRAuthenticationAPI {
 			}
 		}
 
-		
-		if ("changeusername".equals(method )) {
+		if ("changeusername".equals(method)) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getUserNameAvailability();
-		}else if ("resendemailverification".equals(method )) {
+		} else if ("resendemailverification".equals(method)) {
 			finalpath = Endpoint.getRegistrationUrl();
-		}else if ("resetpassword".equals(method )) {
+		} else if ("resetpassword".equals(method)) {
 			finalpath = Endpoint.getForgotPasswordUrlEmail();
-		}else if ("changepassword".equals(method )) {
+		} else if ("changepassword".equals(method)) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getForgotPasswordUrlEmail();
-		}else if ("linksocialidentities".equals(method )) {
+		} else if ("linksocialidentities".equals(method)) {
 			finalpath = Endpoint.getSocialIdentities();
-		}else if ("updateobjectbyrecordid".equals(method )) {
+		} else if ("updateobjectbyrecordid".equals(method)) {
 			params.remove("objectRecordId");
 			params.put("access_token", token);
 			finalpath = Endpoint.getCustomObject() + "/" + objectRecordId;
-		}else if ("updatephone".equals(method )) {
+		} else if ("updatephone".equals(method)) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getUpdatephoneUrl();
-		}else if ("resetpasswordbyotp".equals(method )) {
+		} else if ("resetpasswordbyotp".equals(method)) {
 			finalpath = Endpoint.getForgotPasswordUrlMobile();
-		}else if ("verifyotp".equals(method )) {
+		} else if ("verifyotp".equals(method)) {
 			finalpath = Endpoint.getVerifyotpUrl();
-		}else if ("verifyotpbytoken".equals(method )) {
+		} else if ("verifyotpbytoken".equals(method)) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getVerifyotpUrl();
-		}else if ("updateaccountbytoken".equals(method )) {
+		} else if ("updateaccountbytoken".equals(method)) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getUpdateProfileUrl();
-		}else if ("2FAUpdatePhoneNumber".equals(method)) {
+		} else if ("2FAUpdatePhoneNumber".equals(method)) {
 			finalpath = Endpoint.get2FALogin();
-		}else if("2FAUpdatePhoneNumberbyToken".equals(method)){
+		} else if ("2FAUpdatePhoneNumberbyToken".equals(method)) {
 			finalpath = Endpoint.get2FAByToken();
 			params.put("access_token", token);
 		}
-		
-		
 
 		return executePut(finalpath, params, json);
 	}

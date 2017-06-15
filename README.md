@@ -17,11 +17,6 @@ LoginRadius helps businesses boost user engagement on their web/mobile platform,
 Please visit [here](http://www.loginradius.com/) for more information.
 
 
-
-
-# Installing
-
-
 # Installing
 
 LoginRadius is now using Maven. At present the jars *are* available from a public [maven]( http://search.maven.org/#search%7Cga%7C1%7Cloginradius) repository.
@@ -32,8 +27,10 @@ Use the following dependency in your project:
 <dependency>
   <groupId>com.loginradius.sdk</groupId>
   <artifactId>java-sdk</artifactId>
-  <version>3.1.0</version>
+  <version>3.2.0</version>
 </dependency>
+
+```
 
 The jars are also available [here](http://search.maven.org/#search%7Cga%7C1%7Cloginradius). Select the directory for
 the latest version and download the jar files.

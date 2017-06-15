@@ -1,5 +1,13 @@
 package com.loginradius.sdk.management.api;
 
+
+/* 
+ * 
+ * Created by LoginRadius Development Team on 02/06/2017
+   Copyright © 2017 LoginRadius Inc. All rights reserved.  
+   
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,34 +52,34 @@ public class ManagementGetAPI extends LRManagementAPI {
 				uid = map.get("uid");
 			}
 		}
-		
-		
-		
+
 		if ("emaillogin".equals(method)) {
 			finalpath = Endpoint.getV2_ManagementCreateAccount();
-		}else if ("usernamelogin".equals(method )) {
+		} else if ("usernamelogin".equals(method)) {
 			finalpath = Endpoint.getV2_ManagementCreateAccount();
-		}else if ("loginbyphone".equals(method )) {
+		} else if ("loginbyphone".equals(method)) {
 			finalpath = Endpoint.getV2_ManagementCreateAccount();
-		}else if ("loginbyuid".equals(method )) {
+		} else if ("loginbyuid".equals(method)) {
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid;
-		}else if ("getpassword".equals(method )) {
+		} else if ("getpassword".equals(method)) {
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid + "/password";
-		}else if ("customobjectbyuid".equals(method )) {
+		} else if ("customobjectbyuid".equals(method)) {
 			params.remove("objectRecordId");
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid + "/customobject/" + objectRecordId;
-		}else if ("getrole".equals(method )) {
+		} else if ("getrole".equals(method)) {
 			finalpath = Endpoint.getV2_ManagementCreateRole();
-		}else if ("getrolesbyuid".equals(method )) {
+		} else if ("getrolesbyuid".equals(method)) {
 			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid + "/role";
-		}else if ("getrolecontext".equals(method )) {
+		} else if ("getrolecontext".equals(method)) {
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementGetRoleContext() + "/" + uid + "/rolecontext";
+		} else if ("accesstokenbyuid".equals(method)) {
+			finalpath = Endpoint.getV2_Management_GetAccessToken_By_Uid();
 		}
-		
+
 		return executeGet(finalpath, params);
 
 	}

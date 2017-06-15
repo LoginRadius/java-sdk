@@ -1,5 +1,12 @@
 package com.loginradius.sdk.management.api;
 
+/* 
+ * 
+ * Created by LoginRadius Development Team on 02/06/2017
+   Copyright © 2017 LoginRadius Inc. All rights reserved.  
+   
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -58,14 +65,14 @@ public class ManagementPostAPI extends LRManagementAPI {
 
 		if ("createaccount".equals(method)) {
 			finalpath = Endpoint.getV2_ManagementCreateAccount();
-		}else if ("createcustomobject".equals(method )) {
+		} else if ("createcustomobject".equals(method)) {
 			params.remove("uid");
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_ManagementCreateCustomObject() + "/" + uid + "/customobject";
-		}else if ("createrole".equals(method )) {
+		} else if ("createrole".equals(method)) {
 			finalpath = Endpoint.getV2_ManagementCreateRole();
 		}
-		
+
 		return executePost(finalpath, params, json);
 
 	}

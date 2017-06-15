@@ -1,8 +1,17 @@
 package com.loginradius.sdk.advanced.api;
 
+
+/* 
+ * 
+ * Created by LoginRadius Development Team on 02/06/2017
+   Copyright © 2017 LoginRadius Inc. All rights reserved.  
+   
+ */
+
 import java.util.Map;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.loginradius.sdk.resource.LoginRadiusException;
 import com.loginradius.sdk.util.LoginRadiusJsonDeserializer;
@@ -17,7 +26,7 @@ import com.loginradius.sdk.util.RestResponse;
  */
 public abstract class LRAdvancedAPI {
 
-	Gson gson = new Gson();
+	Gson gson = new GsonBuilder().serializeNulls().create();
 
 	protected RestRequest restrequest = new RestRequest();
 	protected LoginRadiusJsonDeserializer deserializer = new LoginRadiusJsonDeserializer();
