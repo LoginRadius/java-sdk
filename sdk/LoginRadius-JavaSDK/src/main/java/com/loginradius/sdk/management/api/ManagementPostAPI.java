@@ -71,6 +71,8 @@ public class ManagementPostAPI extends LRManagementAPI {
 			finalpath = Endpoint.getV2_ManagementCreateCustomObject() + "/" + uid + "/customobject";
 		} else if ("createrole".equals(method)) {
 			finalpath = Endpoint.getV2_ManagementCreateRole();
+		}else if ("addregistrationdata".equals(method)) {
+			finalpath = Endpoint.getV2_AddRegistrationData();
 		}
 
 		return executePost(finalpath, params, json);

@@ -23,6 +23,7 @@ public class ManagementPutAPI extends LRManagementAPI {
 	private String objectRecordId = "";
 	private String uid = "";
 	private String role = "";
+	private String recordid = "";
 	private Map<String, String> map = new HashMap<String, String>();
 
 	private JsonObject json;
@@ -65,6 +66,8 @@ public class ManagementPutAPI extends LRManagementAPI {
 			}
 			if (map.containsKey("role")) {
 				role = map.get("role");
+			}if (map.containsKey("recordid")) {
+				recordid = map.get("recordid");
 			}
 		}
 
@@ -87,9 +90,16 @@ public class ManagementPutAPI extends LRManagementAPI {
 		} else if ("addrolecontext".equals(method)) {
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementGetRoleContext() + "/" + uid + "/rolecontext";
-		}
+		}else if ("resetphoneidverification".equals(method)) {
+			params.remove("uid");
+			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid + "/invalidatephone";
+		}else if ("updateregistrationdata".equals(method)) {
+			params.remove("recordid");
+			finalpath = Endpoint.getGetRegistrationData_Management() +"/"+recordid;
 
-		return executePut(finalpath, params, json);
+		}
+		
+     	return executePut(finalpath, params, json);
 	}
 
 }

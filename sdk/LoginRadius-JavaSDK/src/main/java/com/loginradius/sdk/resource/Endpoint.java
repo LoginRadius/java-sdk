@@ -50,7 +50,10 @@ public class Endpoint {
 
 	public static final String TOKEN_EXACHANGE = "/api/v2/access_token";
 	public static final String API_V2_CustomObjects = "/identity/v2/auth/customobject";
-
+	
+	public static final String API_V2_INSTANT_REGISTRATION = "/identity/v2/auth/noregistration";
+	public static final String API_V2_GET_REGISTRATION_DATA = "/identity/v2/auth/registrationdata";
+	public static final String API_V2_GET_SECURITY_QUESTIONS = "/identity/v2/auth/securityquestion";
 	/**
 	 * 
 	 * Management API EndPoint
@@ -59,6 +62,8 @@ public class Endpoint {
 	public static final String API_V2_Management_CreateAccount = "/identity/v2/manage/account";
 	public static final String API_V2_Management_AccessToken_By_Uid = "/identity/v2/manage/account/access_token";
 	public static final String API_V2_Management_Role = "/identity/v2/manage/role";
+	public static final String API_V2_GET_REGISTRATION_MANAGEMENT_DATA = "/identity/v2/manage/registrationdata";
+	public static final String API_V2_ADD_REGISTRATION_DATA = "/identity/v2/manage/registrationdata";
 
 	/**
 	 * 
@@ -167,6 +172,13 @@ public class Endpoint {
 	public static String getV2_AdvancedShortenURL() {
 		return LOGINRADIUS_API_ROOT + API_V2_Advanced_ShortenURL;
 	}
+	
+	public static String getV2_AddRegistrationData() {
+		return LOGINRADIUS_API_ROOT + API_V2_ADD_REGISTRATION_DATA;
+	}
+	
+	
+	
 
 	/**
 	 * Creates Auth url after appending LoginRadius api root url
@@ -356,6 +368,33 @@ public class Endpoint {
 
 	public static String getAuth_InvalidateAccesstoken() {
 		return LOGINRADIUS_API_ROOT + API_V2_AUTH_INVALIDATE_ACCESS_TOKEN;
+	}
+	
+	
+	public static String getInstant_Registrationby_Email() {
+		return LOGINRADIUS_API_ROOT + API_V2_INSTANT_REGISTRATION +"/email";
+	}
+	
+	
+	public static String getInstant_Registrationby_Phone() {
+		return LOGINRADIUS_API_ROOT + API_V2_INSTANT_REGISTRATION +"/phone";
+	}
+
+	public static String getInstant_Registration_Otp_Verification() {
+		return LOGINRADIUS_API_ROOT + API_V2_INSTANT_REGISTRATION +"/phone/verify";
+	}
+
+	public static String getGetRegistrationData() {
+		return LOGINRADIUS_API_ROOT + API_V2_GET_REGISTRATION_DATA;
+	}
+	
+	public static String getGetRegistrationData_Management() {
+		return LOGINRADIUS_API_ROOT + API_V2_GET_REGISTRATION_MANAGEMENT_DATA;
+	}
+	
+	
+	public static String getGetSecurityQuestionsByAccessToken() {
+		return LOGINRADIUS_API_ROOT + API_V2_GET_SECURITY_QUESTIONS;
 	}
 
 	/**

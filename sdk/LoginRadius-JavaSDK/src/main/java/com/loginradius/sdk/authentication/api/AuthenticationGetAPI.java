@@ -20,6 +20,7 @@ public class AuthenticationGetAPI extends LRAuthenticationAPI {
 	private String finalpath = "";
 	private String objectRecordId = "";
 	private String timeDifferance = "";
+	private String type = "";
 
 	private Map<String, String> map = new HashMap<String, String>();
 
@@ -49,6 +50,8 @@ public class AuthenticationGetAPI extends LRAuthenticationAPI {
 				objectRecordId = map.get("objectRecordId");
 			} else if (map.containsKey("difference")) {
 				timeDifferance = map.get("difference");
+			}else if (map.containsKey("type")) {
+				type = map.get("type");
 			}
 		}
 
@@ -106,7 +109,7 @@ public class AuthenticationGetAPI extends LRAuthenticationAPI {
 		} else if ("message".equals(method)) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_MESSAGE();
-		} else if ("emailloginemaillogin".equals(method)) {
+		} else if ("emaillogin".equals(method)) {
 			finalpath = Endpoint.getLoginUrl();
 		} else if ("verifyemail".equals(method)) {
 			finalpath = Endpoint.getAddEmailUrl();
@@ -180,6 +183,29 @@ public class AuthenticationGetAPI extends LRAuthenticationAPI {
 
 		} else if ("invalidateaccesstoken".equals(method)) {
 			finalpath = Endpoint.getAuth_InvalidateAccesstoken();
+
+		} else if ("instantregistrationbyemail".equals(method)) {
+			finalpath = Endpoint.getInstant_Registrationby_Email();
+
+		}else if ("instantregistrationbyphone".equals(method)) {
+			finalpath = Endpoint.getInstant_Registrationby_Phone();
+
+		}else if ("getregistrationdata".equals(method)) {
+			params.remove("type");
+			finalpath = Endpoint.getGetRegistrationData() +"/"+type;
+
+		}else if ("securityquestionsbyaccesstoken".equals(method)) {
+			params.put("access_token", token);
+            finalpath = Endpoint.getGetSecurityQuestionsByAccessToken()+"/accesstoken";
+
+		}else if ("securityquestionsbyemail".equals(method)) {
+            finalpath = Endpoint.getGetSecurityQuestionsByAccessToken()+"/email";
+
+		}else if ("securityquestionsbyusername".equals(method)) {
+            finalpath = Endpoint.getGetSecurityQuestionsByAccessToken()+"/username";
+
+		}else if ("securityquestionsbyphone".equals(method)) {
+            finalpath = Endpoint.getGetSecurityQuestionsByAccessToken()+"/phone";
 
 		}
 

@@ -6,12 +6,12 @@ package com.loginradius.sdk.models.login;
 public class LoginParams {
 
 
-        public String email;
-       public String phone;
+    public String email;
+    public String phone;
     public String username ;
         //public Provider provider;
-        public String password;
-        public String apikey;
+    public String password;
+    public String apikey;
     public String emailTemplate;
     public String loginUrl;
     public String verificationUrl;

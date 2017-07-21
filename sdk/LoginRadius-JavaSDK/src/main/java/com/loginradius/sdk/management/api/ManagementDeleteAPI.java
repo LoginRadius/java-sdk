@@ -24,6 +24,7 @@ public class ManagementDeleteAPI extends LRManagementAPI {
 	private String uid = "";
 	private String role = "";
 	private String rolecontextname = "";
+	private String recordid = "";
 	private Map<String, String> map = new HashMap<String, String>();
 
 	private JsonObject json;
@@ -69,6 +70,8 @@ public class ManagementDeleteAPI extends LRManagementAPI {
 			}
 			if (map.containsKey("rolecontextname")) {
 				rolecontextname = map.get("rolecontextname");
+			}if (map.containsKey("recordid")) {
+				recordid = map.get("recordid");
 			}
 		}
 
@@ -94,6 +97,9 @@ public class ManagementDeleteAPI extends LRManagementAPI {
 			params.remove("rolecontextname");
 			finalpath = Endpoint.getV2_ManagementGetRoleContext() + "/" + uid + "/rolecontext" + rolecontextname
 					+ "/role";
+		}else if ("deleteregistrationdata".equals(method)) {
+			params.remove("recordid");
+			finalpath = Endpoint.getGetRegistrationData_Management() +"/"+recordid;
 		}
 
 		return executeDelete(finalpath, params, json);

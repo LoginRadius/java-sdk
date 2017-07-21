@@ -1,8 +1,22 @@
 > **LoginRadius Java SDK Change Log** provides information regarding what has changed, more specifically what changes, improvements and bug fix has been made to the SDK. For more details please refer to the [LoginRadius API Documention](https://github.com/LoginRadius/java-sdk)
 
+### Version 3.3.0
+Released on **July 20,  2017**
 
+##### Enhancements
+
+  - Added new Custom Registration Data APIs. 
+  - Added new Get Security Questions By Access Token, Email, UserName and Phone APIs
+  - Added new Simplified Registration APIs.
+  - Significantly improved code performance.
+ 
+##### Bug Fixes
+
+  - Fixed Issue related to missing fields in Login API.
+  
+  
 ### Version 3.2.0
-Released on **june 15,  2017**
+Released on **June 15,  2017**
 
 ##### Enhancements
 

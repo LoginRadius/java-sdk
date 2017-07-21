@@ -93,7 +93,7 @@ function registerInterface(){
 	commonOptions.accessTokenResponse = true;
 	commonOptions.phoneLogin = false;
 	commonOptions.sott = "<%= sott %>"; 
-	commonOptions.verificationUrl = "<put your verificationUrl>";
+	commonOptions.verificationUrl = "http://localhost:8080";
 	commonOptions.callbackUrl="http://localhost:8080";
 	
 commonOptions.formValidationMessage=true;
@@ -138,7 +138,7 @@ function forgotpassword(){
 	commonOptions.accessTokenResponse = true;
 	commonOptions.phoneLogin = false;
 	commonOptions.sott = "<%= sott %>"; 
-	commonOptions.verificationUrl = "<put your verificationUrl>";
+	commonOptions.verificationUrl = "http://localhost:8080";
 	commonOptions.callbackUrl="http://localhost:8080";
     commonOptions.formValidationMessage=true;
 	var LRObject= new LoginRadiusV2(commonOptions);
@@ -176,7 +176,7 @@ commonOptions.hashTemplate = true;
 commonOptions.accessTokenResponse = true;
 commonOptions.phoneLogin = false;
 commonOptions.sott = "<%= sott %>"; 
-commonOptions.verificationUrl = "<put your verificationUrl>";
+commonOptions.verificationUrl = "http://localhost:8080";
 commonOptions.callbackUrl="http://localhost:8080";
 commonOptions.formValidationMessage=true;
 var LRObject= new LoginRadiusV2(commonOptions);

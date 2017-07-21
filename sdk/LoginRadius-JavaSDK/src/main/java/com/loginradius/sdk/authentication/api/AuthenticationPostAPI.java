@@ -85,6 +85,8 @@ public class AuthenticationPostAPI extends LRAuthenticationAPI {
 			finalpath = Endpoint.getVerifyotpUrl();
 		} else if ("forgotpasswordbyemail".equals(method)) {
 			finalpath = Endpoint.getForgotPasswordUrlEmail();
+		}else if ("validatesecretcode".equals(method)) {
+			finalpath = Endpoint.getGetRegistrationData()+"/validatecode";
 		}
 
 		return executePost(finalpath, params, json);

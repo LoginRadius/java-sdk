@@ -21,7 +21,8 @@ public class ManagementGetAPI extends LRManagementAPI {
 	private String finalpath = "";
 	private String objectRecordId = "";
 	private String uid = "";
-
+	private String type = "";
+	
 	private Map<String, String> map = new HashMap<String, String>();
 
 	public ManagementGetAPI(String method, Map<String, String> map) {
@@ -47,9 +48,10 @@ public class ManagementGetAPI extends LRManagementAPI {
 			params.putAll(map);
 			if (map.containsKey("objectRecordId")) {
 				objectRecordId = map.get("objectRecordId");
-			}
-			if (map.containsKey("uid")) {
+			}if (map.containsKey("uid")) {
 				uid = map.get("uid");
+			}if (map.containsKey("type")) {
+				type = map.get("type");
 			}
 		}
 
@@ -78,6 +80,10 @@ public class ManagementGetAPI extends LRManagementAPI {
 			finalpath = Endpoint.getV2_ManagementGetRoleContext() + "/" + uid + "/rolecontext";
 		} else if ("accesstokenbyuid".equals(method)) {
 			finalpath = Endpoint.getV2_Management_GetAccessToken_By_Uid();
+		}else if ("getregistrationdata".equals(method)) {
+			params.remove("type");
+			finalpath = Endpoint.getGetRegistrationData_Management() +"/"+type;
+
 		}
 
 		return executeGet(finalpath, params);

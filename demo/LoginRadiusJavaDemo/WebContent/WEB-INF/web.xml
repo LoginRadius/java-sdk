@@ -11,7 +11,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <context-param>
+ <context-param>
     <param-name>LoginRadiusApiKey</param-name>
     <param-value></param-value>
   </context-param>

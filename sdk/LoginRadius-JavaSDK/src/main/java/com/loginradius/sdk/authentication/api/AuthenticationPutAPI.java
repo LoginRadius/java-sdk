@@ -95,6 +95,9 @@ public class AuthenticationPutAPI extends LRAuthenticationAPI {
 		} else if ("2FAUpdatePhoneNumberbyToken".equals(method)) {
 			finalpath = Endpoint.get2FAByToken();
 			params.put("access_token", token);
+		}else if ("instantregistrationotpverification".equals(method)) {
+			finalpath = Endpoint.getInstant_Registration_Otp_Verification();
+
 		}
 
 		return executePut(finalpath, params, json);

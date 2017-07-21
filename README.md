@@ -27,7 +27,7 @@ Use the following dependency in your project:
 <dependency>
   <groupId>com.loginradius.sdk</groupId>
   <artifactId>java-sdk</artifactId>
-  <version>3.2.0</version>
+  <version>3.3.0</version>
 </dependency>
 
 ```

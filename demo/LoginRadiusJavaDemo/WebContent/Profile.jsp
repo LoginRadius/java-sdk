@@ -1,4 +1,22 @@
 
+
+<%@page import="com.loginradius.sdk.util.LoginRadiusConstant"%>
+
+<%@page import="com.loginradius.sdk.models.login.LoginData"%>
+<%@page import="com.loginradius.sdk.authentication.api.AuthenticationPostAPI"%>
+<%@page import="com.loginradius.sdk.models.customregistrationdata.UpdateRegistrationDataResponse"%>
+<%@page import="com.loginradius.sdk.management.api.ManagementPutAPI"%>
+<%@page import="com.loginradius.sdk.management.api.ManagementGetAPI"%>
+<%@page import="com.loginradius.sdk.models.register.DeleteResponse"%>
+<%@page import="com.loginradius.sdk.management.api.ManagementDeleteAPI"%>
+<%@page import="com.loginradius.sdk.models.customregistrationdata.GetRegistrationDataResponse"%>
+<%@page import="com.google.gson.JsonArray"%>
+<%@page import="com.loginradius.sdk.management.api.ManagementPostAPI"%>
+<%@page import="com.loginradius.sdk.management.api.LRManagementAPI"%>
+<%@page import="com.loginradius.sdk.models.customobject.CreateCustomObject"%>
+<%@page import="com.loginradius.sdk.authentication.api.AuthenticationPutAPI"%>
+<%@page import="com.loginradius.sdk.models.register.RegisterResponse"%>
+<%@page import="com.google.gson.JsonObject"%>
 <%@page import="com.google.gson.Gson"%>
 <%@page import="com.loginradius.sdk.resource.LoginRadiusClient"%>
 <%@page import="com.loginradius.sdk.models.AccessToken"%>
@@ -38,13 +56,7 @@
         client.setToken(token);
         Gson gson = new Gson();
 
-        	
         
-        	 
-
-
-
-          
         if(token !=null)
         {  
         session.setAttribute("lrtoken",token.access_token);
@@ -53,7 +65,7 @@
 
         	params.put("apikey",apikey);
         	params.put("emailTemplate","sdfsdfds");
-        	LRAuthenticationAPI userprofileapi = new AuthenticationGetAPI("userprofile",params);
+        	LRAuthenticationAPI userprofileapi = new AuthenticationGetAPI(LoginRadiusConstant.USERPROFILE,params);
         	LoginRadiusUltimateUserProfile profile = client.getResponse(userprofileapi,LoginRadiusUltimateUserProfile.class);
         
         	
