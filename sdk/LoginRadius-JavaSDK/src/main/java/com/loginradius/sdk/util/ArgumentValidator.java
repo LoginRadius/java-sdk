@@ -30,13 +30,13 @@ public class ArgumentValidator {
 			"loginbyuid", "getpassword", "customobjectbyuid", "getrole", "getrolesbyuid", "updateaccount",
 			"setpassword", "addpermissionstorole", "testresthookssettings", "listofresthooks", "getsubscribedurl",
 			"accesstokenviafbtoken", "accesstokenviatwtoken", "refreshprofile", "shortenURL", "trackablestatusfetching",
-			"gettrackablestatusstats", "trackablestatusposting", "refreshtoken", "socialinterface","servertime","2FALogin",
+			"gettrackablestatusstats","getactivesession", "trackablestatusposting", "refreshtoken", "socialinterface","servertime","2FALogin",
 			"2FAbyGoogleAuthenticator","2FAbyToken","2FAVerifybyGoogleAuthenticator","2FALoginByBackupcode","2FAGetBackupcode",
 			"2FAResetBackupcode","2FAGetBackupcodeByUid","2FAResetBackupcodeByUid","2FAUpdatePhoneNumber","2FAUpdatePhoneNumberbyToken",
 			"RemoveGoogleAuthenticatorByToken","RemoveGoogleAuthenticatorByUid","getrolecontext","addrolecontext","deletecontext","deleteroleandpermission",
 			"emailautologin","emailautologinping","accesstokenbyuid","validateaccesstoken","invalidateaccesstoken","instantregistrationbyemail","instantregistrationbyphone",
 			"instantregistrationotpverification","addregistrationdata","getregistrationdata","updateregistrationdata","validatesecretcode","deleteregistrationdata",
-			"resetphoneidverification","securityquestionsbyaccesstoken","securityquestionsbyemail","securityquestionsbyusername","securityquestionsbyphone"};
+			"resetphoneidverification","securityquestionsbyaccesstoken","securityquestionsbyemail","securityquestionsbyusername","securityquestionsbyphone","generatesott","verifyautologinemail"};
 
 	private static List<String> pathNames = new ArrayList<String>();
 

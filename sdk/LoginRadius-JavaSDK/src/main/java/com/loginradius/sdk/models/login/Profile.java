@@ -6,16 +6,16 @@ package com.loginradius.sdk.models.login;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.loginradius.sdk.models.userprofile.UnverifiedEmail;
+import com.loginradius.sdk.models.userprofile.identity.Identity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
 public class Profile {
 
-    @SerializedName("Identities")
-    @Expose
-    private Object identities;
+	@SerializedName("Identities")
+	private List<Identity> identities = null;
     @SerializedName("PasswordExpirationDate")
     @Expose
     private Object passwordExpirationDate;
@@ -93,7 +93,7 @@ public class Profile {
     private Object website;
     @SerializedName("Email")
     @Expose
-    private List<Email> email = new ArrayList<Email>();
+    private List<Email> email;
     @SerializedName("Country")
     @Expose
     private Object country;
@@ -153,7 +153,7 @@ public class Profile {
     private Object educations;
     @SerializedName("PhoneNumbers")
     @Expose
-    private List<PhoneNumber> phoneNumbers = new ArrayList<PhoneNumber>();
+    private List<PhoneNumber> phoneNumbers;
     @SerializedName("IMAccounts")
     @Expose
     private Object iMAccounts;
@@ -384,23 +384,22 @@ public class Profile {
     @Expose
     private String lastLoginDate;
 
+    @SerializedName("UnverifiedEmail")
+
+	private List<UnverifiedEmail> unverifiedEmail = null;
+
     /**
      *
      * @return
      * The identities
      */
-    public Object getIdentities() {
-        return identities;
-    }
+    public List<Identity> getIdentities() {
+		return identities;
+		}
 
-    /**
-     *
-     * @param identities
-     * The Identities
-     */
-    public void setIdentities(Object identities) {
-        this.identities = identities;
-    }
+	public void setIdentities(List<Identity> identities) {
+		this.identities = identities;
+		}
 
     /**
      *
@@ -2598,6 +2597,16 @@ public class Profile {
 	 public void setLastLoginDate(String lastLoginDate) {
 	 this.lastLoginDate = lastLoginDate;
 	 }
+	 
+	 
+	public List<UnverifiedEmail> getUnverifiedEmail() {
+	return unverifiedEmail;
+	}
+
+	public void setUnverifiedEmail(List<UnverifiedEmail> unverifiedEmail) {
+	this.unverifiedEmail = unverifiedEmail;
+	}
+
 	 
 
 }

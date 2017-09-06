@@ -207,6 +207,9 @@ public class AuthenticationGetAPI extends LRAuthenticationAPI {
 		}else if ("securityquestionsbyphone".equals(method)) {
             finalpath = Endpoint.getGetSecurityQuestionsByAccessToken()+"/phone";
 
+		}else if ("verifyautologinemail".equals(method)) {
+            finalpath = Endpoint.getAutoLoginEmailVerify();
+
 		}
 
 		return executeGet(finalpath, params);

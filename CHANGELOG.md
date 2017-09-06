@@ -1,12 +1,25 @@
 > **LoginRadius Java SDK Change Log** provides information regarding what has changed, more specifically what changes, improvements and bug fix has been made to the SDK. For more details please refer to the [LoginRadius API Documention](https://github.com/LoginRadius/java-sdk)
 
+### Version 3.4.0
+Released on **September 06,  2017**
+
+##### Enhancements
+
+  - Added new verified and unverified both email ids stored in different profile fields. 
+  - Added new projection of fields in all APIs
+  - Added new verify auto login email API.
+  - Added new management API to generate SOTT.
+  - Added new context role expiration in add/update role context API.
+  - Added new risk based authentication in login API.
+  - Significantly improved code performance.
+
 ### Version 3.3.0
 Released on **July 20,  2017**
 
 ##### Enhancements
 
   - Added new Custom Registration Data APIs. 
-  - Added new Get Security Questions By Access Token, Email, UserName and Phone APIs
+  - Added new Get Security Questions By Access Token,Email,UserName and Phone APIs
   - Added new Simplified Registration APIs.
   - Significantly improved code performance.
  

@@ -76,6 +76,9 @@ public class AdvancedGetAPI extends LRAdvancedAPI {
 		} else if ("gettrackablestatusstats".equals(method)) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_STATUS() + "/trackable/js";
+		}else if ("getactivesession".equals(method)) {
+			params.put("token", token);
+			finalpath = Endpoint.getV2_AdvancedAccessTokenViaSocialToken() + "activesession";
 		}
 
 		return executeGet(finalpath, params);

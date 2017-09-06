@@ -10,8 +10,6 @@ package com.loginradius.sdk.util;
 
 import java.util.Map;
 
-//import org.javalite.http.Put;
-
 import com.loginradius.sdk.resource.Endpoint;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
@@ -23,6 +21,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
  *
  */
 public class RestRequest {
+	
 
 	/**
 	 * Get to handle get request
@@ -56,12 +55,12 @@ public class RestRequest {
 				response.setStatusCode(jsonResponse.getStatus());
 
 			}
-
+			
 		} catch (UnirestException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
 		return response;
 	}
 

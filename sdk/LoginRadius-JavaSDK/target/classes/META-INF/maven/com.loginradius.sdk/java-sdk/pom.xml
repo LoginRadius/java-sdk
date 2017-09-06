@@ -6,7 +6,7 @@
 
     <groupId>com.loginradius.sdk</groupId>
     <artifactId>java-sdk</artifactId>
-    <version>3.3.0</version>
+    <version>3.4.0</version>
     <description>LoginRadius java SDK contains registration and social APIs</description>
     <url>https://github.com/LoginRadius/java-sdk</url>
 

@@ -3,37 +3,33 @@ package com.loginradius.sdk.models.userprofile;
 import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
+import com.loginradius.sdk.models.userprofile.identity.Identity;
 
 public class LoginRadiusUltimateUserProfile {
 	@SerializedName("Identities")
-
-	private Object identities;
-
+	private List<Identity> identities = null;
 	@SerializedName("Password")
 	private String password;
+	@SerializedName("LastPasswordChangeDate")
+	private String lastPasswordChangeDate;
 	@SerializedName("PasswordExpirationDate")
-
 	private String passwordExpirationDate;
+	@SerializedName("LastPasswordChangeToken")
+	private Object lastPasswordChangeToken;
 	@SerializedName("EmailVerified")
-
 	private Boolean emailVerified;
 	@SerializedName("IsActive")
-
 	private Boolean isActive;
 	@SerializedName("IsDeleted")
-
 	private Boolean isDeleted;
 	@SerializedName("Uid")
-
 	private String uid;
 	@SerializedName("CustomFields")
-
-	private Object customFields;
+    private Object customFields;
 	@SerializedName("IsEmailSubscribed")
-
-	private Boolean isEmailSubscribed;
+    private Boolean isEmailSubscribed;
 	@SerializedName("UserName")
-	private Object userName;
+	private String userName;
 	@SerializedName("NoOfLogins")
 	private Integer noOfLogins;
 	@SerializedName("PreviousUids")
@@ -244,43 +240,28 @@ public class LoginRadiusUltimateUserProfile {
 	public LoginRadiusUserSubscription Subscription;
 
 	@SerializedName("ExternalUserLoginId")
-
-	private Object externalUserLoginId;
+    private Object externalUserLoginId;
 	@SerializedName("RegistrationProvider")
-
-	private Object registrationProvider;
+    private Object registrationProvider;
 	@SerializedName("IsLoginLocked")
-
-	private Boolean isLoginLocked;
+    private Boolean isLoginLocked;
 	@SerializedName("LastLoginLocation")
-
-	private Object lastLoginLocation;
+    private Object lastLoginLocation;
 	@SerializedName("RegistrationSource")
-
-	private Object registrationSource;
+    private Object registrationSource;
 	@SerializedName("IsCustomUid")
-
-	private Boolean isCustomUid;
+    private Boolean isCustomUid;
 	@SerializedName("UnverifiedEmail")
 
 	private List<UnverifiedEmail> unverifiedEmail = null;
 
-	/**
-	 *
-	 * @return The identities
-	 */
-	public Object getIdentities() {
+	public List<Identity> getIdentities() {
 		return identities;
-	}
+		}
 
-	/**
-	 *
-	 * @param identities
-	 *            The Identities
-	 */
-	public void setIdentities(Object identities) {
+	public void setIdentities(List<Identity> identities) {
 		this.identities = identities;
-	}
+		}
 
 	/**
 	 *
@@ -405,7 +386,7 @@ public class LoginRadiusUltimateUserProfile {
 	 *
 	 * @return The userName
 	 */
-	public Object getUserName() {
+	public String getUserName() {
 		return userName;
 	}
 
@@ -414,7 +395,7 @@ public class LoginRadiusUltimateUserProfile {
 	 * @param userName
 	 *            The UserName
 	 */
-	public void setUserName(Object userName) {
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 

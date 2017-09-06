@@ -128,5 +128,9 @@ public class LoginRadiusConstant {
 	public static final String SECURITYQUESTIONS_BYEMAIL = "securityquestionsbyemail";
 	public static final String SECURITYQUESTIONS_BYUSERNAME = "securityquestionsbyusername";
 	public static final String SECURITYQUESTIONS_BYPHONE = "securityquestionsbyphone";
+	public static final String GENERATE_SOTT = "generatesott";
+	public static final String VERIFY_AUTOLOGIN_EMAIL = "verifyautologinemail";
+	public static final String GET_ACTIVESESSION = "getactivesession";
+	
 	
 }

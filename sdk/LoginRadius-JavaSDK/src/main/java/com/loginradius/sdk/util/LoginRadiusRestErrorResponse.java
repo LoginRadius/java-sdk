@@ -1,5 +1,9 @@
 package com.loginradius.sdk.util;
 
+import java.util.List;
+
+import com.loginradius.sdk.models.ExtraInfo;
+
 /* 
  * 
  * Created by LoginRadius Development Team on 02/06/2017
@@ -28,6 +32,8 @@ public class LoginRadiusRestErrorResponse {
 	private Object ProviderErrorResponse;
 
 	private Integer ErrorCode;
+	
+	private List<ExtraInfo> ExtraInfo = null;
 
 	/**
 	 * 
@@ -112,6 +118,15 @@ public class LoginRadiusRestErrorResponse {
 	 */
 	public void setErrorCode(Integer errorCode) {
 		this.errorCode = errorCode;
+	}
+	
+	
+	public List<ExtraInfo> getExtraInfo() {
+		return ExtraInfo;
+	}
+
+		public void setExtraInfo(List<ExtraInfo> ExtraInfo) {
+		this.ExtraInfo = ExtraInfo;
 	}
 
 }

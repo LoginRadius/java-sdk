@@ -29,6 +29,7 @@ public class Endpoint {
 	private static final String LOGINRADIUS_SocialIdentities = "/identity/v2/auth/socialIdentity";
 	private static final String LOGINRADIUS_CheckUserNameAvailability = "/identity/v2/auth/username";
 	private static final String API_V2_AUTO_LOGIN = "/identity/v2/auth/login/autologin";
+	private static final String API_V2_AUTO_LOGIN_EMAIL_VERIFY = "/identity/v2/auth/email/autologin";
 	private static final String API_V2_ALBUM = "/api/v2/album";
 	private static final String API_V2_AUDIO = "/api/v2/audio";
 	private static final String API_V2_CHECKIN = "/api/v2/checkin";
@@ -260,6 +261,11 @@ public class Endpoint {
 
 	public static String getAutoLoginUrl() {
 		return LOGINRADIUS_API_ROOT + API_V2_AUTO_LOGIN;
+	}
+	
+	
+	public static String getAutoLoginEmailVerify() {
+		return LOGINRADIUS_API_ROOT + API_V2_AUTO_LOGIN_EMAIL_VERIFY;
 	}
 
 	public static String getUpdateProfileUrl() {

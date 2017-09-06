@@ -84,8 +84,13 @@ public class ManagementGetAPI extends LRManagementAPI {
 			params.remove("type");
 			finalpath = Endpoint.getGetRegistrationData_Management() +"/"+type;
 
-		}
+		}else if ("generatesott".equals(method)) {
+			if(params.containsKey("timedifference") &&params.get("timedifference").equals("")){
+			params.remove("timedifference");}
+			finalpath = Endpoint.getV2_ManagementCreateAccount()+"/sott";
 
+		
+		}
 		return executeGet(finalpath, params);
 
 	}
