@@ -7,33 +7,33 @@ import com.loginradius.sdk.models.userprofile.identity.Identity;
 
 public class LoginRadiusUltimateUserProfile {
 	@SerializedName("Identities")
-	private List<Identity> identities = null;
+	public List<Identity> identities = null;
 	@SerializedName("Password")
-	private String password;
+	public String password;
 	@SerializedName("LastPasswordChangeDate")
-	private String lastPasswordChangeDate;
+	public String lastPasswordChangeDate;
 	@SerializedName("PasswordExpirationDate")
-	private String passwordExpirationDate;
+	public String passwordExpirationDate;
 	@SerializedName("LastPasswordChangeToken")
-	private Object lastPasswordChangeToken;
+	public Object lastPasswordChangeToken;
 	@SerializedName("EmailVerified")
-	private Boolean emailVerified;
+	public Boolean emailVerified;
 	@SerializedName("IsActive")
-	private Boolean isActive;
+	public Boolean isActive;
 	@SerializedName("IsDeleted")
-	private Boolean isDeleted;
+	public Boolean isDeleted;
 	@SerializedName("Uid")
-	private String uid;
+	public String uid;
 	@SerializedName("CustomFields")
-    private Object customFields;
+	public Object customFields;
 	@SerializedName("IsEmailSubscribed")
-    private Boolean isEmailSubscribed;
+	public Boolean isEmailSubscribed;
 	@SerializedName("UserName")
-	private String userName;
+	public String userName;
 	@SerializedName("NoOfLogins")
-	private Integer noOfLogins;
+	public Integer noOfLogins;
 	@SerializedName("PreviousUids")
-	private Object previousUids;
+	public Object previousUids;
 	@SerializedName("PhoneId")
 	public String PhoneId;
 	@SerializedName("PhoneIdVerified")

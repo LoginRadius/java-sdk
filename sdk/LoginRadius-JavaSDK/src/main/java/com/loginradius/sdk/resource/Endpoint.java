@@ -3,7 +3,7 @@ package com.loginradius.sdk.resource;
 /* 
  * 
  * Created by LoginRadius Development Team on 02/06/2017
-   Copyright © 2017 LoginRadius Inc. All rights reserved.  
+   Copyright ï¿½ 2017 LoginRadius Inc. All rights reserved.  
    
  */
 
@@ -16,8 +16,7 @@ import java.util.Map;
  */
 public class Endpoint {
 	private static final String LOGINRADIUS_API_ROOT = "https://api.loginradius.com";
-	private static final String LOGINRADIUS_SOCIALINTERFACE_URL = "http://cdn.loginradius.com/interface/json/";
-	private static final String LOGINRADIUS_RAASINTERFACE_URL = "http://cdn.loginradius.com/raas/regSchema/";
+	private static final String LOGINRADIUS_CONFIGURATION= "http://cloud-api.loginradius.com/configuration/ciam/appInfo?apikey=";
 	private static final String API_V2_LOGIN = "/identity/v2/auth/login";
 	private static final String API_REGISTER = "/identity/v2/auth/register";
 	private static final String API_FORGOTPASSWORDEamil = "/identity/v2/auth/password";
@@ -55,6 +54,7 @@ public class Endpoint {
 	public static final String API_V2_INSTANT_REGISTRATION = "/identity/v2/auth/noregistration";
 	public static final String API_V2_GET_REGISTRATION_DATA = "/identity/v2/auth/registrationdata";
 	public static final String API_V2_GET_SECURITY_QUESTIONS = "/identity/v2/auth/securityquestion";
+	public static final String API_V2_RESET_PASSWORD_BY_SECURITY_ANSWER = "/identity/v2/auth/password/securityanswer";
 	/**
 	 * 
 	 * Management API EndPoint
@@ -296,13 +296,10 @@ public class Endpoint {
 		return LOGINRADIUS_API_ROOT + API_FORGOTPASSWORDMobile;
 	}
 
-	public static String getSocialInterfaceUrl(String apiKey) {
-		return LOGINRADIUS_SOCIALINTERFACE_URL + apiKey + ".json";
+	public static String getConfigurationUrl(String apiKey) {
+		return LOGINRADIUS_CONFIGURATION + apiKey;
 	}
 
-	public static String getRegisterInterfaceUrl(String apiKey) {
-		return LOGINRADIUS_RAASINTERFACE_URL + apiKey + ".json";
-	}
 
 	public static String getSocialIdentities() {
 		return LOGINRADIUS_API_ROOT + LOGINRADIUS_SocialIdentities;
@@ -402,6 +399,13 @@ public class Endpoint {
 	public static String getGetSecurityQuestionsByAccessToken() {
 		return LOGINRADIUS_API_ROOT + API_V2_GET_SECURITY_QUESTIONS;
 	}
+	
+	
+	public static String getResetPasswordbySecurityAnswer() {
+		return LOGINRADIUS_API_ROOT + API_V2_RESET_PASSWORD_BY_SECURITY_ANSWER;
+	}
+	
+	
 
 	/**
 	 * Creates url after appending loginradius api root url and query parameters

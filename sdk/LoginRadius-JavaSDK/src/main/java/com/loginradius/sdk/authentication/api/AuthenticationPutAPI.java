@@ -3,7 +3,7 @@ package com.loginradius.sdk.authentication.api;
 /* 
  * 
  * Created by LoginRadius Development Team on 02/06/2017
-   Copyright © 2017 LoginRadius Inc. All rights reserved.  
+   Copyright ï¿½ 2017 LoginRadius Inc. All rights reserved.  
    
  */
 
@@ -97,6 +97,9 @@ public class AuthenticationPutAPI extends LRAuthenticationAPI {
 			params.put("access_token", token);
 		}else if ("instantregistrationotpverification".equals(method)) {
 			finalpath = Endpoint.getInstant_Registration_Otp_Verification();
+
+		}else if ("resetpasswordbysecurityanswer".equals(method)) {
+			finalpath = Endpoint.getResetPasswordbySecurityAnswer();
 
 		}
 

@@ -3,7 +3,7 @@ package com.loginradius.sdk.resource;
 /* 
  * 
  * Created by LoginRadius Development Team on 02/06/2017
-   Copyright © 2017 LoginRadius Inc. All rights reserved.  
+   Copyright ï¿½ 2017 LoginRadius Inc. All rights reserved.  
    
  */
 
@@ -54,7 +54,7 @@ public class Sott {
 		}
        
 		String hash = createMd5(token);
-		String finalToken = token.replace("+", "%2B") + "*" + hash;
+		String finalToken = token + "*" + hash;
 
 		return finalToken;
 	}

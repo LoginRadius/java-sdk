@@ -1,7 +1,10 @@
 
 
+<%@page import="com.loginradius.sdk.authentication.api.AuthenticationDeleteAPI"%>
+<%@page import="com.loginradius.sdk.models.EmailDeleteRequest"%>
+<%@page import="com.loginradius.sdk.resource.Sott"%>
 <%@page import="com.loginradius.sdk.util.LoginRadiusConstant"%>
-
+<%@page import="com.loginradius.sdk.models.configuration.ConfigurationResponse"%>
 <%@page import="com.loginradius.sdk.models.login.LoginData"%>
 <%@page import="com.loginradius.sdk.authentication.api.AuthenticationPostAPI"%>
 <%@page import="com.loginradius.sdk.models.customregistrationdata.UpdateRegistrationDataResponse"%>
@@ -54,21 +57,19 @@
         AccessToken token = callbackhelper.GetLoginRadiusToken(request);
         LoginRadiusClient client = new LoginRadiusClient();
         client.setToken(token);
-        Gson gson = new Gson();
-
+        Gson gson =new Gson();
         
         if(token !=null)
         {  
         session.setAttribute("lrtoken",token.access_token);
+        
         try{
-            Map<String, String> params = new HashMap<String,String>();
-
+        Map<String, String> params = new HashMap<String,String>();
         	params.put("apikey",apikey);
         	params.put("emailTemplate","sdfsdfds");
         	LRAuthenticationAPI userprofileapi = new AuthenticationGetAPI(LoginRadiusConstant.USERPROFILE,params);
         	LoginRadiusUltimateUserProfile profile = client.getResponse(userprofileapi,LoginRadiusUltimateUserProfile.class);
-        
-        	
+
         %>
 
 <body>
@@ -92,7 +93,7 @@
                       <tr>
                         <td>
                           <%
-                            out.println(profile.ID);
+                            out.println(profile.getUid());
                           %>
                         </td>
                       </tr>

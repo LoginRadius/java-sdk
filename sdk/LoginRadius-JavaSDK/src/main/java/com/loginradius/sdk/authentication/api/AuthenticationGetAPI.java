@@ -3,7 +3,7 @@ package com.loginradius.sdk.authentication.api;
 /* 
  * 
  * Created by LoginRadius Development Team on 02/06/2017
-   Copyright © 2017 LoginRadius Inc. All rights reserved.  
+   Copyright ï¿½ 2017 LoginRadius Inc. All rights reserved.  
    
  */
 
@@ -136,11 +136,7 @@ public class AuthenticationGetAPI extends LRAuthenticationAPI {
 			params.remove("objectRecordId");
 			params.put("access_token", token);
 			finalpath = Endpoint.getCustomObject() + "/" + objectRecordId;
-		} else if ("socialinterface".equals(method)) {
-			finalpath = Endpoint.getSocialInterfaceUrl(params.get("apikey"));
-			params.remove("apikey");
-
-		} else if ("servertime".equals(method)) {
+		}else if ("servertime".equals(method)) {
 			if (timeDifferance != null && timeDifferance != "") {
 				finalpath = Endpoint.getServerTime() + "?";
 			} else {
@@ -210,6 +206,9 @@ public class AuthenticationGetAPI extends LRAuthenticationAPI {
 		}else if ("verifyautologinemail".equals(method)) {
             finalpath = Endpoint.getAutoLoginEmailVerify();
 
+		}else if ("configuration".equals(method)) {
+            finalpath = Endpoint.getConfigurationUrl(params.get("apikey"));
+            params.remove("apikey");
 		}
 
 		return executeGet(finalpath, params);

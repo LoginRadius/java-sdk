@@ -1,28 +1,37 @@
 package com.loginradius.sdk.util;
 
 
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.SocketTimeoutException;
+import java.net.URL;
+
 /* 
  * 
- * Created by LoginRadius Development Team on 02/06/2017
-   Copyright © 2017 LoginRadius Inc. All rights reserved.  
+ * Created by LoginRadius Development Team on 16/11/2017
+   Copyright ï¿½ 2017 LoginRadius Inc. All rights reserved.  
    
  */
 
+
+
 import java.util.Map;
 
-import com.loginradius.sdk.resource.Endpoint;
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.JsonNode;
-import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.http.exceptions.UnirestException;
 
-/**
- * LoginRadiusRestRequest class for LoginRadius End point call
- *
- */
+import com.loginradius.sdk.resource.Endpoint;
+
+
+
 public class RestRequest {
 	
-
+	
 	/**
 	 * Get to handle get request
 	 *
@@ -34,36 +43,40 @@ public class RestRequest {
 	 */
 
 
+
 	public RestResponse get(String serviceUrl, Map<String, String> params) {
-
-		RestResponse response = new RestResponse();
-
-		String url = Endpoint.GetRequestUrl(serviceUrl, params);
-		HttpResponse<String> jsonResponse;
+		
+        RestResponse response = new RestResponse();
+        String url = Endpoint.GetRequestUrl(serviceUrl, params);
+		
 		try {
-			Unirest.setTimeouts(15000, 15000);
-			jsonResponse = Unirest.get(url).asString();
-
-			if (jsonResponse.getBody().contains("loginRadiusAppJsonLoaded(")) {
-				String abc = jsonResponse.getBody().replace("loginRadiusAppJsonLoaded(", "");
-				abc = abc.substring(0, abc.length() - 1);
-
-				response.setResponse(abc);
-				response.setStatusCode(jsonResponse.getStatus());
-			} else {
-				response.setResponse(jsonResponse.getBody());
-				response.setStatusCode(jsonResponse.getStatus());
-
-			}
-			
-		} catch (UnirestException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			   HttpURLConnection.setFollowRedirects(false);
+			   HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
+			   con.setRequestMethod("GET");
+               con.setConnectTimeout(15000); //set timeout to 15 seconds
+               con.setReadTimeout(150000);
+               con.setDoOutput(true);
+               
+               BufferedReader br = new BufferedReader(new InputStreamReader(con.getResponseCode() / 100 == 2 ? con.getInputStream() : con.getErrorStream()));
+			   String output;
+			   while ((output = br.readLine()) != null) {
+				     response.setResponse(output);
+	                 response.setStatusCode(con.getResponseCode());
+		   }
+          }catch (MalformedURLException e) {
+	         e.printStackTrace();
+         } catch (SocketTimeoutException e) {
+		   e.printStackTrace();
+		} catch (IOException e) {
+		  e.printStackTrace();
 		}
+
 		
 		return response;
 	}
 
+	
+	
 	/**
 	 * post to handle post request
 	 *
@@ -79,70 +92,149 @@ public class RestRequest {
 	 */
 
 	public RestResponse post(String serviceUrl, Map<String, String> getParams, String payload) {
-
+        String sott="";
+		if(getParams.containsKey("sott")) {
+        	sott=getParams.get("sott");
+        	getParams.remove("sott");
+        }
 		RestResponse response = new RestResponse();
-
 		String url = Endpoint.GetRequestUrl(serviceUrl, getParams);
-
-		HttpResponse<JsonNode> jsonResponse;
 		try {
-			Unirest.setTimeouts(15000, 15000);
-			jsonResponse = Unirest.post(url)
-
-					.header("accept", "application/json").header("Content-Type", "application/json").body(payload)
-					.asJson();
-
-			response.setResponse(jsonResponse.getBody().getObject().toString(2));
-			response.setStatusCode(jsonResponse.getStatus());
-		} catch (UnirestException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			   HttpURLConnection.setFollowRedirects(false);
+			   HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
+			   con.setRequestMethod("POST");
+               con.setConnectTimeout(15000); //set timeout to 15 seconds
+			   con.setReadTimeout(150000);
+			   con.setRequestProperty( "Content-Type", "application/json"); 
+			   con.setRequestProperty("charset", "utf-8");
+			
+			   if(sott!="") {
+				con.setRequestProperty("X-LoginRadius-Sott", sott); 
+			   }
+			  
+			   con.setDoOutput(true);
+			   
+			   OutputStream os = con.getOutputStream();
+			   OutputStreamWriter body = new OutputStreamWriter(os, "UTF-8");
+			   body.write(payload);
+			   body.flush();
+			   body.close();
+			   
+			   BufferedReader br = new BufferedReader(new InputStreamReader(con.getResponseCode() / 100 == 2 ? con.getInputStream() : con.getErrorStream()));
+			   String output;
+			   while ((output = br.readLine()) != null) {
+				     response.setResponse(output);
+	                 response.setStatusCode(con.getResponseCode());
+			     }  
+				 }catch (MalformedURLException e) {
+		         e.printStackTrace();
+	          } catch (SocketTimeoutException e) {
+			   e.printStackTrace();
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
+			  e.printStackTrace();
 		}
-
 		return response;
 	}
 
+	
+	
+	/**
+	 * Put to handle put request
+	 *
+	 * 
+	 * @param serviceUrl
+	 *            requesting api's end point
+	 * @return put response from LoginRadius with service URL
+	 * 
+	 */
+	
+	
 	public RestResponse put(String serviceUrl, Map<String, String> getParams, String payload) {
 
 		RestResponse response = new RestResponse();
-
 		String url = Endpoint.GetRequestUrl(serviceUrl, getParams);
-
-		HttpResponse<JsonNode> jsonResponse;
 		try {
-			Unirest.setTimeouts(15000, 15000);
-			jsonResponse = Unirest.put(url)
-             .header("accept", "application/json").header("Content-Type", "application/json").body(payload)
-			 .asJson();
-
-			response.setResponse(jsonResponse.getBody().getObject().toString(2));
-			response.setStatusCode(jsonResponse.getStatus());
-		} catch (UnirestException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			   HttpURLConnection.setFollowRedirects(false);
+			   HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
+			   con.setRequestMethod("PUT");
+               con.setConnectTimeout(15000); //set timeout to 15 seconds
+			   con.setReadTimeout(150000);
+			   con.setRequestProperty( "Content-Type", "application/json"); 
+			   con.setRequestProperty("charset", "utf-8");
+			   con.setDoOutput(true);
+			   
+			   OutputStream os = con.getOutputStream();
+			   OutputStreamWriter body = new OutputStreamWriter(os, "UTF-8");
+			   body.write(payload);
+			   body.flush();
+			   body.close();
+			   
+			   
+			   BufferedReader br = new BufferedReader(new InputStreamReader(con.getResponseCode() / 100 == 2 ? con.getInputStream() : con.getErrorStream()));
+			   String output;
+			   while ((output = br.readLine()) != null) {
+				     response.setResponse(output);
+	                 response.setStatusCode(con.getResponseCode());
+				}
+           
+			  }catch (MalformedURLException e) {
+		         e.printStackTrace();
+	          } catch (SocketTimeoutException e) {
+			   e.printStackTrace();
+			} catch (IOException e) {
+			  e.printStackTrace();
 		}
-
 		return response;
 	}
+	
+	
+	/**
+	 * Delete to handle delete request
+	 *
+	 * 
+	 * @param serviceUrl
+	 *            requesting api's end point
+	 * @return delete response from LoginRadius with service URL
+	 * 
+	 */
 
 	public RestResponse delete(String serviceUrl, Map<String, String> getParams, String payload) {
 
 		RestResponse response = new RestResponse();
-
 		String url = Endpoint.GetRequestUrl(serviceUrl, getParams);
-		HttpResponse<JsonNode> jsonResponse;
+		
 		try {
-			Unirest.setTimeouts(15000, 15000);
-			jsonResponse = Unirest.delete(url).header("accept", "application/json")
-					.header("Content-Type", "application/json").body(payload).asJson();
-
-			response.setResponse(jsonResponse.getBody().getObject().toString(2));
-			response.setStatusCode(jsonResponse.getStatus());
-		} catch (UnirestException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			   HttpURLConnection.setFollowRedirects(false);
+			   HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
+			   con.setRequestMethod("DELETE");
+               con.setConnectTimeout(15000); //set timeout to 15 seconds
+			   con.setReadTimeout(150000);
+			   con.setRequestProperty( "Content-Type", "application/json"); 
+			   con.setRequestProperty("charset", "utf-8");
+			   con.setDoOutput(true);
+			   
+			   OutputStream os = con.getOutputStream();
+			   OutputStreamWriter body = new OutputStreamWriter(os, "UTF-8");
+			   body.write(payload);
+			   body.flush();
+			   body.close();
+			   
+			   
+			   BufferedReader br = new BufferedReader(new InputStreamReader(con.getResponseCode() / 100 == 2 ? con.getInputStream() : con.getErrorStream()));
+			   String output;
+			   while ((output = br.readLine()) != null) {
+				     response.setResponse(output);
+	                 response.setStatusCode(con.getResponseCode());
+				}
+        
+			  }catch (MalformedURLException e) {
+		         e.printStackTrace();
+	          } catch (SocketTimeoutException e) {
+			   e.printStackTrace();
+			} catch (IOException e) {
+			  e.printStackTrace();
 		}
-
 		return response;
 	}
 }

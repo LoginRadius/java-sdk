@@ -91,7 +91,7 @@ public class LoginRadiusConstant {
 	public static final String GET_TRACKABLE_STATUS_STATS = "gettrackablestatusstats";
 	public static final String TRACKABLE_STATUSPOSTING = "trackablestatusposting";
 	public static final String REFRESHTOKEN = "refreshtoken";
-	public static final String SOCIALINTERFACE = "socialinterface";
+	public static final String CONFIGURATION = "configuration";
 	public static final String SERVERTIME = "servertime";
 	public static final String TWOFA_LOGIN = "2FALogin";
 	public static final String TWOFA_BYGOOGLEAUTHENTICATOR = "2FAbyGoogleAuthenticator";
@@ -131,6 +131,8 @@ public class LoginRadiusConstant {
 	public static final String GENERATE_SOTT = "generatesott";
 	public static final String VERIFY_AUTOLOGIN_EMAIL = "verifyautologinemail";
 	public static final String GET_ACTIVESESSION = "getactivesession";
+	public static final String RESET_PASSWORD_BYSECURITYANSWER="resetpasswordbysecurityanswer";
+
 	
 	
 }

@@ -1,4 +1,22 @@
-> **LoginRadius Java SDK Change Log** provides information regarding what has changed, more specifically what changes, improvements and bug fix has been made to the SDK. For more details please refer to the [LoginRadius API Documention](https://github.com/LoginRadius/java-sdk)
+> **LoginRadius Java SDK Change Log** provides information regarding what has changed, more specifically what changes, improvements and bug fix has been made to the SDK. For more details please refer to the [LoginRadius API Documention(https://github.com/LoginRadius/java-sdk)
+
+
+### Version 4.0.0
+Released on **November 17,  2017**
+
+##### Enhancements
+
+  - Added new configuration api for better implementation. 
+  - Added new reset password by security answer API.
+  - Added new remove an email management API.
+  - Added custom scopes and external permissions enhancement in social login.
+  - Significantly improved code performance.
+
+##### Bug Fixes
+
+  - Fixed issue remove Unirest library for http request.
+  - Fixed issue thread leak when calling RestRequest.
+
 
 ### Version 3.4.0
 Released on **September 06,  2017**

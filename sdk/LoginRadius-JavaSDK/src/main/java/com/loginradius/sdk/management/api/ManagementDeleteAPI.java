@@ -3,7 +3,7 @@ package com.loginradius.sdk.management.api;
 /* 
  * 
  * Created by LoginRadius Development Team on 02/06/2017
-   Copyright © 2017 LoginRadius Inc. All rights reserved.  
+   Copyright ï¿½ 2017 LoginRadius Inc. All rights reserved.  
    
  */
 
@@ -100,6 +100,9 @@ public class ManagementDeleteAPI extends LRManagementAPI {
 		}else if ("deleteregistrationdata".equals(method)) {
 			params.remove("recordid");
 			finalpath = Endpoint.getGetRegistrationData_Management() +"/"+recordid;
+		}else if ("removeemail".equals(method)) {
+			params.remove("uid");
+			finalpath = Endpoint.getV2_ManagementCreateAccount()+"/"+uid+"/email";
 		}
 
 		return executeDelete(finalpath, params, json);

@@ -6,7 +6,7 @@
 
     <groupId>com.loginradius.sdk</groupId>
     <artifactId>java-sdk</artifactId>
-    <version>3.4.0</version>
+    <version>4.0.0</version>
     <description>LoginRadius java SDK contains registration and social APIs</description>
     <url>https://github.com/LoginRadius/java-sdk</url>
 
@@ -32,30 +32,24 @@
         <developerConnection>scm:git:git@github.com:LoginRadius/java-sdk.git.git</developerConnection>
         <url>git@github.com:LoginRadius/java-sdk.git.git</url>
     </scm>
+    
+<dependencies>
+    
 
-    <dependencies>
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.2.4</version>
-        </dependency>
-
-       
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-
-        </dependency>
- <dependency>
-    <groupId>com.mashape.unirest</groupId>
-    <artifactId>unirest-java</artifactId>
-    <version>1.4.9</version>
+<dependency>
+ <groupId>com.google.code.gson</groupId>
+ <artifactId>gson</artifactId>
+ <version>2.2.4</version>
 </dependency>
 
 
+<dependency>
+ <groupId>javax.servlet</groupId>
+ <artifactId>servlet-api</artifactId>
+ <version>2.5</version>
+</dependency>
 
-    </dependencies>
+</dependencies>
 
     <distributionManagement>
         <snapshotRepository>
