@@ -1,4 +1,4 @@
-# sdk-java-customer-identity
+# LoginRadius Java SDK
 Customer Identity private repo for Java SDK
 
 ![Home Image](http://docs.lrcontent.com/resources/github/banner-1544x500.png)
