@@ -32,19 +32,10 @@ Released on **September 20,  2018**
   
 ##### Breaking Changes
 
-- For developers migrating from v4.0.1, there will be some breaking changes in terms of SDK implementation. In this version, we have updated endpoints and renamed "Auto Login" to "Smart Login", "No Registration/Simplified Registration" to "One touch Login" and "Instant Link Login" to "PasswordLess Login". Also, changed the methods of the above APIs accordingly.
-- We define new Method by using it you can directly initialize your API key and secret key.you don't have to initialize in every method.
- - For more details, please have a look [here](https://docs.loginradius.com/api/v2/deployment/sdk-libraries/java-library)
+- Updated endpoints and renamed "Auto Login" to "Smart Login", "No Registration/Simplified Registration" to "One touch Login" and "Instant Link Login" to "PasswordLess Login". Also, changed the methods of the above APIs accordingly.
+- Defined new Method by using it you can directly initialize your API key and secret key.you don't have to initialize in every method.
+- For more details, please have a look [here](https://docs.loginradius.com/api/v2/deployment/sdk-libraries/java-library)
 
-
-  
-
-### Version 4.0.1
-Released on **December 28,  2017**
-
-##### Enhancements
-
-  - Updated endpoint of Configuration API. 
 
 ### Version 4.0.0
 Released on **November 17,  2017**
