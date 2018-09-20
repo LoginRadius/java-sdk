@@ -1,5 +1,50 @@
 > **LoginRadius Java SDK Change Log** provides information regarding what has changed, more specifically what changes, improvements and bug fix has been made to the SDK. For more details please refer to the [LoginRadius API Documention(https://github.com/LoginRadius/java-sdk)
 
+### Version 4.1.0
+Released on **September 20,  2018**
+
+##### Enhancements
+
+  - Added API Request Signing(Enabling this feature customer don’t need to pass apisecret in API request. They can pass a dynamically generated hash value instead of this. Also, this feature will make sure that the message has not tampered during transit when someone calls our APIs).
+  - Add Request Access Token in Header(LoginRadius access token can be passed on to the request as in header for auth apis).
+  - Option to Prevent Sending Email Verification(an option to prevent sending email verification in case of optional email verification flow).
+  - Recaptcha for Auth APIs(By enabling this option customer can enforce client to pass reCaptcha in some auth APIs for authentication).
+  - Access Token on Registration Event.
+  - API Secret in Headers for all Account APIs.
+  - Remove Phone ID by access token API
+  - Added Get Email Verification token API
+  - Added Get Forgot Password token API
+  - Auth Verify Email by OTP API
+  - Auth Reset Password by OTP API
+  - Account Identities by Email API
+  - One Touch Login by Email API
+  - One Touch Login By Phone API
+  - One Touch OTP Verification API
+  - Smart Login by Email API
+  - Smart Login by Username API
+  - Smart Login Ping API
+  - Smart Login Verify Token API
+  - PasswordLess Login by Email API
+  - PasswordLess Login By UserName API
+  - PasswordLess Login Verification API
+  - Phone Login Using One Time Passcode API
+  - Phone Send One time Passcode API
+  
+##### Breaking Changes
+
+- For developers migrating from v4.0.1, there will be some breaking changes in terms of SDK implementation. In this version, we have updated endpoints and renamed "Auto Login" to "Smart Login", "No Registration/Simplified Registration" to "One touch Login" and "Instant Link Login" to "PasswordLess Login". Also, changed the methods of the above APIs accordingly.
+ - We define new Method by using it you can directly initilize your api key and secret key.you dont have to initilize in every method.
+ - For more details, please have a look [here](https://docs.loginradius.com/api/v2/deployment/sdk-libraries/java-library)
+
+
+  
+
+### Version 4.0.1
+Released on **December 28,  2017**
+
+##### Enhancements
+
+  - Updated endpoint of Configuration API. 
 
 ### Version 4.0.0
 Released on **November 17,  2017**

@@ -15,6 +15,7 @@ import com.google.gson.JsonObject;
 import com.loginradius.sdk.resource.Endpoint;
 import com.loginradius.sdk.resource.LoginRadiusException;
 import com.loginradius.sdk.util.ArgumentValidator;
+import com.loginradius.sdk.util.LoginRadiusSDK;
 
 public class ManagementPostAPI extends LRManagementAPI {
 
@@ -61,6 +62,13 @@ public class ManagementPostAPI extends LRManagementAPI {
 			if (map.containsKey("uid")) {
 				uid = map.get("uid");
 			}
+			if(!map.containsKey("apikey")){
+				params.put("apikey", LoginRadiusSDK.getApiKey());
+				params.put("apisecret", LoginRadiusSDK.getApiSecret());
+			}
+		}else{
+			params.put("apikey", LoginRadiusSDK.getApiKey());
+			params.put("apisecret", LoginRadiusSDK.getApiSecret());
 		}
 
 		if ("createaccount".equals(method)) {
@@ -73,6 +81,10 @@ public class ManagementPostAPI extends LRManagementAPI {
 			finalpath = Endpoint.getV2_ManagementCreateRole();
 		}else if ("addregistrationdata".equals(method)) {
 			finalpath = Endpoint.getV2_AddRegistrationData();
+		}else if ("forgotpasswordtoken".equals(method)) {
+			finalpath = Endpoint.getForgotPasswordToken();
+		}else if ("emailverificationtoken".equals(method)) {
+			finalpath = Endpoint.getEmailVerificationToken();
 		}
 
 		return executePost(finalpath, params, json);

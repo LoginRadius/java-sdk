@@ -13,6 +13,7 @@ import java.util.Map;
 import com.loginradius.sdk.resource.Endpoint;
 import com.loginradius.sdk.resource.LoginRadiusException;
 import com.loginradius.sdk.util.ArgumentValidator;
+import com.loginradius.sdk.util.LoginRadiusSDK;
 
 public class AuthenticationGetAPI extends LRAuthenticationAPI {
 
@@ -21,6 +22,7 @@ public class AuthenticationGetAPI extends LRAuthenticationAPI {
 	private String objectRecordId = "";
 	private String timeDifferance = "";
 	private String type = "";
+	
 
 	private Map<String, String> map = new HashMap<String, String>();
 
@@ -46,6 +48,11 @@ public class AuthenticationGetAPI extends LRAuthenticationAPI {
 		Map<String, String> params = new HashMap<String, String>();
 		if (this.map != null && !this.map.isEmpty()) {
 			params.putAll(map);
+			
+			if(!map.containsKey("apikey")){
+				params.put("apikey", LoginRadiusSDK.getApiKey());
+			}
+			
 			if (map.containsKey("objectRecordId")) {
 				objectRecordId = map.get("objectRecordId");
 			} else if (map.containsKey("difference")) {
@@ -53,11 +60,14 @@ public class AuthenticationGetAPI extends LRAuthenticationAPI {
 			}else if (map.containsKey("type")) {
 				type = map.get("type");
 			}
+		}else{
+			params.put("apikey", LoginRadiusSDK.getApiKey());
 		}
 
 		if ("userprofile".equals(method)) {
-			finalpath = Endpoint.getV2_USERPROFILE();
 			params.put("access_token", token);
+			finalpath = Endpoint.getV2_USERPROFILE();
+			
 		} else if ("contact".equals(method)) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_CONTACT();
@@ -110,6 +120,7 @@ public class AuthenticationGetAPI extends LRAuthenticationAPI {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_MESSAGE();
 		} else if ("emaillogin".equals(method)) {
+			params.put("apikey", LoginRadiusSDK.getApiKey());
 			finalpath = Endpoint.getLoginUrl();
 		} else if ("verifyemail".equals(method)) {
 			finalpath = Endpoint.getAddEmailUrl();
@@ -128,7 +139,7 @@ public class AuthenticationGetAPI extends LRAuthenticationAPI {
 			finalpath = Endpoint.getLoginUrl();
 		} else if ("readaccountbytoken".equals(method)) {
 			params.put("access_token", token);
-			finalpath = Endpoint.getV2_USERPROFILE();
+			finalpath = Endpoint.getV2_AuthReadProfilesByToken();
 		} else if ("customobjectbytoken".equals(method)) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getCustomObject();
@@ -144,30 +155,15 @@ public class AuthenticationGetAPI extends LRAuthenticationAPI {
 			}
 		} else if ("2FALogin".equals(method)) {
 			finalpath = Endpoint.get2FALogin();
-		} else if ("2FAbyGoogleAuthenticator".equals(method)) {
-			finalpath = Endpoint.getGoogleAuthenticatorCode();
-			params.put("access_token", token);
 		} else if ("2FAbyToken".equals(method)) {
 			finalpath = Endpoint.get2FAByToken();
 			params.put("access_token", token);
-		} else if ("2FAVerifybyGoogleAuthenticator".equals(method)) {
-			finalpath = Endpoint.getVerifyGoogleAuthenticatorCode();
-
-		} else if ("2FALoginByBackupcode".equals(method)) {
-			finalpath = Endpoint.getLoginByBackupcode();
-
 		} else if ("2FAGetBackupcode".equals(method)) {
 			finalpath = Endpoint.getBackupcode();
 			params.put("access_token", token);
 		} else if ("2FAResetBackupcode".equals(method)) {
 			finalpath = Endpoint.getResetBackupcode();
 			params.put("access_token", token);
-		} else if ("2FAGetBackupcodeByUid".equals(method)) {
-			finalpath = Endpoint.getBackupcodeByUid();
-
-		} else if ("2FAResetBackupcodeByUid".equals(method)) {
-			finalpath = Endpoint.getResetBackupcodeByUid();
-
 		} else if ("emailautologin".equals(method)) {
 			finalpath = Endpoint.getAutoLoginUrl();
 
@@ -207,9 +203,29 @@ public class AuthenticationGetAPI extends LRAuthenticationAPI {
             finalpath = Endpoint.getAutoLoginEmailVerify();
 
 		}else if ("configuration".equals(method)) {
-            finalpath = Endpoint.getConfigurationUrl(params.get("apikey"));
-            params.remove("apikey");
+            finalpath = Endpoint.getConfigurationUrl();
+            
+		}else if ("privacypolicy".equals(method)) {
+            finalpath = Endpoint.getPrivacyPolicyAccept();
+            params.put("access_token", token);
+		}else if ("passwordlesslogin".equals(method)) {
+            finalpath = Endpoint.getPasswordlessLogin();
+		}else if ("passwordlessloginverification".equals(method)) {
+            finalpath = Endpoint.getPasswordlessLoginVerification();
+		}else if ("smartlogin".equals(method)) {
+            finalpath = Endpoint.getSmartLogin();
+		}else if ("smartloginping".equals(method)) {
+            finalpath = Endpoint.getSmartLoginPing();
+		}else if ("smartloginverifytoken".equals(method)) {
+            finalpath = Endpoint.getSmartLoginVerifyToken();
+		}else if ("phonsendonetimepasscode".equals(method)) {
+			finalpath = Endpoint.getPhoneSendOneTimePassCode();
+
+		}else if ("sendwelcomeemail".equals(method)) {
+			finalpath = Endpoint.getSendWelcomeEmail();
+			 params.put("access_token", token);
 		}
+
 
 		return executeGet(finalpath, params);
 

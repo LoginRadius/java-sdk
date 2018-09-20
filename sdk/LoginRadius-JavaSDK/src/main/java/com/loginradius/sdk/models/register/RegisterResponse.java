@@ -1,5 +1,6 @@
 package com.loginradius.sdk.models.register;
 
+
 /**
  * Created by loginradius on 7/30/2016.
  */
@@ -7,6 +8,8 @@ package com.loginradius.sdk.models.register;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.loginradius.sdk.models.login.LoginData;
+
 
 public class RegisterResponse {
 
@@ -14,6 +17,8 @@ public class RegisterResponse {
     @Expose
     private Boolean isPosted;
 
+    @SerializedName("Data")
+	public LoginData data;
     /**
      *
      * @return
@@ -31,6 +36,21 @@ public class RegisterResponse {
     public void setIsPosted(Boolean isPosted) {
         this.isPosted = isPosted;
     }
+    
+    
+    public LoginData getData() {
+        return data;
+    }
+
+    /**
+     *
+     * @param profile
+     * The Profile
+     */
+    public void setData(LoginData data) {
+        this.data = data;
+    }
+
 
 }
 

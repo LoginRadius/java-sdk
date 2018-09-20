@@ -4,9 +4,9 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class RolePermissions {
-	@SerializedName("EditUser")
+	@SerializedName("CreateUser")
 	@Expose
-	private Boolean editUser;
+	private Boolean createUser;
 	@SerializedName("DeleteUser")
 	@Expose
 	private Boolean deleteUser;
@@ -14,19 +14,19 @@ public class RolePermissions {
 	/**
 	* 
 	* @return
-	* The editUser
+	* The createUser
 	*/
-	public Boolean getEditUser() {
-	return editUser;
+	public Boolean getCreateUser() {
+	return createUser;
 	}
 
 	/**
 	* 
-	* @param editUser
-	* The EditUser
+	* @param createUser
+	* The CreateUser
 	*/
-	public void setEditUser(Boolean editUser) {
-	this.editUser = editUser;
+	public void setCreateUser(Boolean createUser) {
+	this.createUser = createUser;
 	}
 
 	/**

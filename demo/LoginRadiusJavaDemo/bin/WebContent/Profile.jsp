@@ -48,9 +48,8 @@
 
         <%
         
-        String apikey= application.getInitParameter("LoginRadiusApiKey");
-        String apisecret=application.getInitParameter("LoginRadiusSecret");
-        LoginRadiusCallbackHelper callbackhelper = new LoginRadiusCallbackHelper(apisecret);
+       
+        LoginRadiusCallbackHelper callbackhelper = new LoginRadiusCallbackHelper();
         AccessToken token = callbackhelper.GetLoginRadiusToken(request);
         LoginRadiusClient client = new LoginRadiusClient();
         client.setToken(token);
@@ -62,8 +61,6 @@
         session.setAttribute("lrtoken",token.access_token);
         try{
             Map<String, String> params = new HashMap<String,String>();
-
-        	params.put("apikey",apikey);
         	params.put("emailTemplate","sdfsdfds");
         	LRAuthenticationAPI userprofileapi = new AuthenticationGetAPI(LoginRadiusConstant.USERPROFILE,params);
         	LoginRadiusUltimateUserProfile profile = client.getResponse(userprofileapi,LoginRadiusUltimateUserProfile.class);

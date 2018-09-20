@@ -9,7 +9,7 @@ public class LoginRadiusRole {
 	private String name;
 	@SerializedName("Permissions")
 	@Expose
-	private RolePermissions permissions;
+	private Object  permissions;
 
 	/**
 	* 
@@ -34,7 +34,7 @@ public class LoginRadiusRole {
 	* @return
 	* The permissions
 	*/
-	public RolePermissions getPermissions() {
+	public Object  getPermissions() {
 	return permissions;
 	}
 
@@ -43,7 +43,7 @@ public class LoginRadiusRole {
 	* @param permissions
 	* The Permissions
 	*/
-	public void setPermissions(RolePermissions permissions) {
+	public void setPermissions(Object  permissions) {
 	this.permissions = permissions;
 	}
    

@@ -252,8 +252,10 @@ public class LoginRadiusUltimateUserProfile {
 	@SerializedName("IsCustomUid")
     private Boolean isCustomUid;
 	@SerializedName("UnverifiedEmail")
+    private List<UnverifiedEmail> unverifiedEmail = null;
+	@SerializedName("PrivacyPolicy")
+	private LoginRadiusPrivacyPolicy privacyPolicy;
 
-	private List<UnverifiedEmail> unverifiedEmail = null;
 
 	public List<Identity> getIdentities() {
 		return identities;
@@ -487,6 +489,14 @@ public class LoginRadiusUltimateUserProfile {
 
 	public void setUnverifiedEmail(List<UnverifiedEmail> unverifiedEmail) {
 		this.unverifiedEmail = unverifiedEmail;
+	}
+	
+	public LoginRadiusPrivacyPolicy getPrivacyPolicy() {
+		return privacyPolicy;
+	}
+
+	public void setPrivacyPolicy(LoginRadiusPrivacyPolicy privacyPolicy) {
+		this.privacyPolicy = privacyPolicy;
 	}
 
 }

@@ -1,10 +1,21 @@
 
 
+<%@page import="com.loginradius.sdk.models.role.LoginRadiusRoleResponse"%>
+<%@page import="com.loginradius.sdk.models.login.EmailOtpResponse"%>
+<%@page import="com.loginradius.sdk.models.role.AddRolePermissions"%>
+<%@page import="com.google.gson.JsonPrimitive"%>
+<%@page import="com.loginradius.sdk.models.phone.PhoneSendOtpResponse"%>
+<%@page import="com.loginradius.sdk.models.phone.PhoneForgotPasswordResponse"%>
+<%@page import="com.loginradius.sdk.models.company.LoginRadiusCompany"%>
+<%@page import="com.loginradius.sdk.models.configuration.ConfigurationResponse"%>
+<%@page import="com.loginradius.sdk.models.two_factor.BackUpCodesResponse"%>
+<%@page import="com.loginradius.sdk.models.cloudstorage.insights.InsightsResponse"%>
+<%@page import="com.loginradius.sdk.models.cloudstorage.customobject.GetCustoObjectsResponse"%>
+<%@page import="com.loginradius.sdk.models.cloudstorage.identity.GetUserIdentityResponse"%>
 <%@page import="com.loginradius.sdk.authentication.api.AuthenticationDeleteAPI"%>
 <%@page import="com.loginradius.sdk.models.EmailDeleteRequest"%>
 <%@page import="com.loginradius.sdk.resource.Sott"%>
 <%@page import="com.loginradius.sdk.util.LoginRadiusConstant"%>
-<%@page import="com.loginradius.sdk.models.configuration.ConfigurationResponse"%>
 <%@page import="com.loginradius.sdk.models.login.LoginData"%>
 <%@page import="com.loginradius.sdk.authentication.api.AuthenticationPostAPI"%>
 <%@page import="com.loginradius.sdk.models.customregistrationdata.UpdateRegistrationDataResponse"%>
@@ -50,32 +61,31 @@
       <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
         <%
-        
-        String apikey= application.getInitParameter("LoginRadiusApiKey");
-        String apisecret=application.getInitParameter("LoginRadiusSecret");
-        LoginRadiusCallbackHelper callbackhelper = new LoginRadiusCallbackHelper(apisecret);
+      
+        LoginRadiusCallbackHelper callbackhelper = new LoginRadiusCallbackHelper();
         AccessToken token = callbackhelper.GetLoginRadiusToken(request);
         LoginRadiusClient client = new LoginRadiusClient();
         client.setToken(token);
         Gson gson =new Gson();
-        
         if(token !=null)
         {  
-        session.setAttribute("lrtoken",token.access_token);
+        session.setAttribute("lrtoken",token);
         
-        try{
-        Map<String, String> params = new HashMap<String,String>();
-        	params.put("apikey",apikey);
-        	params.put("emailTemplate","sdfsdfds");
-        	LRAuthenticationAPI userprofileapi = new AuthenticationGetAPI(LoginRadiusConstant.USERPROFILE,params);
+        
+
+        try{ 	
+        	LRAuthenticationAPI userprofileapi = new AuthenticationGetAPI(LoginRadiusConstant.READACCOUNT_BYTOKEN,null);
         	LoginRadiusUltimateUserProfile profile = client.getResponse(userprofileapi,LoginRadiusUltimateUserProfile.class);
+        	
+        	
+       
 
         %>
 
 <body>
         <!-- Start Things -->
         <table align="center"
-          style="width: 50%; border: 1px solid #ccc; box-shadow: 0px 0px 11px 0px #ccc;">
+          style="width: 50%; border: 1px solid #ccc; box-shadow: 0px 0px 11px 0px #ccc;margin: 0 auto;">
           <tr>
             <td>
               <table>
@@ -91,6 +101,7 @@
                     style="border: none; vertical-align: top; padding-top: 7px;">
                     <table border="0" width="100%">
                       <tr>
+                      <td style="width: 25%; padding-bottom: 2%; font-weight: bold;">Uid :</td>
                         <td>
                           <%
                             out.println(profile.getUid());
@@ -98,6 +109,7 @@
                         </td>
                       </tr>
                       <tr>
+                      <td style="width: 25%; padding-bottom: 2%; font-weight: bold;">FullName :</td>
                         <td>
                           <%
                             out.println(profile.FullName);
@@ -105,6 +117,7 @@
                         </td>
                       </tr>
                       <tr>
+                      <td style="width: 25%; padding-bottom: 2%; font-weight: bold;">Gender :</td>
                         <td>
                           <%
                             out.println(profile.Gender);
@@ -112,9 +125,11 @@
                         </td>
                       </tr>
                       <tr>
+                      <td style="width: 25%; padding-bottom: 2%; font-weight: bold;">BirthDate :</td>
                         <td>
                           <%
-                            out.println(profile.BirthDate);
+                        	 out.println(profile.BirthDate);
+                          
                           %>
                         </td>
                       </tr>
@@ -223,22 +238,22 @@
               <div class="secondary-menu" style="text-align: right;">
 
 
-                 <a style="display:inline-block;" href="/LoginRadiusJavaDemo/Linking.jsp">
+                 <a class="button-page" href="/LoginRadiusJavaDemo/Linking.jsp">
                  Account Linking</a>
-                /<a style="display:inline-block;" href="/LoginRadiusJavaDemo/ChangePassword.jsp">
+                <a class="button-page" href="/LoginRadiusJavaDemo/ChangePassword.jsp">
                  Change Password</a>
-                  /<a style="display:inline-block;" href="/LoginRadiusJavaDemo/AddEmail.jsp">
+                  <a class="button-page" href="/LoginRadiusJavaDemo/AddEmail.jsp">
                  AddEmail</a>
-                /<a style="display:inline-block;" href="/LoginRadiusJavaDemo/RemoveEmail.jsp">
+                <a class="button-page" href="/LoginRadiusJavaDemo/RemoveEmail.jsp">
                  RemoveEmail</a>
-                   /<a style="display:inline-block;" href="/LoginRadiusJavaDemo/ChangeUsername.jsp">
+                   <a class="button-page" href="/LoginRadiusJavaDemo/ChangeUsername.jsp">
                  ChangeUsername</a>
-                /<a style="display:inline-block;" href="/LoginRadiusJavaDemo/UpdateProfile.jsp">
+                <a class="button-page" href="/LoginRadiusJavaDemo/UpdateProfile.jsp">
                  Update Profile</a>
-                /<a style="display:inline-block;" href="/LoginRadiusJavaDemo/UpdatePhone.jsp">
+                <a class="button-page" href="/LoginRadiusJavaDemo/UpdatePhone.jsp">
                  Update Phone</a>
                 
-              /<a style="display:inline-block;"  href="/LoginRadiusJavaDemo">Logout</a>
+              <a class="button-page"  href="/LoginRadiusJavaDemo">Logout</a>
               </div>
             </div>
             </nav>
@@ -247,8 +262,7 @@
 
 
           </div>
-          </div>
-          </div>
+         
         </table>
         </body>
 </html>

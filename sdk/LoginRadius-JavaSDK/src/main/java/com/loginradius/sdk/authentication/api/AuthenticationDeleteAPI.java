@@ -15,6 +15,7 @@ import com.google.gson.JsonObject;
 import com.loginradius.sdk.resource.Endpoint;
 import com.loginradius.sdk.resource.LoginRadiusException;
 import com.loginradius.sdk.util.ArgumentValidator;
+import com.loginradius.sdk.util.LoginRadiusSDK;
 
 public class AuthenticationDeleteAPI extends LRAuthenticationAPI {
 	private final String method;
@@ -59,7 +60,11 @@ public class AuthenticationDeleteAPI extends LRAuthenticationAPI {
 			params.putAll(map);
 			if (map.containsKey("objectRecordId")) {
 				objectRecordId = map.get("objectRecordId");
-			}
+			}if(!map.containsKey("apikey")){
+				params.put("apikey", LoginRadiusSDK.getApiKey());
+			   }
+		}else{
+			params.put("apikey", LoginRadiusSDK.getApiKey());
 		}
 
 		if ("removeemail".equals(method)) {
@@ -67,7 +72,7 @@ public class AuthenticationDeleteAPI extends LRAuthenticationAPI {
 			finalpath = Endpoint.getAddEmailUrl();
 		} else if ("deleteaccountwithemailconfirmation".equals(method)) {
 			params.put("access_token", token);
-			finalpath = Endpoint.getAddEmailUrl();
+			finalpath = Endpoint.getDeleteAccountWithEmailConfirmation();
 		} else if ("unlinksocialidentities".equals(method)) {
 			finalpath = Endpoint.getSocialIdentities();
 		} else if ("deletecustomobject".equals(method)) {
@@ -77,10 +82,12 @@ public class AuthenticationDeleteAPI extends LRAuthenticationAPI {
 		} else if ("RemoveGoogleAuthenticatorByToken".equals(method)) {
 			finalpath = Endpoint.getGoogleAuthenticatorByToken();
 			params.put("access_token", token);
-		} else if ("RemoveGoogleAuthenticatorByUid".equals(method)) {
-			finalpath = Endpoint.getGoogleAuthenticatorByUid();
-
-		}
+		} else if ("removephonebyaccesstoken".equals(method)) {
+			finalpath = Endpoint.getUpdatephoneUrl();
+			if(!map.containsKey("access_token")){
+				params.put("access_token", token);
+			}
+		} 
 		return executeDelete(finalpath, params, json);
 	}
 

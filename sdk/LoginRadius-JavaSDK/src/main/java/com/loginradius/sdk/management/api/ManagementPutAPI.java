@@ -1,5 +1,7 @@
 package com.loginradius.sdk.management.api;
 
+
+
 /* 
  * 
  * Created by LoginRadius Development Team on 02/06/2017
@@ -10,11 +12,13 @@ package com.loginradius.sdk.management.api;
 import java.util.HashMap;
 import java.util.Map;
 
+
 import com.google.gson.JsonObject;
 
 import com.loginradius.sdk.resource.Endpoint;
 import com.loginradius.sdk.resource.LoginRadiusException;
 import com.loginradius.sdk.util.ArgumentValidator;
+import com.loginradius.sdk.util.LoginRadiusSDK;
 
 public class ManagementPutAPI extends LRManagementAPI {
 
@@ -25,7 +29,6 @@ public class ManagementPutAPI extends LRManagementAPI {
 	private String role = "";
 	private String recordid = "";
 	private Map<String, String> map = new HashMap<String, String>();
-
 	private JsonObject json;
 
 	public ManagementPutAPI(String method, Map<String, String> map, JsonObject data) {
@@ -65,10 +68,17 @@ public class ManagementPutAPI extends LRManagementAPI {
 				uid = map.get("uid");
 			}
 			if (map.containsKey("role")) {
-				role = map.get("role");
+				role = map.get("role").replaceAll(" ", "%20");
 			}if (map.containsKey("recordid")) {
 				recordid = map.get("recordid");
 			}
+			if(!map.containsKey("apikey")){
+				params.put("apikey", LoginRadiusSDK.getApiKey());
+				params.put("apisecret", LoginRadiusSDK.getApiSecret());
+			}
+		}else{
+			params.put("apikey", LoginRadiusSDK.getApiKey());
+			params.put("apisecret", LoginRadiusSDK.getApiSecret());
 		}
 
 		if ("updateaccount".equals(method)) {
@@ -97,9 +107,18 @@ public class ManagementPutAPI extends LRManagementAPI {
 			params.remove("recordid");
 			finalpath = Endpoint.getGetRegistrationData_Management() +"/"+recordid;
 
+		}else if ("accountupdatesecurityquestion".equals(method)) {
+			params.remove("uid");
+			finalpath = Endpoint.getV2_ManagementCreateAccount() +"/"+uid;
+
+		}else if ("accountinvalidateverificationemail".equals(method)) {
+			params.remove("uid");
+			finalpath = Endpoint.getV2_ManagementCreateAccount() +"/"+ uid + "/invalidateemail";
+
 		}
 		
      	return executePut(finalpath, params, json);
 	}
+	
 
 }

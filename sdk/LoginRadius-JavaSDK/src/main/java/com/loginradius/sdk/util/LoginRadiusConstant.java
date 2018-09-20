@@ -24,6 +24,7 @@ public class LoginRadiusConstant {
     public static final String SUBSCRIBE_RESTHOOKS = "subscriberesthooks";
 	public static final String UNSUBSCRIBE_RESTHOOKS = "unsubscriberesthooks";
     public static final String EMAIL_LOGIN = "emaillogin";
+    public static final String ACCOUNT_PROFILES_BYEMAIL = "accountprofilesbyemail";
 	public static final String ADD_EMAIL = "addemail";
 	public static final String VERIFY_EMAIL = "verifyemail";
 	public static final String CHECK_EMAIL_AVAILABILITY = "checkemailavailability";
@@ -44,6 +45,7 @@ public class LoginRadiusConstant {
 	public static final String PHONE = "phone";
 	public static final String OTP = "otp";
 	public static final String LOGINBY_PHONE = "loginbyphone";
+	public static final String ACCOUNT_PROFILES_BYPHONE = "accountprofilesbyphone";
 	public static final String PHONE_AVAILABILITY = "phoneavailability";
 	public static final String FORGOT_PASSWORDBY_OTP = "forgotpasswordbyotp";
 	public static final String RESEND_OTP = "resendotp";
@@ -66,13 +68,14 @@ public class LoginRadiusConstant {
 	public static final String UNLINK_SOCIALIDENTITIES = "unlinksocialidentities";
 	public static final String DELETE_CUSTOMOBJECT = "deletecustomobject";
 	public static final String USERNAME_LOGIN = "usernamelogin";
+	public static final String ACCOUNT_PROFILES_BYUSERNAME = "accountprofilesbyusername";
 	public static final String READACCOUNT_BYTOKEN = "readaccountbytoken";
 	public static final String CUSTOMOBJECT_BYTOKEN = "customobjectbytoken";
 	public static final String UPDATE_ACCOUNT_BYTOKEN = "updateaccountbytoken";
 	public static final String FORGOT_PASSWORD_BYEMAIL = "forgotpasswordbyemail";
 	public static final String CREATEACCOUNT = "createaccount";
 	public static final String CREATEROLE = "createrole";
-	public static final String LOGIN_BYUID = "loginbyuid";
+	public static final String ACCOUNT_PROFILES_BYUID = "accountprofilesbyuid";
 	public static final String GET_PASSWORD = "getpassword";
 	public static final String CUSTOMOBJECT_BYUID = "customobjectbyuid";
 	public static final String GET_ROLE = "getrole";
@@ -97,7 +100,8 @@ public class LoginRadiusConstant {
 	public static final String TWOFA_BYGOOGLEAUTHENTICATOR = "2FAbyGoogleAuthenticator";
 	public static final String TWOFA_BYTOKEN = "2FAbyToken";
 	public static final String TWOFA_VERIFY_BYGOOGLEAUTHENTICATOR = "2FAVerifybyGoogleAuthenticator";
-	public static final String TWOFA_LOGIN_BYBACKUPCODE = "2FALoginByBackupcode";
+	public static final String TWOFA_VALIDATE_OTP = "2FAValidateOtp";
+	public static final String TWOFA_VALIDATE_BYBACKUPCODE = "2FALoginByBackupcode";
 	public static final String TWOFA_GETBACKUPCODE = "2FAGetBackupcode";
 	public static final String TWOFA_RESETBACKUPCODE = "2FAResetBackupcode";
 	public static final String TWOFA_GETBACKUPCODE_BYUID = "2FAGetBackupcodeByUid";
@@ -110,6 +114,8 @@ public class LoginRadiusConstant {
 	public static final String ADD_ROLECONTEXT = "addrolecontext";
 	public static final String DELETE_CONTEXT = "deletecontext";
 	public static final String DELETE_ROLE_AND_PERMISSION = "deleteroleandpermission";
+	public static final String DELETE_ROLE_FROM_CONTEXT = "deleterolefromcontext";
+	public static final String UNASSIGN_ROLES_BY_UID = "unassignrolesbyuid";
 	public static final String EMAIL_AUTOLOGIN = "emailautologin";
 	public static final String EMAIL_AUTOLOGIN_PING = "emailautologinping";
 	public static final String ACCESSTOKEN_BYUID = "accesstokenbyuid";
@@ -132,7 +138,26 @@ public class LoginRadiusConstant {
 	public static final String VERIFY_AUTOLOGIN_EMAIL = "verifyautologinemail";
 	public static final String GET_ACTIVESESSION = "getactivesession";
 	public static final String RESET_PASSWORD_BYSECURITYANSWER="resetpasswordbysecurityanswer";
-
-	
-	
+	public static final String ACCEPT_PRIVACY_POLICY="privacypolicy";
+	public static final String ONE_TOUCH_LOGIN_BY_EMAIL="onetouchloginbyemail";
+	public static final String ONE_TOUCH_LOGIN_BY_PHONE="onetouchloginbyphone";
+	public static final String ONE_TOUCH_OTP_VERIFICATION="onetouchotp";
+	public static final String PASSWORDLESS_LOGIN="passwordlesslogin";
+	public static final String PASSWORDLESS_LOGIN_VERIFICATION="passwordlessloginverification";
+	public static final String PHONE_LOGIN_USING_ONETIMEPASSCODE="phoneloginusingonetimepasscode";
+	public static final String PHONE_SEND_ONETIMEPASSCODE="phonsendonetimepasscode";
+	public static final String SMART_LOGIN="smartlogin";
+	public static final String SMART_LOGIN_PING="smartloginping";
+	public static final String SMART_LOGIN_VERIFYTOKEN="smartloginverifytoken";
+	public static final String VERIFY_EMAIL_BY_OTP="verifyemailbyotp";
+	public static final String RESET_PASSWORD_BY_OTP="resetpasswordbyotp";
+	public static final String REMOVE_PHONE_BY_ACCESSTOKEN="removephonebyaccesstoken";
+	public static final String SEND_WELCOME_EMAIL="sendwelcomeemail";
+	public static final String UPDATE_SECURITY_QUESTION_BY_TOKEN="updatesecurityquestion";
+	public static final String GET_FORGOT_PASSWORD_TOKEN="forgotpasswordtoken";
+	public static final String GET_EMAIL_VERIFICATION_TOKEN="emailverificationtoken";
+	public static final String ACCOUNT_IDENTITIES_BY_EMAIL="accountidentitiesbyemail";
+	public static final String ACCOUNT_INVALIDATE_VERIFICATION_EMAIL="accountinvalidateverificationemail";
+	public static final String ACCOUNT_UPDATE_SECURITY_QUESTION_CONFIG="accountupdatesecurityquestion";
+		
 }

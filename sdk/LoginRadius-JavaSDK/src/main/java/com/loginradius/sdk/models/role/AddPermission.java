@@ -5,88 +5,48 @@ import com.google.gson.annotations.SerializedName;
 
 public class AddPermission {
 
-	@SerializedName("UpdateUser1")
+	@SerializedName("UpdateUser")
 	@Expose
-	private Boolean updateUser1;
-	@SerializedName("DeleteUser1")
-	@Expose
-	private Boolean deleteUser1;
+	private Boolean updateUser;
 	@SerializedName("DeleteUser")
 	@Expose
 	private Boolean deleteUser;
-	@SerializedName("EditUser")
+	@SerializedName("EditUsers")
 	@Expose
-	private Boolean editUser;
+	private Boolean editUsers;
+	@SerializedName("DeleteUserss")
+	@Expose
+	private Boolean deleteUserss;
 
-	/**
-	* 
-	* @return
-	* The updateUser1
-	*/
-	public Boolean getUpdateUser1() {
-	return updateUser1;
+	public Boolean getUpdateUser() {
+	return updateUser;
 	}
 
-	/**
-	* 
-	* @param updateUser1
-	* The UpdateUser1
-	*/
-	public void setUpdateUser1(Boolean updateUser1) {
-	this.updateUser1 = updateUser1;
+	public void setUpdateUser(Boolean updateUser) {
+	this.updateUser = updateUser;
 	}
 
-	/**
-	* 
-	* @return
-	* The deleteUser1
-	*/
-	public Boolean getDeleteUser1() {
-	return deleteUser1;
-	}
-
-	/**
-	* 
-	* @param deleteUser1
-	* The DeleteUser1
-	*/
-	public void setDeleteUser1(Boolean deleteUser1) {
-	this.deleteUser1 = deleteUser1;
-	}
-
-	/**
-	* 
-	* @return
-	* The deleteUser
-	*/
 	public Boolean getDeleteUser() {
 	return deleteUser;
 	}
 
-	/**
-	* 
-	* @param deleteUser
-	* The DeleteUser
-	*/
 	public void setDeleteUser(Boolean deleteUser) {
 	this.deleteUser = deleteUser;
 	}
 
-	/**
-	* 
-	* @return
-	* The editUser
-	*/
-	public Boolean getEditUser() {
-	return editUser;
+	public Boolean getEditUsers() {
+	return editUsers;
 	}
 
-	/**
-	* 
-	* @param editUser
-	* The EditUser
-	*/
-	public void setEditUser(Boolean editUser) {
-	this.editUser = editUser;
+	public void setEditUsers(Boolean editUsers) {
+	this.editUsers = editUsers;
+	}
+
+	public Boolean getDeleteUserss() {
+	return deleteUserss;
+	}
+
+	public void setDeleteUserss(Boolean deleteUserss) {
+	this.deleteUserss = deleteUserss;
 	}
 }

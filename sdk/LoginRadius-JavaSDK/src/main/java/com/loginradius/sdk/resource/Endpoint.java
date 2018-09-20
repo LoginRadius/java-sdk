@@ -16,19 +16,21 @@ import java.util.Map;
  */
 public class Endpoint {
 	private static final String LOGINRADIUS_API_ROOT = "https://api.loginradius.com";
-	private static final String LOGINRADIUS_CONFIGURATION= "http://cloud-api.loginradius.com/configuration/ciam/appInfo?apikey=";
+	private static final String LOGINRADIUS_CONFIGURATION= "https://config.lrcontent.com/ciam/appinfo";
 	private static final String API_V2_LOGIN = "/identity/v2/auth/login";
 	private static final String API_REGISTER = "/identity/v2/auth/register";
-	private static final String API_FORGOTPASSWORDEamil = "/identity/v2/auth/password";
-	private static final String API_FORGOTPASSWORDMobile = "/identity/v2/auth/password/otp";
-	private static final String LOGINRADIUS_verifyotp = "/identity/v2/auth/phone/otp";
-	private static final String LOGINRADIUS_updatephone = "/identity/v2/auth/phone";
-	private static final String LOGINRADIUS_updateprofile = "/identity/v2/auth/account";
-	private static final String LOGINRADIUS_AddEmail = "/identity/v2/auth/email";
-	private static final String LOGINRADIUS_SocialIdentities = "/identity/v2/auth/socialIdentity";
-	private static final String LOGINRADIUS_CheckUserNameAvailability = "/identity/v2/auth/username";
+	private static final String API_FORGOT_PASSWORD_EAMIL = "/identity/v2/auth/password";
+	private static final String API_CHANGE_PASSWORDE = "/identity/v2/auth/password/change";
+	private static final String API_FORGOT_PASSWORD_MOBILE = "/identity/v2/auth/password/otp";
+	private static final String LOGINRADIUS_VERIFYOTP = "/identity/v2/auth/phone/otp";
+	private static final String LOGINRADIUS_UPDATEPHONE = "/identity/v2/auth/phone";
+	private static final String LOGINRADIUS_UPDATEPROFILE = "/identity/v2/auth/account";
+	private static final String LOGINRADIUS_ADDEMAIL = "/identity/v2/auth/email";
+	private static final String LOGINRADIUS_SOCIALIDENTITIES = "/identity/v2/auth/socialIdentity";
+	private static final String LOGINRADIUS_CHECKUSERNAMEAVAILABILITY = "/identity/v2/auth/username";
 	private static final String API_V2_AUTO_LOGIN = "/identity/v2/auth/login/autologin";
 	private static final String API_V2_AUTO_LOGIN_EMAIL_VERIFY = "/identity/v2/auth/email/autologin";
+	private static final String API_V2_READALL_PROFILES_BYTOKEN = "/identity/v2/auth/account";
 	private static final String API_V2_ALBUM = "/api/v2/album";
 	private static final String API_V2_AUDIO = "/api/v2/audio";
 	private static final String API_V2_CHECKIN = "/api/v2/checkin";
@@ -44,7 +46,7 @@ public class Endpoint {
 	private static final String API_V2_PHOTO = "/api/v2/photo";
 	private static final String API_V2_POST = "/api/v2/post";
 	private static final String API_V2_STATUS = "/api/v2/status";
-	private static final String API_V2_USERPROFILE = "/identity/v2/auth/account";
+	private static final String API_V2_USERPROFILE = "/api/v2/userprofile";
 
 	private static final String API_V2_VIDEO = "/api/v2/video";
 
@@ -60,29 +62,32 @@ public class Endpoint {
 	 * Management API EndPoint
 	 **/
 
-	public static final String API_V2_Management_CreateAccount = "/identity/v2/manage/account";
-	public static final String API_V2_Management_AccessToken_By_Uid = "/identity/v2/manage/account/access_token";
-	public static final String API_V2_Management_Role = "/identity/v2/manage/role";
+	public static final String API_V2_MANAGEMENT_CREATEACCOUNT = "/identity/v2/manage/account";
+	public static final String API_V2_MANAGEMENT_ACCESSTOKEN_BY_UID = "/identity/v2/manage/account/access_token";
+	public static final String API_V2_MANAGEMENT_ROLE = "/identity/v2/manage/role";
 	public static final String API_V2_GET_REGISTRATION_MANAGEMENT_DATA = "/identity/v2/manage/registrationdata";
 	public static final String API_V2_ADD_REGISTRATION_DATA = "/identity/v2/manage/registrationdata";
+	public static final String API_V2_FORGOT_PASSWORD_TOKEN = "/identity/v2/manage/account/forgot/token";
+	public static final String API_V2_EMAIL_VERIFICATION_TOKEN = "/identity/v2/manage/account/verify/token";
+	public static final String API_V2_ACCOUNT_IDENTITIES_BY_EMAIL = "/identity/v2/manage/account/identities";
 
 	/**
 	 * 
-	 * Advianced API EndPoint
+	 * Advanced API EndPoint
 	 **/
 
-	public static final String API_V2_Advanced_Identity = "/api/v2/identity";
-	public static final String API_V2_Advanced_Aggregation_QueryData = "/api/v2/insights";
-	public static final String API_V2_Advanced_Subscribe_RestHooks = "/api/v2/resthook/subscribe";
-	public static final String API_V2_Advanced_Unsubscribe_RestHooks = "/api/v2/resthook/unsubscribe";
-	public static final String API_V2_Advanced_Test_RestHooks_Settings = "/api/v2/resthook/test";
-	public static final String API_V2_Advanced_list_of_RestHooks = "/api/v2/resthook/fields";
-	public static final String API_V2_Advanced_Get_Subscribed_URL = "/api/v2/resthook/subscription";
-	public static final String API_V2_Advanced_AccessToken_via_SocialToken = "/api/v2/access_token/";
-	public static final String API_V2_Advanced_Refresh_UserProfile = "/api/v2/userprofile/refresh";
-	public static final String API_V2_Advanced_RefreshToken = "/api/v2/access_token/refresh";
-	public static final String API_V2_Advanced_ShortenURL = "/sharing/v1/shorturl";
-	public static final String API_V2_ServerTime = "/identity/v2/serverinfo";
+	public static final String API_V2_ADVANCED_IDENTITY = "/api/v2/identity";
+	public static final String API_V2_ADVANCED_AGGREGATION_QUERYDATA = "/api/v2/insights";
+	public static final String API_V2_ADVANCED_SUBSCRIBE_RESTHOOKS = "/api/v2/resthook/subscribe";
+	public static final String API_V2_ADVANCED_UNSUBSCRIBE_RESTHOOKS = "/api/v2/resthook/unsubscribe";
+	public static final String API_V2_ADVANCED_TEST_RESTHOOKS_SETTINGS = "/api/v2/resthook/test";
+	public static final String API_V2_ADVANCED_LIST_OF_RESTHOOKS = "/api/v2/resthook/fields";
+	public static final String API_V2_ADVANCED_GET_SUBSCRIBED_URL = "/api/v2/resthook/subscription";
+	public static final String API_V2_ADVANCED_ACCESSTOKEN_VIA_SOCIALTOKEN = "/api/v2/access_token/";
+	public static final String API_V2_ADVANCED_REFRESH_USERPROFILE = "/api/v2/userprofile/refresh";
+	public static final String API_V2_ADVANCED_REFRESHTOKEN = "/api/v2/access_token/refresh";
+	public static final String API_V2_ADVANCED_SHORTENURL = "/sharing/v1/shorturl";
+	public static final String API_V2_SERVERTIME = "/identity/v2/serverinfo";
 
 	/**
 	 * 
@@ -90,10 +95,11 @@ public class Endpoint {
 	 **/
 
 	public static final String API_V2_2FA_LOGIN = "/identity/v2/auth/login/2fa";
-	public static final String API_V2_2FA_GOOGLE_AUTH = "/identity/v2/auth/account/2fa/verification";
-	public static final String API_V2_2FA_VERIFY_GOOGLE_AUTH = "/identity/v2/auth/login/2fa/verification";
+	public static final String API_V2_2FA_GOOGLE_AUTH = "/identity/v2/auth/account/2fa/verification/otp";
+	public static final String API_V2_2FA_VERIFY_GOOGLE_AUTH = "/identity/v2/auth/login/2fa/verification/googleauthenticatorcode";
+	public static final String API_V2_2FA_VERIFY_GOOGLE_BY_OTP = "/identity/v2/auth/login/2fa/verification/otp";
 	public static final String API_V2_2FA_BY_TOKEN = "/identity/v2/auth/account/2fa";
-	public static final String API_V2_2FA_BY_LOGIN_BACKUPCODE = "/identity/v2/auth/login/2fa/backupcode";
+	public static final String API_V2_2FA_BY_LOGIN_BACKUPCODE = "/identity/v2/auth/login/2fa/verification/backupcode";
 	public static final String API_V2_2FA_GET_BACKUPCODE = "/identity/v2/auth/account/2fa/backupcode";
 	public static final String API_V2_2FA_RESET_BACKUPCODE = "/identity/v2/auth/account/2fa/backupcode/reset";
 	public static final String API_V2_2FA_GET_BACKUPCODE_BY_UID = "/identity/v2/auth/manage/account/2fa/backupcode";
@@ -103,79 +109,109 @@ public class Endpoint {
 
 	public static final String API_V2_AUTH_VALIDATE_ACCESS_TOKEN = "/identity/v2/auth/access_token/validate";
 	public static final String API_V2_AUTH_INVALIDATE_ACCESS_TOKEN = "/identity/v2/auth/access_token/invalidate";
-
+	public static final String API_V2_PRIVACY_POLICY_ACCEPT = "/identity/v2/auth/privacypolicy/accept";
+	public static final String API_V2_ONE_TOUCH_LOGIN_BY_EMAIL  = "/identity/v2/auth/onetouchlogin/email";
+	public static final String API_V2_ONE_TOUCH_LOGIN_BY_PHONE  = "/identity/v2/auth/onetouchlogin/phone";
+	public static final String API_V2_ONE_TOUCH_OTP_VERIFICATION  = "/identity/v2/auth/onetouchlogin/phone/verify";
+	
+	
+	public static final String API_V2_PASSWORDLESS_LOGIN_BYEMAIL  = "/identity/v2/auth/login/passwordlesslogin/email";
+	public static final String API_V2_PASSWORDLESS_LOGIN_VERIFICATION  = "/identity/v2/auth/login/passwordlesslogin/email/verify";
+	public static final String API_V2_PHONE_LOGIN_USING_ONETIMEPASSCODE  = "/identity/v2/auth/login/passwordlesslogin/otp/verify";
+	public static final String API_V2_PHONE_SEND_ONETIMEPASSCODE  = "/identity/v2/auth/login/passwordlesslogin/otp";
+	
+	public static final String API_V2_SMARTLOGIN  = "/identity/v2/auth/login/smartlogin";
+	public static final String API_V2_SMARTLOGIN_PING  = "/identity/v2/auth/login/smartlogin/ping";
+	public static final String API_V2_SMARTLOGIN_VERIFYTOKEN  = "/identity/v2/auth/email/smartlogin";
+	
+	
+	public static final String API_V2_VERIFY_EMAIL_BY_OTP  = "/identity/v2/auth/email";
+	public static final String API_V2_RESET_PASSWORD_BY_OTP  = "/identity/v2/auth/password/reset";
+	
+	public static final String API_V2_SEND_WELCOME_EMAIL  = "/identity/v2/auth/account/sendwelcomeemail";
+	public static final String API_V2_UPDATE_SECURITY_QUESTION_BY_TOKEN  = "/identity/v2/auth/account";
+	
+	public static final String API_V2_DELETE_ACCOUNT_WITH_EMAIL_CONFIRMATION  = "/identity/v2/auth/account";
 	/**
 	 * Creates Management API url after appending LoginRadius api root url
 	 * 
 	 * @return complete url for fetching data
+	 * 
+	 * 
 	 */
-
+	
 	public static String getV2_ManagementCreateAccount() {
-		return LOGINRADIUS_API_ROOT + API_V2_Management_CreateAccount;
+		return LOGINRADIUS_API_ROOT + API_V2_MANAGEMENT_CREATEACCOUNT;
 	}
 
 	public static String getV2_ManagementCreateCustomObject() {
-		return LOGINRADIUS_API_ROOT + API_V2_Management_CreateAccount;
+		return LOGINRADIUS_API_ROOT + API_V2_MANAGEMENT_CREATEACCOUNT;
 	}
 
 	public static String getV2_ManagementCreateRole() {
-		return LOGINRADIUS_API_ROOT + API_V2_Management_Role;
+		return LOGINRADIUS_API_ROOT + API_V2_MANAGEMENT_ROLE;
 	}
 
 	public static String getV2_ManagementGetRoleContext() {
-		return LOGINRADIUS_API_ROOT + API_V2_Management_CreateAccount;
+		return LOGINRADIUS_API_ROOT + API_V2_MANAGEMENT_CREATEACCOUNT;
 	}
 
 	public static String getV2_Management_GetAccessToken_By_Uid() {
-		return LOGINRADIUS_API_ROOT + API_V2_Management_AccessToken_By_Uid;
+		return LOGINRADIUS_API_ROOT + API_V2_MANAGEMENT_ACCESSTOKEN_BY_UID;
 	}
 
 	public static String getV2_AdvancedIdentity() {
-		return LOGINRADIUS_API_ROOT + API_V2_Advanced_Identity;
+		return LOGINRADIUS_API_ROOT + API_V2_ADVANCED_IDENTITY;
 	}
 
 	public static String getV2_AdvancedQueryData() {
-		return LOGINRADIUS_API_ROOT + API_V2_Advanced_Aggregation_QueryData;
+		return LOGINRADIUS_API_ROOT + API_V2_ADVANCED_AGGREGATION_QUERYDATA;
 	}
 
 	public static String getV2_AdvancedSubscribeRestHooks() {
-		return LOGINRADIUS_API_ROOT + API_V2_Advanced_Subscribe_RestHooks;
+		return LOGINRADIUS_API_ROOT + API_V2_ADVANCED_SUBSCRIBE_RESTHOOKS;
 	}
 
 	public static String getV2_AdvancedUnsubscribeRestHooks() {
-		return LOGINRADIUS_API_ROOT + API_V2_Advanced_Unsubscribe_RestHooks;
+		return LOGINRADIUS_API_ROOT + API_V2_ADVANCED_UNSUBSCRIBE_RESTHOOKS;
 	}
 
 	public static String getV2_AdvancedRestHooksSettings() {
-		return LOGINRADIUS_API_ROOT + API_V2_Advanced_Test_RestHooks_Settings;
+		return LOGINRADIUS_API_ROOT + API_V2_ADVANCED_TEST_RESTHOOKS_SETTINGS;
 	}
 
 	public static String getV2_AdvancedListofRestHooks() {
-		return LOGINRADIUS_API_ROOT + API_V2_Advanced_list_of_RestHooks;
+		return LOGINRADIUS_API_ROOT + API_V2_ADVANCED_LIST_OF_RESTHOOKS;
 	}
 
 	public static String getV2_AdvancedGetSubscribedurl() {
-		return LOGINRADIUS_API_ROOT + API_V2_Advanced_Get_Subscribed_URL;
+		return LOGINRADIUS_API_ROOT + API_V2_ADVANCED_GET_SUBSCRIBED_URL;
 	}
 
 	public static String getV2_AdvancedAccessTokenViaSocialToken() {
-		return LOGINRADIUS_API_ROOT + API_V2_Advanced_AccessToken_via_SocialToken;
+		return LOGINRADIUS_API_ROOT + API_V2_ADVANCED_ACCESSTOKEN_VIA_SOCIALTOKEN;
 	}
 
 	public static String getV2_AdvancedRefreshUserProfile() {
-		return LOGINRADIUS_API_ROOT + API_V2_Advanced_Refresh_UserProfile;
+		return LOGINRADIUS_API_ROOT + API_V2_ADVANCED_REFRESH_USERPROFILE;
 	}
 
 	public static String getV2_AdvancedRefreshToken() {
-		return LOGINRADIUS_API_ROOT + API_V2_Advanced_RefreshToken;
+		return LOGINRADIUS_API_ROOT + API_V2_ADVANCED_REFRESHTOKEN;
 	}
 
 	public static String getV2_AdvancedShortenURL() {
-		return LOGINRADIUS_API_ROOT + API_V2_Advanced_ShortenURL;
+		return LOGINRADIUS_API_ROOT + API_V2_ADVANCED_SHORTENURL;
 	}
 	
 	public static String getV2_AddRegistrationData() {
 		return LOGINRADIUS_API_ROOT + API_V2_ADD_REGISTRATION_DATA;
+	}
+	
+	
+	
+	public static String getV2_AuthReadProfilesByToken() {
+		return LOGINRADIUS_API_ROOT + API_V2_READALL_PROFILES_BYTOKEN;
 	}
 	
 	
@@ -269,7 +305,7 @@ public class Endpoint {
 	}
 
 	public static String getUpdateProfileUrl() {
-		return LOGINRADIUS_API_ROOT + LOGINRADIUS_updateprofile;
+		return LOGINRADIUS_API_ROOT + LOGINRADIUS_UPDATEPROFILE;
 	}
 
 	public static String getRegistrationUrl() {
@@ -277,32 +313,36 @@ public class Endpoint {
 	}
 
 	public static String getVerifyotpUrl() {
-		return LOGINRADIUS_API_ROOT + LOGINRADIUS_verifyotp;
+		return LOGINRADIUS_API_ROOT + LOGINRADIUS_VERIFYOTP;
 	}
 
 	public static String getUpdatephoneUrl() {
-		return LOGINRADIUS_API_ROOT + LOGINRADIUS_updatephone;
+		return LOGINRADIUS_API_ROOT + LOGINRADIUS_UPDATEPHONE;
 	}
 
 	public static String getAddEmailUrl() {
-		return LOGINRADIUS_API_ROOT + LOGINRADIUS_AddEmail;
+		return LOGINRADIUS_API_ROOT + LOGINRADIUS_ADDEMAIL;
 	}
 
 	public static String getForgotPasswordUrlEmail() {
-		return LOGINRADIUS_API_ROOT + API_FORGOTPASSWORDEamil;
+		return LOGINRADIUS_API_ROOT + API_FORGOT_PASSWORD_EAMIL;
 	}
-
+	
+	public static String getChangePasswordUrl() {
+		return LOGINRADIUS_API_ROOT + API_CHANGE_PASSWORDE;
+	}
+	
 	public static String getForgotPasswordUrlMobile() {
-		return LOGINRADIUS_API_ROOT + API_FORGOTPASSWORDMobile;
+		return LOGINRADIUS_API_ROOT + API_FORGOT_PASSWORD_MOBILE;
 	}
 
-	public static String getConfigurationUrl(String apiKey) {
-		return LOGINRADIUS_CONFIGURATION + apiKey;
+	public static String getConfigurationUrl() {
+		return LOGINRADIUS_CONFIGURATION;
 	}
 
 
 	public static String getSocialIdentities() {
-		return LOGINRADIUS_API_ROOT + LOGINRADIUS_SocialIdentities;
+		return LOGINRADIUS_API_ROOT + LOGINRADIUS_SOCIALIDENTITIES;
 	}
 
 	public static String getExchangetoken() {
@@ -310,7 +350,7 @@ public class Endpoint {
 	}
 
 	public static String getUserNameAvailability() {
-		return LOGINRADIUS_API_ROOT + LOGINRADIUS_CheckUserNameAvailability;
+		return LOGINRADIUS_API_ROOT + LOGINRADIUS_CHECKUSERNAMEAVAILABILITY;
 	}
 
 	public static String getCustomObject() {
@@ -318,7 +358,7 @@ public class Endpoint {
 	}
 
 	public static String getServerTime() {
-		return LOGINRADIUS_API_ROOT + API_V2_ServerTime;
+		return LOGINRADIUS_API_ROOT + API_V2_SERVERTIME;
 	}
 
 	public static String get2FALogin() {
@@ -328,6 +368,11 @@ public class Endpoint {
 	public static String getGoogleAuthenticatorCode() {
 		return LOGINRADIUS_API_ROOT + API_V2_2FA_GOOGLE_AUTH;
 	}
+	
+	public static String getGoogleAuthenticatorCodeVerifyByOtp() {
+		return LOGINRADIUS_API_ROOT + API_V2_2FA_VERIFY_GOOGLE_AUTH;
+	}
+	
 
 	public static String get2FAByToken() {
 		return LOGINRADIUS_API_ROOT + API_V2_2FA_BY_TOKEN;
@@ -404,6 +449,106 @@ public class Endpoint {
 	public static String getResetPasswordbySecurityAnswer() {
 		return LOGINRADIUS_API_ROOT + API_V2_RESET_PASSWORD_BY_SECURITY_ANSWER;
 	}
+	
+	
+	public static String getPrivacyPolicyAccept() {
+		return LOGINRADIUS_API_ROOT + API_V2_PRIVACY_POLICY_ACCEPT;
+	}
+	
+	
+	public static String getOneTouchLoginByEmail() {
+		return LOGINRADIUS_API_ROOT + API_V2_ONE_TOUCH_LOGIN_BY_EMAIL;
+	}
+	
+	
+	public static String getOneTouchLoginByPhone() {
+		return LOGINRADIUS_API_ROOT + API_V2_ONE_TOUCH_LOGIN_BY_PHONE;
+	}
+	
+	
+	public static String getOneTouchOtpVerification() {
+		return LOGINRADIUS_API_ROOT + API_V2_ONE_TOUCH_OTP_VERIFICATION;
+	}
+	
+	
+	public static String getPasswordlessLogin() {
+		return LOGINRADIUS_API_ROOT + API_V2_PASSWORDLESS_LOGIN_BYEMAIL;
+	}
+	
+	
+	public static String getPasswordlessLoginVerification() {
+		return LOGINRADIUS_API_ROOT + API_V2_PASSWORDLESS_LOGIN_VERIFICATION;
+	}
+	
+	public static String getPhoneLoginByOneTimePassCode() {
+		return LOGINRADIUS_API_ROOT + API_V2_PHONE_LOGIN_USING_ONETIMEPASSCODE;
+	}
+	
+	public static String getPhoneSendOneTimePassCode() {
+		return LOGINRADIUS_API_ROOT + API_V2_PHONE_SEND_ONETIMEPASSCODE;
+	}
+	
+	public static String getSmartLogin() {
+		return LOGINRADIUS_API_ROOT + API_V2_SMARTLOGIN;
+	}
+	
+	
+	public static String getSmartLoginPing() {
+		return LOGINRADIUS_API_ROOT + API_V2_SMARTLOGIN_PING;
+	}
+	
+	
+	public static String getSmartLoginVerifyToken() {
+		return LOGINRADIUS_API_ROOT + API_V2_SMARTLOGIN_VERIFYTOKEN;
+	}
+	
+	public static String getVerifyEmailByOtp() {
+		return LOGINRADIUS_API_ROOT + API_V2_VERIFY_EMAIL_BY_OTP;
+	}
+	
+	
+	public static String getResetPasswordByOtp() {
+		return LOGINRADIUS_API_ROOT + API_V2_RESET_PASSWORD_BY_OTP;
+	}
+	
+	
+	public static String getSendWelcomeEmail() {
+		return LOGINRADIUS_API_ROOT + API_V2_SEND_WELCOME_EMAIL;
+	}
+	
+	public static String getUpdateSecurityQuestionByToken(){
+		return  LOGINRADIUS_API_ROOT + API_V2_UPDATE_SECURITY_QUESTION_BY_TOKEN;
+		
+	}
+	
+	
+	public static String getDeleteAccountWithEmailConfirmation(){
+		return  LOGINRADIUS_API_ROOT + API_V2_DELETE_ACCOUNT_WITH_EMAIL_CONFIRMATION;
+		
+	}
+	
+	
+	public static String getForgotPasswordToken(){
+		return  LOGINRADIUS_API_ROOT + API_V2_FORGOT_PASSWORD_TOKEN;
+		
+	}
+	
+	
+	public static String getEmailVerificationToken(){
+		return  LOGINRADIUS_API_ROOT + API_V2_EMAIL_VERIFICATION_TOKEN;
+		
+	}
+	
+	
+	
+	public static String getAccountIdentitiesByEmail(){
+		return  LOGINRADIUS_API_ROOT + API_V2_ACCOUNT_IDENTITIES_BY_EMAIL;
+		
+	}
+	
+	
+	
+	
 	
 	
 

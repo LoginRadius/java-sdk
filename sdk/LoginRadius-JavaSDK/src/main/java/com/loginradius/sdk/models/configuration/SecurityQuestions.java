@@ -12,7 +12,7 @@ public class SecurityQuestions {
     private List<Question> questions = null;
     @SerializedName("SecurityQuestionCount")
     @Expose
-    private Object securityQuestionCount;
+    private Integer securityQuestionCount;
 
     public List<Question> getQuestions() {
         return questions;
@@ -22,11 +22,11 @@ public class SecurityQuestions {
         this.questions = questions;
     }
 
-    public Object getSecurityQuestionCount() {
+    public Integer getSecurityQuestionCount() {
         return securityQuestionCount;
     }
 
-    public void setSecurityQuestionCount(Object securityQuestionCount) {
+    public void setSecurityQuestionCount(Integer securityQuestionCount) {
         this.securityQuestionCount = securityQuestionCount;
     }
 

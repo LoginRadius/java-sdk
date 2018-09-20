@@ -1,6 +1,7 @@
 
 package com.loginradius.sdk.models.configuration;
 
+import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -23,13 +24,13 @@ public class RegistrationFormSchema {
     private String rules;
     @SerializedName("options")
     @Expose
-    private Object options;
+    private List<Object> options = null;
     @SerializedName("permission")
     @Expose
     private String permission;
     @SerializedName("DataSource")
     @Expose
-    private Object dataSource;
+    private String dataSource;
     @SerializedName("Parent")
     @Expose
     private String parent;
@@ -77,11 +78,11 @@ public class RegistrationFormSchema {
         this.rules = rules;
     }
 
-    public Object getOptions() {
+    public List<Object> getOptions() {
         return options;
     }
 
-    public void setOptions(Object options) {
+    public void setOptions(List<Object> options) {
         this.options = options;
     }
 
@@ -93,11 +94,11 @@ public class RegistrationFormSchema {
         this.permission = permission;
     }
 
-    public Object getDataSource() {
+    public String getDataSource() {
         return dataSource;
     }
 
-    public void setDataSource(Object dataSource) {
+    public void setDataSource(String dataSource) {
         this.dataSource = dataSource;
     }
 

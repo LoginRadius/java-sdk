@@ -15,6 +15,7 @@ import com.google.gson.JsonObject;
 import com.loginradius.sdk.resource.Endpoint;
 import com.loginradius.sdk.resource.LoginRadiusException;
 import com.loginradius.sdk.util.ArgumentValidator;
+import com.loginradius.sdk.util.LoginRadiusSDK;
 
 public class AdvancedPostAPI extends LRAdvancedAPI {
 
@@ -57,33 +58,35 @@ public class AdvancedPostAPI extends LRAdvancedAPI {
 		Map<String, String> params = new HashMap<String, String>();
 		if (this.map != null && !this.map.isEmpty()) {
 			params.putAll(map);
-
+		
 		}
+		
 
 		if ("getsocialidentity".equals(method)) {
+		  if(!map.containsKey("key")){
+			params.put("key", LoginRadiusSDK.getApiKey());
+			params.put("secret", LoginRadiusSDK.getApiSecret());
+		   }
 			finalpath = Endpoint.getV2_AdvancedIdentity();
 		} else if ("querydata".equals(method)) {
+			if(!map.containsKey("apikey")){
+				params.put("apikey", LoginRadiusSDK.getApiKey());
+				params.put("apisecret", LoginRadiusSDK.getApiSecret());
+			}
 			finalpath = Endpoint.getV2_AdvancedQueryData();
 		} else if ("subscriberesthooks".equals(method)) {
+			if(!map.containsKey("api_key")){
+				params.put("api_key", LoginRadiusSDK.getApiKey());
+				params.put("api_secret", LoginRadiusSDK.getApiSecret());
+			}
 			finalpath = Endpoint.getV2_AdvancedSubscribeRestHooks();
 		} else if ("unsubscriberesthooks".equals(method)) {
+			if(!map.containsKey("api_key")){
+				params.put("api_key", LoginRadiusSDK.getApiKey());
+				params.put("api_secret", LoginRadiusSDK.getApiSecret());
+			}
 			finalpath = Endpoint.getV2_AdvancedUnsubscribeRestHooks();
-		} else if ("addemail".equals(method)) {
-			params.put("access_token", token);
-			finalpath = Endpoint.getAddEmailUrl();
-		} else if ("createcustomobject".equals(method)) {
-			params.put("access_token", token);
-			finalpath = Endpoint.getCustomObject();
-		} else if ("forgotpasswordbyotp".equals(method)) {
-			finalpath = Endpoint.getForgotPasswordUrlMobile();
-		} else if ("resendotp".equals(method)) {
-			finalpath = Endpoint.getVerifyotpUrl();
-		} else if ("resendotpbytoken".equals(method)) {
-			params.put("access_token", token);
-			finalpath = Endpoint.getVerifyotpUrl();
-		} else if ("forgotpasswordbyemail".equals(method)) {
-			finalpath = Endpoint.getForgotPasswordUrlEmail();
-		} else if ("trackablestatusposting".equals(method)) {
+		}else if ("trackablestatusposting".equals(method)) {
 			params.put("access_token", token);
 			finalpath = Endpoint.getV2_STATUS() + "/trackable";
 		}

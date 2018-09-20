@@ -14,6 +14,7 @@ import java.util.Map;
 import com.loginradius.sdk.resource.Endpoint;
 import com.loginradius.sdk.resource.LoginRadiusException;
 import com.loginradius.sdk.util.ArgumentValidator;
+import com.loginradius.sdk.util.LoginRadiusSDK;
 
 public class ManagementGetAPI extends LRManagementAPI {
 
@@ -53,21 +54,31 @@ public class ManagementGetAPI extends LRManagementAPI {
 			}if (map.containsKey("type")) {
 				type = map.get("type");
 			}
+			if(!map.containsKey("apikey")){
+				params.put("apikey", LoginRadiusSDK.getApiKey());
+				params.put("apisecret", LoginRadiusSDK.getApiSecret());
+			}
+		}else{
+			params.put("apikey", LoginRadiusSDK.getApiKey());
+			params.put("apisecret", LoginRadiusSDK.getApiSecret());
 		}
 
-		if ("emaillogin".equals(method)) {
+		if ("accountprofilesbyemail".equals(method)) {
 			finalpath = Endpoint.getV2_ManagementCreateAccount();
-		} else if ("usernamelogin".equals(method)) {
+		} else if ("accountprofilesbyusername".equals(method)) {
 			finalpath = Endpoint.getV2_ManagementCreateAccount();
-		} else if ("loginbyphone".equals(method)) {
+		} else if ("accountprofilesbyphone".equals(method)) {
 			finalpath = Endpoint.getV2_ManagementCreateAccount();
-		} else if ("loginbyuid".equals(method)) {
+		} else if ("accountprofilesbyuid".equals(method)) {
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid;
 		} else if ("getpassword".equals(method)) {
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid + "/password";
 		} else if ("customobjectbyuid".equals(method)) {
+			params.remove("uid");
+			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid + "/customobject";
+		}  else if ("customobjectbyid".equals(method)) {
 			params.remove("objectRecordId");
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementCreateAccount() + "/" + uid + "/customobject/" + objectRecordId;
@@ -89,8 +100,17 @@ public class ManagementGetAPI extends LRManagementAPI {
 			params.remove("timedifference");}
 			finalpath = Endpoint.getV2_ManagementCreateAccount()+"/sott";
 
-		
+        }else if ("2FAGetBackupcodeByUid".equals(method)) {
+			finalpath = Endpoint.getBackupcodeByUid();
+
+		}else if ("2FAResetBackupcodeByUid".equals(method)) {
+			finalpath = Endpoint.getResetBackupcodeByUid();
+
+		}else if ("accountidentitiesbyemail".equals(method)) {
+			finalpath = Endpoint.getAccountIdentitiesByEmail();
+
 		}
+		
 		return executeGet(finalpath, params);
 
 	}

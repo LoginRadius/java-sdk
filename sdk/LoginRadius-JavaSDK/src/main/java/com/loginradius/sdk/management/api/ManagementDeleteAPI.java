@@ -15,6 +15,7 @@ import com.loginradius.sdk.resource.Endpoint;
 //import com.loginradius.sdk.resource.Endpoint;
 import com.loginradius.sdk.resource.LoginRadiusException;
 import com.loginradius.sdk.util.ArgumentValidator;
+import com.loginradius.sdk.util.LoginRadiusSDK;
 
 public class ManagementDeleteAPI extends LRManagementAPI {
 
@@ -66,13 +67,20 @@ public class ManagementDeleteAPI extends LRManagementAPI {
 				uid = map.get("uid");
 			}
 			if (map.containsKey("role")) {
-				role = map.get("role");
+				role = map.get("role").replaceAll(" ", "%20");
 			}
 			if (map.containsKey("rolecontextname")) {
 				rolecontextname = map.get("rolecontextname");
 			}if (map.containsKey("recordid")) {
 				recordid = map.get("recordid");
 			}
+			if(!map.containsKey("apikey")){
+				params.put("apikey", LoginRadiusSDK.getApiKey());
+				params.put("apisecret", LoginRadiusSDK.getApiSecret());
+			}
+		}else{
+			params.put("apikey", LoginRadiusSDK.getApiKey());
+			params.put("apisecret", LoginRadiusSDK.getApiSecret());
 		}
 
 		if ("deleteaccount".equals(method)) {
@@ -91,18 +99,29 @@ public class ManagementDeleteAPI extends LRManagementAPI {
 		} else if ("deletecontext".equals(method)) {
 			params.remove("uid");
 			params.remove("rolecontextname");
-			finalpath = Endpoint.getV2_ManagementGetRoleContext() + "/" + uid + "/rolecontext" + rolecontextname;
+			finalpath = Endpoint.getV2_ManagementGetRoleContext() + "/" + uid + "/rolecontext/" + rolecontextname;
 		} else if ("deleteroleandpermission".equals(method)) {
 			params.remove("uid");
 			params.remove("rolecontextname");
-			finalpath = Endpoint.getV2_ManagementGetRoleContext() + "/" + uid + "/rolecontext" + rolecontextname
+			finalpath = Endpoint.getV2_ManagementGetRoleContext() + "/" + uid + "/rolecontext/" + rolecontextname
+					+ "/additionalpermission";
+		}else if ("deleterolefromcontext".equals(method)) {
+			params.remove("uid");
+			params.remove("rolecontextname");
+			finalpath = Endpoint.getV2_ManagementGetRoleContext() + "/" + uid + "/rolecontext/" + rolecontextname
 					+ "/role";
+		}else if ("unassignrolesbyuid".equals(method)) {
+			params.remove("uid");
+			finalpath = Endpoint.getV2_ManagementGetRoleContext() + "/" + uid + "/role";
 		}else if ("deleteregistrationdata".equals(method)) {
 			params.remove("recordid");
 			finalpath = Endpoint.getGetRegistrationData_Management() +"/"+recordid;
 		}else if ("removeemail".equals(method)) {
 			params.remove("uid");
 			finalpath = Endpoint.getV2_ManagementCreateAccount()+"/"+uid+"/email";
+		}else if ("RemoveGoogleAuthenticatorByUid".equals(method)) {
+			finalpath = Endpoint.getGoogleAuthenticatorByUid();
+
 		}
 
 		return executeDelete(finalpath, params, json);

@@ -11,6 +11,7 @@ import com.loginradius.sdk.models.AccessToken;
 import com.loginradius.sdk.resource.Endpoint;
 import com.loginradius.sdk.util.LoginRadiusJsonDeserializer;
 import com.loginradius.sdk.util.LoginRadiusRestErrorResponse;
+import com.loginradius.sdk.util.LoginRadiusSDK;
 import com.loginradius.sdk.util.RestRequest;
 import com.loginradius.sdk.util.RestResponse;
 
@@ -27,6 +28,11 @@ public class LoginRadiusCallbackHelper {
 
 	public LoginRadiusCallbackHelper(String secret) {
 		this.secret = secret;
+	}
+	
+	
+	public LoginRadiusCallbackHelper() {
+		this.secret = LoginRadiusSDK.getApiSecret();
 	}
 
 	public AccessToken GetLoginRadiusToken(HttpServletRequest request) {

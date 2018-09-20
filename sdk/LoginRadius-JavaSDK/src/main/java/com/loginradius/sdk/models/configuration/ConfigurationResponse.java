@@ -19,24 +19,24 @@ public class ConfigurationResponse {
     @SerializedName("IsHttps")
     @Expose
     private Boolean isHttps;
-    @SerializedName("IsAccessToken")
-    @Expose
-    private Boolean isAccessToken;
     @SerializedName("AppName")
     @Expose
     private String appName;
     @SerializedName("IsCustomerRegistration")
     @Expose
     private Boolean isCustomerRegistration;
+    @SerializedName("ApiVersion")
+    @Expose
+    private ApiVersion apiVersion;
     @SerializedName("EmailVerificationFlow")
     @Expose
     private String emailVerificationFlow;
     @SerializedName("IsPhoneLogin")
     @Expose
     private Boolean isPhoneLogin;
-    @SerializedName("IsDisabledRegistration")
+    @SerializedName("IsDisabledSocialRegistration")
     @Expose
-    private Boolean isDisabledRegistration;
+    private Boolean isDisabledSocialRegistration;
     @SerializedName("IsDisabledAccountLinking")
     @Expose
     private Boolean isDisabledAccountLinking;
@@ -49,9 +49,6 @@ public class ConfigurationResponse {
     @SerializedName("AskRequiredFieldsOnTraditionalLogin")
     @Expose
     private Boolean askRequiredFieldsOnTraditionalLogin;
-    @SerializedName("EmailVerificationUrl")
-    @Expose
-    private String emailVerificationUrl;
     @SerializedName("IsLogoutOnEmailVerification")
     @Expose
     private Boolean isLogoutOnEmailVerification;
@@ -64,9 +61,6 @@ public class ConfigurationResponse {
     @SerializedName("IsMobileCallbackForSocialLogin")
     @Expose
     private Boolean isMobileCallbackForSocialLogin;
-    @SerializedName("PasswordLength")
-    @Expose
-    private PasswordLength passwordLength;
     @SerializedName("IsInvisibleRecaptcha")
     @Expose
     private Boolean isInvisibleRecaptcha;
@@ -85,6 +79,15 @@ public class ConfigurationResponse {
     @SerializedName("IsV2Recaptcha")
     @Expose
     private Boolean isV2Recaptcha;
+    @SerializedName("CheckPhoneNoAvailabilityOnRegistration")
+    @Expose
+    private Boolean checkPhoneNoAvailabilityOnRegistration;
+    @SerializedName("DuplicateEmailWithUniqueUsername")
+    @Expose
+    private Boolean duplicateEmailWithUniqueUsername;
+    @SerializedName("StoreOnlyRegistrationFormFieldsForSocial")
+    @Expose
+    private Boolean storeOnlyRegistrationFormFieldsForSocial;
     @SerializedName("IsInstantSignin")
     @Expose
     private IsInstantSignin isInstantSignin;
@@ -103,6 +106,9 @@ public class ConfigurationResponse {
     @SerializedName("NoRegistration")
     @Expose
     private Boolean noRegistration;
+    @SerializedName("CustomDomain")
+    @Expose
+    private Object customDomain;
 
     public SocialSchema getSocialSchema() {
         return socialSchema;
@@ -136,14 +142,6 @@ public class ConfigurationResponse {
         this.isHttps = isHttps;
     }
 
-    public Boolean getIsAccessToken() {
-        return isAccessToken;
-    }
-
-    public void setIsAccessToken(Boolean isAccessToken) {
-        this.isAccessToken = isAccessToken;
-    }
-
     public String getAppName() {
         return appName;
     }
@@ -158,6 +156,14 @@ public class ConfigurationResponse {
 
     public void setIsCustomerRegistration(Boolean isCustomerRegistration) {
         this.isCustomerRegistration = isCustomerRegistration;
+    }
+
+    public ApiVersion getApiVersion() {
+        return apiVersion;
+    }
+
+    public void setApiVersion(ApiVersion apiVersion) {
+        this.apiVersion = apiVersion;
     }
 
     public String getEmailVerificationFlow() {
@@ -176,12 +182,12 @@ public class ConfigurationResponse {
         this.isPhoneLogin = isPhoneLogin;
     }
 
-    public Boolean getIsDisabledRegistration() {
-        return isDisabledRegistration;
+    public Boolean getIsDisabledSocialRegistration() {
+        return isDisabledSocialRegistration;
     }
 
-    public void setIsDisabledRegistration(Boolean isDisabledRegistration) {
-        this.isDisabledRegistration = isDisabledRegistration;
+    public void setIsDisabledSocialRegistration(Boolean isDisabledSocialRegistration) {
+        this.isDisabledSocialRegistration = isDisabledSocialRegistration;
     }
 
     public Boolean getIsDisabledAccountLinking() {
@@ -216,14 +222,6 @@ public class ConfigurationResponse {
         this.askRequiredFieldsOnTraditionalLogin = askRequiredFieldsOnTraditionalLogin;
     }
 
-    public String getEmailVerificationUrl() {
-        return emailVerificationUrl;
-    }
-
-    public void setEmailVerificationUrl(String emailVerificationUrl) {
-        this.emailVerificationUrl = emailVerificationUrl;
-    }
-
     public Boolean getIsLogoutOnEmailVerification() {
         return isLogoutOnEmailVerification;
     }
@@ -254,14 +252,6 @@ public class ConfigurationResponse {
 
     public void setIsMobileCallbackForSocialLogin(Boolean isMobileCallbackForSocialLogin) {
         this.isMobileCallbackForSocialLogin = isMobileCallbackForSocialLogin;
-    }
-
-    public PasswordLength getPasswordLength() {
-        return passwordLength;
-    }
-
-    public void setPasswordLength(PasswordLength passwordLength) {
-        this.passwordLength = passwordLength;
     }
 
     public Boolean getIsInvisibleRecaptcha() {
@@ -312,6 +302,30 @@ public class ConfigurationResponse {
         this.isV2Recaptcha = isV2Recaptcha;
     }
 
+    public Boolean getCheckPhoneNoAvailabilityOnRegistration() {
+        return checkPhoneNoAvailabilityOnRegistration;
+    }
+
+    public void setCheckPhoneNoAvailabilityOnRegistration(Boolean checkPhoneNoAvailabilityOnRegistration) {
+        this.checkPhoneNoAvailabilityOnRegistration = checkPhoneNoAvailabilityOnRegistration;
+    }
+
+    public Boolean getDuplicateEmailWithUniqueUsername() {
+        return duplicateEmailWithUniqueUsername;
+    }
+
+    public void setDuplicateEmailWithUniqueUsername(Boolean duplicateEmailWithUniqueUsername) {
+        this.duplicateEmailWithUniqueUsername = duplicateEmailWithUniqueUsername;
+    }
+
+    public Boolean getStoreOnlyRegistrationFormFieldsForSocial() {
+        return storeOnlyRegistrationFormFieldsForSocial;
+    }
+
+    public void setStoreOnlyRegistrationFormFieldsForSocial(Boolean storeOnlyRegistrationFormFieldsForSocial) {
+        this.storeOnlyRegistrationFormFieldsForSocial = storeOnlyRegistrationFormFieldsForSocial;
+    }
+
     public IsInstantSignin getIsInstantSignin() {
         return isInstantSignin;
     }
@@ -358,6 +372,14 @@ public class ConfigurationResponse {
 
     public void setNoRegistration(Boolean noRegistration) {
         this.noRegistration = noRegistration;
+    }
+
+    public Object getCustomDomain() {
+        return customDomain;
+    }
+
+    public void setCustomDomain(Object customDomain) {
+        this.customDomain = customDomain;
     }
 
 }

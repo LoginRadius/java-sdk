@@ -19,13 +19,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<body>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
    
  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/lr_raas.css">
 </head>
+<body>
 <script src="https://auth.lrcontent.com/v2/js/LoginRadiusV2.js"></script>
 <script type="text/javascript">
 
@@ -96,7 +96,8 @@ LRObject.util.ready(function() {
                 </div>
               </div>
 <div class="secondary-menu" style="text-align: right;">
- <a style="display:inline-block;" href="/LoginRadiusJavaDemo">Logout</a>
+<a style="margin-top: 22px;" class="button-page" onclick="history.back()"><img class="img-back" src="assets/images/back.png" /><span id="tst" style="display: inline-block">Back</span></a>
+ <a style="margin-top: 22px;" class="button-page" href="/LoginRadiusJavaDemo">Logout</a>
 </div>
            
             </div>

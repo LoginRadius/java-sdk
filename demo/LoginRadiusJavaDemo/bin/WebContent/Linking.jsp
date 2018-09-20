@@ -1,8 +1,6 @@
 <%@page import="com.loginradius.sdk.authentication.api.AuthenticationDeleteAPI"%>
 <%@page import="com.loginradius.sdk.models.register.DeleteResponse"%>
-<%@page import="com.loginradius.sdk.models.socialinterface.Provider"%>
 <%@page import="java.util.List"%>
-<%@page import="com.loginradius.sdk.models.socialinterface.SocialInterface"%>
 <%@page import="com.loginradius.sdk.authentication.api.AuthenticationGetAPI"%>
 <%@page import="com.loginradius.sdk.models.userprofile.LoginRadiusUltimateUserProfile"%>
 <%@page import="com.loginradius.sdk.resource.LoginRadiusException"%>

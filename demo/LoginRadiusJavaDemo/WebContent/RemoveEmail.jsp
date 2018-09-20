@@ -9,7 +9,7 @@
 <body>
 
  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/lr_raas.css">
+
 </head>
 <script src="https://auth.lrcontent.com/v2/js/LoginRadiusV2.js"></script>
 <script type="text/javascript">
@@ -94,7 +94,8 @@ LRObject.util.ready(function() {
 
               <!-- Fragment Caching -->
               <div class="secondary-menu" style="text-align: right;">
-              <a style="display:inline-block;" href="/LoginRadiusJavaDemo">Logout</a>
+              <a style="margin-top: 22px;" class="button-page" onclick="history.back()"><img class="img-back" src="assets/images/back.png" /><span id="tst" style="display: inline-block">Back</span></a>
+ <a style="margin-top: 22px;" class="button-page" href="/LoginRadiusJavaDemo">Logout</a>
               </div>
             </div>
             </nav>

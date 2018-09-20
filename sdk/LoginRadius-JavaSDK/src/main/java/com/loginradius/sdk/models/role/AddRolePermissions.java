@@ -7,7 +7,7 @@ public class AddRolePermissions {
 	
 	@SerializedName("Permissions")
 	@Expose
-	private AddPermission permissions;
+	private Object permissions;
 	@SerializedName("Name")
 	@Expose
 	private String name;
@@ -17,7 +17,7 @@ public class AddRolePermissions {
 	* @return
 	* The permissions
 	*/
-	public AddPermission getPermissions() {
+	public Object getPermissions() {
 	return permissions;
 	}
 
@@ -26,7 +26,7 @@ public class AddRolePermissions {
 	* @param permissions
 	* The Permissions
 	*/
-	public void setPermissions(AddPermission permissions) {
+	public void setPermissions(Object permissions) {
 	this.permissions = permissions;
 	}
 

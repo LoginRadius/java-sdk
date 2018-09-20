@@ -15,6 +15,7 @@ import com.google.gson.JsonObject;
 import com.loginradius.sdk.resource.Endpoint;
 import com.loginradius.sdk.resource.LoginRadiusException;
 import com.loginradius.sdk.util.ArgumentValidator;
+import com.loginradius.sdk.util.LoginRadiusSDK;
 
 public class AuthenticationPostAPI extends LRAuthenticationAPI {
 
@@ -57,8 +58,15 @@ public class AuthenticationPostAPI extends LRAuthenticationAPI {
 		Map<String, String> params = new HashMap<String, String>();
 		if (this.map != null && !this.map.isEmpty()) {
 			params.putAll(map);
+		if(!map.containsKey("apikey")){
+			params.put("apikey", LoginRadiusSDK.getApiKey());
+		   }
 
+		}else{
+			params.put("apikey", LoginRadiusSDK.getApiKey());
 		}
+		
+		
 
 		if ("status".equals(method)) {
 			params.put("access_token", token);
@@ -91,6 +99,10 @@ public class AuthenticationPostAPI extends LRAuthenticationAPI {
 			finalpath = Endpoint.getLoginUrl();
 		}else if ("usernamelogin".equals(method)) {
 			finalpath = Endpoint.getLoginUrl();
+		}else if ("onetouchloginbyemail".equals(method)) {
+            finalpath = Endpoint.getOneTouchLoginByEmail();
+		}else if ("onetouchloginbyphone".equals(method)) {
+            finalpath = Endpoint.getOneTouchLoginByPhone();
 		}
 
 		return executePost(finalpath, params, json);

@@ -17,17 +17,17 @@ public class ArgumentValidator {
 
 	public static String allowedPathNames[] = { "userprofile", "contact", "company", "event", "group", "like",
 			"subscriberesthooks", "unsubscriberesthooks", "status", "album", "checkin", "audio", "video", "photo",
-			"post", "page", "following", "mention", "tokenvalidate", "tokeninvalidate", "message", "emaillogin",
+			"post", "page", "following", "mention", "tokenvalidate", "tokeninvalidate", "message", "emaillogin","accountprofilesbyemail",
 			"addemail", "verifyemail", "checkemailavailability", "checkusernameavailability", "deleterole",
 			"removepermissions", "getsocialidentity", "createcustomobject", "login", "register", "account", "password",
 			"username", "socialIdentity", "deletecustomobjectbyid", "customobject", "customobjectbyid", "phone", "otp",
-			"loginbyphone", "phoneavailability", "forgotpasswordbyotp", "resendotp", "deleteaccount",
+			"loginbyphone","accountprofilesbyphone", "phoneavailability", "forgotpasswordbyotp", "resendotp", "deleteaccount",
 			"resendotpbytoken", "changeusername", "resendemailverification", "resetpassword", "changepassword",
 			"linksocialidentities", "assignroles", "querydata", "updateobjectbyrecordid", "updatephone",
 			"resetpasswordbyotp", "verifyotp", "verifyotpbytoken", "removeemail", "deleteaccountwithemailconfirmation",
 			"unlinksocialidentities", "deletecustomobject", "usernamelogin", "readaccountbytoken",
 			"customobjectbytoken", "updateaccountbytoken", "forgotpasswordbyemail", "createaccount", "createrole",
-			"loginbyuid", "getpassword", "customobjectbyuid", "getrole", "getrolesbyuid", "updateaccount",
+			"accountprofilesbyuid", "getpassword", "customobjectbyuid", "getrole", "getrolesbyuid", "updateaccount",
 			"setpassword", "addpermissionstorole", "testresthookssettings", "listofresthooks", "getsubscribedurl",
 			"accesstokenviafbtoken", "accesstokenviatwtoken", "refreshprofile", "shortenURL", "trackablestatusfetching",
 			"gettrackablestatusstats","getactivesession", "trackablestatusposting", "refreshtoken", "configuration","servertime","2FALogin",
@@ -36,7 +36,11 @@ public class ArgumentValidator {
 			"RemoveGoogleAuthenticatorByToken","RemoveGoogleAuthenticatorByUid","getrolecontext","addrolecontext","deletecontext","deleteroleandpermission",
 			"emailautologin","emailautologinping","accesstokenbyuid","validateaccesstoken","invalidateaccesstoken","instantregistrationbyemail","instantregistrationbyphone",
 			"instantregistrationotpverification","addregistrationdata","getregistrationdata","updateregistrationdata","validatesecretcode","deleteregistrationdata",
-			"resetphoneidverification","securityquestionsbyaccesstoken","securityquestionsbyemail","securityquestionsbyusername","securityquestionsbyphone","generatesott","verifyautologinemail","resetpasswordbysecurityanswer"};
+			"resetphoneidverification","securityquestionsbyaccesstoken","securityquestionsbyemail","securityquestionsbyusername","securityquestionsbyphone","generatesott",
+			"verifyautologinemail","resetpasswordbysecurityanswer","privacypolicy","onetouchloginbyemail","onetouchloginbyphone","onetouchotp","passwordlesslogin",
+			"passwordlessloginverification","smartlogin","smartloginping","smartloginverifytoken","verifyemailbyotp","phoneloginusingonetimepasscode",
+			"2FAValidateOtp","phonsendonetimepasscode","resetpasswordbyotp","accountprofilesbyusername","unassignrolesbyuid","deleterolefromcontext","removephonebyaccesstoken","sendwelcomeemail",
+			"updatesecurityquestion","forgotpasswordtoken","emailverificationtoken","accountidentitiesbyemail","accountinvalidateverificationemail","accountupdatesecurityquestion"};
 
 	private static List<String> pathNames = new ArrayList<String>();
 

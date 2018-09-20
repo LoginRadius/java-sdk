@@ -14,6 +14,7 @@ import com.google.gson.JsonObject;
 import com.loginradius.sdk.resource.Endpoint;
 import com.loginradius.sdk.resource.LoginRadiusException;
 import com.loginradius.sdk.util.ArgumentValidator;
+import com.loginradius.sdk.util.LoginRadiusSDK;
 
 public class AuthenticationPutAPI extends LRAuthenticationAPI {
 
@@ -59,6 +60,11 @@ public class AuthenticationPutAPI extends LRAuthenticationAPI {
 			if (map.containsKey("objectRecordId")) {
 				objectRecordId = map.get("objectRecordId");
 			}
+			if(!map.containsKey("apikey")){
+			 params.put("apikey", LoginRadiusSDK.getApiKey());
+		   }
+		}else{
+			params.put("apikey", LoginRadiusSDK.getApiKey());
 		}
 
 		if ("changeusername".equals(method)) {
@@ -67,10 +73,10 @@ public class AuthenticationPutAPI extends LRAuthenticationAPI {
 		} else if ("resendemailverification".equals(method)) {
 			finalpath = Endpoint.getRegistrationUrl();
 		} else if ("resetpassword".equals(method)) {
-			finalpath = Endpoint.getForgotPasswordUrlEmail();
+			finalpath = Endpoint.getResetPasswordByOtp();
 		} else if ("changepassword".equals(method)) {
 			params.put("access_token", token);
-			finalpath = Endpoint.getForgotPasswordUrlEmail();
+			finalpath = Endpoint.getChangePasswordUrl();
 		} else if ("linksocialidentities".equals(method)) {
 			finalpath = Endpoint.getSocialIdentities();
 		} else if ("updateobjectbyrecordid".equals(method)) {
@@ -101,6 +107,30 @@ public class AuthenticationPutAPI extends LRAuthenticationAPI {
 		}else if ("resetpasswordbysecurityanswer".equals(method)) {
 			finalpath = Endpoint.getResetPasswordbySecurityAnswer();
 
+		}else if ("onetouchotp".equals(method)) {
+            finalpath = Endpoint.getOneTouchOtpVerification();
+		}else if ("verifyemailbyotp".equals(method)) {
+            finalpath = Endpoint.getVerifyEmailByOtp();
+		}else if ("2FAbyGoogleAuthenticator".equals(method)) {
+			finalpath = Endpoint.getGoogleAuthenticatorCode();
+			params.put("access_token", token);
+		}else if ("phoneloginusingonetimepasscode".equals(method)) {
+			finalpath = Endpoint.getPhoneLoginByOneTimePassCode();
+		} else if ("2FAVerifybyGoogleAuthenticator".equals(method)) {
+			finalpath = Endpoint.getVerifyGoogleAuthenticatorCode();
+
+		}else if ("2FAValidateOtp".equals(method)) {
+			finalpath = Endpoint.getGoogleAuthenticatorCodeVerifyByOtp();
+
+		}else if ("2FALoginByBackupcode".equals(method)) {
+			finalpath = Endpoint.getLoginByBackupcode();
+
+		}else if ("resetpasswordbyotp".equals(method)) {
+			finalpath = Endpoint.getResetPasswordByOtp();
+
+		}else if ("updatesecurityquestion".equals(method)) {
+			finalpath = Endpoint.getUpdateSecurityQuestionByToken();
+			params.put("access_token", token);
 		}
 
 		return executePut(finalpath, params, json);

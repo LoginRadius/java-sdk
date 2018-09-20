@@ -5,11 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Add Email</title>
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
-<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/lr_raas.css">
-</head>
+
 <script src="https://auth.lrcontent.com/v2/js/LoginRadiusV2.js"></script>
 <script type="text/javascript">
 var commonOptions = {};
@@ -21,8 +20,6 @@ commonOptions.phoneLogin = false;
 commonOptions.verificationUrl = "<put your verificationUrl>";
 commonOptions.formValidationMessage=true;
 var LRObject= new LoginRadiusV2(commonOptions);
-
-
 var addemail_options = {};
 addemail_options.container = "addemail-container";
 addemail_options.onSuccess = function(response) {
@@ -37,14 +34,9 @@ addemail_options.onError = function(errors) {
 		 
 	}
 };
-
-
 LRObject.util.ready(function() {
-
     LRObject.init("addEmail", addemail_options);
-
 });
-
 </script>
 <body>
         <div class="main">
@@ -69,9 +61,12 @@ LRObject.util.ready(function() {
               </div>
 
               <!-- Fragment Caching -->
-              <div class="secondary-menu" style="text-align: right;">
-              <a style="display:inline-block;" href="/LoginRadiusJavaDemo">Logout</a>
-              </div>
+            
+            <div class="secondary-menu" style="text-align: right;">
+<a style="margin-top: 22px;" class="button-page" onclick="history.back()"><img class="img-back" src="assets/images/back.png" /><span id="tst" style="display: inline-block">Back</span></a>
+ <a style="margin-top: 22px;" class="button-page" href="/LoginRadiusJavaDemo">Logout</a>
+</div>
+             
             </div>
             </nav>
         </div>
