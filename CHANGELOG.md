@@ -5,8 +5,8 @@ Released on **September 20,  2018**
 
 ##### Enhancements
 
-  - Added API Request Signing(Enabling this feature customer don’t need to pass apisecret in API request. They can pass a dynamically generated hash value instead of this. Also, this feature will make sure that the message has not tampered during transit when someone calls our APIs).
-  - Add Request Access Token in Header(LoginRadius access token can be passed on to the request as in header for auth apis).
+  - Added API Request Signing(Enabling this feature customer don’t need to pass API secret in API request. They can pass a dynamically generated hash value instead of this. Also, this feature will make sure that the message has not tampered during transit when someone calls our APIs).
+  - Add Request Access Token in Header(LoginRadius access token can be passed on to the request as in header for authentication APIs).
   - Option to Prevent Sending Email Verification(an option to prevent sending email verification in case of optional email verification flow).
   - Recaptcha for Auth APIs(By enabling this option customer can enforce client to pass reCaptcha in some auth APIs for authentication).
   - Access Token on Registration Event.
@@ -33,7 +33,7 @@ Released on **September 20,  2018**
 ##### Breaking Changes
 
 - For developers migrating from v4.0.1, there will be some breaking changes in terms of SDK implementation. In this version, we have updated endpoints and renamed "Auto Login" to "Smart Login", "No Registration/Simplified Registration" to "One touch Login" and "Instant Link Login" to "PasswordLess Login". Also, changed the methods of the above APIs accordingly.
- - We define new Method by using it you can directly initilize your api key and secret key.you dont have to initilize in every method.
+- We define new Method by using it you can directly initialize your API key and secret key.you don't have to initialize in every method.
  - For more details, please have a look [here](https://docs.loginradius.com/api/v2/deployment/sdk-libraries/java-library)
 
 
