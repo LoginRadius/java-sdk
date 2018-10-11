@@ -6,7 +6,7 @@
 
     <groupId>com.loginradius.sdk</groupId>
     <artifactId>java-sdk</artifactId>
-    <version>4.1.0</version>
+    <version>4.2.0</version>
     <description>LoginRadius java SDK contains registration and social APIs</description>
     <url>https://github.com/LoginRadius/java-sdk</url>
 
@@ -48,6 +48,15 @@
  <artifactId>servlet-api</artifactId>
  <version>2.5</version>
 </dependency>
+
+<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+  <dependency>
+   <groupId>commons-codec</groupId>
+    <artifactId>commons-codec</artifactId>
+     <version>1.9</version>
+   </dependency>
+
+
 
 </dependencies>
 

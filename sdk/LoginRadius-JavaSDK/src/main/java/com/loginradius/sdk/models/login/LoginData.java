@@ -5,13 +5,14 @@ package com.loginradius.sdk.models.login;
  */
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.loginradius.sdk.models.userprofile.LoginRadiusUltimateUserProfile;
 
 
 public class LoginData {
 
     @SerializedName("Profile")
     @Expose
-    private Profile profile;
+    private LoginRadiusUltimateUserProfile profile;
     @SerializedName("access_token")
     @Expose
     private String accessToken;
@@ -28,7 +29,7 @@ public class LoginData {
      * @return
      * The profile
      */
-    public Profile getProfile() {
+    public LoginRadiusUltimateUserProfile getProfile() {
         return profile;
     }
 
@@ -37,7 +38,7 @@ public class LoginData {
      * @param profile
      * The Profile
      */
-    public void setProfile(Profile profile) {
+    public void setProfile(LoginRadiusUltimateUserProfile profile) {
         this.profile = profile;
     }
 

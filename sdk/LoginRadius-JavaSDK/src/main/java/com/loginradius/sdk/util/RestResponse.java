@@ -4,7 +4,7 @@ package com.loginradius.sdk.util;
 /* 
  * 
  * Created by LoginRadius Development Team on 02/06/2017
-   Copyright © 2017 LoginRadius Inc. All rights reserved.  
+   Copyright 2017 LoginRadius Inc. All rights reserved.
    
  */
 

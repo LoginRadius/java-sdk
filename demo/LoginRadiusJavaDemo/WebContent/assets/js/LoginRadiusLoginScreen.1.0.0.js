@@ -13,10 +13,10 @@
       }
       cb = cb || function(response,Event){};
       var LoginScreen = document.createElement("div");
-      LoginScreen.innerHTML = generateLayout(options);
+      LoginScreen.innerHTML = generateLayout(container, options);
 
       addHTMLContent(container, LoginScreen);
-      renderJS(cb, options);
+      renderJS(cb, options, this);
 
     };
   }
@@ -24,6 +24,7 @@
   function addHTMLContent(container, data, innerHtml) {
     innerHtml = innerHtml || false;
     var containerElem = document.getElementById(container);
+    containerElem.classList.add("lr-ls-loginscreencontainer")
     if (containerElem) {
       if (!innerHtml) {
         containerElem.innerHTML = '';
@@ -42,8 +43,8 @@
     }
   }
         
-  function generateLayout(options) {
-      return '<style type="text/css"> * {'+
+  function generateLayout(container, options) {
+      return '<style type="text/css"> .lr-ls-loginscreencontainer * {'+
       '    margin: 0;'+
       '    padding: 0;'+
       '    box-sizing: border-box;'+
@@ -75,6 +76,7 @@
       '        position: relative;'+
       '    }'+
       '    .lr-ls-tabs .tab {'+
+      '        width: 50%;'+
       '        float: left;'+
       '        display: flex;'+
       '        flex-direction: row;'+
@@ -344,7 +346,7 @@
       '        border-style: hidden;'+
       '        font-size: 5vw;'+
       '        font-weight: 300;'+
-      '        line-height: 10rem;'+
+      '        line-height: 100%;'+
       '        padding: 8px;'+
       '        -webkit-box-sizing: border-box;'+
       '        box-sizing: border-box;'+
@@ -433,6 +435,15 @@
       '        font-size: 3.28vw;'+
       '        line-height: 2rem;'+
       '        margin-top: 1rem;'+
+      '    }'+
+      '    #loginradius-showQRcode-ManualEntryCode {'+
+      '        font-size: 4vw;'+
+      '    }'+
+      '    #loginradius-button-resendotp {'+
+      '        font-size: 4vw;'+
+      '    }'+
+      '    #loginradius-button-changenumber {'+
+      '        font-size: 4vw;'+
       '    }'+
       '    @-webkit-keyframes slide-up {'+
       '        0% {'+
@@ -623,6 +634,9 @@
       '        line-height: 19px;'+
       '        color: #424242;'+
       '    }'+
+      '    .lrForgotpw {'+
+      '        padding-left: 16px;'+
+      '    }'+
       '    #lr-ls-sectiondivider {'+
       '        padding-top: 7px;'+
       '        margin-top: 16px;'+
@@ -679,6 +693,7 @@
       '        -moz-animation: slide-up 1s ease-out;'+
       '    }'+
       '    .social-login-b-options .lr-sl-shaded-brick-button {'+
+      '        line-height: normal;'+
       '        height: 3em;'+
       '        width: 100%;'+
       '        border-radius: 4px;'+
@@ -794,6 +809,9 @@
       '    #forgotpassword-container {'+
       '        margin-top: 16px;'+
       '    }'+
+      '    #resetpassword-container #loginradius-submit-reset-password {'+
+      '        width:45% !important;'+
+      '    }'+
       '    input .invalid {'+
       '        border: 1px solid #FF1744;'+
       '        background-color: #F5F5F5;'+
@@ -866,7 +884,9 @@
       '        float: right;'+
       '    }'+
       '    [id *="loginradius-submit-"] {'+
+      '        margin-bottom:10px;'+
       '        height: 8vh;'+
+      '        margin-left: 16px;'+
       '        /*or height:60px; */'+
       '        width: 360px !important;'+
       '        border-radius: 0 0 6px 6px;'+
@@ -995,7 +1015,19 @@
       '#loginradius-linksignin-email-me-a-link-to-sign-in, #lr-forgot-label{'+
       '     display: none;'+
       '}'+
+      '#loginradius-button-resendotp {'+
+      '     margin-right: 20px;'+
+      '     margin-left: 20px;'+
+      '}'+
+      '#loginradius-showQRcode-qrcode {'+
+      '     width: 100%;'+
+      '     margin: auto;'+
+      '     display: block;'+
+      '}'+
       ''+
+      '.content-loginradius-qrcode {'+
+      '    text-align: center;'+
+      '}'+
       '.lrLogin {'+
       '    margin-right: auto;'+
       '    margin-left: auto;'+
@@ -1406,7 +1438,7 @@
       '         <ul class="lr-ls-tabs">' +
       '            <li class="tab">' +
       '               <input  id="tab1" type="radio" name="lr-ls-tabs" checked="checked">' +
-      '               <label for= "tab1"' + ((options.pagesshown && !options.login)? ('style="display: none"') : '')+ '>'+ ((options.content && options.content.tabLabels) ? options.content.tabLabels[0] : "Log in")+'</label>' +
+      '               <label class="tab-label" for= "tab1"' + ((options.pagesshown && !options.login)? ('style="display: none"') : '')+ '>'+ ((options.content && options.content.tabLabels) ? options.content.tabLabels[0] : "Log in")+'</label>' +
       '               <div class="lrLogin content" id = "tab-content1"' + ((options.pagesshown && !options.login)? ('style="display: none"') : '')+ '>' +
       '                  <div class="lrLogin social-login-b-options">' +
       '                     <div id="interfacecontainerdivL" class="interfacecontainerdiv"></div>' +
@@ -1421,7 +1453,7 @@
       '            </li>' +
       '            <li class= "tab" id = "signuptab">' +
       '               <input id="tab2" type="radio" name="lr-ls-tabs"' + ((options.pagesshown && !options.login && options.signup)? ('checked = "checked"') : '')+ '>' +
-      '               <label for= "tab2"' + ((options.pagesshown && !options.signup)? ('style="display: none"') : '')+ '>'+ ((options.content && options.content.tabLabels) ? options.content.tabLabels[1] : "Sign Up")+'</label>' +
+      '               <label class="tab-label" for= "tab2"' + ((options.pagesshown && !options.signup)? ('style="display: none"') : '')+ '>'+ ((options.content && options.content.tabLabels) ? options.content.tabLabels[1] : "Sign Up")+'</label>' +
       '               <div class="lrSignup content" id = "tab-content2"' + ((options.pagesshown && !options.signup)? ('style="display: none"') : '')+ '>' +
       '                  <div class="lrSignup social-login-b-options">' +
       '                     <div id="interfacecontainerdiv" class="interfacecontainerdiv"></div>' +
@@ -1451,21 +1483,22 @@
       '         </div>' +
       '      </div>' + 
       '   <script type="text/html" id="loginradiuscustom_tmpl1">'+
-      '      <a class="lr-provider-label lr-sl-shaded-brick-button lr-flat-<#=Name.toLowerCase()#>" href="javascript:void(0)" onclick="return LRObject.util.openWindow(\'<#= Endpoint #>\');" title="Sign up with <#= Name #>" alt="Sign in with <#=Name#>"><span class="lr-sl-icon lr-sl-icon-<#= Name.toLowerCase()#>"></span>'+
+      '      <a class="lr-provider-label lr-sl-shaded-brick-button lr-flat-<#=Name.toLowerCase()#>" href="javascript:void(0)" onclick="return <#=ObjectName#>.util.openWindow(\'<#= Endpoint #>\');" title="Sign up with <#= Name #>" alt="Sign in with <#=Name#>"><span class="lr-sl-icon lr-sl-icon-<#= Name.toLowerCase()#>"></span>'+
             ((options.content && options.content.socialblockLabel) ? (options.content.socialblockLabel): "Log in with")+' <#=Name#>'+
       '      </a>'+
       '   </script>'+
       '   <script type="text/html" id="loginradiuscustom_tmpl2">'+
-      '      <a class="lr-provider-label lr-sl-shaded-brick-button lr-flat-<#=Name.toLowerCase()#>" href="javascript:void(0)" onclick="return LRObject.util.openWindow(\'<#= Endpoint #>\');" title="Sign up with <#= Name #>" alt="Sign in with <#=Name#>"><span class="lr-sl-icon lr-sl-icon-<#= Name.toLowerCase()#>"></span>'+
+      '      <a class="lr-provider-label lr-sl-shaded-brick-button lr-flat-<#=Name.toLowerCase()#>" href="javascript:void(0)" onclick="return <#=ObjectName#>.util.openWindow(\'<#= Endpoint #>\');" title="Sign up with <#= Name #>" alt="Sign in with <#=Name#>"><span class="lr-sl-icon lr-sl-icon-<#= Name.toLowerCase()#>"></span>'+
       '      </a>'+
       '   </script>';
 }
   //
-  function renderJS(cb, options) {
+  function renderJS(cb, options, lrCallingObj) {
       function lrlserroraction(errors) {
             window.scrollTo(0, 0);
             document.getElementById("lr-ls-divsuccess").style.display = "none";
-            document.getElementById("lr-ls-divisionerror").innerHTML = errors[0]["Description"];
+            document.getElementById("lr-ls-divisionerror").innerHTML = !errors[0]["Description"] ?
+                  errors[0]["description"] : errors[0]["Description"];
             document.getElementById("lr-ls-diverror").style.display = "table-cell";
             document.getElementById("lr-ls-status-area").style.backgroundColor = "#FF1744";
             document.getElementById("lr-ls-status-area").style.display = "table";
@@ -1498,7 +1531,7 @@
             var _token = document.createElement("input");
             lrform.method = "POST";
             lrform.action = ((options.redirecturl && options.redirecturl.afterlogin) ? options.redirecturl.afterlogin :
-                  window.location.href);
+                  window.location.origin);
             _token.type = "hidden";
             _token.name = "token";
             _token.value = response["access_token"];
@@ -1511,10 +1544,13 @@
             'loginradiuscustom_tmpl1');
       var sl_options = {};
       sl_options.onSuccess = function(response) {
-            redirect(response);
+            if(response.access_token){
+                  redirect(response);
+            }
             cb(response, "socialLogin");
       };
       sl_options.onError = function(errors) {
+            lrlserroraction(errors);
             cb(errors, "socialLogin");
       };
       sl_options.container = "sociallogin-container";
@@ -1523,7 +1559,9 @@
             document.getElementById("lr-ls-status-area").style.display = "none";
             cb(response, "login");
             //safely redirect
-            redirect(response);
+            if(response.access_token){
+                  redirect(response);
+            }
       };
       login_options.onError = function(errors) {
             lrlserroraction(errors);
@@ -1534,7 +1572,19 @@
       registration_options.onSuccess = function(response) {
             lrlssuccessaction(response);
             document.getElementById("lr-ls-divisionsuccess").innerHTML = ((options.content && options.content.signupandForgotPwrequest) ? options.content.signupandForgotPwrequest : "Please check your email!");
+            if(response.Data){
+                  if(response.Data.AccountSid && response.Data.Sid) {
+                        document.getElementById("lr-ls-divisionsuccess").innerHTML = ((options.content && options.content.signupandForgotPwrequestPhone) ? options.content.signupandForgotPwrequestPhone : "Please check your phone!");
+                  }
+            }
+            if(document.getElementsByName("loginradius-registration")[0]) {
+                  document.getElementsByName("loginradius-registration")[0].reset();
+            }
             cb(response, "registration");
+            if(response.access_token){
+                  document.getElementById("lr-ls-divisionsuccess").innerHTML = ((options.content && options.content.emailVerifiedMessage) ? options.content.emailVerifiedMessage : "You have successfully registered, you now may log in with this email");
+                  redirect(response);
+            }
       };
       registration_options.onError = function(errors) {
             lrlserroraction(errors);
@@ -1546,12 +1596,20 @@
       var forgotPassOTPBool = false;
       forgotpassword_options.onSuccess = function(response) {
             lrlssuccessaction(response);
-            document.getElementById("lr-ls-divisionsuccess").innerHTML = ((options.content && options.content.signupandForgotPwrequest) ? options.content.signupandForgotPwrequest : "Please check your email!");
+            document.getElementById("lr-ls-divisionsuccess").innerHTML = ((options.content && options.content.signupandForgotPwrequest) ? options.content.signupandForgotPwrequest : "Please check your email!"); 
+            if(response.Data){
+                  if(response.Data.AccountSid && response.Data.Sid) {
+                        document.getElementById("lr-ls-divisionsuccess").innerHTML = ((options.content && options.content.signupandForgotPwrequestPhone) ? options.content.signupandForgotPwrequestPhone : "Please check your phone!");
+                  }
+            }
+            if(document.getElementsByName("loginradius-forgotpassword")[0]){
+                  document.getElementsByName("loginradius-forgotpassword")[0].reset();
+            }
             cb(response, "forgotPassword");
             if(forgotPassOTPBool == true){
                   setTimeout(function() {
                         window.location.href = ((options.redirecturl && options.redirecturl.afterreset) ? options.redirecturl.afterreset :
-                              window.location.href);
+                              window.location.origin);
                   }, 100);
             }
             forgotPassOTPBool = true;
@@ -1564,10 +1622,12 @@
       resetpassword_options.container = "resetpassword-container";
       resetpassword_options.onSuccess = function(response) {
             lrlssuccessaction(response);
-            setTimeout(function() {
-                  window.location.href = ((options.redirecturl && options.redirecturl.afterreset) ? options.redirecturl.afterreset :
-                        window.location.href);
-            }, 2000);
+            if(response.Data == null){
+                  setTimeout(function() {
+                        window.location.href = ((options.redirecturl && options.redirecturl.afterreset) ? options.redirecturl.afterreset :
+                              window.location.origin);
+                  }, 2000);
+            }
             cb(response, "resetPassword");
       };
       resetpassword_options.onError = function(errors) {
@@ -1579,14 +1639,16 @@
       }
       HideOTP();
       function HideOTP(){
-            LRObject.$hooks.register('afterFormRender', function() {
+            lrCallingObj.$hooks.register('afterFormRender', function() {
                   if (document.getElementsByClassName("loginradius-otpsignin")[0])
                         {
                         document.getElementsByClassName("loginradius-otpsignin")[0].style.display = "none";
                         document.getElementById("loginradius-otpsignin-send-an-otp-to-sign-in").style.display = "none";
                   }
-                  var passwordNode = document.getElementsByClassName('content-loginradius-password')[0];
-                  passwordNode.parentNode.insertBefore(document.getElementById('lr-forgotpw-btn'), passwordNode.nextSibling);   
+                  if(document.getElementById('lr-forgotpw-btn')){
+                        var passwordNode = document.getElementsByClassName('content-loginradius-password')[0];
+                        passwordNode.parentNode.insertBefore(document.getElementById('lr-forgotpw-btn'), passwordNode.nextSibling);   
+                  }
             })
             if(options.singlepagestyle) {
                   document.getElementsByClassName("content")[0].style.paddingBottom = "20px";
@@ -1594,13 +1656,17 @@
       }
 
       function HideOTPandadjustHeight(){
-            LRObject.$hooks.register('afterFormRender', function() {                 
+            lrCallingObj.$hooks.register('afterFormRender', function() {                 
                   var RightcontentHeight = document.getElementsByClassName("content")[0].offsetHeight;
+                  var rightTabLabel = document.getElementsByClassName("tab-label")[0];
+                  var rightTabLabelStyle = window.getComputedStyle(rightTabLabel) || rightTabLabel.currentStyle;
+                  var tabHeight = parseInt(rightTabLabelStyle.borderBottomWidth, 10);
+                  tabHeight = tabHeight + parseInt(rightTabLabelStyle.lineHeight, 10);
                   var RightPageHeight = document.getElementsByClassName("tab")[0].offsetHeight+RightcontentHeight;
                   if ((options.pagesshown && !options.login)|| RightcontentHeight ==0){
                         if (options.signup){
                               var RightcontentHeight = 510;
-                              var RightPageHeight = document.getElementsByClassName("tab")[1].offsetHeight+RightcontentHeight;
+                              var RightPageHeight = RightcontentHeight+tabHeight;
                         }
                         else{
                               var RightcontentHeight = 510;
@@ -1616,82 +1682,76 @@
                   
                   document.getElementsByClassName("content")[0].style.overflow = "auto";
                   document.getElementsByClassName("content")[0].style.overflowX = "hidden";
-                  document.getElementsByClassName("content")[0].style.width = "51%";
+                  document.getElementsByClassName("content")[0].style.width = "50%";
                   document.getElementsByClassName("content")[1].style.overflow = "auto";
                   document.getElementsByClassName("content")[1].style.overflowX = "hidden";
-                  document.getElementsByClassName("content")[1].style.width = "51%";
+                  document.getElementsByClassName("content")[1].style.width = "50%";
                   document.getElementById("lr-ls-logo-place").style.paddingTop = (RightPageHeight / 2.5).toString() +"px";
             })
       }
-      LRObject.util.ready(function() {
-            LRObject.customInterface(".interfacecontainerdiv", custom_interface_option);
-            LRObject.init('socialLogin', sl_options);
-            LRObject.init("login", login_options);
-            LRObject.init("registration", registration_options);
-            LRObject.init("forgotPassword", forgotpassword_options);
-            LRObject.init("resetPassword", resetpassword_options);
+      lrCallingObj.util.ready(function() {
+            lrCallingObj.customInterface(".interfacecontainerdiv", custom_interface_option);
+            lrCallingObj.init('socialLogin', sl_options);
+            lrCallingObj.init("login", login_options);
+            lrCallingObj.init("registration", registration_options);
+            lrCallingObj.init("forgotPassword", forgotpassword_options);
+            lrCallingObj.init("resetPassword", resetpassword_options);
       });
 
       function VerifyEmailInit() {
             var verifyemail_options = {};
             verifyemail_options.onSuccess = function(response) {
-                  document.getElementById("lr-ls-divisionsuccess").innerHTML = ((options.content && options.content.emailVerifiedMessage) ? options.content.emailVerifiedMessage : "You have successfully registered, you now might log in with this email");
+                  document.getElementById("lr-ls-divisionsuccess").innerHTML = ((options.content && options.content.emailVerifiedMessage) ? options.content.emailVerifiedMessage : "You have successfully registered, you now may log in with this email");
                   lrlssuccessaction(response);
+                  console.log(response);
                   cb(response, "verifyEmail");
+                  if(response.access_token){
+                        redirect(response);
+                  }
             };
             verifyemail_options.onError = function(errors) {
                   lrlserroraction(errors);
                   cb(errors, "verifyEmail");
             }
-            LRObject.util.ready(function() {
-                  LRObject.init("verifyEmail", verifyemail_options);
+            lrCallingObj.util.ready(function() {
+                  lrCallingObj.init("verifyEmail", verifyemail_options);
             });
       };
 
       function VerifyToken() {
-            var link = LRObject.util.parseQueryString(window.location.href);
+            var link = lrCallingObj.util.parseQueryString(window.location.href);
             var values = Object.keys(link).map(function(e) {
                   return link[e];
             })
             if ((Object.keys(link)[0].indexOf("vtype") > -1) && Object.keys(link)[1] == "vtoken" && values.length>1) {
-                  if (values[0] == "emailverification") {
+                  if (values[0].indexOf("emailverification") >= 0) {
                         VerifyEmailInit();
                   } else if (values[0] == "reset") {
                         for (i = 0; i < document.getElementsByClassName("tab").length; i++) {
                               document.getElementsByClassName("tab")[i].style.display = "none";
                         }
-                        document.getElementById("Resetpw-content1").style.display = "initial";
+                        document.getElementById("Resetpw-content1").style.display = "inherit";
                   }
             }
       };
       VerifyToken();
-      LRObject.$hooks.register('registrationSchemaFilter', registrationSchema);
+      lrCallingObj.$hooks.register('registrationSchemaFilter', registrationSchema);
 
       function registrationSchema(regSchema, userProfile) {
             if(userProfile){
                   document.getElementById("login-container").style.display = "none";
                   document.getElementById("interfacecontainerdivL").style.display = "none";
                   document.getElementById("lr-ls-sectiondivider").style.display = "none";
-                  document.getElementById("lr-forgotpw-btn").style.display = "none";
       }
       }
-      LRObject.$hooks.register('startProcess', function() {
+      lrCallingObj.$hooks.register('startProcess', function() {
             document.getElementById("loader").style.display = "block";
       });
-      LRObject.$hooks.register('endProcess', function() {
+      lrCallingObj.$hooks.register('endProcess', function() {
             document.getElementById("loader").style.display = "none";
       });
       if (!options.language){
-            LRObject.$hooks.call('customizeFormLabel', {
-                  "emailid": "Email Address",
-                  "password": "Password"
-            });
-            LRObject.$hooks.call('customizeFormPlaceholder', {
-                  "emailid": "Enter Your Email Address",
-                  "password": "Enter Your password",
-                  "confirmpassword": "Re-enter Your password"
-            });
-            LRObject.$hooks.call('setButtonsName', {
+            lrCallingObj.$hooks.call('setButtonsName', {
                   login: "LOG IN",
                   registration: 'SIGN UP',
                   forgotPassword: "SEND",

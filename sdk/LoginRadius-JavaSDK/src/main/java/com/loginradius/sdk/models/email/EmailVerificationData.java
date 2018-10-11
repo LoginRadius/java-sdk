@@ -2,7 +2,7 @@ package com.loginradius.sdk.models.email;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.loginradius.sdk.models.login.Profile;
+import com.loginradius.sdk.models.userprofile.LoginRadiusUltimateUserProfile;
 
 public class EmailVerificationData {
 	@SerializedName("Email")
@@ -11,7 +11,7 @@ public class EmailVerificationData {
 	
 	@SerializedName("Profile")
 	@Expose
-	private Profile profile;
+	private LoginRadiusUltimateUserProfile profile;
 
 	public String getEmail() {
 	return email;
@@ -22,11 +22,11 @@ public class EmailVerificationData {
 	}
 	
 	
-	public Profile getProfile() {
+	public LoginRadiusUltimateUserProfile getProfile() {
 	return profile;
 	}
 
-	public void setProfile(Profile profile) {
+	public void setProfile(LoginRadiusUltimateUserProfile profile) {
 	this.profile = profile;
 	}
 }

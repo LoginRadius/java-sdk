@@ -58,7 +58,7 @@
         
         if(token !=null)
         {  
-        session.setAttribute("lrtoken",token.access_token);
+        session.setAttribute("lrtoken",token.getAccessToken());
         try{
             Map<String, String> params = new HashMap<String,String>();
         	params.put("emailTemplate","sdfsdfds");

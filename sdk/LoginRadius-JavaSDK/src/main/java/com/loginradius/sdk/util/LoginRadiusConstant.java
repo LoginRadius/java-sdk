@@ -1,14 +1,14 @@
 package com.loginradius.sdk.util;
 
 public class LoginRadiusConstant {
-
 	public static final String USERPROFILE = "userprofile";
 	public static final String CONTACT = "contact";
 	public static final String COMPANY = "company";
 	public static final String EVENT = "event";
 	public static final String GROUP = "group";
 	public static final String LIKE = "like";
-	public static final String STATUS = "status";
+	public static final String POST_STATUS = "poststatus";
+	public static final String GET_STATUS = "getstatus";
 	public static final String ALBUM = "album";
 	public static final String CHECKIN = "checkin";
 	public static final String AUDIO = "audio";
@@ -18,7 +18,8 @@ public class LoginRadiusConstant {
 	public static final String PAGE = "page";
 	public static final String FOLLOWING = "following";
 	public static final String MENTION = "mention";
-	public static final String MESSAGE = "message";
+	public static final String POST_MESSAGE = "postmessage";
+	public static final String GET_MESSAGE = "getmessage";
 	public static final String TOKEN_VALIDATE = "tokenvalidate";
 	public static final String TOKEN_INVALIDATE = "tokeninvalidate";
     public static final String SUBSCRIBE_RESTHOOKS = "subscriberesthooks";
@@ -45,6 +46,7 @@ public class LoginRadiusConstant {
 	public static final String PHONE = "phone";
 	public static final String OTP = "otp";
 	public static final String LOGINBY_PHONE = "loginbyphone";
+	public static final String POST_LOGINBY_PHONE = "postloginbyphone";
 	public static final String ACCOUNT_PROFILES_BYPHONE = "accountprofilesbyphone";
 	public static final String PHONE_AVAILABILITY = "phoneavailability";
 	public static final String FORGOT_PASSWORDBY_OTP = "forgotpasswordbyotp";
@@ -60,7 +62,7 @@ public class LoginRadiusConstant {
 	public static final String QUERYDATA = "querydata";
 	public static final String UPDATE_OBJECT_BYRECORDID = "updateobjectbyrecordid";
 	public static final String UPDATE_PHONE = "updatephone";
-	public static final String RESET_PASSWORD_BYOTP = "resetpasswordbyotp";
+	public static final String PHONE_RESET_PASSWORD_BYOTP = "phoneresetpasswordbyotp";
 	public static final String VERIFYOTP = "verifyotp";
 	public static final String VERIFY_OTP_BYTOKEN = "verifyotpbytoken";
 	public static final String REMOVE_EMAIL = "removeemail";
@@ -88,6 +90,8 @@ public class LoginRadiusConstant {
 	public static final String GET_SUBSCRIBED_URL = "getsubscribedurl";
 	public static final String ACCESS_TOKEN_VIA_FBTOKEN = "accesstokenviafbtoken";
 	public static final String ACCESS_TOKEN_VIA_TWTOKEN = "accesstokenviatwtoken";
+	public static final String ACCESS_TOKEN_VIA_VKTOKEN = "accesstokenviavktoken";
+	public static final String ACCESS_TOKEN_VIA_GOOGLEJWT="accesstokenviagooglejwt";
 	public static final String REFRESH_PROFILE = "refreshprofile";
 	public static final String SHORTENURL = "shortenURL";
 	public static final String TRACKABLE_STATUS_FETCHING = "trackablestatusfetching";
@@ -96,20 +100,22 @@ public class LoginRadiusConstant {
 	public static final String REFRESHTOKEN = "refreshtoken";
 	public static final String CONFIGURATION = "configuration";
 	public static final String SERVERTIME = "servertime";
-	public static final String TWOFA_LOGIN = "2FALogin";
-	public static final String TWOFA_BYGOOGLEAUTHENTICATOR = "2FAbyGoogleAuthenticator";
-	public static final String TWOFA_BYTOKEN = "2FAbyToken";
-	public static final String TWOFA_VERIFY_BYGOOGLEAUTHENTICATOR = "2FAVerifybyGoogleAuthenticator";
-	public static final String TWOFA_VALIDATE_OTP = "2FAValidateOtp";
-	public static final String TWOFA_VALIDATE_BYBACKUPCODE = "2FALoginByBackupcode";
-	public static final String TWOFA_GETBACKUPCODE = "2FAGetBackupcode";
-	public static final String TWOFA_RESETBACKUPCODE = "2FAResetBackupcode";
-	public static final String TWOFA_GETBACKUPCODE_BYUID = "2FAGetBackupcodeByUid";
-	public static final String TWOFA_RESETBACKUPCODE_BYUID = "2FAResetBackupcodeByUid";
-	public static final String TWOFA_UPDATE_PHONENUMBER = "2FAUpdatePhoneNumber";
-	public static final String TWOFA_UPDATE_PHONENUMBER_BYTOKEN = "2FAUpdatePhoneNumberbyToken";
-	public static final String REMOVE_GOOGLEAUTHENTICATOR_BYTOKEN = "RemoveGoogleAuthenticatorByToken";
-	public static final String REMOVE_GOOGLEAUTHENTICATOR_BYUID = "RemoveGoogleAuthenticatorByUid";
+	public static final String MFA_LOGIN = "2FALogin";
+	public static final String MFA_BYGOOGLEAUTHENTICATOR = "2FAbyGoogleAuthenticator";
+	public static final String MFA_BYTOKEN = "2FAbyToken";
+	public static final String MFA_VERIFY_BYGOOGLEAUTHENTICATOR = "2FAVerifybyGoogleAuthenticator";
+	public static final String MFA_VALIDATE_OTP = "2FAValidateOtp";
+	public static final String MFA_VALIDATE_BYBACKUPCODE = "2FALoginByBackupcode";
+	public static final String MFA_GETBACKUPCODE = "2FAGetBackupcode";
+	public static final String MFA_RESETBACKUPCODE = "2FAResetBackupcode";
+	public static final String MFA_GETBACKUPCODE_BYUID = "2FAGetBackupcodeByUid";
+	public static final String MFA_RESETBACKUPCODE_BYUID = "2FAResetBackupcodeByUid";
+	public static final String MFA_UPDATE_PHONENUMBER = "2FAUpdatePhoneNumber";
+	public static final String MFA_UPDATE_PHONENUMBER_BYTOKEN = "2FAUpdatePhoneNumberbyToken";
+	public static final String MFA_UPDATE_BYTOKEN = "2FAAccountVerifybyGoogleAuthenticator";
+	public static final String MFA_UPDATE_SETTING = "2FAUpdateSetting";
+	public static final String MFA_RESET_AUTHENTICATOR_BYTOKEN = "2FAResetByToken";
+	public static final String MFA_RESET_AUTHENTICATOR_BYUID = "2FAResetByUid";
 	public static final String GET_ROLECONTEXT = "getrolecontext";
 	public static final String ADD_ROLECONTEXT = "addrolecontext";
 	public static final String DELETE_CONTEXT = "deletecontext";
@@ -121,14 +127,12 @@ public class LoginRadiusConstant {
 	public static final String ACCESSTOKEN_BYUID = "accesstokenbyuid";
 	public static final String VALIDATE_ACCESSTOKEN = "validateaccesstoken";
 	public static final String INVALIDATE_ACCESSTOKEN = "invalidateaccesstoken";
-	public static final String INSTANT_REGISTRATION_BYEMAIL = "instantregistrationbyemail";
-	public static final String INSTANT_REGISTRATION_BYPHONE = "instantregistrationbyphone";
-	public static final String INSTANT_REGISTRATION_OTP_VERIFICATION = "instantregistrationotpverification";
 	public static final String ADD_REGISTRATION_DATA = "addregistrationdata";
 	public static final String GET_REGISTRATION_DATA = "getregistrationdata";
 	public static final String UPDATE_REGISTRATION_DATA = "updateregistrationdata";
 	public static final String VALIDATE_SECRETCODE = "validatesecretcode";
 	public static final String DELETE_REGISTRATION_DATA = "deleteregistrationdata";
+	public static final String DELETE_RECORD_BY_DATASOURCE = "deletebydatasource";
 	public static final String RESET_PHONEID_VERIFICATION = "resetphoneidverification";
 	public static final String SECURITYQUESTIONS_BYACCESSTOKEN = "securityquestionsbyaccesstoken";
 	public static final String SECURITYQUESTIONS_BYEMAIL = "securityquestionsbyemail";
@@ -159,5 +163,11 @@ public class LoginRadiusConstant {
 	public static final String ACCOUNT_IDENTITIES_BY_EMAIL="accountidentitiesbyemail";
 	public static final String ACCOUNT_INVALIDATE_VERIFICATION_EMAIL="accountinvalidateverificationemail";
 	public static final String ACCOUNT_UPDATE_SECURITY_QUESTION_CONFIG="accountupdatesecurityquestion";
-		
+	public static final String GET_DELETE_ACCOUNT="getdeleteaccount";
+	public static final String SOCIAL_EXCHANGE_ACCESSTOKEN="socialexchangeaccesstoken";
+	public static final String GET_STATUS_POSTING="getstatusposting";
+	public static final String WEBHOOK_SUBSCRIBE="webhooksubscribe";
+	public static final String WEBHOOK_TEST="webhooktest";
+	public static final String WEBHOOK_SUBSCRIBED_URLS="webhooksubscribedurls";
+	public static final String WEBHOOK_UNSUBSCRIBE="webhookunsubscribe";
 }

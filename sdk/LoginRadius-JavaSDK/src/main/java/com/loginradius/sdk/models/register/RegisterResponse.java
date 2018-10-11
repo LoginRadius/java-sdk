@@ -44,8 +44,8 @@ public class RegisterResponse {
 
     /**
      *
-     * @param profile
-     * The Profile
+     * @param data 
+     * login data
      */
     public void setData(LoginData data) {
         this.data = data;

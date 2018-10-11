@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 public class EmailDeleteRequest {
 
 	
-	@SerializedName("isDeleteRequestAccepted")
+	@SerializedName("IsDeleteRequestAccepted")
 	@Expose
 	private Boolean isDeleteRequestAccepted;
 

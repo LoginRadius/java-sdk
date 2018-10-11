@@ -2,6 +2,7 @@ package com.loginradius.sdk.models.userprofile;
 
 import java.util.List;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.loginradius.sdk.models.userprofile.identity.Identity;
 
@@ -15,7 +16,7 @@ public class LoginRadiusUltimateUserProfile {
 	@SerializedName("PasswordExpirationDate")
 	public String passwordExpirationDate;
 	@SerializedName("LastPasswordChangeToken")
-	public Object lastPasswordChangeToken;
+	public String lastPasswordChangeToken;
 	@SerializedName("EmailVerified")
 	public Boolean emailVerified;
 	@SerializedName("IsActive")
@@ -69,41 +70,58 @@ public class LoginRadiusUltimateUserProfile {
 	@SerializedName("Country")
 	public LoginRadiusCountry Country;
 	@SerializedName("ThumbnailImageUrl")
-	public String ThumbnailImageUrl;
+	@Expose
+	private String thumbnailImageUrl;
 	@SerializedName("ImageUrl")
-	public String ImageUrl;
+	@Expose
+	private String imageUrl;
 	@SerializedName("Favicon")
-	public String Favicon;
+	@Expose
+	private String favicon;
 	@SerializedName("ProfileUrl")
-	public String ProfileUrl;
+	@Expose
+	private String profileUrl;
 	@SerializedName("HomeTown")
-	public String HomeTown;
+	@Expose
+	private String homeTown;
 	@SerializedName("State")
-	public String State;
+	@Expose
+	private String state;
 	@SerializedName("City")
-	public String City;
+	@Expose
+	private String city;
 	@SerializedName("Industry")
-	public String Industry;
+	@Expose
+	private String industry;
 	@SerializedName("About")
-	public String About;
+	@Expose
+	private String about;
 	@SerializedName("TimeZone")
-	public String TimeZone;
+	@Expose
+	private String timeZone;
 	@SerializedName("LocalLanguage")
-	public String LocalLanguage;
+	@Expose
+	private String localLanguage;
 	@SerializedName("CoverPhoto")
-	public String CoverPhoto;
+	@Expose
+	private String coverPhoto;
 	@SerializedName("TagLine")
-	public String TagLine;
+	@Expose
+	private String tagLine;
 	@SerializedName("Language")
-	public String Language;
+	@Expose
+	private String language;
 	@SerializedName("Verified")
-	public String Verified;
+	@Expose
+	private Object verified;
 	@SerializedName("UpdatedTime")
-	public String UpdatedTime;
+	@Expose
+	private Object updatedTime;
 	@SerializedName("Positions")
 	public List<LoginRadiusPosition> Positions;
+
 	@SerializedName("Educations")
-	public List<LoginRadiusEducation> Educations;
+	public List<LoginRadiusEducation> educations;
 	@SerializedName("PhoneNumbers")
 	public List<LoginRadiusPhoneNumber> PhoneNumbers;
 	@SerializedName("IMAccounts")
@@ -114,6 +132,10 @@ public class LoginRadiusUltimateUserProfile {
 	public String MainAddress;
 	@SerializedName("Created")
 	public String Created;
+	@SerializedName("CreatedDate")
+	public String createdDate;
+	@SerializedName("ModifiedDate")
+	public String modifiedDate;
 	@SerializedName("LocalCity")
 	public String LocalCity;
 
@@ -124,12 +146,16 @@ public class LoginRadiusUltimateUserProfile {
 
 	@SerializedName("ProfileCountry")
 	public String ProfileCountry;
+	@SerializedName("FirstLogin")
+	public Boolean firstLogin;
 	@SerializedName("IsProtected")
 	public boolean IsProtected;
 	@SerializedName("RelationshipStatus")
 	public String RelationshipStatus;
 	@SerializedName("Quota")
 	public String Quota;
+	@SerializedName("Quote")
+	public String quote;
 	@SerializedName("InterestedIn")
 	public List<String> InterestedIn;
 	@SerializedName("Interests")
@@ -238,32 +264,88 @@ public class LoginRadiusUltimateUserProfile {
 	public int PrivateGists;
 	@SerializedName("Subscription")
 	public LoginRadiusUserSubscription Subscription;
+	@SerializedName("Company")
+	public String company;
+	@SerializedName("GravatarImageUrl")
+	public String gravatarImageUrl;
+	@SerializedName("ProfileImageUrls")
+	public Object profileImageUrls;
+	@SerializedName("WebProfiles")
+	public WebProfiles webProfiles;
+	@SerializedName("PinsCount")
+	public int pinsCount;
+	@SerializedName("BoardsCount")
+	public int boardsCount;
+	@SerializedName("LikesCount")
+	public int likesCount;
+	@SerializedName("SignupDate")
+	@Expose
+	private String signupDate;
+	@SerializedName("LastLoginDate")
+	public String lastLoginDate;
 
 	@SerializedName("ExternalUserLoginId")
-    private Object externalUserLoginId;
+	private String externalUserLoginId;
 	@SerializedName("RegistrationProvider")
-    private Object registrationProvider;
+	private String registrationProvider;
 	@SerializedName("IsLoginLocked")
-    private Boolean isLoginLocked;
+	private Boolean isLoginLocked;
+	@SerializedName("LoginLockedType")
+	private String loginLockedType;
 	@SerializedName("LastLoginLocation")
-    private Object lastLoginLocation;
+	private String lastLoginLocation;
 	@SerializedName("RegistrationSource")
-    private Object registrationSource;
+	private String registrationSource;
 	@SerializedName("IsCustomUid")
-    private Boolean isCustomUid;
+	private Boolean isCustomUid;
 	@SerializedName("UnverifiedEmail")
-    private List<UnverifiedEmail> unverifiedEmail = null;
+	private List<UnverifiedEmail> unverifiedEmail = null;
 	@SerializedName("PrivacyPolicy")
 	private LoginRadiusPrivacyPolicy privacyPolicy;
 
+	@SerializedName("ExternalIds")
+	private List<ExternalId> externalIds = null;
+
+	@SerializedName("IsRequiredFieldsFilledOnce")
+	@Expose
+	private Boolean isRequiredFieldsFilledOnce;
+
+	@SerializedName("IsSecurePassword")
+	private Boolean isSecurePassword;
 
 	public List<Identity> getIdentities() {
 		return identities;
-		}
+	}
 
 	public void setIdentities(List<Identity> identities) {
 		this.identities = identities;
-		}
+	}
+
+	/**
+	 *
+	 * @return The password
+	 */
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	/**
+	 *
+	 * @return The lastPasswordChangeDate
+	 */
+
+	public String getLastPasswordChangeDate() {
+		return lastPasswordChangeDate;
+	}
+
+	public void setLastPasswordChangeDate(String lastPasswordChangeDate) {
+		this.lastPasswordChangeDate = lastPasswordChangeDate;
+	}
 
 	/**
 	 *
@@ -280,6 +362,19 @@ public class LoginRadiusUltimateUserProfile {
 	 */
 	public void setPasswordExpirationDate(String passwordExpirationDate) {
 		this.passwordExpirationDate = passwordExpirationDate;
+	}
+
+	/**
+	 * 
+	 * @return last password change token
+	 */
+
+	public String getLastPasswordChangeToken() {
+		return lastPasswordChangeToken;
+	}
+
+	public void setLastPasswordChangeToken(String lastPasswordChangeToken) {
+		this.lastPasswordChangeToken = lastPasswordChangeToken;
 	}
 
 	/**
@@ -435,19 +530,19 @@ public class LoginRadiusUltimateUserProfile {
 		this.previousUids = previousUids;
 	}
 
-	public Object getExternalUserLoginId() {
+	public String getExternalUserLoginId() {
 		return externalUserLoginId;
 	}
 
-	public void setExternalUserLoginId(Object externalUserLoginId) {
+	public void setExternalUserLoginId(String externalUserLoginId) {
 		this.externalUserLoginId = externalUserLoginId;
 	}
 
-	public Object getRegistrationProvider() {
+	public String getRegistrationProvider() {
 		return registrationProvider;
 	}
 
-	public void setRegistrationProvider(Object registrationProvider) {
+	public void setRegistrationProvider(String registrationProvider) {
 		this.registrationProvider = registrationProvider;
 	}
 
@@ -459,19 +554,27 @@ public class LoginRadiusUltimateUserProfile {
 		this.isLoginLocked = isLoginLocked;
 	}
 
-	public Object getLastLoginLocation() {
+	public String getLoginLockedType() {
+		return loginLockedType;
+	}
+
+	public void setLoginLockedType(String loginLockedType) {
+		this.loginLockedType = loginLockedType;
+	}
+
+	public String getLastLoginLocation() {
 		return lastLoginLocation;
 	}
 
-	public void setLastLoginLocation(Object lastLoginLocation) {
+	public void setLastLoginLocation(String lastLoginLocation) {
 		this.lastLoginLocation = lastLoginLocation;
 	}
 
-	public Object getRegistrationSource() {
+	public String getRegistrationSource() {
 		return registrationSource;
 	}
 
-	public void setRegistrationSource(Object registrationSource) {
+	public void setRegistrationSource(String registrationSource) {
 		this.registrationSource = registrationSource;
 	}
 
@@ -490,7 +593,7 @@ public class LoginRadiusUltimateUserProfile {
 	public void setUnverifiedEmail(List<UnverifiedEmail> unverifiedEmail) {
 		this.unverifiedEmail = unverifiedEmail;
 	}
-	
+
 	public LoginRadiusPrivacyPolicy getPrivacyPolicy() {
 		return privacyPolicy;
 	}
@@ -499,4 +602,332 @@ public class LoginRadiusUltimateUserProfile {
 		this.privacyPolicy = privacyPolicy;
 	}
 
+	public String getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(String createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public String getModifiedDate() {
+		return modifiedDate;
+	}
+
+	public void setModifiedDate(String modifiedDate) {
+		this.modifiedDate = modifiedDate;
+	}
+
+	public Boolean getFirstLogin() {
+		return firstLogin;
+	}
+
+	public void setFirstLogin(Boolean firstLogin) {
+		this.firstLogin = firstLogin;
+	}
+
+	public String getQuote() {
+		return quote;
+	}
+
+	public void setQuote(String quote) {
+		this.quote = quote;
+	}
+
+	public String getCompany() {
+		return company;
+	}
+
+	public void setCompany(String company) {
+		this.company = company;
+	}
+
+	public String getGravatarImageUrl() {
+		return gravatarImageUrl;
+	}
+
+	public void setGravatarImageUrl(String gravatarImageUrl) {
+		this.gravatarImageUrl = gravatarImageUrl;
+	}
+
+	public Object getProfileImageUrls() {
+		return profileImageUrls;
+	}
+
+	public void setProfileImageUrls(Object profileImageUrls) {
+		this.profileImageUrls = profileImageUrls;
+	}
+
+	public WebProfiles getWebProfiles() {
+		return webProfiles;
+	}
+
+	public void setWebProfiles(WebProfiles webProfiles) {
+		this.webProfiles = webProfiles;
+	}
+
+	public Integer getPinsCount() {
+		return pinsCount;
+	}
+
+	public void setPinsCount(Integer pinsCount) {
+		this.pinsCount = pinsCount;
+	}
+
+	public Integer getBoardsCount() {
+		return boardsCount;
+	}
+
+	public void setBoardsCount(Integer boardsCount) {
+		this.boardsCount = boardsCount;
+	}
+
+	public Integer getLikesCount() {
+		return likesCount;
+	}
+
+	public void setLikesCount(Integer likesCount) {
+		this.likesCount = likesCount;
+	}
+
+	public String getSignupDate() {
+		return signupDate;
+	}
+
+	public void setSignupDate(String signupDate) {
+		this.signupDate = signupDate;
+	}
+
+	public String getLastLoginDate() {
+		return lastLoginDate;
+	}
+
+	public void setLastLoginDate(String lastLoginDate) {
+		this.lastLoginDate = lastLoginDate;
+	}
+
+	public Boolean getIsSecurePassword() {
+		return isSecurePassword;
+	}
+
+	public void setIsSecurePassword(Boolean isSecurePassword) {
+		this.isSecurePassword = isSecurePassword;
+	}
+
+	/**
+	 * 
+	 * @return external Id
+	 */
+
+	public List<ExternalId> getExternalIds() {
+		return externalIds;
+	}
+
+	public void setExternalIds(List<ExternalId> externalIds) {
+		this.externalIds = externalIds;
+	}
+
+	public Boolean getIsRequiredFieldsFilledOnce() {
+		return isRequiredFieldsFilledOnce;
+	}
+
+	public void setIsRequiredFieldsFilledOnce(Boolean isRequiredFieldsFilledOnce) {
+		this.isRequiredFieldsFilledOnce = isRequiredFieldsFilledOnce;
+	}
+
+	public String getThumbnailImageUrl() {
+		return thumbnailImageUrl;
+	}
+
+	public void setThumbnailImageUrl(String thumbnailImageUrl) {
+		this.thumbnailImageUrl = thumbnailImageUrl;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	public String getFavicon() {
+		return favicon;
+	}
+
+	public void setFavicon(String favicon) {
+		this.favicon = favicon;
+	}
+
+	public String getProfileUrl() {
+		return profileUrl;
+	}
+
+	public void setProfileUrl(String profileUrl) {
+		this.profileUrl = profileUrl;
+	}
+
+	public String getHomeTown() {
+		return homeTown;
+	}
+
+	public void setHomeTown(String homeTown) {
+		this.homeTown = homeTown;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getIndustry() {
+		return industry;
+	}
+
+	public void setIndustry(String industry) {
+		this.industry = industry;
+	}
+
+	public String getAbout() {
+		return about;
+	}
+
+	public void setAbout(String about) {
+		this.about = about;
+	}
+
+	public String getTimeZone() {
+		return timeZone;
+	}
+
+	public void setTimeZone(String timeZone) {
+		this.timeZone = timeZone;
+	}
+
+	public String getLocalLanguage() {
+		return localLanguage;
+	}
+
+	public void setLocalLanguage(String localLanguage) {
+		this.localLanguage = localLanguage;
+	}
+
+	public String getCoverPhoto() {
+		return coverPhoto;
+	}
+
+	public void setCoverPhoto(String coverPhoto) {
+		this.coverPhoto = coverPhoto;
+	}
+
+	public String getTagLine() {
+		return tagLine;
+	}
+
+	public void setTagLine(String tagLine) {
+		this.tagLine = tagLine;
+	}
+
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+
+	public Object getVerified() {
+		return verified;
+	}
+
+	public void setVerified(Object verified) {
+		this.verified = verified;
+	}
+
+	public Object getUpdatedTime() {
+		return updatedTime;
+	}
+
+	public void setUpdatedTime(Object updatedTime) {
+		this.updatedTime = updatedTime;
+	}
+
+	public List<LoginRadiusPosition> getPositions() {
+		return Positions;
+	}
+
+	/**
+	 *
+	 * @param Positions
+	 *            The Positions
+	 */
+	public void setPositions(List<LoginRadiusPosition> Positions) {
+		this.Positions = Positions;
+	}
+
+	public List<LoginRadiusEducation> getEducations() {
+		return educations;
+	}
+
+	/**
+	 *
+	 * @param educations
+	 *            The Educations
+	 */
+	public void setEducations(List<LoginRadiusEducation> educations) {
+		this.educations = educations;
+	}
+
+	/**
+	 *
+	 * @return The iMAccounts
+	 */
+	public List<LoginRadiusIMAccount> getIMAccounts() {
+		return IMAccounts;
+	}
+
+	/**
+	 *
+	 * @param IMAccounts
+	 *            The IMAccounts
+	 */
+	public void setLoginRadiusIMAccount(List<LoginRadiusIMAccount> IMAccounts) {
+		this.IMAccounts = IMAccounts;
+	}
+
+	/**
+	 *
+	 * @return The Addresses
+	 */
+	public List<LoginRadiusAddress> getAddresses() {
+		return Addresses;
+	}
+
+	/**
+	 *
+	 * @param Addresses
+	 *            The Addresses
+	 */
+	public void setAddresses(List<LoginRadiusAddress> Addresses) {
+		this.Addresses = Addresses;
+	}
+
+	public String getMainAddress() {
+		return MainAddress;
+	}
+
+	public void setMainAddress(String MainAddress) {
+		this.MainAddress = MainAddress;
+	}
 }

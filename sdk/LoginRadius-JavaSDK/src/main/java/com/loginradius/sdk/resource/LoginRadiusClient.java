@@ -3,7 +3,7 @@ package com.loginradius.sdk.resource;
 /* 
  * 
  * Created by LoginRadius Development Team on 02/06/2017
-   Copyright © 2017 LoginRadius Inc. All rights reserved.  
+   Copyright 2017 LoginRadius Inc. All rights reserved.
    
  */
 
@@ -19,28 +19,39 @@ import com.loginradius.sdk.models.AccessToken;
 import java.util.Map;
 
 public class LoginRadiusClient {
-
-	private AccessToken _token;
+	 private static Map<String, EndpointContent> authenticationLookup;
+     private static Map<String, EndpointContent> managementLookup;
+     private static Map<String, EndpointContent> advancedLookup;
+	 private AccessToken _token;
 
 	public LoginRadiusClient(AccessToken token) {
 		_token = token;
+		 authenticationLookup = Endpoint.authenticationAPILookUp();
+         managementLookup = Endpoint.managementAPILookUp();
+         advancedLookup = Endpoint.advancedAPILookUp();
 	}
 
 	public LoginRadiusClient(String token) {
 		_token = new AccessToken();
-		_token.access_token = token;
+		_token.setAccessToken(token);
+		 authenticationLookup = Endpoint.authenticationAPILookUp();
+         managementLookup = Endpoint.managementAPILookUp();
+         advancedLookup = Endpoint.advancedAPILookUp();
 
 	}
 	
 	
 	public LoginRadiusClient() {
 		_token = new AccessToken();
-		_token.access_token = "";
+		_token.setAccessToken("");
+		 authenticationLookup = Endpoint.authenticationAPILookUp();
+         managementLookup = Endpoint.managementAPILookUp();
+         advancedLookup = Endpoint.advancedAPILookUp();
 	}
 	
 	public void setToken(String token) {
 		_token = new AccessToken();
-		_token.access_token = token;
+		_token.setAccessToken(token);
 
 	}
 	
@@ -71,7 +82,7 @@ public class LoginRadiusClient {
 	}
 
 	public String getStringResponse(LRAuthenticationAPI api) {
-		return api.getResponse(_token.access_token);
+		return api.getResponse(_token.getAccessToken());
 	}
 
 	public <T> T getResponse(LRManagementAPI api, Class<T> cls) {
@@ -85,7 +96,7 @@ public class LoginRadiusClient {
 	}
 
 	public String getStringResponse(LRManagementAPI api) {
-		return api.getResponse(_token.access_token);
+		return api.getResponse(_token.getAccessToken());
 	}
 
 	public <T> T getResponse(LRAdvancedAPI api, Class<T> cls) {
@@ -99,7 +110,7 @@ public class LoginRadiusClient {
 	}
 
 	public String getStringResponse(LRAdvancedAPI api) {
-		return api.getResponse(_token.access_token);
+		return api.getResponse(_token.getAccessToken());
 	}
 	
 	
@@ -116,5 +127,18 @@ public class LoginRadiusClient {
 		String json = gson.toJson(map);
 		return json;
 	}
+	
+	
+	 public static Map<String, EndpointContent> getAuthenticationAPILookup() {
+	        return LoginRadiusClient.authenticationLookup;
+	    }
+
+	    public static Map<String, EndpointContent> getManagementAPILookup() {
+	        return LoginRadiusClient.managementLookup;
+	    }
+
+	    public static Map<String, EndpointContent> getAdvancedAPILookup() {
+	        return LoginRadiusClient.advancedLookup;
+	    }
 
 }

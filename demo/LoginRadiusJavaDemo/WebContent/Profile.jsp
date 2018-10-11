@@ -69,7 +69,7 @@
         Gson gson =new Gson();
         if(token !=null)
         {  
-        session.setAttribute("lrtoken",token);
+        session.setAttribute("lrtoken",token.getAccessToken());
         
         
 
@@ -94,7 +94,7 @@
                 <tr>
 
                   <td style="padding: 10px; border: none; width: 25%;"><img
-                    src="<%=profile.ImageUrl%>" alt="Avatar"
+                    src="<%=profile.getImageUrl()%>" alt="Avatar"
                     style="width: 140px; height: 140px;"></td>
 
                   <td

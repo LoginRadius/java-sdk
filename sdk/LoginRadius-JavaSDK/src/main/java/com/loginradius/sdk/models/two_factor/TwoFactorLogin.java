@@ -2,7 +2,7 @@ package com.loginradius.sdk.models.two_factor;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.loginradius.sdk.models.login.Profile;
+import com.loginradius.sdk.models.userprofile.LoginRadiusUltimateUserProfile;
 public class TwoFactorLogin {
 
 	@SerializedName("SecondFactorAuthentication")
@@ -10,7 +10,7 @@ public class TwoFactorLogin {
 	private SecondFactorAuthentication secondFactorAuthentication;
 	@SerializedName("Profile")
 	@Expose
-	private Profile profile;
+	private LoginRadiusUltimateUserProfile profile;
 	@SerializedName("access_token")
 	@Expose
 	private String accessToken;
@@ -26,11 +26,11 @@ public class TwoFactorLogin {
 	this.secondFactorAuthentication = secondFactorAuthentication;
 	}
 
-	 public Profile getProfile() {
+	 public LoginRadiusUltimateUserProfile getProfile() {
 	        return profile;
 	 }
 
-	public void setProfile(Profile profile) {
+	public void setProfile(LoginRadiusUltimateUserProfile profile) {
 	        this.profile = profile;
 	 }
 	public String getAccessToken() {
