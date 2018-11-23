@@ -3,6 +3,7 @@ package com.loginradius.sdk.util;
 import java.util.List;
 
 import com.loginradius.sdk.models.ExtraInfo;
+import com.loginradius.sdk.models.ValidationError;
 
 /* 
  * 
@@ -34,6 +35,8 @@ public class LoginRadiusRestErrorResponse {
 	private Integer ErrorCode;
 	
 	private List<ExtraInfo> ExtraInfo = null;
+
+	private List<ValidationError> Errors = null;
 
 	/**
 	 * 
@@ -120,13 +123,37 @@ public class LoginRadiusRestErrorResponse {
 		this.errorCode = errorCode;
 	}
 	
-	
+	/**
+	 * 
+	 * @return The ExtraInfo
+	 */
 	public List<ExtraInfo> getExtraInfo() {
 		return ExtraInfo;
 	}
 
-		public void setExtraInfo(List<ExtraInfo> ExtraInfo) {
+	/**
+	 * 
+	 * @param ExtraInfo
+	 *            The ExtraInfo
+	 */
+	public void setExtraInfo(List<ExtraInfo> ExtraInfo) {
 		this.ExtraInfo = ExtraInfo;
 	}
 
+	/**
+	 * 
+	 * @return The Errors
+	 */
+	public List<ValidationError> getErrors() {
+		return Errors;
+	}
+
+	/**
+	 * 
+	 * @param Errors
+	 *            The Errors
+	 */
+	public void setErrors(List<ValidationError> Errors) {
+		this.Errors = Errors;
+	}
 }

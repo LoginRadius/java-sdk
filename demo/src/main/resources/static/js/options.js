@@ -1,0 +1,9 @@
+var commonOptions = {};
+commonOptions.apiKey = "<API-KEY"; // Fill in
+commonOptions.appName = "<APP-NAME>"; // Fill in
+commonOptions.sott = "<SOTT>"; // Fill in
+commonOptions.hashTemplate = true;
+commonOptions.formValidationMessage = true;
+commonOptions.verificationUrl = window.location.href.slice(0, window.location.href.lastIndexOf('/')).concat("/loginscreen");
+commonOptions.resetPasswordUrl = window.location.href.slice(0, window.location.href.lastIndexOf('/')).concat("/loginscreen");
+var LRObject = new LoginRadiusV2(commonOptions);

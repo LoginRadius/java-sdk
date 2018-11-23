@@ -4,7 +4,6 @@ package com.loginradius.sdk.resource;
  * 
  * Created by LoginRadius Development Team on 02/06/2017
    Copyright 2017 LoginRadius Inc. All rights reserved.
-   
  */
 
 import com.google.gson.Gson;
@@ -15,46 +14,47 @@ import com.loginradius.sdk.authentication.api.LRAuthenticationAPI;
 import com.loginradius.sdk.management.api.LRManagementAPI;
 import com.loginradius.sdk.models.AccessToken;
 
-
 import java.util.Map;
 
+
 public class LoginRadiusClient {
-	 private static Map<String, EndpointContent> authenticationLookup;
-     private static Map<String, EndpointContent> managementLookup;
-     private static Map<String, EndpointContent> advancedLookup;
-	 private AccessToken _token;
+	private static Map<String, EndpointContent> authenticationLookup;
+	private static Map<String, EndpointContent> managementLookup;
+	private static Map<String, EndpointContent> advancedLookup;
+	private static Gson gson;
+	private AccessToken _token;
 
 	public LoginRadiusClient(AccessToken token) {
+		gson = new Gson();
 		_token = token;
-		 authenticationLookup = Endpoint.authenticationAPILookUp();
-         managementLookup = Endpoint.managementAPILookUp();
-         advancedLookup = Endpoint.advancedAPILookUp();
+		authenticationLookup = Endpoint.authenticationAPILookUp();
+		managementLookup = Endpoint.managementAPILookUp();
+		advancedLookup = Endpoint.advancedAPILookUp();
 	}
 
 	public LoginRadiusClient(String token) {
+		gson = new Gson();
 		_token = new AccessToken();
 		_token.setAccessToken(token);
-		 authenticationLookup = Endpoint.authenticationAPILookUp();
-         managementLookup = Endpoint.managementAPILookUp();
-         advancedLookup = Endpoint.advancedAPILookUp();
-
+		authenticationLookup = Endpoint.authenticationAPILookUp();
+		managementLookup = Endpoint.managementAPILookUp();
+		advancedLookup = Endpoint.advancedAPILookUp();
 	}
-	
-	
+
 	public LoginRadiusClient() {
+		gson = new Gson();
 		_token = new AccessToken();
 		_token.setAccessToken("");
-		 authenticationLookup = Endpoint.authenticationAPILookUp();
-         managementLookup = Endpoint.managementAPILookUp();
-         advancedLookup = Endpoint.advancedAPILookUp();
+		authenticationLookup = Endpoint.authenticationAPILookUp();
+		managementLookup = Endpoint.managementAPILookUp();
+		advancedLookup = Endpoint.advancedAPILookUp();
 	}
-	
+
 	public void setToken(String token) {
 		_token = new AccessToken();
 		_token.setAccessToken(token);
-
 	}
-	
+
 	public void setToken(AccessToken token) {
 		_token = token;
 	}
@@ -66,9 +66,6 @@ public class LoginRadiusClient {
 		Gson gson = gsonbuilder.create();
 
 		return gson.fromJson(response, cls);
-
-		// return new Gson().fromJson(response, cls);
-
 	}
 
 	public <T> T getResponse(LRAuthenticationAPI api, Class<T> cls) {
@@ -77,7 +74,7 @@ public class LoginRadiusClient {
 		} else {
 			String jsonresponse = getStringResponse(api);
 
-			return new Gson().fromJson(jsonresponse, cls);
+			return gson.fromJson(jsonresponse, cls);
 		}
 	}
 
@@ -91,7 +88,7 @@ public class LoginRadiusClient {
 		} else {
 			String jsonresponse = getStringResponse(api);
 
-			return new Gson().fromJson(jsonresponse, cls);
+			return gson.fromJson(jsonresponse, cls);
 		}
 	}
 
@@ -105,7 +102,7 @@ public class LoginRadiusClient {
 		} else {
 			String jsonresponse = getStringResponse(api);
 
-			return new Gson().fromJson(jsonresponse, cls);
+			return gson.fromJson(jsonresponse, cls);
 		}
 	}
 
@@ -113,32 +110,15 @@ public class LoginRadiusClient {
 		return api.getResponse(_token.getAccessToken());
 	}
 	
-	
-
-	/*
-	 * @Description: Method to convert Map to JSON String
-	 * 
-	 * @param: map Map<String, String>
-	 * 
-	 * @return: json String
-	 */
-	public static String convert(Map<String, String> map) {
-		Gson gson = new Gson();
-		String json = gson.toJson(map);
-		return json;
+	public static Map<String, EndpointContent> getAuthenticationAPILookup() {
+		return LoginRadiusClient.authenticationLookup;
 	}
-	
-	
-	 public static Map<String, EndpointContent> getAuthenticationAPILookup() {
-	        return LoginRadiusClient.authenticationLookup;
-	    }
 
-	    public static Map<String, EndpointContent> getManagementAPILookup() {
-	        return LoginRadiusClient.managementLookup;
-	    }
+	public static Map<String, EndpointContent> getManagementAPILookup() {
+		return LoginRadiusClient.managementLookup;
+	}
 
-	    public static Map<String, EndpointContent> getAdvancedAPILookup() {
-	        return LoginRadiusClient.advancedLookup;
-	    }
-
+	public static Map<String, EndpointContent> getAdvancedAPILookup() {
+		return LoginRadiusClient.advancedLookup;
+	}
 }

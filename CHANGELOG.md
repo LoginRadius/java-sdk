@@ -1,5 +1,15 @@
 > **LoginRadius Java SDK Change Log** provides information regarding what has changed, more specifically what changes, improvements and bug fix has been made to the SDK. For more details please refer to the [LoginRadius API Documention(https://github.com/LoginRadius/java-sdk)
 
+### Version 4.2.1
+Released on **November 23,  2018**
+##### Enhancements
+
+  - LoginRadiusClient.java optimization
+  - Update Exception object to include ValidationError model
+  - Added Unit tests
+  - Updated demo with new UI and features
+
+
 ### Version 4.2.0
 Released on **October 11,  2018**
 ##### Enhancements
