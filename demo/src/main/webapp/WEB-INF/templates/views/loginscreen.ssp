@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>SDK Demo Index Page</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="/assets/css/style.css" rel="stylesheet" />
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="https://auth.lrcontent.com/v2/js/LoginRadiusV2.js"></script>
+    <script src="/assets/js/LoginRadiusLoginScreen.1.0.0.min.js"></script>
+    <script src="/assets/js/options.js"></script>
+</head>
+
+<body>
+	<div class="section-menu">
+		<div class="menu-header">
+			<a href="/loginscreen">
+				<img src="/assets/img/lr-logo.png"/>
+			</a>
+			<span style="display:block;margin-left:120px">Scala Web Demo</span>
+			<div class="button-group">
+				<a href="/minimal">Minimal</a>
+				<a href="/loginscreen">Login Screen</a>
+			</div>
+		</div>
+	</div>
+	<div class="section-main">
+		<div id="loginscreen-container"></div>
+	</div>
+	<script src="/assets/js/loginScreen.js"></script>
+</body>
+
+</html>
