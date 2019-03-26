@@ -27,7 +27,7 @@ Use the following dependency in your project:
 <dependency>
   <groupId>com.loginradius.sdk</groupId>
   <artifactId>java-sdk</artifactId>
-  <version>4.2.1</version>
+  <version>4.2.2</version>
 </dependency>
 
 ```
@@ -37,7 +37,7 @@ the latest version and download the jar files.
 
 ## Documentation
 
-[Getting Started](https://docs.loginradius.com/api/v2/sdk-libraries/java-library) - Everything you need to begin using this SDK.
+[Getting Started](https://www.loginradius.com/docs/api/v2/deployment/sdk-libraries/java-library) - Everything you need to begin using this SDK.
 
 
 

@@ -26,6 +26,8 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
+import java.util.zip.GZIPInputStream;
+
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
@@ -68,7 +70,7 @@ public class RestRequest {
 			con.setReadTimeout(150000);
 			con.setRequestProperty("Content-Type", "application/json");
 			con.setRequestProperty("charset", "utf-8");
-
+			con.setRequestProperty("Accept-Encoding", "gzip");
 			if (authorization != "") {
 				con.setRequestProperty("Authorization", "Bearer " + authorization);
 			}
@@ -81,9 +83,18 @@ public class RestRequest {
 				con.setRequestProperty("X-LoginRadius-ApiSecret", apiSecret);
 			}
 			con.setDoOutput(true);
-
-			BufferedReader br = new BufferedReader(new InputStreamReader(
-					con.getResponseCode() / 100 == 2 ? con.getInputStream() : con.getErrorStream()));
+            
+			BufferedReader br;
+			if ("gzip".equals(con.getContentEncoding())) {
+				 br = new BufferedReader(new InputStreamReader(
+						con.getResponseCode() / 100 == 2 ? new GZIPInputStream(con.getInputStream()) : con.getErrorStream()));
+				
+		      }
+		      else {
+		    	 br = new BufferedReader(new InputStreamReader(
+							con.getResponseCode() / 100 == 2 ? con.getInputStream() : con.getErrorStream()));
+					
+		      }
 			String output;
 			while ((output = br.readLine()) != null) {
 				response.setResponse(output);
@@ -119,7 +130,7 @@ public class RestRequest {
 			sott = getParams.get("sott");
 			getParams.remove("sott");
 		}
-		if (getParams.containsKey("access_token")) {
+		if (getParams.containsKey("access_token") && serviceUrl.contains("/auth")) {
 			authorization = getParams.get("access_token");
 			getParams.remove("access_token");
 
@@ -139,7 +150,7 @@ public class RestRequest {
 			con.setReadTimeout(150000);
 			con.setRequestProperty("Content-Type", "application/json");
 			con.setRequestProperty("charset", "utf-8");
-
+			con.setRequestProperty("Accept-Encoding", "gzip");
 			if (sott != "") {
 				con.setRequestProperty("X-LoginRadius-Sott", sott);
 			}
@@ -168,8 +179,17 @@ public class RestRequest {
 			body.flush();
 			body.close();
 
-			BufferedReader br = new BufferedReader(new InputStreamReader(
-					con.getResponseCode() / 100 == 2 ? con.getInputStream() : con.getErrorStream()));
+			BufferedReader br;
+			if ("gzip".equals(con.getContentEncoding())) {
+				 br = new BufferedReader(new InputStreamReader(
+						con.getResponseCode() / 100 == 2 ? new GZIPInputStream(con.getInputStream()) : con.getErrorStream()));
+				
+		      }
+		      else {
+		    	 br = new BufferedReader(new InputStreamReader(
+							con.getResponseCode() / 100 == 2 ? con.getInputStream() : con.getErrorStream()));
+					
+		      }
 			String output;
 			while ((output = br.readLine()) != null) {
 				response.setResponse(output);
@@ -202,7 +222,7 @@ public class RestRequest {
 
 	public RestResponse put(String serviceUrl, Map<String, String> getParams, String payload) {
 
-		if (getParams.containsKey("access_token")) {
+		if (getParams.containsKey("access_token") && serviceUrl.contains("/auth")) {
 			authorization = getParams.get("access_token");
 			getParams.remove("access_token");
 		}
@@ -221,6 +241,7 @@ public class RestRequest {
 			con.setReadTimeout(150000);
 			con.setRequestProperty("Content-Type", "application/json");
 			con.setRequestProperty("charset", "utf-8");
+			con.setRequestProperty("Accept-Encoding", "gzip");	
 			con.setDoOutput(true);
 			if (authorization != "") {
 				con.setRequestProperty("Authorization", "Bearer " + authorization);
@@ -244,8 +265,17 @@ public class RestRequest {
 			body.flush();
 			body.close();
 
-			BufferedReader br = new BufferedReader(new InputStreamReader(
-					con.getResponseCode() / 100 == 2 ? con.getInputStream() : con.getErrorStream()));
+			BufferedReader br;
+			if ("gzip".equals(con.getContentEncoding())) {
+				 br = new BufferedReader(new InputStreamReader(
+						con.getResponseCode() / 100 == 2 ? new GZIPInputStream(con.getInputStream()) : con.getErrorStream()));
+				
+		      }
+		      else {
+		    	 br = new BufferedReader(new InputStreamReader(
+							con.getResponseCode() / 100 == 2 ? con.getInputStream() : con.getErrorStream()));
+					
+		      }
 			String output;
 			while ((output = br.readLine()) != null) {
 				response.setResponse(output);
@@ -279,7 +309,7 @@ public class RestRequest {
 
 	public RestResponse delete(String serviceUrl, Map<String, String> getParams, String payload) {
 
-		if (getParams.containsKey("access_token")) {
+		if (getParams.containsKey("access_token") && serviceUrl.contains("/auth")) {
 			authorization = getParams.get("access_token");
 			getParams.remove("access_token");
 		}
@@ -298,6 +328,7 @@ public class RestRequest {
 			con.setReadTimeout(150000);
 			con.setRequestProperty("Content-Type", "application/json");
 			con.setRequestProperty("charset", "utf-8");
+			con.setRequestProperty("Accept-Encoding", "gzip");		
 			con.setDoOutput(true);
 			if (authorization != "") {
 				con.setRequestProperty("Authorization", "Bearer " + authorization);
@@ -321,9 +352,18 @@ public class RestRequest {
 			body.write(payload);
 			body.flush();
 			body.close();
-
-			BufferedReader br = new BufferedReader(new InputStreamReader(
-					con.getResponseCode() / 100 == 2 ? con.getInputStream() : con.getErrorStream()));
+            
+			BufferedReader br;
+			if ("gzip".equals(con.getContentEncoding())) {
+				 br = new BufferedReader(new InputStreamReader(
+						con.getResponseCode() / 100 == 2 ? new GZIPInputStream(con.getInputStream()) : con.getErrorStream()));
+				
+		      }
+		      else {
+		    	 br = new BufferedReader(new InputStreamReader(
+							con.getResponseCode() / 100 == 2 ? con.getInputStream() : con.getErrorStream()));
+					
+		      }
 			String output;
 			while ((output = br.readLine()) != null) {
 				response.setResponse(output);

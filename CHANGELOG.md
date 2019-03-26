@@ -1,5 +1,11 @@
 > **LoginRadius Java SDK Change Log** provides information regarding what has changed, more specifically what changes, improvements and bug fix has been made to the SDK. For more details please refer to the [LoginRadius API Documention(https://github.com/LoginRadius/java-sdk)
 
+### Version 4.2.2
+Released on **March 26,  2019**
+##### Enhancements
+
+  - Added gzip Accept-Encoding HTTPS header in requests sent to an LoginRadius server
+  
 ### Version 4.2.1
 Released on **November 23,  2018**
 ##### Enhancements
