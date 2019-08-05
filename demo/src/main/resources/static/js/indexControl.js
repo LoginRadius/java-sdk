@@ -59,9 +59,17 @@ function login_mfa() {
                     getProfile(res.access_token, res.Profile.Uid);
                 }
             },
-            error: function(xhr) {
+            error: function(xhr,status, error) {
                 console.log("MFA err::", xhr.responseText);
+                var strEmail = $('#minimal-mfalogin-email').val();	
+                var strPassword = $('#minimal-mfalogin-password').val();
+                if(strEmail.replace(/\s/g,"") == ""){
+                	$("#minimal-mfalogin-message").text("The email is a Required Paramter So its can not be null or empty");
+                }else if(strPassword.replace(/\s/g,"") == ""){
+                	$("#minimal-mfalogin-message").text("The Password is a Required Paramter So its can not be null or empty");
+                }else{
                 $("#minimal-mfalogin-message").text(xhr.responseText);
+                }
                 $("#minimal-mfalogin-message").attr("class", "error-message");
             }
         });
@@ -105,7 +113,13 @@ function login_passwordless() {
             },
             error: function(xhr, status, error) {
                 console.log("PwlessLogin err::", xhr.responseText);
-                $("#minimal-pwless-message").text(xhr.responseText);
+                var strEmail = $('#minimal-pwless-email').val();	
+                if(strEmail.replace(/\s/g,"") == ""){
+                	$("#minimal-pwless-message").text("The Email is a Required Paramter So its can not be null or empty");
+                }else{
+                	$("#minimal-pwless-message").text(xhr.responseText);
+                }
+    
                 $("#minimal-pwless-message").attr("class", "error-message");
             }
         });
@@ -189,7 +203,13 @@ function forgotpassword() {
             },
             error: function(xhr, status, error) {
                 console.log("Send err::", xhr.responseText);
-                $("#minimal-forgotpassword-message").text(xhr.responseText);
+                var strEmail = $('#minimal-forgotpassword-email').val();	
+                if(strEmail.replace(/\s/g,"") == ""){
+                	$("#minimal-forgotpassword-message").text("The Email is a Required Paramter So its can not be null or empty");
+                }else{
+                	$("#minimal-forgotpassword-message").text(xhr.responseText);
+                }
+                
                 $("#minimal-forgotpassword-message").attr("class", "error-message");
             }
         });

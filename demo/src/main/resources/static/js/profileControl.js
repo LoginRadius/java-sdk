@@ -25,6 +25,10 @@ function update_profile() {
         }),
         success: function(res) {
             console.log("get user success::", res);
+            if(res.ImageUrl !=null && res.ImageUrl != undefined && res.ImageUrl !=""){
+            	$("#profile-image").attr('src', res.ImageUrl)
+            }
+            
             $("#profile-name").html("<b>" + res.FullName + "</b>");
             $("#profile-provider").text("Provider: " + res.Provider);
             $("#profile-email").text(res.Email[0].Value);
@@ -56,7 +60,16 @@ function change_password() {
             },
             error: function(xhr, status, error) {
                 console.log("Change err::", xhr.responseText);
-                $("#user-changepassword-message").text(xhr.responseText);
+                var oldPassword = $('#user-changepassword-oldpassword').val();	
+                var newPassword = $('#user-changepassword-newpassword').val();
+                if(oldPassword.replace(/\s/g,"") == ""){
+                	$("#user-changepassword-message").text("The Old Password is a Required Paramter So its can not be null or empty");
+                }else if(newPassword.replace(/\s/g,"") == ""){
+                	$("#user-changepassword-message").text("The New Password is a Required Paramter So its can not be null or empty");
+                }else{
+                	 $("#user-changepassword-message").text(xhr.responseText);
+                }
+               
                 $("#user-changepassword-message").attr("class", "error-message");
             }
         });
@@ -80,7 +93,13 @@ function set_password() {
             },
             error: function(xhr, status, error) {
                 console.log("Set err::", xhr.responseText);
-                $("#user-setpassword-message").text(xhr.responseText);
+                var strPassword = $('#user-setpassword-password').val();	
+                if(strPassword.replace(/\s/g,"") == ""){
+                	$("#user-setpassword-message").text("The Password is a Required Paramter So its can not be null or empty");
+                }else{
+                	$("#user-setpassword-message").text(xhr.responseText);
+                }
+                
                 $("#user-setpassword-message").attr("class", "error-message");
             }
         });
@@ -247,7 +266,16 @@ function delete_customobject() {
             },
             error: function(xhr, status, error) {
                 console.log("Delete customobjs err::", xhr.responseText);
-                $("#user-deletecustomobj-message").text(xhr.responseText);
+                var strObjName = $('#user-deletecustomobj-objectname').val();	
+                var strObjId = $('#user-deletecustomobj-objectrecordid').val();
+                if(strObjName.replace(/\s/g,"") == ""){
+                	$("#user-deletecustomobj-message").text("The ObjectName is a Required Paramter So its can not be null or empty");
+                }else if(strObjId.replace(/\s/g,"") == ""){
+                	$("#user-deletecustomobj-message").text("The ObjectRecordId  is a Required Paramter So its can not be null or empty");
+                }else{
+                	$("#user-deletecustomobj-message").text(xhr.responseText);
+                }
+                
                 $("#user-deletecustomobj-message").attr("class", "error-message");
             }
         });
@@ -256,7 +284,11 @@ function delete_customobject() {
 
 function get_customobject() {
     $("#btn-user-getcustomobj").click(function() {
-        if ($("#user-getcustomobj-objectname").val().trim() == '') return;
+        if ($("#user-getcustomobj-objectname").val().trim() == '') {
+        	$("#user-getcustomobj-message").text("The Object Name is a Required Paramter So its can not be null or empty");
+            $("#user-getcustomobj-message").attr("class", "error-message");
+            return;
+        };
 
         $.ajax({
             type: "GET",
