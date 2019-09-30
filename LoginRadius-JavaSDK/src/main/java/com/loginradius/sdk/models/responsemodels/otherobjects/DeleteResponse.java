@@ -16,6 +16,9 @@ import com.google.gson.annotations.SerializedName;
 		
 		@SerializedName("IsDeleted")
         private Boolean isDeleted;
+		
+		@SerializedName("RecordsDeleted")
+        private Integer recordsDeleted;
 
 
 
@@ -30,5 +33,17 @@ import com.google.gson.annotations.SerializedName;
 		// </summary>
 		public void setIsDeleted(Boolean isDeleted) {
 			this.isDeleted = isDeleted;
+		}
+		// <summary>
+		//	Number of Records Deleted
+		// </summary>
+		public Integer getRecordsDeleted() {
+			return recordsDeleted;
+		}
+		// <summary>
+		//	Number of Records Deleted
+		// </summary>
+		public void setRecordsDeleted(Integer recordsDeleted) {
+			this.recordsDeleted = recordsDeleted;
 		}
     }

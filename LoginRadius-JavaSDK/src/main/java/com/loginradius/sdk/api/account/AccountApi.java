@@ -17,6 +17,7 @@ import com.loginradius.sdk.helper.LoginRadiusRequest;
 import com.loginradius.sdk.helper.LoginRadiusValidator;
 import com.loginradius.sdk.models.requestmodels.AccountCreateModel;
 import com.loginradius.sdk.models.requestmodels.AccountUserProfileUpdateModel;
+import com.loginradius.sdk.models.requestmodels.UpdateUidModel;
 import com.loginradius.sdk.models.requestmodels.UpsertEmailModel;
 import com.loginradius.sdk.models.responsemodels.AccessTokenBase;
 import com.loginradius.sdk.models.responsemodels.ListReturn;
@@ -344,7 +345,7 @@ public class AccountApi {
    }
    
    // <summary>
-   // This API is used to update the information of existing accounts in your Cloud Storage. See our Advanced API Usage section <a href='/api/v2/customer-identity-api/advanced-api-usage/'>Here</a> for more capabilities.
+   // This API is used to update the information of existing accounts in your Cloud Storage. See our Advanced API Usage section <a href='https://www.loginradius.com/docs/api/v2/customer-identity-api/advanced-api-usage/'>Here</a> for more capabilities.
    // </summary>
    // <param name="accountUserProfileUpdateModel">Model Class containing Definition of payload for Account Update API</param>
    // <param name="uid">UID, the unified identifier for each user account</param>
@@ -978,6 +979,85 @@ public class AccountApi {
         public void onSuccess(String response) {
           TypeToken<ListReturn<Identity>> typeToken = new TypeToken<ListReturn<Identity>>() {};
           ListReturn<Identity> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to delete all user profiles associated with an Email.
+   // </summary>
+   // <param name="email">Email of the user</param>
+   // <returns>Response containing Definition of Delete Request</returns>
+   // 18.36	    
+		
+		
+   public void accountDeleteByEmail(String email, final AsyncHandler<DeleteResponse> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(email)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("email"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      queryParameters.put("email", email);
+
+      String resourcePath = "identity/v2/manage/account";
+            
+      LoginRadiusRequest.execute("DELETE", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<DeleteResponse> typeToken = new TypeToken<DeleteResponse>() {};
+          DeleteResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to update a user's Uid. It will update all profiles, custom objects and consent management logs associated with the Uid.
+   // </summary>
+   // <param name="updateUidModel">Payload containing Update UID</param>
+   // <param name="uid">UID, the unified identifier for each user account</param>
+   // <returns>Response containing Definition of Complete Validation data</returns>
+   // 18.41	    
+		
+		
+   public void accountUpdateUid(UpdateUidModel updateUidModel, String uid, final AsyncHandler<PostResponse> handler) {
+
+      if (updateUidModel == null) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("updateUidModel"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(uid)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("uid"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      queryParameters.put("uid", uid);
+
+      String resourcePath = "identity/v2/manage/account/uid";
+            
+      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(updateUidModel), new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<PostResponse> typeToken = new TypeToken<PostResponse>() {};
+          PostResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 

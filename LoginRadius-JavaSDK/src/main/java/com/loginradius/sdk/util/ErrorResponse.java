@@ -26,6 +26,8 @@ public class ErrorResponse {
 	private List<ExtraInfo> ExtraInfo = null;
 
 	private List<ValidationError> Errors = null;
+	
+	private Object Data;
 
 	/**
 	 * 
@@ -137,5 +139,22 @@ public class ErrorResponse {
 	 */
 	public void setErrors(final List<ValidationError> Errors) {
 		this.Errors = Errors;
+	}
+	
+	/**
+	 * 
+	 * @return The Data
+	 */
+	public Object getData() {
+		return Data;
+	}
+
+	/**
+	 * 
+	 * @param Errors The Data
+	 */
+
+	public void setData(Object Data) {
+		this.Data = Data;
 	}
 }

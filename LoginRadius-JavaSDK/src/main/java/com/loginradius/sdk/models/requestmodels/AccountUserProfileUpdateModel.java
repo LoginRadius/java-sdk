@@ -6,8 +6,6 @@
  */
 
 package com.loginradius.sdk.models.requestmodels;
-import java.util.List;
-
 import com.google.gson.annotations.SerializedName;
 
 	// <summary>
@@ -21,9 +19,6 @@ import com.google.gson.annotations.SerializedName;
 		
 		@SerializedName("EmailVerified")
         private Boolean emailVerified;
-		
-		@SerializedName("ExternalIds")
-        private List<ExternalIds> externalIds;
 		
 		@SerializedName("IsActive")
         private Boolean isActive;
@@ -68,18 +63,6 @@ import com.google.gson.annotations.SerializedName;
 		// </summary>
 		public void setEmailVerified(Boolean emailVerified) {
 			this.emailVerified = emailVerified;
-		}
-		// <summary>
-		//	Array of Objects,string represents SourceId,Source
-		// </summary>
-		public List<ExternalIds> getExternalIds() {
-			return externalIds;
-		}
-		// <summary>
-		//	Array of Objects,string represents SourceId,Source
-		// </summary>
-		public void setExternalIds(List<ExternalIds> externalIds) {
-			this.externalIds = externalIds;
 		}
 		// <summary>
 		//	boolean type value, default is true

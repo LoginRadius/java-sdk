@@ -15,6 +15,7 @@ import com.google.gson.reflect.TypeToken;
 import com.loginradius.sdk.helper.JsonDeserializer;
 import com.loginradius.sdk.helper.LoginRadiusRequest;
 import com.loginradius.sdk.helper.LoginRadiusValidator;
+import com.loginradius.sdk.models.requestmodels.AuthUserRegistrationModel;
 import com.loginradius.sdk.models.requestmodels.PhoneAuthenticationModel;
 import com.loginradius.sdk.models.requestmodels.ResetPasswordByOTPModel;
 import com.loginradius.sdk.models.responsemodels.AccessToken;
@@ -227,7 +228,7 @@ public class PhoneAuthenticationApi {
    // <summary>
    // This API is used to consume the verification code sent to verify a user's phone number. Use this call for front-end purposes in cases where the user is already logged in by passing the user's access token.
    // </summary>
-   // <param name="accessToken">Access_Token</param>
+   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="otp">The Verification Code</param>
    // <param name="smsTemplate">SMS Template name</param>
    // <returns>Response containing Definition of Complete Validation data</returns>
@@ -246,6 +247,7 @@ public class PhoneAuthenticationApi {
       }
 			
       Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("access_token", accessToken);
       queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
       queryParameters.put("otp", otp);
 
@@ -253,12 +255,9 @@ public class PhoneAuthenticationApi {
         queryParameters.put("smsTemplate", smsTemplate);
       }
 
-      JsonObject bodyParameters = new JsonObject();
-      bodyParameters.addProperty("access_token", accessToken);
-
       String resourcePath = "identity/v2/auth/phone/otp";
             
-      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(bodyParameters), new AsyncHandler<String>() {
+      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, null, new AsyncHandler<String>() {
 			
         @Override
         public void onSuccess(String response) {
@@ -339,6 +338,7 @@ public class PhoneAuthenticationApi {
       }
 			
       Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("access_token", accessToken);
       queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(smsTemplate)) {
@@ -346,7 +346,6 @@ public class PhoneAuthenticationApi {
       }
 
       JsonObject bodyParameters = new JsonObject();
-      bodyParameters.addProperty("access_token", accessToken);
       bodyParameters.addProperty("phone", phone);
 
       String resourcePath = "identity/v2/auth/phone/otp";
@@ -420,7 +419,7 @@ public class PhoneAuthenticationApi {
    // <summary>
    // This API is used to check the Phone Number exists or not on your site.
    // </summary>
-   // <param name="phone">LoginRadius API Key</param>
+   // <param name="phone">The Registered Phone Number</param>
    // <returns>Response containing Definition Complete ExistResponse data</returns>
    // 11.6	    
 		
@@ -479,6 +478,73 @@ public class PhoneAuthenticationApi {
         public void onSuccess(String response) {
           TypeToken<DeleteResponse> typeToken = new TypeToken<DeleteResponse>() {};
           DeleteResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API registers the new users into your Cloud Storage and triggers the phone verification process.
+   // </summary>
+   // <param name="authUserRegistrationModel">Model Class containing Definition of payload for Auth User Registration API</param>
+   // <param name="sott">LoginRadius Secured One Time Token</param>
+   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
+   // <param name="options">PreventVerificationEmail (Specifying this value prevents the verification email from being sent. Only applicable if you have the optional email verification flow)</param>
+   // <param name="smsTemplate">SMS Template name</param>
+   // <param name="verificationUrl">Email verification url</param>
+   // <param name="welcomeEmailTemplate">Name of the welcome email template</param>
+   // <returns>Response containing Definition of Complete Validation, UserProfile data and Access Token</returns>
+   // 17.1.2	    
+		
+		
+   public void userRegistrationByPhone(AuthUserRegistrationModel authUserRegistrationModel, String sott,
+      String fields, String options, String smsTemplate, String verificationUrl, String welcomeEmailTemplate, final AsyncHandler<UserProfilePostResponse<AccessToken<Identity>>> handler) {
+
+      if (authUserRegistrationModel == null) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("authUserRegistrationModel"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(sott)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("sott"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+      queryParameters.put("sott", sott);
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
+        queryParameters.put("fields", fields);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(options)) {
+        queryParameters.put("options", options);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(smsTemplate)) {
+        queryParameters.put("smsTemplate", smsTemplate);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(verificationUrl)) {
+        queryParameters.put("verificationUrl", verificationUrl);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(welcomeEmailTemplate)) {
+        queryParameters.put("welcomeEmailTemplate", welcomeEmailTemplate);
+      }
+
+      String resourcePath = "identity/v2/auth/register";
+            
+      LoginRadiusRequest.execute("POST", resourcePath, queryParameters, gson.toJson(authUserRegistrationModel), new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<UserProfilePostResponse<AccessToken<Identity>>> typeToken = new TypeToken<UserProfilePostResponse<AccessToken<Identity>>>() {};
+          UserProfilePostResponse<AccessToken<Identity>> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 

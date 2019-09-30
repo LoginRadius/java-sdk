@@ -77,6 +77,9 @@ import com.google.gson.annotations.SerializedName;
 		@SerializedName("Email")
         private List<Email> email;
 		
+		@SerializedName("ExternalIds")
+        private List<ExternalIds> externalIds;
+		
 		@SerializedName("ExternalUserLoginId")
         private String externalUserLoginId;
 		
@@ -155,9 +158,6 @@ import com.google.gson.annotations.SerializedName;
 		@SerializedName("JobBookmarks")
         private List<JobBookmarks> jobBookmarks;
 		
-		@SerializedName("KloutScore")
-        private KloutProfile kloutScore;
-		
 		@SerializedName("Languages")
         private List<Languages> languages;
 		
@@ -208,6 +208,9 @@ import com.google.gson.annotations.SerializedName;
 		
 		@SerializedName("PhoneNumbers")
         private List<Phone> phoneNumbers;
+		
+		@SerializedName("PINInfo")
+        private PINModel pinInfo;
 		
 		@SerializedName("PlacesLived")
         private List<PlacesLived> placesLived;
@@ -575,6 +578,18 @@ import com.google.gson.annotations.SerializedName;
 			this.email = email;
 		}
 		// <summary>
+		//	Array of Objects,string represents SourceId,Source
+		// </summary>
+		public List<ExternalIds> getExternalIds() {
+			return externalIds;
+		}
+		// <summary>
+		//	Array of Objects,string represents SourceId,Source
+		// </summary>
+		public void setExternalIds(List<ExternalIds> externalIds) {
+			this.externalIds = externalIds;
+		}
+		// <summary>
 		//	External User Login Id
 		// </summary>
 		public String getExternalUserLoginId() {
@@ -671,13 +686,13 @@ import com.google.gson.annotations.SerializedName;
 			this.fullName = fullName;
 		}
 		// <summary>
-		//	
+		//	Array of Objects,string represents Id,Name,Category,CreatedDate
 		// </summary>
 		public List<Games> getGames() {
 			return games;
 		}
 		// <summary>
-		//	
+		//	Array of Objects,string represents Id,Name,Category,CreatedDate
 		// </summary>
 		public void setGames(List<Games> games) {
 			this.games = games;
@@ -887,18 +902,6 @@ import com.google.gson.annotations.SerializedName;
 			this.jobBookmarks = jobBookmarks;
 		}
 		// <summary>
-		//	Object, string represents KloutId and double represents Score
-		// </summary>
-		public KloutProfile getKloutScore() {
-			return kloutScore;
-		}
-		// <summary>
-		//	Object, string represents KloutId and double represents Score
-		// </summary>
-		public void setKloutScore(KloutProfile kloutScore) {
-			this.kloutScore = kloutScore;
-		}
-		// <summary>
 		//	language known by user's
 		// </summary>
 		public List<Languages> getLanguages() {
@@ -1101,6 +1104,18 @@ import com.google.gson.annotations.SerializedName;
 		// </summary>
 		public void setPhoneNumbers(List<Phone> phoneNumbers) {
 			this.phoneNumbers = phoneNumbers;
+		}
+		// <summary>
+		//	PIN Info
+		// </summary>
+		public PINModel getPINInfo() {
+			return pinInfo;
+		}
+		// <summary>
+		//	PIN Info
+		// </summary>
+		public void setPINInfo(PINModel pinInfo) {
+			this.pinInfo = pinInfo;
 		}
 		// <summary>
 		//	Array of Objects,strings Name and boolean IsPrimary

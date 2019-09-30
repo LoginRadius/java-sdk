@@ -10,15 +10,21 @@ import java.util.List;
 import java.util.Map;
 
 import com.google.gson.annotations.SerializedName;
+import com.loginradius.sdk.models.responsemodels.ConsentProfile;
+import com.loginradius.sdk.models.responsemodels.otherobjects.PINInformation;
 import com.loginradius.sdk.models.responsemodels.userprofile.objects.AcceptedPrivacyPolicy;
 import com.loginradius.sdk.models.responsemodels.userprofile.objects.Email;
 import com.loginradius.sdk.models.responsemodels.userprofile.objects.ExternalIds;
+import com.loginradius.sdk.models.responsemodels.userprofile.objects.RegistrationData;
 
 	// <summary>
 	//	Response containing Definition for Complete UserProfile data
 	// </summary>
 	public class UserProfile extends SocialUserProfile {
 	
+		
+		@SerializedName("ConsentProfile")
+        private ConsentProfile consentProfile;
 		
 		@SerializedName("CustomFields")
         private Map<String,String> customFields;
@@ -80,14 +86,23 @@ import com.loginradius.sdk.models.responsemodels.userprofile.objects.ExternalIds
 		@SerializedName("PhoneIdVerified")
         private Boolean phoneIdVerified;
 		
+		@SerializedName("PIN")
+        private PINInformation pin;
+		
 		@SerializedName("PrivacyPolicy")
         private AcceptedPrivacyPolicy privacyPolicy;
+		
+		@SerializedName("RegistrationData")
+        private RegistrationData registrationData;
 		
 		@SerializedName("RegistrationProvider")
         private String registrationProvider;
 		
 		@SerializedName("RegistrationSource")
         private String registrationSource;
+		
+		@SerializedName("Roles")
+        private List<String> roles;
 		
 		@SerializedName("Uid")
         private String uid;
@@ -100,6 +115,18 @@ import com.loginradius.sdk.models.responsemodels.userprofile.objects.ExternalIds
 
 
 
+		// <summary>
+		//	Response containing consent profile
+		// </summary>
+		public ConsentProfile getConsentProfile() {
+			return consentProfile;
+		}
+		// <summary>
+		//	Response containing consent profile
+		// </summary>
+		public void setConsentProfile(ConsentProfile consentProfile) {
+			this.consentProfile = consentProfile;
+		}
 		// <summary>
 		//	Custom fields as user set on LoginRadius Admin Console.
 		// </summary>
@@ -341,6 +368,18 @@ import com.loginradius.sdk.models.responsemodels.userprofile.objects.ExternalIds
 			this.phoneIdVerified = phoneIdVerified;
 		}
 		// <summary>
+		//	PIN of user
+		// </summary>
+		public PINInformation getPIN() {
+			return pin;
+		}
+		// <summary>
+		//	PIN of user
+		// </summary>
+		public void setPIN(PINInformation pin) {
+			this.pin = pin;
+		}
+		// <summary>
 		//	Object type by default false, string represents Version, AcceptSource and datetime represents AcceptDateTime
 		// </summary>
 		public AcceptedPrivacyPolicy getPrivacyPolicy() {
@@ -351,6 +390,18 @@ import com.loginradius.sdk.models.responsemodels.userprofile.objects.ExternalIds
 		// </summary>
 		public void setPrivacyPolicy(AcceptedPrivacyPolicy privacyPolicy) {
 			this.privacyPolicy = privacyPolicy;
+		}
+		// <summary>
+		//	User Registartion Data
+		// </summary>
+		public RegistrationData getRegistrationData() {
+			return registrationData;
+		}
+		// <summary>
+		//	User Registartion Data
+		// </summary>
+		public void setRegistrationData(RegistrationData registrationData) {
+			this.registrationData = registrationData;
 		}
 		// <summary>
 		//	Provider with which user registered
@@ -375,6 +426,18 @@ import com.loginradius.sdk.models.responsemodels.userprofile.objects.ExternalIds
 		// </summary>
 		public void setRegistrationSource(String registrationSource) {
 			this.registrationSource = registrationSource;
+		}
+		// <summary>
+		//	
+		// </summary>
+		public List<String> getRoles() {
+			return roles;
+		}
+		// <summary>
+		//	
+		// </summary>
+		public void setRoles(List<String> roles) {
+			this.roles = roles;
 		}
 		// <summary>
 		//	UID, the unified identifier for each user account

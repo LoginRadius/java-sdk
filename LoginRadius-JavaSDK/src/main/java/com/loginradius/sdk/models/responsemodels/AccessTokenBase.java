@@ -24,6 +24,12 @@ import com.google.gson.annotations.SerializedName;
 		
 		@SerializedName("refresh_token")
         private UUID refresh_token;
+		
+		@SerializedName("session_expires_in")
+        private String session_expires_in;
+		
+		@SerializedName("session_token")
+        private UUID session_token;
 
 
 
@@ -62,5 +68,29 @@ import com.google.gson.annotations.SerializedName;
 		// </summary>
 		public void setRefresh_Token(UUID refresh_token) {
 			this.refresh_token = refresh_token;
+		}
+		// <summary>
+		//	session token expiry time
+		// </summary>
+		public String getSession_expires_in() {
+			return session_expires_in;
+		}
+		// <summary>
+		//	session token expiry time
+		// </summary>
+		public void setSession_expires_in(String session_expires_in) {
+			this.session_expires_in = session_expires_in;
+		}
+		// <summary>
+		//	session token of user
+		// </summary>
+		public UUID getSession_token() {
+			return session_token;
+		}
+		// <summary>
+		//	session token of user
+		// </summary>
+		public void setSession_token(UUID session_token) {
+			this.session_token = session_token;
 		}
     }

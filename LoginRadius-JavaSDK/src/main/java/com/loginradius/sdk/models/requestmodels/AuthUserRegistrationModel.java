@@ -56,6 +56,9 @@ import com.google.gson.annotations.SerializedName;
 		@SerializedName("Company")
         private String company;
 		
+		@SerializedName("Consents")
+        private ConsentSubmitModel consents;
+		
 		@SerializedName("Country")
         private Country country;
 		
@@ -161,9 +164,6 @@ import com.google.gson.annotations.SerializedName;
 		@SerializedName("JobBookmarks")
         private List<JobBookmarks> jobBookmarks;
 		
-		@SerializedName("KloutScore")
-        private KloutProfile kloutScore;
-		
 		@SerializedName("Languages")
         private List<Languages> languages;
 		
@@ -211,6 +211,9 @@ import com.google.gson.annotations.SerializedName;
 		
 		@SerializedName("PhoneNumbers")
         private List<Phone> phoneNumbers;
+		
+		@SerializedName("PINInfo")
+        private PINModel pinInfo;
 		
 		@SerializedName("PlacesLived")
         private List<PlacesLived> placesLived;
@@ -492,6 +495,18 @@ import com.google.gson.annotations.SerializedName;
 		// </summary>
 		public void setCompany(String company) {
 			this.company = company;
+		}
+		// <summary>
+		//	List of Consents
+		// </summary>
+		public ConsentSubmitModel getConsents() {
+			return consents;
+		}
+		// <summary>
+		//	List of Consents
+		// </summary>
+		public void setConsents(ConsentSubmitModel consents) {
+			this.consents = consents;
 		}
 		// <summary>
 		//	Country of the user
@@ -914,18 +929,6 @@ import com.google.gson.annotations.SerializedName;
 			this.jobBookmarks = jobBookmarks;
 		}
 		// <summary>
-		//	Object, string represents KloutId and double represents Score
-		// </summary>
-		public KloutProfile getKloutScore() {
-			return kloutScore;
-		}
-		// <summary>
-		//	Object, string represents KloutId and double represents Score
-		// </summary>
-		public void setKloutScore(KloutProfile kloutScore) {
-			this.kloutScore = kloutScore;
-		}
-		// <summary>
 		//	language known by user's
 		// </summary>
 		public List<Languages> getLanguages() {
@@ -1116,6 +1119,18 @@ import com.google.gson.annotations.SerializedName;
 		// </summary>
 		public void setPhoneNumbers(List<Phone> phoneNumbers) {
 			this.phoneNumbers = phoneNumbers;
+		}
+		// <summary>
+		//	PIN Info
+		// </summary>
+		public PINModel getPINInfo() {
+			return pinInfo;
+		}
+		// <summary>
+		//	PIN Info
+		// </summary>
+		public void setPINInfo(PINModel pinInfo) {
+			this.pinInfo = pinInfo;
 		}
 		// <summary>
 		//	Array of Objects,strings Name and boolean IsPrimary

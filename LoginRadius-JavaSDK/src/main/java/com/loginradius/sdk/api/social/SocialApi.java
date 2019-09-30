@@ -208,7 +208,7 @@ public class SocialApi {
    // </summary>
    // <param name="token">Token generated from a successful oauth from social platform</param>
    // <returns>Response containing Definition for Complete active sessions</returns>
-   // 20.11	    
+   // 20.11.1	    
 		
 		
    public void getActiveSession(String token, final AsyncHandler<UserActiveSession> handler) {      
@@ -245,7 +245,7 @@ public class SocialApi {
    // </summary>
    // <param name="accountId">UID, the unified identifier for each user account</param>
    // <returns>Response containing Definition for Complete active sessions</returns>
-   // 20.12	    
+   // 20.11.2	    
 		
 		
    public void getActiveSessionByAccountID(String accountId, final AsyncHandler<UserActiveSession> handler) {      
@@ -282,7 +282,7 @@ public class SocialApi {
    // </summary>
    // <param name="profileId">Social Provider Id</param>
    // <returns>Response containing Definition for Complete active sessions</returns>
-   // 20.13	    
+   // 20.11.3	    
 		
 		
    public void getActiveSessionByProfileID(String profileId, final AsyncHandler<UserActiveSession> handler) {      
@@ -319,7 +319,7 @@ public class SocialApi {
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <returns>Response Containing List of Album Data</returns>
-   // 22.1	    
+   // 22.2.1	    
 		
 		
    public void getAlbums(String accessToken, final AsyncHandler<Album[]> handler) {      
@@ -350,11 +350,52 @@ public class SocialApi {
    }
    
    // <summary>
-   // The Audio API is used to get audio files data from the user’s social account.<br><br><b>Supported Providers:</b> Live, Vkontakte
+   // <b>Supported Providers:</b> Facebook, Google, Live, Vkontakte.<br><br> This API returns the photo albums associated with the passed in access tokens Social Profile.
+   // </summary>
+   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
+   // <param name="nextCursor">Cursor value if not all contacts can be retrieved once.</param>
+   // <returns>Response Model containing Albums with next cursor</returns>
+   // 22.2.2	    
+		
+		
+   public void getAlbumsWithCursor(String accessToken, String nextCursor, final AsyncHandler<CursorResponse<Album>> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(nextCursor)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("nextCursor"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("access_token", accessToken);
+      queryParameters.put("nextCursor", nextCursor);
+
+      String resourcePath = "api/v2/album";
+            
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<CursorResponse<Album>> typeToken = new TypeToken<CursorResponse<Album>>() {};
+          CursorResponse<Album> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // The Audio API is used to get audio files data from the user's social account.<br><br><b>Supported Providers:</b> Live, Vkontakte
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <returns>Response Containing List of Audio Data</returns>
-   // 24.1	    
+   // 24.2.1	    
 		
 		
    public void getAudios(String accessToken, final AsyncHandler<Audio[]> handler) {      
@@ -385,11 +426,52 @@ public class SocialApi {
    }
    
    // <summary>
-   // The Check In API is used to get check Ins data from the user’s social account.<br><br><b>Supported Providers:</b> Facebook, Foursquare, Vkontakte
+   // The Audio API is used to get audio files data from the user's social account.<br><br><b>Supported Providers:</b> Live, Vkontakte
+   // </summary>
+   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
+   // <param name="nextCursor">Cursor value if not all contacts can be retrieved once.</param>
+   // <returns>Response Model containing Audio with next cursor</returns>
+   // 24.2.2	    
+		
+		
+   public void getAudiosWithCursor(String accessToken, String nextCursor, final AsyncHandler<CursorResponse<Audio>> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(nextCursor)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("nextCursor"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("access_token", accessToken);
+      queryParameters.put("nextCursor", nextCursor);
+
+      String resourcePath = "api/v2/audio";
+            
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<CursorResponse<Audio>> typeToken = new TypeToken<CursorResponse<Audio>>() {};
+          CursorResponse<Audio> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // The Check In API is used to get check Ins data from the user's social account.<br><br><b>Supported Providers:</b> Facebook, Foursquare, Vkontakte
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <returns>Response Containing List of CheckIn Data</returns>
-   // 25.1	    
+   // 25.2.1	    
 		
 		
    public void getCheckIns(String accessToken, final AsyncHandler<CheckIn[]> handler) {      
@@ -420,7 +502,48 @@ public class SocialApi {
    }
    
    // <summary>
-   // The Contact API is used to get contacts/friends/connections data from the user’s social account.This is one of the APIs that makes up the LoginRadius Friend Invite System. The data will normalized into LoginRadius’ standard data format. This API requires setting permissions in your LoginRadius Dashboard. <br><br><b>Note:</b> Facebook restricts access to the list of friends that is returned. When using the Contacts API with Facebook you will only receive friends that have accepted some permissions with your app. <br><br><b>Supported Providers:</b> Facebook, Foursquare, Google, LinkedIn, Live, Twitter, Vkontakte, Yahoo
+   // The Check In API is used to get check Ins data from the user's social account.<br><br><b>Supported Providers:</b> Facebook, Foursquare, Vkontakte
+   // </summary>
+   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
+   // <param name="nextCursor">Cursor value if not all contacts can be retrieved once.</param>
+   // <returns>Response Model containing Checkins with next cursor</returns>
+   // 25.2.2	    
+		
+		
+   public void getCheckInsWithCursor(String accessToken, String nextCursor, final AsyncHandler<CursorResponse<CheckIn>> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(nextCursor)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("nextCursor"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("access_token", accessToken);
+      queryParameters.put("nextCursor", nextCursor);
+
+      String resourcePath = "api/v2/checkin";
+            
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<CursorResponse<CheckIn>> typeToken = new TypeToken<CursorResponse<CheckIn>>() {};
+          CursorResponse<CheckIn> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // The Contact API is used to get contacts/friends/connections data from the user's social account.This is one of the APIs that makes up the LoginRadius Friend Invite System. The data will normalized into LoginRadius' standard data format. This API requires setting permissions in your LoginRadius Dashboard. <br><br><b>Note:</b> Facebook restricts access to the list of friends that is returned. When using the Contacts API with Facebook you will only receive friends that have accepted some permissions with your app. <br><br><b>Supported Providers:</b> Facebook, Foursquare, Google, LinkedIn, Live, Twitter, Vkontakte, Yahoo
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="nextCursor">Cursor value if not all contacts can be retrieved once.</param>
@@ -460,11 +583,11 @@ public class SocialApi {
    }
    
    // <summary>
-   // The Event API is used to get the event data from the user’s social account.<br><br><b>Supported Providers:</b> Facebook, Live
+   // The Event API is used to get the event data from the user's social account.<br><br><b>Supported Providers:</b> Facebook, Live
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <returns>Response Containing List of Events Data</returns>
-   // 28.1	    
+   // 28.2.1	    
 		
 		
    public void getEvents(String accessToken, final AsyncHandler<Events[]> handler) {      
@@ -495,11 +618,52 @@ public class SocialApi {
    }
    
    // <summary>
-   // Get the following user list from the user’s social account.<br><br><b>Supported Providers:</b> Twitter
+   // The Event API is used to get the event data from the user's social account.<br><br><b>Supported Providers:</b> Facebook, Live
+   // </summary>
+   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
+   // <param name="nextCursor">Cursor value if not all contacts can be retrieved once.</param>
+   // <returns>Response Model containing Events with next cursor</returns>
+   // 28.2.2	    
+		
+		
+   public void getEventsWithCursor(String accessToken, String nextCursor, final AsyncHandler<CursorResponse<Events>> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(nextCursor)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("nextCursor"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("access_token", accessToken);
+      queryParameters.put("nextCursor", nextCursor);
+
+      String resourcePath = "api/v2/event";
+            
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<CursorResponse<Events>> typeToken = new TypeToken<CursorResponse<Events>>() {};
+          CursorResponse<Events> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // Get the following user list from the user's social account.<br><br><b>Supported Providers:</b> Twitter
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <returns>Response Containing List of Contacts Data</returns>
-   // 29.1	    
+   // 29.2.1	    
 		
 		
    public void getFollowings(String accessToken, final AsyncHandler<Contact[]> handler) {      
@@ -530,11 +694,52 @@ public class SocialApi {
    }
    
    // <summary>
-   // The Group API is used to get group data from the user’s social account.<br><br><b>Supported Providers:</b> Facebook, Vkontakte
+   // Get the following user list from the user's social account.<br><br><b>Supported Providers:</b> Twitter
+   // </summary>
+   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
+   // <param name="nextCursor">Cursor value if not all contacts can be retrieved once.</param>
+   // <returns>Response containing Definition of Contact Data with Cursor</returns>
+   // 29.2.2	    
+		
+		
+   public void getFollowingsWithCursor(String accessToken, String nextCursor, final AsyncHandler<CursorResponse<Contact>> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(nextCursor)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("nextCursor"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("access_token", accessToken);
+      queryParameters.put("nextCursor", nextCursor);
+
+      String resourcePath = "api/v2/following";
+            
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<CursorResponse<Contact>> typeToken = new TypeToken<CursorResponse<Contact>>() {};
+          CursorResponse<Contact> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // The Group API is used to get group data from the user's social account.<br><br><b>Supported Providers:</b> Facebook, Vkontakte
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <returns>Response Containing List of Groups Data</returns>
-   // 30.1	    
+   // 30.2.1	    
 		
 		
    public void getGroups(String accessToken, final AsyncHandler<Group[]> handler) {      
@@ -565,11 +770,52 @@ public class SocialApi {
    }
    
    // <summary>
-   // The Like API is used to get likes data from the user’s social account.<br><br><b>Supported Providers:</b> Facebook
+   // The Group API is used to get group data from the user's social account.<br><br><b>Supported Providers:</b> Facebook, Vkontakte
+   // </summary>
+   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
+   // <param name="nextCursor">Cursor value if not all contacts can be retrieved once.</param>
+   // <returns>Response Model containing Groups with next cursor</returns>
+   // 30.2.2	    
+		
+		
+   public void getGroupsWithCursor(String accessToken, String nextCursor, final AsyncHandler<CursorResponse<Group>> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(nextCursor)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("nextCursor"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("access_token", accessToken);
+      queryParameters.put("nextCursor", nextCursor);
+
+      String resourcePath = "api/v2/group";
+            
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<CursorResponse<Group>> typeToken = new TypeToken<CursorResponse<Group>>() {};
+          CursorResponse<Group> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // The Like API is used to get likes data from the user's social account.<br><br><b>Supported Providers:</b> Facebook
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <returns>Response Containing List of Likes Data</returns>
-   // 31.1	    
+   // 31.2.1	    
 		
 		
    public void getLikes(String accessToken, final AsyncHandler<Like[]> handler) {      
@@ -600,7 +846,48 @@ public class SocialApi {
    }
    
    // <summary>
-   // The Mention API is used to get mentions data from the user’s social account.<br><br><b>Supported Providers:</b> Twitter
+   // The Like API is used to get likes data from the user's social account.<br><br><b>Supported Providers:</b> Facebook
+   // </summary>
+   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
+   // <param name="nextCursor">Cursor value if not all contacts can be retrieved once.</param>
+   // <returns>Response Model containing Likes with next cursor</returns>
+   // 31.2.2	    
+		
+		
+   public void getLikesWithCursor(String accessToken, String nextCursor, final AsyncHandler<CursorResponse<Like>> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(nextCursor)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("nextCursor"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("access_token", accessToken);
+      queryParameters.put("nextCursor", nextCursor);
+
+      String resourcePath = "api/v2/like";
+            
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<CursorResponse<Like>> typeToken = new TypeToken<CursorResponse<Like>>() {};
+          CursorResponse<Like> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // The Mention API is used to get mentions data from the user's social account.<br><br><b>Supported Providers:</b> Twitter
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <returns>Response Containing List of Status Data</returns>
@@ -635,7 +922,7 @@ public class SocialApi {
    }
    
    // <summary>
-   // Post Message API is used to post messages to the user’s contacts.<br><br><b>Supported Providers:</b> Twitter, LinkedIn <br><br>The Message API is used to post messages to the user’s contacts. This is one of the APIs that makes up the LoginRadius Friend Invite System. After using the Contact API, you can send messages to the retrieved contacts. This API requires setting permissions in your LoginRadius Dashboard.<br><br>GET & POST Message API work the same way except the API method is different
+   // Post Message API is used to post messages to the user's contacts.<br><br><b>Supported Providers:</b> Twitter, LinkedIn <br><br>The Message API is used to post messages to the user?s contacts. This is one of the APIs that makes up the LoginRadius Friend Invite System. After using the Contact API, you can send messages to the retrieved contacts. This API requires setting permissions in your LoginRadius Dashboard.<br><br>GET & POST Message API work the same way except the API method is different
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="message">Body of your message</param>
@@ -689,7 +976,7 @@ public class SocialApi {
    }
    
    // <summary>
-   // The Page API is used to get the page data from the user’s social account.<br><br><b>Supported Providers:</b>  Facebook, LinkedIn
+   // The Page API is used to get the page data from the user's social account.<br><br><b>Supported Providers:</b>  Facebook, LinkedIn
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="pageName">Name of the page you want to retrieve info from</param>
@@ -730,7 +1017,7 @@ public class SocialApi {
    }
    
    // <summary>
-   // The Photo API is used to get photo data from the user’s social account.<br><br><b>Supported Providers:</b>  Facebook, Foursquare, Google, Live, Vkontakte
+   // The Photo API is used to get photo data from the user's social account.<br><br><b>Supported Providers:</b>  Facebook, Foursquare, Google, Live, Vkontakte
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="albumId">The id of the album you want to retrieve info from</param>
@@ -771,7 +1058,7 @@ public class SocialApi {
    }
    
    // <summary>
-   // The Post API is used to get post message data from the user’s social account.<br><br><b>Supported Providers:</b>  Facebook
+   // The Post API is used to get post message data from the user's social account.<br><br><b>Supported Providers:</b>  Facebook
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <returns>Response Containing List of Posts Data</returns>
@@ -806,7 +1093,7 @@ public class SocialApi {
    }
    
    // <summary>
-   // The Status API is used to update the status on the user’s wall.<br><br><b>Supported Providers:</b>  Facebook, Twitter, LinkedIn
+   // The Status API is used to update the status on the user's wall.<br><br><b>Supported Providers:</b>  Facebook, Twitter, LinkedIn
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="caption">Message displayed below the description(Requires URL, Under 70 Characters).</param>
@@ -884,42 +1171,7 @@ public class SocialApi {
    }
    
    // <summary>
-   // The Status API is used to get the status messages from the user’s social account.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <returns>Response Containing List of Status Data</returns>
-   // 37.3	    
-		
-		
-   public void getStatus(String accessToken, final AsyncHandler<Status[]> handler) {      
-
-      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
-        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
-      }
-			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("access_token", accessToken);
-
-      String resourcePath = "api/v2/status";
-            
-      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
-			
-        @Override
-        public void onSuccess(String response) {
-          TypeToken<Status[]> typeToken = new TypeToken<Status[]>() {};
-          Status[] successResponse = JsonDeserializer.deserializeJson(response,typeToken);
-          handler.onSuccess(successResponse);
-        }
-
-        @Override
-        public void onFailure(ErrorResponse errorResponse) {
-          handler.onFailure(errorResponse);
-        }
-      });
-   }
-   
-   // <summary>
-   // The Trackable status API works very similar to the Status API but it returns a Post id that you can use to track the stats(shares, likes, comments) for a specific share/post/status update. This API requires setting permissions in your LoginRadius Dashboard.<br><br> The Trackable Status API is used to update the status on the user’s wall and return an Post ID value. It is commonly referred to as Permission based sharing or Push notifications.<br><br> POST Input Parameter Format: application/x-www-form-urlencoded
+   // The Trackable status API works very similar to the Status API but it returns a Post id that you can use to track the stats(shares, likes, comments) for a specific share/post/status update. This API requires setting permissions in your LoginRadius Dashboard.<br><br> The Trackable Status API is used to update the status on the user's wall and return an Post ID value. It is commonly referred to as Permission based sharing or Push notifications.<br><br> POST Input Parameter Format: application/x-www-form-urlencoded
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="statusModel">Model Class containing Definition of payload for Status API</param>
@@ -959,7 +1211,7 @@ public class SocialApi {
    }
    
    // <summary>
-   // The Trackable status API works very similar to the Status API but it returns a Post id that you can use to track the stats(shares, likes, comments) for a specific share/post/status update. This API requires setting permissions in your LoginRadius Dashboard.<br><br> The Trackable Status API is used to update the status on the user’s wall and return an Post ID value. It is commonly referred to as Permission based sharing or Push notifications.
+   // The Trackable status API works very similar to the Status API but it returns a Post id that you can use to track the stats(shares, likes, comments) for a specific share/post/status update. This API requires setting permissions in your LoginRadius Dashboard.<br><br> The Trackable Status API is used to update the status on the user's wall and return an Post ID value. It is commonly referred to as Permission based sharing or Push notifications.
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="caption">Message displayed below the description(Requires URL, Under 70 Characters).</param>
@@ -1067,7 +1319,7 @@ public class SocialApi {
    }
    
    // <summary>
-   // The User Profile API is used to get social profile data from the user’s social account after authentication.<br><br><b>Supported Providers:</b>  All
+   // The User Profile API is used to get social profile data from the user's social account after authentication.<br><br><b>Supported Providers:</b>  All
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
@@ -1107,7 +1359,7 @@ public class SocialApi {
    }
    
    // <summary>
-   // The User Profile API is used to get the latest updated social profile data from the user’s social account after authentication. The social profile will be retrieved via oAuth and OpenID protocols. The data is normalized into LoginRadius’ standard data format. This API should be called using the access token retrieved from the refresh access token API.
+   // The User Profile API is used to get the latest updated social profile data from the user's social account after authentication. The social profile will be retrieved via oAuth and OpenID protocols. The data is normalized into LoginRadius' standard data format. This API should be called using the access token retrieved from the refresh access token API.
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
@@ -1147,7 +1399,7 @@ public class SocialApi {
    }
    
    // <summary>
-   // The Video API is used to get video files data from the user’s social account.<br><br><b>Supported Providers:</b>   Facebook, Google, Live, Vkontakte
+   // The Video API is used to get video files data from the user's social account.<br><br><b>Supported Providers:</b>   Facebook, Google, Live, Vkontakte
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="nextCursor">Cursor value if not all contacts can be retrieved once.</param>
