@@ -1,5 +1,12 @@
 > **LoginRadius Java SDK Change Log** provides information regarding what has changed, more specifically what changes, improvements and bug fix has been made to the SDK. For more details please refer to the [LoginRadius API Documention(https://www.loginradius.com/docs/api/v2/deployment/sdk-libraries/java-library/)
 
+### Version 10.0.2
+Release on **April 27,2020**
+
+##### Bug Fixes
+
+ - Fixed Access Token caching issue.
+
 ### Version 10.0.0
 Release on **September 30,2019**
 

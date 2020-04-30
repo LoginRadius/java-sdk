@@ -95,6 +95,7 @@ public class LoginRadiusRequest {
 			}
 			if (!authorization.equals("")) {
 				con.setRequestProperty("Authorization", "Bearer " + authorization);
+				authorization = "";
 			}
 			if (!apiSecret.equals("") && LoginRadiusSDK.getRequestSigning()) {
 				String time = getTime();
