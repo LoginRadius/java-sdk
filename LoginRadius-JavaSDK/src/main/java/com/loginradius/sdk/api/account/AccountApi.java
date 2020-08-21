@@ -874,9 +874,9 @@ public class AccountApi {
    }
    
    // <summary>
-   // This API is used to refresh an access_token via it's associated refresh_token.
+   // This API is used to refresh an access token via it's associated refresh token.
    // </summary>
-   // <param name="refreshToken">LoginRadius refresh_token</param>
+   // <param name="refreshToken">LoginRadius refresh token</param>
    // <returns>Response containing Definition of Complete Token data</returns>
    // 18.31	    
 		
@@ -913,7 +913,7 @@ public class AccountApi {
    // <summary>
    // The Revoke Refresh Access Token API is used to revoke a refresh token or the Provider Access Token, revoking an existing refresh token will invalidate the refresh token but the associated access token will work until the expiry.
    // </summary>
-   // <param name="refreshToken">LoginRadius refresh_token</param>
+   // <param name="refreshToken">LoginRadius refresh token</param>
    // <returns>Response containing Definition of Delete Request</returns>
    // 18.32	    
 		

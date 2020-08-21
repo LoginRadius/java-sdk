@@ -40,7 +40,6 @@ import com.loginradius.sdk.models.responsemodels.otherobjects.PrivacyPolicyHisto
 import com.loginradius.sdk.models.responsemodels.otherobjects.TokenInfoResponseModel;
 import com.loginradius.sdk.models.responsemodels.otherobjects.UserProfilePostResponse;
 import com.loginradius.sdk.models.responsemodels.userprofile.Identity;
-import com.loginradius.sdk.models.responsemodels.userprofile.SocialUserProfile;
 import com.loginradius.sdk.util.AsyncHandler;
 import com.loginradius.sdk.util.ErrorResponse;
 import com.loginradius.sdk.util.LoginRadiusSDK;
@@ -314,7 +313,7 @@ public class AuthenticationApi {
    // This api call invalidates the active access token or expires an access token's validity.
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="preventRefresh">Boolean value that when set as true, in addition of the access_token being invalidated, it will no longer have the capability of being refreshed.</param>
+   // <param name="preventRefresh">Boolean value that when set as true, in addition of the access token being invalidated, it will no longer have the capability of being refreshed.</param>
    // <returns>Response containing Definition of Complete Validation data</returns>
    // 4.2	    
 		
@@ -388,7 +387,7 @@ public class AuthenticationApi {
    }
    
    // <summary>
-   // This API retrieves a copy of the user data based on the access_token.
+   // This API retrieves a copy of the user data based on the access token.
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
@@ -470,7 +469,7 @@ public class AuthenticationApi {
    }
    
    // <summary>
-   // This API is used to update the user's profile by passing the access_token.
+   // This API is used to update the user's profile by passing the access token.
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="userProfileUpdateModel">Model Class containing Definition of payload for User Profile update API</param>
@@ -615,7 +614,7 @@ public class AuthenticationApi {
    }
    
    // <summary>
-   // This API is used to allow a customer with a valid access_token to unlock their account provided that they successfully pass the prompted Bot Protection challenges. The Block or Suspend block types are not applicable for this API. For additional details see our Auth Security Configuration documentation.You are only required to pass the Post Parameters that correspond to the prompted challenges.
+   // This API is used to allow a customer with a valid access token to unlock their account provided that they successfully pass the prompted Bot Protection challenges. The Block or Suspend block types are not applicable for this API. For additional details see our Auth Security Configuration documentation.You are only required to pass the Post Parameters that correspond to the prompted challenges.
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="unlockProfileModel">Payload containing Unlock Profile API</param>
@@ -1323,50 +1322,6 @@ public class AuthenticationApi {
    }
    
    // <summary>
-   // This API is used to link up a social provider account with the specified account based on the access token and the social providers user access token.
-   // </summary>
-   // <param name="accessToken">Access_Token</param>
-   // <param name="candidateToken">Access token of the account to be linked</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 12.1	    
-		
-		
-   public void linkSocialIdentities(String accessToken, String candidateToken, final AsyncHandler<PostResponse> handler) {      
-
-      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
-        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
-      }      
-
-      if (LoginRadiusValidator.isNullOrWhiteSpace(candidateToken)) {
-        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("candidateToken"));
-      }
-			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("access_token", accessToken);
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-
-      JsonObject bodyParameters = new JsonObject();
-      bodyParameters.addProperty("candidateToken", candidateToken);
-
-      String resourcePath = "identity/v2/auth/socialidentity";
-            
-      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(bodyParameters), new AsyncHandler<String>() {
-			
-        @Override
-        public void onSuccess(String response) {
-          TypeToken<PostResponse> typeToken = new TypeToken<PostResponse>() {};
-          PostResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
-          handler.onSuccess(successResponse);
-        }
-
-        @Override
-        public void onFailure(ErrorResponse errorResponse) {
-          handler.onFailure(errorResponse);
-        }
-      });
-   }
-   
-   // <summary>
    // This API is used to unlink up a social provider account with the specified account based on the access token and the social providers user access token. The unlinked account will automatically get removed from your database.
    // </summary>
    // <param name="accessToken">Access_Token</param>
@@ -1418,36 +1373,83 @@ public class AuthenticationApi {
    }
    
    // <summary>
-   // This API is called just after account linking API and it prevents the raas profile of the second account from getting created.
+   // This API is used to link up a social provider account with an existing LoginRadius account on the basis of access token and the social providers user access token.
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <returns>Response containing Definition for Complete SocialUserProfile data</returns>
-   // 12.3	    
+   // <param name="candidateToken">Access token of the account to be linked</param>
+   // <returns>Response containing Definition of Complete Validation data</returns>
+   // 12.4	    
 		
 		
-   public void getSocialIdentity(String accessToken, String fields, final AsyncHandler<SocialUserProfile> handler) {      
+   public void linkSocialIdentities(String accessToken, String candidateToken, final AsyncHandler<PostResponse> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(candidateToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("candidateToken"));
       }
 			
       Map<String, String> queryParameters = new HashMap<String, String>();
       queryParameters.put("access_token", accessToken);
       queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
 
-      if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
-        queryParameters.put("fields", fields);
-      }
+      JsonObject bodyParameters = new JsonObject();
+      bodyParameters.addProperty("candidateToken", candidateToken);
 
       String resourcePath = "identity/v2/auth/socialidentity";
             
-      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+      LoginRadiusRequest.execute("POST", resourcePath, queryParameters, gson.toJson(bodyParameters), new AsyncHandler<String>() {
 			
         @Override
         public void onSuccess(String response) {
-          TypeToken<SocialUserProfile> typeToken = new TypeToken<SocialUserProfile>() {};
-          SocialUserProfile successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<PostResponse> typeToken = new TypeToken<PostResponse>() {};
+          PostResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to link up a social provider account with an existing LoginRadius account on the basis of ping and the social providers user access token.
+   // </summary>
+   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
+   // <param name="clientGuid">Unique ID generated by client</param>
+   // <returns>Response containing Definition of Complete Validation data</returns>
+   // 12.5	    
+		
+		
+   public void linkSocialIdentitiesByPing(String accessToken, String clientGuid, final AsyncHandler<PostResponse> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(clientGuid)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("clientGuid"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("access_token", accessToken);
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+
+      JsonObject bodyParameters = new JsonObject();
+      bodyParameters.addProperty("clientGuid", clientGuid);
+
+      String resourcePath = "identity/v2/auth/socialidentity";
+            
+      LoginRadiusRequest.execute("POST", resourcePath, queryParameters, gson.toJson(bodyParameters), new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<PostResponse> typeToken = new TypeToken<PostResponse>() {};
+          PostResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -1539,7 +1541,7 @@ public class AuthenticationApi {
    }
    
    // <summary>
-   // This API is used to update the privacy policy stored in the user's profile by providing the access_token of the user accepting the privacy policy
+   // This API is used to update the privacy policy stored in the user's profile by providing the access token of the user accepting the privacy policy
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
@@ -1580,7 +1582,7 @@ public class AuthenticationApi {
    }
    
    // <summary>
-   // This API will return all the accepted privacy policies for the user by providing the access_token of that user.
+   // This API will return all the accepted privacy policies for the user by providing the access token of that user.
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <returns>Complete Policy History data</returns>

@@ -21,7 +21,7 @@ import com.loginradius.sdk.models.enums.OperationType;
 		@SerializedName("Name")
         private String name;
 		
-		@SerializedName("op")
+		@SerializedName("Op")
         private OperationType op;
 		
 		@SerializedName("Proficiency")

@@ -92,12 +92,14 @@ public class SocialApi {
    // The Refresh Access Token API is used to refresh the provider access token after authentication. It will be valid for up to 60 days on LoginRadius depending on the provider. In order to use the access token in other APIs, always refresh the token using this API.<br><br><b>Supported Providers :</b> Facebook,Yahoo,Google,Twitter, Linkedin.<br><br> Contact LoginRadius support team to enable this API.
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="expiresIn">Allows you to specify a desired expiration time in minutes for the newly issued access_token.</param>
+   // <param name="expiresIn">Allows you to specify a desired expiration time in minutes for the newly issued access token.</param>
+   // <param name="isWeb">Is web or not.</param>
    // <returns>Response containing Definition of Complete Token data</returns>
    // 20.2	    
 		
 		
-   public void refreshAccessToken(String accessToken, Integer expiresIn, final AsyncHandler<AccessTokenBase> handler) {      
+   public void refreshAccessToken(String accessToken, Integer expiresIn,
+      Boolean isWeb, final AsyncHandler<AccessTokenBase> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
@@ -109,6 +111,10 @@ public class SocialApi {
 
       if (expiresIn != null) {
         queryParameters.put("expiresIn", String.valueOf(expiresIn));
+      }
+
+      if (isWeb != null && isWeb) {
+        queryParameters.put("isWeb", String.valueOf(isWeb));
       }
 
       String resourcePath = "api/v2/access_token/refresh";

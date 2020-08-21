@@ -40,7 +40,7 @@ public class ReAuthenticationApi {
    
    
    // <summary>
-   // This API is used to trigger the Multi-Factor Autentication workflow for the provided access_token
+   // This API is used to trigger the Multi-Factor Autentication workflow for the provided access token
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="smsTemplate2FA">SMS Template Name</param>
@@ -122,7 +122,7 @@ public class ReAuthenticationApi {
    }
    
    // <summary>
-   // This API is used to re-authenticate by set of backup codes via access_token on the site that has Multi-factor authentication enabled in re-authentication for the user that does not have the device
+   // This API is used to re-authenticate by set of backup codes via access token on the site that has Multi-factor authentication enabled in re-authentication for the user that does not have the device
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="reauthByBackupCodeModel">Model Class containing Definition for MFA Reauthentication by Backup code</param>

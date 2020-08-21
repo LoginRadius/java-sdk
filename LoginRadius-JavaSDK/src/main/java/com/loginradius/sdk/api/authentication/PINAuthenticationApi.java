@@ -49,7 +49,7 @@ public class PINAuthenticationApi {
    
    
    // <summary>
-   // This API is used to login a user by pin and session_token.
+   // This API is used to login a user by pin and session token.
    // </summary>
    // <param name="loginByPINModel">Model Class containing Definition of payload for LoginByPin API</param>
    // <param name="sessionToken">Session Token of user</param>
