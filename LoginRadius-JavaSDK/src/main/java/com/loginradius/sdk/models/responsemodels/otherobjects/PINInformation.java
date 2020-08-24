@@ -17,6 +17,9 @@ import com.google.gson.annotations.SerializedName;
 		@SerializedName("LastPINChangeDate")
         private String lastPINChangeDate;
 		
+		@SerializedName("LastPINChangeToken")
+        private String lastPINChangeToken;
+		
 		@SerializedName("PIN")
         private String pin;
 		
@@ -39,6 +42,18 @@ import com.google.gson.annotations.SerializedName;
 		// </summary>
 		public void setLastPINChangeDate(String lastPINChangeDate) {
 			this.lastPINChangeDate = lastPINChangeDate;
+		}
+		// <summary>
+		//	Last PIN Change Token
+		// </summary>
+		public String getLastPINChangeToken() {
+			return lastPINChangeToken;
+		}
+		// <summary>
+		//	Last PIN Change Token
+		// </summary>
+		public void setLastPINChangeToken(String lastPINChangeToken) {
+			this.lastPINChangeToken = lastPINChangeToken;
 		}
 		// <summary>
 		//	PIN of user

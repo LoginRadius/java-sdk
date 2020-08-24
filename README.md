@@ -28,7 +28,7 @@ Use the following dependency in your project:
 <dependency>
   <groupId>com.loginradius.sdk</groupId>
   <artifactId>java-sdk</artifactId>
-  <version>10.0.2</version>
+  <version>11.0.0</version>
 </dependency>
 
 ```
@@ -50,7 +50,7 @@ Java Library
 
 ## Installation
 
-This documentation presumes you have worked through the client-side implementation to setup your LoginRadius User Registration interfaces that will service the initial registration and login process. Details on this can be found in the [getting started guide.](/api/v2/getting-started/introduction)
+This documentation presumes you have worked through the client-side implementation to setup your LoginRadius User Registration interfaces that will service the initial registration and login process. Details on this can be found in the [getting started guide.](https://www.loginradius.com/docs/api/v2/getting-started/introduction)
 
 Use the following dependency in your project:
 
@@ -67,7 +67,7 @@ Select the directory for the latest version and download the jar files.
 
 ## Initialize SDK
 Before using the SDK, you must initialize the SDK with the help of following code:
-API Key and secret of your LoginRadius site. You can get one from [here](/api/v2/admin-console/platform-security/api-key-and-secret/#api-key-and-secret)
+API Key and secret of your LoginRadius site. You can get one from [here](https://www.loginradius.com/docs/api/v2/admin-console/platform-security/api-key-and-secret/#api-key-and-secret)
 
 ```
 LoginRadiusSDK.Initialize init = new LoginRadiusSDK.Initialize();
@@ -93,7 +93,7 @@ init.setRequestSigning(true);
 
 The User Registration system relies on two identifiers which you can retrieve as follows:
 
-Pass the token returned in the User Registration login response to the code behind. You can use a javascript function in the login and sociallogin onSuccess functions. Additional details on setting up and configuring your interface is available [here](/api/v2/deployment/js-libraries/getting-started/#user-registration-getting-started). You can set the action in the redirect function to the desired servlet or .jsp.
+Pass the token returned in the User Registration login response to the code behind. You can use a javascript function in the login and sociallogin onSuccess functions. Additional details on setting up and configuring your interface is available [here](https://www.loginradius.com/docs/api/v2/deployment/js-libraries/getting-started/#user-registration-getting-started). You can set the action in the redirect function to the desired servlet or .jsp.
 
 ```
 function redirect(token) {
@@ -197,13 +197,14 @@ List of APIs in this Section:<br>
 * PUT : [Auth Reset Password by OTP](#ResetPasswordByEmailOTP-put-)<br>
 * PUT : [Auth Reset Password by OTP and UserName](#ResetPasswordByOTPAndUserName-put-)<br>
 * PUT : [Auth Change Password](#ChangePassword-put-)<br>
-* PUT : [Auth Link Social Identities](#LinkSocialIdentities-put-)<br>
 * PUT : [Auth Set or Change UserName](#SetOrChangeUserName-put-)<br>
 * PUT : [Auth Resend Email Verification](#AuthResendEmailVerification-put-)<br>
 * POST : [Auth Add Email](#AddEmail-post-)<br>
 * POST : [Auth Login by Email](#LoginByEmail-post-)<br>
 * POST : [Auth Login by Username](#LoginByUserName-post-)<br>
 * POST : [Auth Forgot Password](#ForgotPassword-post-)<br>
+* POST : [Auth Link Social Identities](#LinkSocialIdentities-post-)<br>
+* POST : [Auth Link Social Identities By Ping](#LinkSocialIdentitiesByPing-post-)<br>
 * POST : [Auth User Registration by Email](#UserRegistrationByEmail-post-)<br>
 * POST : [Auth User Registration By Captcha](#UserRegistrationByCaptcha-post-)<br>
 * GET : [Get Security Questions By Email](#GetSecurityQuestionsByEmail-get-)<br>
@@ -218,7 +219,6 @@ List of APIs in this Section:<br>
 * GET : [Auth Delete Account](#DeleteAccountByDeleteToken-get-)<br>
 * GET : [Auth Check Email Availability](#CheckEmailAvailability-get-)<br>
 * GET : [Auth Verify Email](#VerifyEmail-get-)<br>
-* GET : [Auth Social Identity](#GetSocialIdentity-get-)<br>
 * GET : [Auth Check UserName Availability](#CheckUserNameAvailability-get-)<br>
 * GET : [Auth Privacy Policy Accept](#AcceptPrivacyPolicy-get-)<br>
 * GET : [Auth Privacy Policy History By Access Token](#GetPrivacyPolicyHistoryByAccessToken-get-)<br>
@@ -230,7 +230,7 @@ List of APIs in this Section:<br>
 
 
 <h6 id="UpdateProfileByAccessToken-put-">Auth Update Profile by Token (PUT)</h6>
- This API is used to update the user's profile by passing the access_token. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/auth-update-profile-by-token/)
+ This API is used to update the user's profile by passing the access token. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/auth-update-profile-by-token/)
 
 ```
 
@@ -265,7 +265,7 @@ authenticationApi.updateProfileByAccessToken(accessToken,  userProfileUpdateMode
 
 
 <h6 id="UnlockAccountByToken-put-">Auth Unlock Account by Access Token (PUT)</h6>
- This API is used to allow a customer with a valid access_token to unlock their account provided that they successfully pass the prompted Bot Protection challenges. The Block or Suspend block types are not applicable for this API. For additional details see our Auth Security Configuration documentation.You are only required to pass the Post Parameters that correspond to the prompted challenges. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/auth-unlock-account-by-access-token/)
+ This API is used to allow a customer with a valid access token to unlock their account provided that they successfully pass the prompted Bot Protection challenges. The Block or Suspend block types are not applicable for this API. For additional details see our Auth Security Configuration documentation.You are only required to pass the Post Parameters that correspond to the prompted challenges. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/auth-unlock-account-by-access-token/)
 
 ```
 
@@ -539,34 +539,6 @@ authenticationApi.changePassword(accessToken, newPassword, oldPassword ,  new As
 
 
 
-<h6 id="LinkSocialIdentities-put-">Auth Link Social Identities (PUT)</h6>
- This API is used to link up a social provider account with the specified account based on the access token and the social providers user access token. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/auth-link-social-identities)
-
-```
-
-String accessToken = "<accessToken>"; //Required
-String candidateToken = "<candidateToken>"; //Required
-
-AuthenticationApi authenticationApi = new AuthenticationApi();
-authenticationApi.linkSocialIdentities(accessToken, candidateToken ,  new AsyncHandler<PostResponse> (){
-
-@Override
- public void onFailure(ErrorResponse errorResponse) {
- System.out.println(errorResponse.getDescription());
- }
- @Override
- public void onSuccess(PostResponse response) {
-  System.out.println(response.getIsPosted());
- }
-});
-
-```
-
-  
-
-
-
-
 <h6 id="SetOrChangeUserName-put-">Auth Set or Change UserName (PUT)</h6>
  This API is used to set or change UserName by access token. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/auth-set-or-change-user-name/)
 
@@ -732,6 +704,62 @@ String emailTemplate = "<emailTemplate>"; //Optional
 
 AuthenticationApi authenticationApi = new AuthenticationApi();
 authenticationApi.forgotPassword(email, resetPasswordUrl, emailTemplate ,  new AsyncHandler<PostResponse> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(PostResponse response) {
+  System.out.println(response.getIsPosted());
+ }
+});
+
+```
+
+  
+
+
+
+
+<h6 id="LinkSocialIdentities-post-">Auth Link Social Identities (POST)</h6>
+ This API is used to link up a social provider account with an existing LoginRadius account on the basis of access token and the social providers user access token. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/auth-link-social-identities)
+
+```
+
+String accessToken = "<accessToken>"; //Required
+String candidateToken = "<candidateToken>"; //Required
+
+AuthenticationApi authenticationApi = new AuthenticationApi();
+authenticationApi.linkSocialIdentities(accessToken, candidateToken ,  new AsyncHandler<PostResponse> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(PostResponse response) {
+  System.out.println(response.getIsPosted());
+ }
+});
+
+```
+
+  
+
+
+
+
+<h6 id="LinkSocialIdentitiesByPing-post-">Auth Link Social Identities By Ping (POST)</h6>
+ This API is used to link up a social provider account with an existing LoginRadius account on the basis of ping and the social providers user access token. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/auth-link-social-identities-by-ping)
+
+```
+
+String accessToken = "<accessToken>"; //Required
+String clientGuid = "<clientGuid>"; //Required
+
+AuthenticationApi authenticationApi = new AuthenticationApi();
+authenticationApi.linkSocialIdentitiesByPing(accessToken, clientGuid ,  new AsyncHandler<PostResponse> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -1026,7 +1054,7 @@ authenticationApi.getAccessTokenInfo(accessToken ,  new AsyncHandler<TokenInfoRe
 
 
 <h6 id="GetProfileByAccessToken-get-">Auth Read all Profiles by Token (GET)</h6>
- This API retrieves a copy of the user data based on the access_token. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/auth-read-profiles-by-token/)
+ This API retrieves a copy of the user data based on the access token. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/auth-read-profiles-by-token/)
 
 ```
 
@@ -1165,34 +1193,6 @@ authenticationApi.verifyEmail(verificationToken, fields, url, welcomeEmailTempla
 
 
 
-<h6 id="GetSocialIdentity-get-">Auth Social Identity (GET)</h6>
- This API is called just after account linking API and it prevents the raas profile of the second account from getting created. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/auth-social-identity)
-
-```
-
-String accessToken = "<accessToken>"; //Required
-String fields = null; //Optional
-
-AuthenticationApi authenticationApi = new AuthenticationApi();
-authenticationApi.getSocialIdentity(accessToken, fields ,  new AsyncHandler<SocialUserProfile> (){
-
-@Override
- public void onFailure(ErrorResponse errorResponse) {
- System.out.println(errorResponse.getDescription());
- }
- @Override
- public void onSuccess(SocialUserProfile response) {
-  System.out.println(response.getAbout());
- }
-});
-
-```
-
-  
-
-
-
-
 <h6 id="CheckUserNameAvailability-get-">Auth Check UserName Availability (GET)</h6>
  This API is used to check the UserName exists or not on your site. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/auth-username-availability/)
 
@@ -1221,7 +1221,7 @@ authenticationApi.checkUserNameAvailability(username ,  new AsyncHandler<ExistRe
 
 
 <h6 id="AcceptPrivacyPolicy-get-">Auth Privacy Policy Accept (GET)</h6>
- This API is used to update the privacy policy stored in the user's profile by providing the access_token of the user accepting the privacy policy [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/auth-privacy-policy-accept)
+ This API is used to update the privacy policy stored in the user's profile by providing the access token of the user accepting the privacy policy [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/auth-privacy-policy-accept)
 
 ```
 
@@ -1249,7 +1249,7 @@ authenticationApi.acceptPrivacyPolicy(accessToken, fields ,  new AsyncHandler<Id
 
 
 <h6 id="GetPrivacyPolicyHistoryByAccessToken-get-">Auth Privacy Policy History By Access Token (GET)</h6>
- This API will return all the accepted privacy policies for the user by providing the access_token of that user. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/privacy-policy-history-by-access-token/)
+ This API will return all the accepted privacy policies for the user by providing the access token of that user. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/privacy-policy-history-by-access-token/)
 
 ```
 
@@ -1375,7 +1375,6 @@ List of APIs in this Section:<br>
 * PUT : [Account Invalidate Verification Email](#InvalidateAccountEmailVerification-put-)<br>
 * PUT : [Reset phone ID verification](#ResetPhoneIDVerificationByUid-put-)<br>
 * PUT : [Upsert Email](#UpsertEmail-put-)<br>
-* PUT : [Update UID](#AccountUpdateUid-put-)<br>
 * POST : [Account Create](#CreateAccount-post-)<br>
 * POST : [Forgot Password token](#GetForgotPasswordToken-post-)<br>
 * POST : [Email Verification token](#GetEmailVerificationToken-post-)<br>
@@ -1573,36 +1572,6 @@ accountApi.upsertEmail( upsertEmailModel, uid, fields ,  new AsyncHandler<Identi
 ```
 
   
-
-
-
-
-<h6 id="AccountUpdateUid-put-">Update UID (PUT)</h6>
- This API is used to update a user's Uid. It will update all profiles, custom objects and consent management logs associated with the Uid. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/account/account-update/)
-
-```
-
-UpdateUidModel updateUidModel = new UpdateUidModel(); //Required
-updateUidModel.setNewUid("newUid"); 
-String uid = "<uid>"; //Required
-
-AccountApi accountApi = new AccountApi();
-accountApi.accountUpdateUid( updateUidModel, uid ,  new AsyncHandler<PostResponse> (){
-
-@Override
- public void onFailure(ErrorResponse errorResponse) {
- System.out.println(errorResponse.getDescription());
- }
- @Override
- public void onSuccess(PostResponse response) {
-  System.out.println(response.getIsPosted());
- }
-});
-
-```
-
-  
-
 
 
 
@@ -1894,7 +1863,7 @@ accountApi.getAccessTokenByUid(uid ,  new AsyncHandler<AccessTokenBase> (){
 
 
 <h6 id="RefreshAccessTokenByRefreshToken-get-">Refresh Access Token by Refresh Token (GET)</h6>
- This API is used to refresh an access_token via it's associated refresh_token. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/refresh-token/refresh-access-token-by-refresh-token)
+ This API is used to refresh an access token via it's associated refresh token. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/refresh-token/refresh-access-token-by-refresh-token)
 
 ```
 
@@ -2236,9 +2205,10 @@ socialApi.exchangeAccessToken(token ,  new AsyncHandler<AccessTokenBase> (){
 
 String accessToken = "<accessToken>"; //Required
 Integer expiresIn = 0; //Optional
+Boolean isWeb = true; //Optional
 
 SocialApi socialApi = new SocialApi();
-socialApi.refreshAccessToken(accessToken, expiresIn ,  new AsyncHandler<AccessTokenBase> (){
+socialApi.refreshAccessToken(accessToken, expiresIn, isWeb ,  new AsyncHandler<AccessTokenBase> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -3700,7 +3670,7 @@ phoneAuthenticationApi.checkPhoneNumberAvailability(phone ,  new AsyncHandler<Ex
 
 
 <h6 id="RemovePhoneIDByAccessToken-delete-">Remove Phone ID by Access Token (DELETE)</h6>
- This API is used to delete the Phone ID on a user's account via the access_token [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/phone-authentication/remove-phone-id-by-access-token)
+ This API is used to delete the Phone ID on a user's account via the access token [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/phone-authentication/remove-phone-id-by-access-token)
 
 ```
 
@@ -3910,7 +3880,7 @@ multiFactorAuthenticationApi.mfaValidateGoogleAuthCode(googleAuthenticatorCode, 
 
 
 <h6 id="MFAValidateBackupCode-put-">MFA Validate Backup code (PUT)</h6>
- This API is used to validate the backup code provided by the user and if valid, we return an access_token allowing the user to login incases where Multi-factor authentication (MFA) is enabled and the secondary factor is unavailable. When a user initially downloads the Backup codes, We generate 10 codes, each code can only be consumed once. if any user attempts to go over the number of invalid login attempts configured in the Dashboard then the account gets blocked automatically [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/backup-codes/mfa-validate-backup-code/)
+ This API is used to validate the backup code provided by the user and if valid, we return an access token allowing the user to login incases where Multi-factor authentication (MFA) is enabled and the secondary factor is unavailable. When a user initially downloads the Backup codes, We generate 10 codes, each code can only be consumed once. if any user attempts to go over the number of invalid login attempts configured in the Dashboard then the account gets blocked automatically [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/backup-codes/mfa-validate-backup-code/)
 
 ```
 
@@ -4071,7 +4041,7 @@ multiFactorAuthenticationApi.mfaLoginByPhone(password, phone, emailTemplate, fie
 
 
 <h6 id="MFAConfigureByAccessToken-get-">MFA Validate Access Token (GET)</h6>
- This API is used to configure the Multi-factor authentication after login by using the access_token when MFA is set as optional on the LoginRadius site. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/mfa-validate-access-token/)
+ This API is used to configure the Multi-factor authentication after login by using the access token when MFA is set as optional on the LoginRadius site. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/mfa-validate-access-token/)
 
 ```
 
@@ -4099,7 +4069,7 @@ multiFactorAuthenticationApi.mfaConfigureByAccessToken(accessToken, smsTemplate2
 
 
 <h6 id="MFABackupCodeByAccessToken-get-">MFA Backup Code by Access Token (GET)</h6>
- This API is used to get a set of backup codes via access_token to allow the user login on a site that has Multi-factor Authentication enabled in the event that the user does not have a secondary factor available. We generate 10 codes, each code can only be consumed once. If any user attempts to go over the number of invalid login attempts configured in the Dashboard then the account gets blocked automatically [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/backup-codes/mfa-backup-code-by-access-token/)
+ This API is used to get a set of backup codes via access token to allow the user login on a site that has Multi-factor Authentication enabled in the event that the user does not have a secondary factor available. We generate 10 codes, each code can only be consumed once. If any user attempts to go over the number of invalid login attempts configured in the Dashboard then the account gets blocked automatically [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/backup-codes/mfa-backup-code-by-access-token/)
 
 ```
 
@@ -4126,7 +4096,7 @@ multiFactorAuthenticationApi.mfaBackupCodeByAccessToken(accessToken ,  new Async
 
 
 <h6 id="MFAResetBackupCodeByAccessToken-get-">Reset Backup Code by Access Token (GET)</h6>
- API is used to reset the backup codes on a given account via the access_token. This API call will generate 10 new codes, each code can only be consumed once [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/backup-codes/mfa-reset-backup-code-by-access-token/)
+ API is used to reset the backup codes on a given account via the access token. This API call will generate 10 new codes, each code can only be consumed once [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/backup-codes/mfa-reset-backup-code-by-access-token/)
 
 ```
 
@@ -4235,7 +4205,7 @@ multiFactorAuthenticationApi.mfaResetBackupCodeByUid(uid ,  new AsyncHandler<Bac
 
 
 <h6 id="MFAResetGoogleAuthByToken-delete-">MFA Reset Google Authenticator by Token (DELETE)</h6>
- This API Resets the Google Authenticator configurations on a given account via the access_token [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/google-authenticator/mfa-reset-google-authenticator-by-token/)
+ This API Resets the Google Authenticator configurations on a given account via the access token [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/google-authenticator/mfa-reset-google-authenticator-by-token/)
 
 ```
 
@@ -4263,7 +4233,7 @@ multiFactorAuthenticationApi.mfaResetGoogleAuthByToken(accessToken, googleauthen
 
 
 <h6 id="MFAResetSMSAuthByToken-delete-">MFA Reset SMS Authenticator by Token (DELETE)</h6>
- This API resets the SMS Authenticator configurations on a given account via the access_token. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/sms-authenticator/mfa-reset-sms-authenticator-by-token/)
+ This API resets the SMS Authenticator configurations on a given account via the access token. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/sms-authenticator/mfa-reset-sms-authenticator-by-token/)
 
 ```
 
@@ -4618,7 +4588,7 @@ pinAuthenticationApi.resetPINByUsernameAndOtp( resetPINByUsernameAndOtpModel ,  
 
 
 <h6 id="PINLogin-post-">PIN Login (POST)</h6>
- This API is used to login a user by pin and session_token. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/pin-authentication/login-by-pin/)
+ This API is used to login a user by pin and session token. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/pin-authentication/login-by-pin/)
 
 ```
 
@@ -4842,7 +4812,7 @@ reAuthenticationApi.mfaReAuthenticateByOTP(accessToken,  reauthByOtpModel ,  new
 
 
 <h6 id="MFAReAuthenticateByBackupCode-put-">Validate MFA by Backup Code (PUT)</h6>
- This API is used to re-authenticate by set of backup codes via access_token on the site that has Multi-factor authentication enabled in re-authentication for the user that does not have the device [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/re-authentication/mfa/re-auth-by-backup-code/)
+ This API is used to re-authenticate by set of backup codes via access token on the site that has Multi-factor authentication enabled in re-authentication for the user that does not have the device [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/re-authentication/mfa/re-auth-by-backup-code/)
 
 ```
 
@@ -5047,7 +5017,7 @@ reAuthenticationApi.verifyMultiFactorPINReauthentication( eventBasedMultiFactorT
 
 
 <h6 id="MFAReAuthenticate-get-">Multi Factor Re-Authenticate (GET)</h6>
- This API is used to trigger the Multi-Factor Autentication workflow for the provided access_token [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/re-authentication/re-auth-trigger/)
+ This API is used to trigger the Multi-Factor Autentication workflow for the provided access token [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/re-authentication/re-auth-trigger/)
 
 ```
 
@@ -5207,7 +5177,7 @@ consentManagementApi.submitConsentByAccessToken(accessToken,  consentSubmitModel
 
 
 <h6 id="GetConsentLogsByUid-get-">Get Consent Logs By Uid (GET)</h6>
- This API is used to get the Consent logs of the user. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/customer-identity-api/consent-management/consent-log-by-uid/)
+ This API is used to get the Consent logs of the user. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/consent-management/consent-log-by-uid/)
 
 ```
 
@@ -6344,7 +6314,7 @@ customRegistrationDataApi.validateRegistrationDataCode(code, recordId ,  new Asy
 
 
 <h6 id="AddRegistrationData-post-">Add Registration Data (POST)</h6>
- This API allows you to fill data into a dropdown list which you have created for user Registeration. For more details on how to use this API please see our Custom Registration Data Overview [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/custom-registration-data/add-registration-data)
+ This API allows you to fill data into a dropdown list which you have created for user Registration. For more details on how to use this API please see our Custom Registration Data Overview [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/custom-registration-data/add-registration-data)
 
 ```
 
@@ -6701,6 +6671,8 @@ List of APIs in this Section:<br>
 * GET : [Access Token using google JWT token for Native Mobile Login](#GetAccessTokenByGoogleJWTAccessToken-get-)<br>
 * GET : [Access Token via Linkedin Token](#GetAccessTokenByLinkedinAccessToken-get-)<br>
 * GET : [Get Access Token By Foursquare Access Token](#GetAccessTokenByFoursquareAccessToken-get-)<br>
+* GET : [Access Token via Apple Id Code](#GetAccessTokenByAppleIdCode-get-)<br>
+* GET : [Access Token via WeChat Code](#GetAccessTokenByWeChatCode-get-)<br>
 * GET : [Access Token via Vkontakte Token](#GetAccessTokenByVkontakteAccessToken-get-)<br>
 * GET : [Access Token via Google AuthCode](#GetAccessTokenByGoogleAuthCode-get-)<br>
 
@@ -6713,9 +6685,10 @@ List of APIs in this Section:<br>
 ```
 
 String fbAccessToken = "<fbAccessToken>"; //Required
+String socialAppName = "<socialAppName>"; //Optional
 
 NativeSocialApi nativeSocialApi = new NativeSocialApi();
-nativeSocialApi.getAccessTokenByFacebookAccessToken(fbAccessToken ,  new AsyncHandler<AccessTokenBase> (){
+nativeSocialApi.getAccessTokenByFacebookAccessToken(fbAccessToken, socialAppName ,  new AsyncHandler<AccessTokenBase> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -6741,9 +6714,10 @@ nativeSocialApi.getAccessTokenByFacebookAccessToken(fbAccessToken ,  new AsyncHa
 
 String twAccessToken = "<twAccessToken>"; //Required
 String twTokenSecret = "<twTokenSecret>"; //Required
+String socialAppName = "<socialAppName>"; //Optional
 
 NativeSocialApi nativeSocialApi = new NativeSocialApi();
-nativeSocialApi.getAccessTokenByTwitterAccessToken(twAccessToken, twTokenSecret ,  new AsyncHandler<AccessTokenBase> (){
+nativeSocialApi.getAccessTokenByTwitterAccessToken(twAccessToken, twTokenSecret, socialAppName ,  new AsyncHandler<AccessTokenBase> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -6770,9 +6744,10 @@ nativeSocialApi.getAccessTokenByTwitterAccessToken(twAccessToken, twTokenSecret 
 String googleAccessToken = "<googleAccessToken>"; //Required
 String clientId = "<clientId>"; //Optional
 String refreshToken = "<refreshToken>"; //Optional
+String socialAppName = "<socialAppName>"; //Optional
 
 NativeSocialApi nativeSocialApi = new NativeSocialApi();
-nativeSocialApi.getAccessTokenByGoogleAccessToken(googleAccessToken, clientId, refreshToken ,  new AsyncHandler<AccessTokenBase> (){
+nativeSocialApi.getAccessTokenByGoogleAccessToken(googleAccessToken, clientId, refreshToken, socialAppName ,  new AsyncHandler<AccessTokenBase> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -6824,9 +6799,10 @@ nativeSocialApi.getAccessTokenByGoogleJWTAccessToken(idToken ,  new AsyncHandler
 ```
 
 String lnAccessToken = "<lnAccessToken>"; //Required
+String socialAppName = "<socialAppName>"; //Optional
 
 NativeSocialApi nativeSocialApi = new NativeSocialApi();
-nativeSocialApi.getAccessTokenByLinkedinAccessToken(lnAccessToken ,  new AsyncHandler<AccessTokenBase> (){
+nativeSocialApi.getAccessTokenByLinkedinAccessToken(lnAccessToken, socialAppName ,  new AsyncHandler<AccessTokenBase> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -6854,6 +6830,61 @@ String fsAccessToken = "<fsAccessToken>"; //Required
 
 NativeSocialApi nativeSocialApi = new NativeSocialApi();
 nativeSocialApi.getAccessTokenByFoursquareAccessToken(fsAccessToken ,  new AsyncHandler<AccessTokenBase> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(AccessTokenBase response) {
+  System.out.println(response.getAccess_Token());
+ }
+});
+
+```
+
+  
+
+
+
+
+<h6 id="GetAccessTokenByAppleIdCode-get-">Access Token via Apple Id Code (GET)</h6>
+ The API is used to get LoginRadius access token by sending a valid Apple ID OAuth Code. It will be valid for the specific duration of time specified in the response. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/social-login/native-social-login-api/access-token-via-apple-id-code)
+
+```
+
+String code = "<code>"; //Required
+String socialAppName = "<socialAppName>"; //Optional
+
+NativeSocialApi nativeSocialApi = new NativeSocialApi();
+nativeSocialApi.getAccessTokenByAppleIdCode(code, socialAppName ,  new AsyncHandler<AccessTokenBase> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(AccessTokenBase response) {
+  System.out.println(response.getAccess_Token());
+ }
+});
+
+```
+
+  
+
+
+
+
+<h6 id="GetAccessTokenByWeChatCode-get-">Access Token via WeChat Code (GET)</h6>
+ This API is used to retrieve a LoginRadius access token by passing in a valid WeChat OAuth Code. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/social-login/native-social-login-api/access-token-via-wechat-code)
+
+```
+
+String code = "<code>"; //Required
+
+NativeSocialApi nativeSocialApi = new NativeSocialApi();
+nativeSocialApi.getAccessTokenByWeChatCode(code ,  new AsyncHandler<AccessTokenBase> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -6905,9 +6936,10 @@ nativeSocialApi.getAccessTokenByVkontakteAccessToken(vkAccessToken ,  new AsyncH
 ```
 
 String googleAuthcode = "<googleAuthcode>"; //Required
+String socialAppName = "<socialAppName>"; //Optional
 
 NativeSocialApi nativeSocialApi = new NativeSocialApi();
-nativeSocialApi.getAccessTokenByGoogleAuthCode(googleAuthcode ,  new AsyncHandler<AccessTokenBase> (){
+nativeSocialApi.getAccessTokenByGoogleAuthCode(googleAuthcode, socialAppName ,  new AsyncHandler<AccessTokenBase> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -7099,9 +7131,3 @@ IDE:
 ## Reference Manual
 
 Please find the reference manual [here](http://docs.lrcontent.com/apidocs/ref/java/index.html).
-
-
-
-
-
-

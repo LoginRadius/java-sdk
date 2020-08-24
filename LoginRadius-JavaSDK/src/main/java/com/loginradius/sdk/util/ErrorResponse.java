@@ -151,7 +151,7 @@ public class ErrorResponse {
 
 	/**
 	 * 
-	 * @param Errors The Data
+	 * @param Data The Data
 	 */
 
 	public void setData(Object Data) {
