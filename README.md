@@ -123,10 +123,10 @@ Be sure to download the correct policy file updates for your version of Java:
 Java 6
 http://www.oracle.com/technetwork/java/javase/downloads/jce-6-download-429243.html
 <br>
-java 7
+Java 7
 http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html
 <br>
-java 8
+Java 8
 http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html
 <br>
   2. Uncompress and extract the downloaded file. The download includes a Readme.txt and two .jar files with the same names as the existing policy files.
@@ -511,7 +511,7 @@ authenticationApi.resetPasswordByOTPAndUserName( resetPasswordByUserNameModel , 
 
 
 <h6 id="ChangePassword-put-">Auth Change Password (PUT)</h6>
- This API is used to change the accounts password based on the previous password [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/auth-change-password)
+ This API is used to change the account's password based on the previous password [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/auth-change-password)
 
 ```
 

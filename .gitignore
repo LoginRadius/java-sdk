@@ -25,4 +25,4 @@
 # Backup files
 *.bak
 scratch
-/target/
+*/target/
