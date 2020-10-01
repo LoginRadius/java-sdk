@@ -34,7 +34,15 @@ import com.loginradius.sdk.util.LoginRadiusSDK;
 
 
 public class AccountApi {
-   private static Gson gson =new Gson();
+
+  public static final String API_KEY_QUERY_PARAM_KEY = "apiKey";
+  public static final String API_SECRET_QUERY_PARAM_KEY = "apiSecret";
+  public static final String FIELDS_QUERY_PARAM_KEY = "fields";
+  public static final String EMAIL_QUERY_PARAM_KEY = "email";
+  public static final String PHONE_QUERY_PARAM_KEY = "phone";
+  public static final String IDENTITY_V_2_MANAGE_ACCOUNT_URI_PART = "identity/v2/manage/account/";
+  public static final String IDENTITY_V_2_MANAGE_ACCOUNT_URI = "identity/v2/manage/account";
+  private static Gson gson =new Gson();
 
    public AccountApi(){
       if (!LoginRadiusSDK.validate()){
@@ -66,36 +74,35 @@ public class AccountApi {
 			throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("uid"));
 		}
 
-		Map<String, String> queryParameters = new HashMap<String, String>();
-		queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-		queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+		Map<String, String> queryParameters = new HashMap<>();
+		queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+		queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
 
 		if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
-			queryParameters.put("fields", fields);
+			queryParameters.put(FIELDS_QUERY_PARAM_KEY, fields);
 		}
 
 		if (nullSupport != null && nullSupport) {
 			queryParameters.put("nullSupport", String.valueOf(nullSupport));
 		}
 
-		String resourcePath = "identity/v2/manage/account/" + uid;
+		String resourcePath = IDENTITY_V_2_MANAGE_ACCOUNT_URI_PART + uid;
 
-		LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(payload),
-				new AsyncHandler<String>() {
+		LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(payload), new AsyncHandler<>() {
 
-					@Override
-					public void onSuccess(String response) {
-						TypeToken<Identity> typeToken = new TypeToken<Identity>() {
-						};
-						Identity successResponse = JsonDeserializer.deserializeJson(response, typeToken);
-						handler.onSuccess(successResponse);
-					}
+      @Override
+      public void onSuccess(String response) {
+        TypeToken<Identity> typeToken = new TypeToken<>() {
+        };
+        Identity successResponse = JsonDeserializer.deserializeJson(response, typeToken);
+        handler.onSuccess(successResponse);
+      }
 
-					@Override
-					public void onFailure(ErrorResponse errorResponse) {
-						handler.onFailure(errorResponse);
-					}
-				});
+      @Override
+      public void onFailure(ErrorResponse errorResponse) {
+        handler.onFailure(errorResponse);
+      }
+    });
 	}
   
   
@@ -114,18 +121,18 @@ public class AccountApi {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("uid"));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
 
-      String resourcePath = "identity/v2/manage/account/" + uid + "/privacypolicy/history";
+      String resourcePath = IDENTITY_V_2_MANAGE_ACCOUNT_URI_PART + uid + "/privacypolicy/history";
             
-      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
-			
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<PrivacyPolicyHistoryResponse> typeToken = new TypeToken<PrivacyPolicyHistoryResponse>() {};
-          PrivacyPolicyHistoryResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<PrivacyPolicyHistoryResponse> typeToken = new TypeToken<>() {};
+          PrivacyPolicyHistoryResponse successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -151,22 +158,22 @@ public class AccountApi {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accountCreateModel"));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
-        queryParameters.put("fields", fields);
+        queryParameters.put(FIELDS_QUERY_PARAM_KEY, fields);
       }
 
-      String resourcePath = "identity/v2/manage/account";
+      String resourcePath = IDENTITY_V_2_MANAGE_ACCOUNT_URI;
             
-      LoginRadiusRequest.execute("POST", resourcePath, queryParameters, gson.toJson(accountCreateModel), new AsyncHandler<String>() {
-			
+      LoginRadiusRequest.execute("POST", resourcePath, queryParameters, gson.toJson(accountCreateModel), new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<Identity> typeToken = new TypeToken<Identity>() {};
-          Identity successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<Identity> typeToken = new TypeToken<>() {};
+          Identity successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -189,26 +196,26 @@ public class AccountApi {
    public void getAccountProfileByEmail(String email, String fields, final AsyncHandler<Identity> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(email)) {
-        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("email"));
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage(EMAIL_QUERY_PARAM_KEY));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
-      queryParameters.put("email", email);
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
+      queryParameters.put(EMAIL_QUERY_PARAM_KEY, email);
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
-        queryParameters.put("fields", fields);
+        queryParameters.put(FIELDS_QUERY_PARAM_KEY, fields);
       }
 
-      String resourcePath = "identity/v2/manage/account";
-            
-      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
-			
+      String resourcePath = IDENTITY_V_2_MANAGE_ACCOUNT_URI;
+
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<Identity> typeToken = new TypeToken<Identity>() {};
-          Identity successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<Identity> typeToken = new TypeToken<>() {};
+          Identity successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -218,7 +225,7 @@ public class AccountApi {
         }
       });
    }
-   
+
    // <summary>
    // This API is used to retrieve all of the profile data associated with the specified account by user name in Cloud Storage.
    // </summary>
@@ -234,23 +241,23 @@ public class AccountApi {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("userName"));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
       queryParameters.put("userName", userName);
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
-        queryParameters.put("fields", fields);
+        queryParameters.put(FIELDS_QUERY_PARAM_KEY, fields);
       }
 
-      String resourcePath = "identity/v2/manage/account";
-            
-      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
-			
+      String resourcePath = IDENTITY_V_2_MANAGE_ACCOUNT_URI;
+
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<Identity> typeToken = new TypeToken<Identity>() {};
-          Identity successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<Identity> typeToken = new TypeToken<>() {};
+          Identity successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -273,26 +280,26 @@ public class AccountApi {
    public void getAccountProfileByPhone(String phone, String fields, final AsyncHandler<Identity> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(phone)) {
-        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("phone"));
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage(PHONE_QUERY_PARAM_KEY));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
-      queryParameters.put("phone", phone);
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
+      queryParameters.put(PHONE_QUERY_PARAM_KEY, phone);
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
-        queryParameters.put("fields", fields);
+        queryParameters.put(FIELDS_QUERY_PARAM_KEY, fields);
       }
 
-      String resourcePath = "identity/v2/manage/account";
-            
-      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
-			
+      String resourcePath = IDENTITY_V_2_MANAGE_ACCOUNT_URI;
+
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<Identity> typeToken = new TypeToken<Identity>() {};
-          Identity successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<Identity> typeToken = new TypeToken<>() {};
+          Identity successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -318,22 +325,22 @@ public class AccountApi {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("uid"));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
-        queryParameters.put("fields", fields);
+        queryParameters.put(FIELDS_QUERY_PARAM_KEY, fields);
       }
 
-      String resourcePath = "identity/v2/manage/account/" + uid;
-            
-      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
-			
+      String resourcePath = IDENTITY_V_2_MANAGE_ACCOUNT_URI_PART + uid;
+
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<Identity> typeToken = new TypeToken<Identity>() {};
-          Identity successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<Identity> typeToken = new TypeToken<>() {};
+          Identity successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -343,7 +350,7 @@ public class AccountApi {
         }
       });
    }
-   
+
    // <summary>
    // This API is used to update the information of existing accounts in your Cloud Storage. See our Advanced API Usage section <a href='https://www.loginradius.com/docs/api/v2/customer-identity-api/advanced-api-usage/'>Here</a> for more capabilities.
    // </summary>
@@ -365,22 +372,22 @@ public class AccountApi {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("uid"));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
-        queryParameters.put("fields", fields);
+        queryParameters.put(FIELDS_QUERY_PARAM_KEY, fields);
       }
 
-      String resourcePath = "identity/v2/manage/account/" + uid;
-            
-      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(accountUserProfileUpdateModel), new AsyncHandler<String>() {
-			
+      String resourcePath = IDENTITY_V_2_MANAGE_ACCOUNT_URI_PART + uid;
+
+      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(accountUserProfileUpdateModel), new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<Identity> typeToken = new TypeToken<Identity>() {};
-          Identity successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<Identity> typeToken = new TypeToken<>() {};
+          Identity successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -390,7 +397,7 @@ public class AccountApi {
         }
       });
    }
-   
+
    // <summary>
    // This API is used to update the PhoneId by using the Uid's. Admin can update the PhoneId's for both the verified and unverified profiles. It will directly replace the PhoneId and bypass the OTP verification process.
    // </summary>
@@ -405,32 +412,32 @@ public class AccountApi {
       String fields, final AsyncHandler<Identity> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(phone)) {
-        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("phone"));
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage(PHONE_QUERY_PARAM_KEY));
       }      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(uid)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("uid"));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
-        queryParameters.put("fields", fields);
+        queryParameters.put(FIELDS_QUERY_PARAM_KEY, fields);
       }
 
       JsonObject bodyParameters = new JsonObject();
-      bodyParameters.addProperty("phone", phone);
+      bodyParameters.addProperty(PHONE_QUERY_PARAM_KEY, phone);
 
-      String resourcePath = "identity/v2/manage/account/" + uid + "/phoneid";
-            
-      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(bodyParameters), new AsyncHandler<String>() {
-			
+      String resourcePath = IDENTITY_V_2_MANAGE_ACCOUNT_URI_PART + uid + "/phoneid";
+
+      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(bodyParameters), new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<Identity> typeToken = new TypeToken<Identity>() {};
-          Identity successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<Identity> typeToken = new TypeToken<>() {};
+          Identity successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -442,7 +449,7 @@ public class AccountApi {
    }
    
    // <summary>
-   // This API use to retrive the hashed password of a specified account in Cloud Storage.
+   // This API use to retrieve the hashed password of a specified account in Cloud Storage.
    // </summary>
    // <param name="uid">UID, the unified identifier for each user account</param>
    // <returns>Response containing Definition for Complete PasswordHash data</returns>
@@ -455,18 +462,18 @@ public class AccountApi {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("uid"));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
 
-      String resourcePath = "identity/v2/manage/account/" + uid + "/password";
+      String resourcePath = IDENTITY_V_2_MANAGE_ACCOUNT_URI_PART + uid + "/password";
             
-      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
-			
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<UserPasswordHash> typeToken = new TypeToken<UserPasswordHash>() {};
-          UserPasswordHash successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<UserPasswordHash> typeToken = new TypeToken<>() {};
+          UserPasswordHash successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -496,21 +503,21 @@ public class AccountApi {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("uid"));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
 
       JsonObject bodyParameters = new JsonObject();
       bodyParameters.addProperty("password", password);
 
-      String resourcePath = "identity/v2/manage/account/" + uid + "/password";
+      String resourcePath = IDENTITY_V_2_MANAGE_ACCOUNT_URI_PART + uid + "/password";
             
-      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(bodyParameters), new AsyncHandler<String>() {
-			
+      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(bodyParameters), new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<UserPasswordHash> typeToken = new TypeToken<UserPasswordHash>() {};
-          UserPasswordHash successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<UserPasswordHash> typeToken = new TypeToken<>() {};
+          UserPasswordHash successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -535,18 +542,18 @@ public class AccountApi {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("uid"));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
 
-      String resourcePath = "identity/v2/manage/account/" + uid;
+      String resourcePath = IDENTITY_V_2_MANAGE_ACCOUNT_URI_PART + uid;
             
-      LoginRadiusRequest.execute("DELETE", resourcePath, queryParameters, null, new AsyncHandler<String>() {
-			
+      LoginRadiusRequest.execute("DELETE", resourcePath, queryParameters, null, new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<DeleteResponse> typeToken = new TypeToken<DeleteResponse>() {};
-          DeleteResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<DeleteResponse> typeToken = new TypeToken<>() {};
+          DeleteResponse successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -574,9 +581,9 @@ public class AccountApi {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("uid"));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(emailTemplate)) {
         queryParameters.put("emailTemplate", emailTemplate);
@@ -586,14 +593,14 @@ public class AccountApi {
         queryParameters.put("verificationUrl", verificationUrl);
       }
 
-      String resourcePath = "identity/v2/manage/account/" + uid + "/invalidateemail";
+      String resourcePath = IDENTITY_V_2_MANAGE_ACCOUNT_URI_PART + uid + "/invalidateemail";
             
-      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, null, new AsyncHandler<String>() {
-			
+      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, null, new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<PostResponse> typeToken = new TypeToken<PostResponse>() {};
-          PostResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<PostResponse> typeToken = new TypeToken<>() {};
+          PostResponse successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -619,12 +626,12 @@ public class AccountApi {
       String resetPasswordUrl, Boolean sendEmail, final AsyncHandler<ForgotPasswordResponse> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(email)) {
-        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("email"));
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage(EMAIL_QUERY_PARAM_KEY));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(emailTemplate)) {
         queryParameters.put("emailTemplate", emailTemplate);
@@ -639,16 +646,16 @@ public class AccountApi {
       }
 
       JsonObject bodyParameters = new JsonObject();
-      bodyParameters.addProperty("email", email);
+      bodyParameters.addProperty(EMAIL_QUERY_PARAM_KEY, email);
 
       String resourcePath = "identity/v2/manage/account/forgot/token";
             
-      LoginRadiusRequest.execute("POST", resourcePath, queryParameters, gson.toJson(bodyParameters), new AsyncHandler<String>() {
-			
+      LoginRadiusRequest.execute("POST", resourcePath, queryParameters, gson.toJson(bodyParameters), new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<ForgotPasswordResponse> typeToken = new TypeToken<ForgotPasswordResponse>() {};
-          ForgotPasswordResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<ForgotPasswordResponse> typeToken = new TypeToken<>() {};
+          ForgotPasswordResponse successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -670,24 +677,24 @@ public class AccountApi {
    public void getEmailVerificationToken(String email, final AsyncHandler<EmailVerificationTokenResponse> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(email)) {
-        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("email"));
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage(EMAIL_QUERY_PARAM_KEY));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
 
       JsonObject bodyParameters = new JsonObject();
-      bodyParameters.addProperty("email", email);
+      bodyParameters.addProperty(EMAIL_QUERY_PARAM_KEY, email);
 
       String resourcePath = "identity/v2/manage/account/verify/token";
             
-      LoginRadiusRequest.execute("POST", resourcePath, queryParameters, gson.toJson(bodyParameters), new AsyncHandler<String>() {
-			
+      LoginRadiusRequest.execute("POST", resourcePath, queryParameters, gson.toJson(bodyParameters), new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<EmailVerificationTokenResponse> typeToken = new TypeToken<EmailVerificationTokenResponse>() {};
-          EmailVerificationTokenResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<EmailVerificationTokenResponse> typeToken = new TypeToken<>() {};
+          EmailVerificationTokenResponse successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -712,19 +719,19 @@ public class AccountApi {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("uid"));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
       queryParameters.put("uid", uid);
 
       String resourcePath = "identity/v2/manage/account/access_token";
             
-      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
-			
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<AccessTokenBase> typeToken = new TypeToken<AccessTokenBase>() {};
-          AccessTokenBase successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<AccessTokenBase> typeToken = new TypeToken<>() {};
+          AccessTokenBase successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -750,22 +757,22 @@ public class AccountApi {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("uid"));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(smsTemplate)) {
         queryParameters.put("smsTemplate", smsTemplate);
       }
 
-      String resourcePath = "identity/v2/manage/account/" + uid + "/invalidatephone";
+      String resourcePath = IDENTITY_V_2_MANAGE_ACCOUNT_URI_PART + uid + "/invalidatephone";
             
-      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, null, new AsyncHandler<String>() {
-			
+      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, null, new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<PostResponse> typeToken = new TypeToken<PostResponse>() {};
-          PostResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<PostResponse> typeToken = new TypeToken<>() {};
+          PostResponse successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -797,22 +804,22 @@ public class AccountApi {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("uid"));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
-        queryParameters.put("fields", fields);
+        queryParameters.put(FIELDS_QUERY_PARAM_KEY, fields);
       }
 
-      String resourcePath = "identity/v2/manage/account/" + uid + "/email";
-            
-      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(upsertEmailModel), new AsyncHandler<String>() {
-			
+      String resourcePath = IDENTITY_V_2_MANAGE_ACCOUNT_URI_PART + uid + "/email";
+
+      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(upsertEmailModel), new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<Identity> typeToken = new TypeToken<Identity>() {};
-          Identity successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<Identity> typeToken = new TypeToken<>() {};
+          Identity successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -837,32 +844,32 @@ public class AccountApi {
       String fields, final AsyncHandler<Identity> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(email)) {
-        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("email"));
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage(EMAIL_QUERY_PARAM_KEY));
       }      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(uid)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("uid"));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
-        queryParameters.put("fields", fields);
+        queryParameters.put(FIELDS_QUERY_PARAM_KEY, fields);
       }
 
       JsonObject bodyParameters = new JsonObject();
-      bodyParameters.addProperty("email", email);
+      bodyParameters.addProperty(EMAIL_QUERY_PARAM_KEY, email);
 
-      String resourcePath = "identity/v2/manage/account/" + uid + "/email";
+      String resourcePath = IDENTITY_V_2_MANAGE_ACCOUNT_URI_PART + uid + "/email";
             
-      LoginRadiusRequest.execute("DELETE", resourcePath, queryParameters, gson.toJson(bodyParameters), new AsyncHandler<String>() {
-			
+      LoginRadiusRequest.execute("DELETE", resourcePath, queryParameters, gson.toJson(bodyParameters), new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<Identity> typeToken = new TypeToken<Identity>() {};
-          Identity successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<Identity> typeToken = new TypeToken<>() {};
+          Identity successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -887,19 +894,19 @@ public class AccountApi {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("refreshToken"));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
       queryParameters.put("refresh_Token", refreshToken);
 
       String resourcePath = "identity/v2/manage/account/access_token/refresh";
             
-      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
-			
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<AccessTokenBase> typeToken = new TypeToken<AccessTokenBase>() {};
-          AccessTokenBase successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<AccessTokenBase> typeToken = new TypeToken<>() {};
+          AccessTokenBase successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -924,19 +931,19 @@ public class AccountApi {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("refreshToken"));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
       queryParameters.put("refresh_Token", refreshToken);
 
       String resourcePath = "identity/v2/manage/account/access_token/refresh/revoke";
             
-      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
-			
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<DeleteResponse> typeToken = new TypeToken<DeleteResponse>() {};
-          DeleteResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<DeleteResponse> typeToken = new TypeToken<>() {};
+          DeleteResponse successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -959,26 +966,26 @@ public class AccountApi {
    public void getAccountIdentitiesByEmail(String email, String fields, final AsyncHandler<ListReturn<Identity>> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(email)) {
-        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("email"));
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage(EMAIL_QUERY_PARAM_KEY));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
-      queryParameters.put("email", email);
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
+      queryParameters.put(EMAIL_QUERY_PARAM_KEY, email);
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
-        queryParameters.put("fields", fields);
+        queryParameters.put(FIELDS_QUERY_PARAM_KEY, fields);
       }
 
       String resourcePath = "identity/v2/manage/account/identities";
             
-      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
-			
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<ListReturn<Identity>> typeToken = new TypeToken<ListReturn<Identity>>() {};
-          ListReturn<Identity> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<ListReturn<Identity>> typeToken = new TypeToken<>() {};
+          ListReturn<Identity> successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -1000,22 +1007,22 @@ public class AccountApi {
    public void accountDeleteByEmail(String email, final AsyncHandler<DeleteResponse> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(email)) {
-        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("email"));
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage(EMAIL_QUERY_PARAM_KEY));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
-      queryParameters.put("email", email);
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
+      queryParameters.put(EMAIL_QUERY_PARAM_KEY, email);
 
-      String resourcePath = "identity/v2/manage/account";
+      String resourcePath = IDENTITY_V_2_MANAGE_ACCOUNT_URI;
             
-      LoginRadiusRequest.execute("DELETE", resourcePath, queryParameters, null, new AsyncHandler<String>() {
-			
+      LoginRadiusRequest.execute("DELETE", resourcePath, queryParameters, null, new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<DeleteResponse> typeToken = new TypeToken<DeleteResponse>() {};
-          DeleteResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<DeleteResponse> typeToken = new TypeToken<>() {};
+          DeleteResponse successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -1045,19 +1052,19 @@ public class AccountApi {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("uid"));
       }
 			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      Map<String, String> queryParameters = new HashMap<>();
+      queryParameters.put(API_KEY_QUERY_PARAM_KEY, LoginRadiusSDK.getApiKey());
+      queryParameters.put(API_SECRET_QUERY_PARAM_KEY, LoginRadiusSDK.getApiSecret());
       queryParameters.put("uid", uid);
 
       String resourcePath = "identity/v2/manage/account/uid";
             
-      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(updateUidModel), new AsyncHandler<String>() {
-			
+      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(updateUidModel), new AsyncHandler<>() {
+
         @Override
         public void onSuccess(String response) {
-          TypeToken<PostResponse> typeToken = new TypeToken<PostResponse>() {};
-          PostResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<PostResponse> typeToken = new TypeToken<>() {};
+          PostResponse successResponse = JsonDeserializer.deserializeJson(response, typeToken);
           handler.onSuccess(successResponse);
         }
 
