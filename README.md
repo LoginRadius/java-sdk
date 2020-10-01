@@ -152,7 +152,7 @@ On Windows, look in C:/Program Files/Java/jre<version>/lib/security/
 Sott sott = new Sott();
 String sottResponse = sott.getSott(null);
 ```
-* If you want to validate your SOTT for long term then pass required timedifference in minutes.
+* If you want to validate your SOTT for long term then pass required time difference in minutes.
 * We recommend to use the below way to validate SOTT for a long term because it uses the server time not your system local time.
 
 ```
@@ -3939,7 +3939,7 @@ multiFactorAuthenticationApi.mfaUpdatePhoneNumber(phoneNo2FA, secondFactorAuthen
 
 
 <h6 id="MFALoginByEmail-post-">MFA Email Login (POST)</h6>
- This API can be used to login by emailid on a Multi-factor authentication enabled LoginRadius site. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/mfa-email-login)
+ This API can be used to login by email id on a Multi-factor authentication enabled LoginRadius site. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/mfa-email-login)
 
 ```
 
