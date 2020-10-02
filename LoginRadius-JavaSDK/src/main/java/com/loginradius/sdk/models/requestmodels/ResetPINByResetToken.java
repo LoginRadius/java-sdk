@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for Reset Pin By Reset Token API
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for Reset Pin By Reset Token API
+	 */
 	public class ResetPINByResetToken {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	PIN of user
-		// </summary>
+		/**
+		 * PIN of user
+		 */
 		public String getPIN() {
 			return pin;
 		}
-		// <summary>
-		//	PIN of user
-		// </summary>
+		/**
+		 * PIN of user
+		 */
 		public void setPIN(String pin) {
 			this.pin = pin;
 		}
-		// <summary>
-		//	reset token received in the email
-		// </summary>
+		/**
+		 * reset token received in the email
+		 */
 		public String getResetToken() {
 			return resetToken;
 		}
-		// <summary>
-		//	reset token received in the email
-		// </summary>
+		/**
+		 * reset token received in the email
+		 */
 		public void setResetToken(String resetToken) {
 			this.resetToken = resetToken;
 		}

@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition Complete ExistResponse data
-	// </summary>
+	/**
+	 * Response containing Definition Complete ExistResponse data
+	 */
 	public class ExistResponse {
 	
 		
@@ -19,15 +19,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	IsExist
-		// </summary>
+		/**
+		 * IsExist
+		 */
 		public Boolean getIsExist() {
 			return isExist;
 		}
-		// <summary>
-		//	IsExist
-		// </summary>
+		/**
+		 * IsExist
+		 */
 		public void setIsExist(Boolean isExist) {
 			this.isExist = isExist;
 		}

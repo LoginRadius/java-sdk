@@ -9,9 +9,9 @@ package com.loginradius.sdk.models.responsemodels;
 import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete user custom object data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete user custom object data
+	 */
 	public class UserCustomObjectData {
 	
 		
@@ -38,87 +38,87 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	custom object
-		// </summary>
+		/**
+		 * custom object
+		 */
 		public JsonObject getCustomObject() {
 			return customObject;
 		}
-		// <summary>
-		//	custom object
-		// </summary>
+		/**
+		 * custom object
+		 */
 		public void setCustomObject(JsonObject customObject) {
 			this.customObject = customObject;
 		}
-		// <summary>
-		//	Custom object created date
-		// </summary>
+		/**
+		 * Custom object created date
+		 */
 		public String getDateCreated() {
 			return dateCreated;
 		}
-		// <summary>
-		//	Custom object created date
-		// </summary>
+		/**
+		 * Custom object created date
+		 */
 		public void setDateCreated(String dateCreated) {
 			this.dateCreated = dateCreated;
 		}
-		// <summary>
-		//	Custom object modified date
-		// </summary>
+		/**
+		 * Custom object modified date
+		 */
 		public String getDateModified() {
 			return dateModified;
 		}
-		// <summary>
-		//	Custom object modified date
-		// </summary>
+		/**
+		 * Custom object modified date
+		 */
 		public void setDateModified(String dateModified) {
 			this.dateModified = dateModified;
 		}
-		// <summary>
-		//	Custom object id
-		// </summary>
+		/**
+		 * Custom object id
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Custom object id
-		// </summary>
+		/**
+		 * Custom object id
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public Boolean getIsActive() {
 			return isActive;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public void setIsActive(Boolean isActive) {
 			this.isActive = isActive;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public Boolean getIsDeleted() {
 			return isDeleted;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public void setIsDeleted(Boolean isDeleted) {
 			this.isDeleted = isDeleted;
 		}
-		// <summary>
-		//	UID, the unified identifier for each user account
-		// </summary>
+		/**
+		 * UID, the unified identifier for each user account
+		 */
 		public String getUid() {
 			return uid;
 		}
-		// <summary>
-		//	UID, the unified identifier for each user account
-		// </summary>
+		/**
+		 * UID, the unified identifier for each user account
+		 */
 		public void setUid(String uid) {
 			this.uid = uid;
 		}

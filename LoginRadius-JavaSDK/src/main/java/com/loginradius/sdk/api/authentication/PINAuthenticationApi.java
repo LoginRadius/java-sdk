@@ -48,13 +48,13 @@ public class PINAuthenticationApi {
 
    
    
-   // <summary>
-   // This API is used to login a user by pin and session token.
-   // </summary>
-   // <param name="loginByPINModel">Model Class containing Definition of payload for LoginByPin API</param>
-   // <param name="sessionToken">Session Token of user</param>
-   // <returns>Response containing User Profile Data and access token</returns>
-   // 9.22	    
+   /**
+    * This API is used to login a user by pin and session token.
+    * @param loginByPINModel Model Class containing Definition of payload for LoginByPin API
+    * @param sessionToken Session Token of user
+    * @return Response containing User Profile Data and access token
+    * @since 9.22
+    */
 		
 		
    public void pinLogin(LoginByPINModel loginByPINModel, String sessionToken, final AsyncHandler<AccessToken<Identity>> handler) {
@@ -89,14 +89,14 @@ public class PINAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API sends the reset pin email to specified email address.
-   // </summary>
-   // <param name="forgotPINLinkByEmailModel">Model Class containing Definition for Forgot Pin Link By Email API</param>
-   // <param name="emailTemplate">Email template name</param>
-   // <param name="resetPINUrl">Reset PIN Url</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 42.1	    
+   /**
+    * This API sends the reset pin email to specified email address.
+    * @param forgotPINLinkByEmailModel Model Class containing Definition for Forgot Pin Link By Email API
+    * @param emailTemplate Email template name
+    * @param resetPINUrl Reset PIN Url
+    * @return Response containing Definition of Complete Validation data
+    * @since 42.1
+    */
 		
 		
    public void sendForgotPINEmailByEmail(ForgotPINLinkByEmailModel forgotPINLinkByEmailModel, String emailTemplate,
@@ -135,14 +135,14 @@ public class PINAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API sends the reset pin email using username.
-   // </summary>
-   // <param name="forgotPINLinkByUserNameModel">Model Class containing Definition for Forgot Pin Link By UserName API</param>
-   // <param name="emailTemplate">Email template name</param>
-   // <param name="resetPINUrl">Reset PIN Url</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 42.2	    
+   /**
+    * This API sends the reset pin email using username.
+    * @param forgotPINLinkByUserNameModel Model Class containing Definition for Forgot Pin Link By UserName API
+    * @param emailTemplate Email template name
+    * @param resetPINUrl Reset PIN Url
+    * @return Response containing Definition of Complete Validation data
+    * @since 42.2
+    */
 		
 		
    public void sendForgotPINEmailByUsername(ForgotPINLinkByUserNameModel forgotPINLinkByUserNameModel, String emailTemplate,
@@ -181,12 +181,12 @@ public class PINAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to reset pin using reset token.
-   // </summary>
-   // <param name="resetPINByResetToken">Model Class containing Definition of payload for Reset Pin By Reset Token API</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 42.3	    
+   /**
+    * This API is used to reset pin using reset token.
+    * @param resetPINByResetToken Model Class containing Definition of payload for Reset Pin By Reset Token API
+    * @return Response containing Definition of Complete Validation data
+    * @since 42.3
+    */
 		
 		
    public void resetPINByResetToken(ResetPINByResetToken resetPINByResetToken, final AsyncHandler<PostResponse> handler) {
@@ -216,12 +216,12 @@ public class PINAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to reset pin using security question answer and email.
-   // </summary>
-   // <param name="resetPINBySecurityQuestionAnswerAndEmailModel">Model Class containing Definition of payload for Reset Pin By Security Question and Email API</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 42.4	    
+   /**
+    * This API is used to reset pin using security question answer and email.
+    * @param resetPINBySecurityQuestionAnswerAndEmailModel Model Class containing Definition of payload for Reset Pin By Security Question and Email API
+    * @return Response containing Definition of Complete Validation data
+    * @since 42.4
+    */
 		
 		
    public void resetPINByEmailAndSecurityAnswer(ResetPINBySecurityQuestionAnswerAndEmailModel resetPINBySecurityQuestionAnswerAndEmailModel, final AsyncHandler<PostResponse> handler) {
@@ -251,12 +251,12 @@ public class PINAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to reset pin using security question answer and username.
-   // </summary>
-   // <param name="resetPINBySecurityQuestionAnswerAndUsernameModel">Model Class containing Definition of payload for Reset Pin By Security Question and UserName API</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 42.5	    
+   /**
+    * This API is used to reset pin using security question answer and username.
+    * @param resetPINBySecurityQuestionAnswerAndUsernameModel Model Class containing Definition of payload for Reset Pin By Security Question and UserName API
+    * @return Response containing Definition of Complete Validation data
+    * @since 42.5
+    */
 		
 		
    public void resetPINByUsernameAndSecurityAnswer(ResetPINBySecurityQuestionAnswerAndUsernameModel resetPINBySecurityQuestionAnswerAndUsernameModel, final AsyncHandler<PostResponse> handler) {
@@ -286,12 +286,12 @@ public class PINAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to reset pin using security question answer and phone.
-   // </summary>
-   // <param name="resetPINBySecurityQuestionAnswerAndPhoneModel">Model Class containing Definition of payload for Reset Pin By Security Question and Phone API</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 42.6	    
+   /**
+    * This API is used to reset pin using security question answer and phone.
+    * @param resetPINBySecurityQuestionAnswerAndPhoneModel Model Class containing Definition of payload for Reset Pin By Security Question and Phone API
+    * @return Response containing Definition of Complete Validation data
+    * @since 42.6
+    */
 		
 		
    public void resetPINByPhoneAndSecurityAnswer(ResetPINBySecurityQuestionAnswerAndPhoneModel resetPINBySecurityQuestionAnswerAndPhoneModel, final AsyncHandler<PostResponse> handler) {
@@ -321,13 +321,12 @@ public class PINAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API sends the OTP to specified phone number
-   // </summary>
-   // <param name="forgotPINOtpByPhoneModel">Model Class containing Definition for Forgot Pin Otp By Phone API</param>
-   // <param name="smsTemplate"></param>
-   // <returns>Response Containing Validation Data and SMS Data</returns>
-   // 42.7	    
+   /**
+    * This API sends the OTP to specified phone number
+    * @param forgotPINOtpByPhoneModel Model Class containing Definition for Forgot Pin Otp By Phone API
+    * @return Response Containing Validation Data and SMS Data
+    * @since 42.7
+    */
 		
 		
    public void sendForgotPINSMSByPhone(ForgotPINOtpByPhoneModel forgotPINOtpByPhoneModel, String smsTemplate, final AsyncHandler<UserProfilePostResponse<SMSResponseData>> handler) {
@@ -361,13 +360,13 @@ public class PINAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to change a user's PIN using access token.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="changePINModel">Model Class containing Definition for change PIN Property</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 42.8	    
+   /**
+    * This API is used to change a user's PIN using access token.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param changePINModel Model Class containing Definition for change PIN Property
+    * @return Response containing Definition of Complete Validation data
+    * @since 42.8
+    */
 		
 		
    public void changePINByAccessToken(String accessToken, ChangePINModel changePINModel, final AsyncHandler<PostResponse> handler) {      
@@ -402,12 +401,12 @@ public class PINAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to reset pin using phoneId and OTP.
-   // </summary>
-   // <param name="resetPINByPhoneAndOTPModel">Model Class containing Definition of payload for Reset Pin By Phone and Otp API</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 42.9	    
+   /**
+    * This API is used to reset pin using phoneId and OTP.
+    * @param resetPINByPhoneAndOTPModel Model Class containing Definition of payload for Reset Pin By Phone and Otp API
+    * @return Response containing Definition of Complete Validation data
+    * @since 42.9
+    */
 		
 		
    public void resetPINByPhoneAndOtp(ResetPINByPhoneAndOTPModel resetPINByPhoneAndOTPModel, final AsyncHandler<PostResponse> handler) {
@@ -437,12 +436,12 @@ public class PINAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to reset pin using email and OTP.
-   // </summary>
-   // <param name="resetPINByEmailAndOtpModel">Model Class containing Definition of payload for Reset Pin By Email and Otp API</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 42.10	    
+   /**
+    * This API is used to reset pin using email and OTP.
+    * @param resetPINByEmailAndOtpModel Model Class containing Definition of payload for Reset Pin By Email and Otp API
+    * @return Response containing Definition of Complete Validation data
+    * @since 42.10
+    */
 		
 		
    public void resetPINByEmailAndOtp(ResetPINByEmailAndOtpModel resetPINByEmailAndOtpModel, final AsyncHandler<PostResponse> handler) {
@@ -472,12 +471,12 @@ public class PINAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to reset pin using username and OTP.
-   // </summary>
-   // <param name="resetPINByUsernameAndOtpModel">Model Class containing Definition of payload for Reset Pin By Username and Otp API</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 42.11	    
+   /**
+    * This API is used to reset pin using username and OTP.
+    * @param resetPINByUsernameAndOtpModel Model Class containing Definition of payload for Reset Pin By Username and Otp API
+    * @return Response containing Definition of Complete Validation data
+    * @since 42.11
+    */
 		
 		
    public void resetPINByUsernameAndOtp(ResetPINByUsernameAndOtpModel resetPINByUsernameAndOtpModel, final AsyncHandler<PostResponse> handler) {
@@ -507,13 +506,13 @@ public class PINAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to change a user's PIN using Pin Auth token.
-   // </summary>
-   // <param name="pINRequiredModel">Model Class containing Definition for PIN</param>
-   // <param name="pinAuthToken">Pin Auth Token</param>
-   // <returns>Response containing User Profile Data and access token</returns>
-   // 42.12	    
+   /**
+    * This API is used to change a user's PIN using Pin Auth token.
+    * @param pINRequiredModel Model Class containing Definition for PIN
+    * @param pinAuthToken Pin Auth Token
+    * @return Response containing User Profile Data and access token
+    * @since 42.12
+    */
 		
 		
    public void setPINByPinAuthToken(PINRequiredModel pINRequiredModel, String pinAuthToken, final AsyncHandler<AccessToken<Identity>> handler) {
@@ -548,12 +547,12 @@ public class PINAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to invalidate pin session token.
-   // </summary>
-   // <param name="sessionToken">Session Token of user</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 44.1	    
+   /**
+    * This API is used to invalidate pin session token.
+    * @param sessionToken Session Token of user
+    * @return Response containing Definition of Complete Validation data
+    * @since 44.1
+    */
 		
 		
    public void inValidatePinSessionToken(String sessionToken, final AsyncHandler<PostResponse> handler) {      

@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for Television Property
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for Television Property
+	 */
 	public class Television {
 	
 		
@@ -28,51 +28,51 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Television category
-		// </summary>
+		/**
+		 * Television category
+		 */
 		public String getCategory() {
 			return category;
 		}
-		// <summary>
-		//	Television category
-		// </summary>
+		/**
+		 * Television category
+		 */
 		public void setCategory(String category) {
 			this.category = category;
 		}
-		// <summary>
-		//	Date
-		// </summary>
+		/**
+		 * Date
+		 */
 		public String getCreatedDate() {
 			return createdDate;
 		}
-		// <summary>
-		//	Date
-		// </summary>
+		/**
+		 * Date
+		 */
 		public void setCreatedDate(String createdDate) {
 			this.createdDate = createdDate;
 		}
-		// <summary>
-		//	ID of the User
-		// </summary>
+		/**
+		 * ID of the User
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	ID of the User
-		// </summary>
+		/**
+		 * ID of the User
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	Name of the customer
-		// </summary>
+		/**
+		 * Name of the customer
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Name of the customer
-		// </summary>
+		/**
+		 * Name of the customer
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}

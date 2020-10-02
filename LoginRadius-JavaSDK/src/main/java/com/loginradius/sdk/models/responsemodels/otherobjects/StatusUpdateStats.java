@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Status Update data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Status Update data
+	 */
 	public class StatusUpdateStats {
 	
 		
@@ -25,39 +25,39 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Comments
-		// </summary>
+		/**
+		 * Comments
+		 */
 		public int getComments() {
 			return comments;
 		}
-		// <summary>
-		//	Comments
-		// </summary>
+		/**
+		 * Comments
+		 */
 		public void setComments(int comments) {
 			this.comments = comments;
 		}
-		// <summary>
-		//	Likes
-		// </summary>
+		/**
+		 * Likes
+		 */
 		public int getLikes() {
 			return likes;
 		}
-		// <summary>
-		//	Likes
-		// </summary>
+		/**
+		 * Likes
+		 */
 		public void setLikes(int likes) {
 			this.likes = likes;
 		}
-		// <summary>
-		//	share
-		// </summary>
+		/**
+		 * share
+		 */
 		public int getShares() {
 			return shares;
 		}
-		// <summary>
-		//	share
-		// </summary>
+		/**
+		 * share
+		 */
 		public void setShares(int shares) {
 			this.shares = shares;
 		}

@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Payload containing Update UID
-	// </summary>
+	/**
+	 * Payload containing Update UID
+	 */
 	public class UpdateUidModel {
 	
 		
@@ -19,15 +19,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	New Uid
-		// </summary>
+		/**
+		 * New Uid
+		 */
 		public String getNewUid() {
 			return newUid;
 		}
-		// <summary>
-		//	New Uid
-		// </summary>
+		/**
+		 * New Uid
+		 */
 		public void setNewUid(String newUid) {
 			this.newUid = newUid;
 		}

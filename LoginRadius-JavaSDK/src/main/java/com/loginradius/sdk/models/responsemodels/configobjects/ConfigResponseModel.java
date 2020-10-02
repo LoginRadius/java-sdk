@@ -132,576 +132,576 @@ public class ConfigResponseModel {
 	@Expose
 	private ApiRequestSigningConfig apiRequestSigningConfig;
 
-	/// <summary>
-	/// SocialSchema
-	/// </summary>
+	/**
+	 * SocialSchema
+	 */
 	public SocialSchema getSocialSchema() {
 		return socialSchema;
 	}
 
-	/// <summary>
-	/// SocialSchema
-	/// </summary>
+	/**
+	 * SocialSchema
+	 */
 	public void setSocialSchema(SocialSchema socialSchema) {
 		this.socialSchema = socialSchema;
 	}
 
-	/// <summary>
-	/// RegistrationFormSchema
-	/// </summary>
+	/**
+	 * RegistrationFormSchema
+	 */
 	public List<RegistrationFormSchema> getRegistrationFormSchema() {
 		return registrationFormSchema;
 	}
 
-	/// <summary>
-	/// RegistrationFormSchema
-	/// </summary>
+	/**
+	 * RegistrationFormSchema
+	 */
 	public void setRegistrationFormSchema(List<RegistrationFormSchema> registrationFormSchema) {
 		this.registrationFormSchema = registrationFormSchema;
 	}
 
-	/// <summary>
-	/// SecurityQuestions
-	/// </summary>
+	/**
+	 * SecurityQuestions
+	 */
 	public SecurityQuestions getSecurityQuestions() {
 		return securityQuestions;
 	}
 
-	/// <summary>
-	/// SecurityQuestions
-	/// </summary>
+	/**
+	 * SecurityQuestions
+	 */
 	public void setSecurityQuestions(SecurityQuestions securityQuestions) {
 		this.securityQuestions = securityQuestions;
 	}
 
-	/// <summary>
-	/// IsHttps
-	/// </summary>
+	/**
+	 * IsHttps
+	 */
 	public Boolean getIsHttps() {
 		return isHttps;
 	}
 
-	/// <summary>
-	/// IsHttps
-	/// </summary>
+	/**
+	 * IsHttps
+	 */
 	public void setIsHttps(Boolean isHttps) {
 		this.isHttps = isHttps;
 	}
 
-	/// <summary>
-	/// AppName
-	/// </summary>
+	/**
+	 * AppName
+	 */
 	public String getAppName() {
 		return appName;
 	}
 
-	/// <summary>
-	/// AppName
-	/// </summary>
+	/**
+	 * AppName
+	 */
 	public void setAppName(String appName) {
 		this.appName = appName;
 	}
 
-	/// <summary>
-	/// IsCustomerRegistration
-	/// </summary>
+	/**
+	 * IsCustomerRegistration
+	 */
 	public Boolean getIsCustomerRegistration() {
 		return isCustomerRegistration;
 	}
 
-	/// <summary>
-	/// IsCustomerRegistration
-	/// </summary>
+	/**
+	 * IsCustomerRegistration
+	 */
 	public void setIsCustomerRegistration(Boolean isCustomerRegistration) {
 		this.isCustomerRegistration = isCustomerRegistration;
 	}
 
-	/// <summary>
-	/// ApiVersion
-	/// </summary>
+	/**
+	 * ApiVersion
+	 */
 	public ApiVersion getApiVersion() {
 		return apiVersion;
 	}
 
-	/// <summary>
-	/// ApiVersion
-	/// </summary>
+	/**
+	 * ApiVersion
+	 */
 	public void setApiVersion(ApiVersion apiVersion) {
 		this.apiVersion = apiVersion;
 	}
 
-	/// <summary>
-	/// EmailVerificationFlow
-	/// </summary>
+	/**
+	 * EmailVerificationFlow
+	 */
 	public String getEmailVerificationFlow() {
 		return emailVerificationFlow;
 	}
 
-	/// <summary>
-	/// EmailVerificationFlow
-	/// </summary>
+	/**
+	 * EmailVerificationFlow
+	 */
 	public void setEmailVerificationFlow(String emailVerificationFlow) {
 		this.emailVerificationFlow = emailVerificationFlow;
 	}
 
-	/// <summary>
-	/// IsPhoneLogin
-	/// </summary>
+	/**
+	 * IsPhoneLogin
+	 */
 	public Boolean getIsPhoneLogin() {
 		return isPhoneLogin;
 	}
 
-	/// <summary>
-	/// IsPhoneLogin
-	/// </summary>
+	/**
+	 * IsPhoneLogin
+	 */
 	public void setIsPhoneLogin(Boolean isPhoneLogin) {
 		this.isPhoneLogin = isPhoneLogin;
 	}
 
-	/// <summary>
-	/// IsDisabledSocialRegistration
-	/// </summary>
+	/**
+	 * IsDisabledSocialRegistration
+	 */
 	public Boolean getIsDisabledSocialRegistration() {
 		return isDisabledSocialRegistration;
 	}
 
-	/// <summary>
-	/// IsDisabledSocialRegistration
-	/// </summary>
+	/**
+	 * IsDisabledSocialRegistration
+	 */
 	public void setIsDisabledSocialRegistration(Boolean isDisabledSocialRegistration) {
 		this.isDisabledSocialRegistration = isDisabledSocialRegistration;
 	}
 
-	/// <summary>
-	/// IsDisabledAccountLinking
-	/// </summary>
+	/**
+	 * IsDisabledAccountLinking
+	 */
 	public Boolean getIsDisabledAccountLinking() {
 		return isDisabledAccountLinking;
 	}
 
-	/// <summary>
-	/// IsDisabledAccountLinking
-	/// </summary>
+	/**
+	 * IsDisabledAccountLinking
+	 */
 	public void setIsDisabledAccountLinking(Boolean isDisabledAccountLinking) {
 		this.isDisabledAccountLinking = isDisabledAccountLinking;
 	}
 
-	/// <summary>
-	/// IsAgeRestriction
-	/// </summary>
+	/**
+	 * IsAgeRestriction
+	 */
 	public Boolean getIsAgeRestriction() {
 		return isAgeRestriction;
 	}
 
-	/// <summary>
-	/// IsAgeRestriction
-	/// </summary>
+	/**
+	 * IsAgeRestriction
+	 */
 	public void setIsAgeRestriction(Boolean isAgeRestriction) {
 		this.isAgeRestriction = isAgeRestriction;
 	}
 
-	/// <summary>
-	/// IsSecurityQuestion
-	/// </summary>
+	/**
+	 * IsSecurityQuestion
+	 */
 	public Boolean getIsSecurityQuestion() {
 		return isSecurityQuestion;
 	}
 
-	/// <summary>
-	/// IsSecurityQuestion
-	/// </summary>
+	/**
+	 * IsSecurityQuestion
+	 */
 	public void setIsSecurityQuestion(Boolean isSecurityQuestion) {
 		this.isSecurityQuestion = isSecurityQuestion;
 	}
 
-	/// <summary>
-	/// AskRequiredFieldsOnTraditionalLogin
-	/// </summary>
+	/**
+	 * AskRequiredFieldsOnTraditionalLogin
+	 */
 	public Boolean getAskRequiredFieldsOnTraditionalLogin() {
 		return askRequiredFieldsOnTraditionalLogin;
 	}
 
-	/// <summary>
-	/// AskRequiredFieldsOnTraditionalLogin
-	/// </summary>
+	/**
+	 * AskRequiredFieldsOnTraditionalLogin
+	 */
 	public void setAskRequiredFieldsOnTraditionalLogin(Boolean askRequiredFieldsOnTraditionalLogin) {
 		this.askRequiredFieldsOnTraditionalLogin = askRequiredFieldsOnTraditionalLogin;
 	}
 
-	/// <summary>
-	/// IsLogoutOnEmailVerification
-	/// </summary>
+	/**
+	 * IsLogoutOnEmailVerification
+	 */
 	public Boolean getIsLogoutOnEmailVerification() {
 		return isLogoutOnEmailVerification;
 	}
 
-	/// <summary>
-	/// IsLogoutOnEmailVerification
-	/// </summary>
+	/**
+	 * IsLogoutOnEmailVerification
+	 */
 	public void setIsLogoutOnEmailVerification(Boolean isLogoutOnEmailVerification) {
 		this.isLogoutOnEmailVerification = isLogoutOnEmailVerification;
 	}
 
-	/// <summary>
-	/// IsNoCallbackForSocialLogin
-	/// </summary>
+	/**
+	 * IsNoCallbackForSocialLogin
+	 */
 	public Boolean getIsNoCallbackForSocialLogin() {
 		return isNoCallbackForSocialLogin;
 	}
 
-	/// <summary>
-	/// IsNoCallbackForSocialLogin
-	/// </summary>
+	/**
+	 * IsNoCallbackForSocialLogin
+	 */
 	public void setIsNoCallbackForSocialLogin(Boolean isNoCallbackForSocialLogin) {
 		this.isNoCallbackForSocialLogin = isNoCallbackForSocialLogin;
 	}
 
-	/// <summary>
-	/// IsUserNameLogin
-	/// </summary>
+	/**
+	 * IsUserNameLogin
+	 */
 	public Boolean getIsUserNameLogin() {
 		return isUserNameLogin;
 	}
 
-	/// <summary>
-	/// IsUserNameLogin
-	/// </summary>
+	/**
+	 * IsUserNameLogin
+	 */
 	public void setIsUserNameLogin(Boolean isUserNameLogin) {
 		this.isUserNameLogin = isUserNameLogin;
 	}
 
-	/// <summary>
-	/// IsMobileCallbackForSocialLogin
-	/// </summary>
+	/**
+	 * IsMobileCallbackForSocialLogin
+	 */
 	public Boolean getIsMobileCallbackForSocialLogin() {
 		return isMobileCallbackForSocialLogin;
 	}
 
-	/// <summary>
-	/// IsMobileCallbackForSocialLogin
-	/// </summary>
+	/**
+	 * IsMobileCallbackForSocialLogin
+	 */
 	public void setIsMobileCallbackForSocialLogin(Boolean isMobileCallbackForSocialLogin) {
 		this.isMobileCallbackForSocialLogin = isMobileCallbackForSocialLogin;
 	}
 
-	/// <summary>
-	/// IsInvisibleRecaptcha
-	/// </summary>
+	/**
+	 * IsInvisibleRecaptcha
+	 */
 	public Boolean getIsInvisibleRecaptcha() {
 		return isInvisibleRecaptcha;
 	}
 
-	/// <summary>
-	/// IsInvisibleRecaptcha
-	/// </summary>
+	/**
+	 * IsInvisibleRecaptcha
+	 */
 	public void setIsInvisibleRecaptcha(Boolean isInvisibleRecaptcha) {
 		this.isInvisibleRecaptcha = isInvisibleRecaptcha;
 	}
 
-	/// <summary>
-	/// IsBackendJobEnabled
-	/// </summary>
+	/**
+	 * IsBackendJobEnabled
+	 */
 	public Boolean getIsBackendJobEnabled() {
 		return isBackendJobEnabled;
 	}
 
-	/// <summary>
-	/// IsBackendJobEnabled
-	/// </summary>
+	/**
+	 * IsBackendJobEnabled
+	 */
 	public void setIsBackendJobEnabled(Boolean isBackendJobEnabled) {
 		this.isBackendJobEnabled = isBackendJobEnabled;
 	}
 
-	/// <summary>
-	/// AskPasswordOnSocialLogin
-	/// </summary>
+	/**
+	 * AskPasswordOnSocialLogin
+	 */
 	public Boolean getAskPasswordOnSocialLogin() {
 		return askPasswordOnSocialLogin;
 	}
 
-	/// <summary>
-	/// AskPasswordOnSocialLogin
-	/// </summary>
+	/**
+	 * AskPasswordOnSocialLogin
+	 */
 	public void setAskPasswordOnSocialLogin(Boolean askPasswordOnSocialLogin) {
 		this.askPasswordOnSocialLogin = askPasswordOnSocialLogin;
 	}
 
-	/// <summary>
-	/// AskEmailIdForUnverifiedUserLogin
-	/// </summary>
+	/**
+	 * AskEmailIdForUnverifiedUserLogin
+	 */
 	public Boolean getAskEmailIdForUnverifiedUserLogin() {
 		return askEmailIdForUnverifiedUserLogin;
 	}
 
-	/// <summary>
-	/// AskEmailIdForUnverifiedUserLogin
-	/// </summary>
+	/**
+	 * AskEmailIdForUnverifiedUserLogin
+	 */
 	public void setAskEmailIdForUnverifiedUserLogin(Boolean askEmailIdForUnverifiedUserLogin) {
 		this.askEmailIdForUnverifiedUserLogin = askEmailIdForUnverifiedUserLogin;
 	}
 
-	/// <summary>
-	/// AskOptionalFieldsOnSocialSignup
-	/// </summary>
+	/**
+	 * AskOptionalFieldsOnSocialSignup
+	 */
 	public Boolean getAskOptionalFieldsOnSocialSignup() {
 		return askOptionalFieldsOnSocialSignup;
 	}
 
-	/// <summary>
-	/// AskOptionalFieldsOnSocialSignup
-	/// </summary>
+	/**
+	 * AskOptionalFieldsOnSocialSignup
+	 */
 	public void setAskOptionalFieldsOnSocialSignup(Boolean askOptionalFieldsOnSocialSignup) {
 		this.askOptionalFieldsOnSocialSignup = askOptionalFieldsOnSocialSignup;
 	}
 
-	/// <summary>
-	/// IsRiskBasedAuthentication
-	/// </summary>
+	/**
+	 * IsRiskBasedAuthentication
+	 */
 	public Boolean getIsRiskBasedAuthentication() {
 		return isRiskBasedAuthentication;
 	}
 
-	/// <summary>
-	/// IsRiskBasedAuthentication
-	/// </summary>
+	/**
+	 * IsRiskBasedAuthentication
+	 */
 	public void setIsRiskBasedAuthentication(Boolean isRiskBasedAuthentication) {
 		this.isRiskBasedAuthentication = isRiskBasedAuthentication;
 	}
 
-	/// <summary>
-	/// IsV2Recaptcha
-	/// </summary>
+	/**
+	 * IsV2Recaptcha
+	 */
 	public Boolean getIsV2Recaptcha() {
 		return isV2Recaptcha;
 	}
 
-	/// <summary>
-	/// IsV2Recaptcha
-	/// </summary>
+	/**
+	 * IsV2Recaptcha
+	 */
 	public void setIsV2Recaptcha(Boolean isV2Recaptcha) {
 		this.isV2Recaptcha = isV2Recaptcha;
 	}
 
-	/// <summary>
-	/// CheckPhoneNoAvailabilityOnRegistration
-	/// </summary>
+	/**
+	 * CheckPhoneNoAvailabilityOnRegistration
+	 */
 	public Boolean getCheckPhoneNoAvailabilityOnRegistration() {
 		return checkPhoneNoAvailabilityOnRegistration;
 	}
 
-	/// <summary>
-	/// CheckPhoneNoAvailabilityOnRegistration
-	/// </summary>
+	/**
+	 * CheckPhoneNoAvailabilityOnRegistration
+	 */
 	public void setCheckPhoneNoAvailabilityOnRegistration(Boolean checkPhoneNoAvailabilityOnRegistration) {
 		this.checkPhoneNoAvailabilityOnRegistration = checkPhoneNoAvailabilityOnRegistration;
 	}
 
-	/// <summary>
-	/// DuplicateEmailWithUniqueUsername
-	/// </summary>
+	/**
+	 * DuplicateEmailWithUniqueUsername
+	 */
 	public Boolean getDuplicateEmailWithUniqueUsername() {
 		return duplicateEmailWithUniqueUsername;
 	}
 
-	/// <summary>
-	/// DuplicateEmailWithUniqueUsername
-	/// </summary>
+	/**
+	 * DuplicateEmailWithUniqueUsername
+	 */
 	public void setDuplicateEmailWithUniqueUsername(Boolean duplicateEmailWithUniqueUsername) {
 		this.duplicateEmailWithUniqueUsername = duplicateEmailWithUniqueUsername;
 	}
 
-	/// <summary>
-	/// StoreOnlyRegistrationFormFieldsForSocial
-	/// </summary>
+	/**
+	 * StoreOnlyRegistrationFormFieldsForSocial
+	 */
 	public Boolean getStoreOnlyRegistrationFormFieldsForSocial() {
 		return storeOnlyRegistrationFormFieldsForSocial;
 	}
 
-	/// <summary>
-	/// StoreOnlyRegistrationFormFieldsForSocial
-	/// </summary>
+	/**
+	 * StoreOnlyRegistrationFormFieldsForSocial
+	 */
 	public void setStoreOnlyRegistrationFormFieldsForSocial(Boolean storeOnlyRegistrationFormFieldsForSocial) {
 		this.storeOnlyRegistrationFormFieldsForSocial = storeOnlyRegistrationFormFieldsForSocial;
 	}
 
-	/// <summary>
-	/// OTPEmailVerification
-	/// </summary>
+	/**
+	 * OTPEmailVerification
+	 */
 	public Boolean getOTPEmailVerification() {
 		return oTPEmailVerification;
 	}
 
-	/// <summary>
-	/// OTPEmailVerification
-	/// </summary>
+	/**
+	 * OTPEmailVerification
+	 */
 	public void setOTPEmailVerification(Boolean oTPEmailVerification) {
 		this.oTPEmailVerification = oTPEmailVerification;
 	}
 
-	/// <summary>
-	/// LoginLockedConfiguration
-	/// </summary>
+	/**
+	 * LoginLockedConfiguration
+	 */
 	public LoginLockedConfiguration getLoginLockedConfiguration() {
 		return loginLockedConfiguration;
 	}
 
-	/// <summary>
-	/// LoginLockedConfiguration
-	/// </summary>
+	/**
+	 * LoginLockedConfiguration
+	 */
 	public void setLoginLockedConfiguration(LoginLockedConfiguration loginLockedConfiguration) {
 		this.loginLockedConfiguration = loginLockedConfiguration;
 	}
 
-	/// <summary>
-	/// IsInstantSignin
-	/// </summary>
+	/**
+	 * IsInstantSignin
+	 */
 	public IsInstantSignin getIsInstantSignin() {
 		return isInstantSignin;
 	}
 
-	/// <summary>
-	/// IsInstantSignin
-	/// </summary>
+	/**
+	 * IsInstantSignin
+	 */
 	public void setIsInstantSignin(IsInstantSignin isInstantSignin) {
 		this.isInstantSignin = isInstantSignin;
 	}
 
-	/// <summary>
-	/// IsLoginOnEmailVerification
-	/// </summary>
+	/**
+	 * IsLoginOnEmailVerification
+	 */
 	public Boolean getIsLoginOnEmailVerification() {
 		return isLoginOnEmailVerification;
 	}
 
-	/// <summary>
-	/// IsLoginOnEmailVerification
-	/// </summary>
+	/**
+	 * IsLoginOnEmailVerification
+	 */
 	public void setIsLoginOnEmailVerification(Boolean isLoginOnEmailVerification) {
 		this.isLoginOnEmailVerification = isLoginOnEmailVerification;
 	}
 
-	/// <summary>
-	/// TwoFactorAuthentication
-	/// </summary>
+	/**
+	 * TwoFactorAuthentication
+	 */
 	public TwoFactorAuthentication getTwoFactorAuthentication() {
 		return twoFactorAuthentication;
 	}
 
-	/// <summary>
-	/// TwoFactorAuthentication
-	/// </summary>
+	/**
+	 * TwoFactorAuthentication
+	 */
 	public void setTwoFactorAuthentication(TwoFactorAuthentication twoFactorAuthentication) {
 		this.twoFactorAuthentication = twoFactorAuthentication;
 	}
 
-	/// <summary>
-	/// IsRememberMe
-	/// </summary>
+	/**
+	 * IsRememberMe
+	 */
 	public Boolean getIsRememberMe() {
 		return isRememberMe;
 	}
 
-	/// <summary>
-	/// IsRememberMe
-	/// </summary>
+	/**
+	 * IsRememberMe
+	 */
 	public void setIsRememberMe(Boolean isRememberMe) {
 		this.isRememberMe = isRememberMe;
 	}
 
-	/// <summary>
-	/// V2RecaptchaSiteKey
-	/// </summary>
+	/**
+	 * V2RecaptchaSiteKey
+	 */
 	public String getV2RecaptchaSiteKey() {
 		return v2RecaptchaSiteKey;
 	}
 
-	/// <summary>
-	/// V2RecaptchaSiteKey
-	/// </summary>
+	/**
+	 * V2RecaptchaSiteKey
+	 */
 	public void setV2RecaptchaSiteKey(String v2RecaptchaSiteKey) {
 		this.v2RecaptchaSiteKey = v2RecaptchaSiteKey;
 	}
 
-	/// <summary>
-	/// QQTencentCaptchaKey
-	/// </summary>
+	/**
+	 * QQTencentCaptchaKey
+	 */
 	public String getQQTencentCaptchaKey() {
 		return qQTencentCaptchaKey;
 	}
 
-	/// <summary>
-	/// QQTencentCaptchaKey
-	/// </summary>
+	/**
+	 * QQTencentCaptchaKey
+	 */
 	public void setQQTencentCaptchaKey(String qQTencentCaptchaKey) {
 		this.qQTencentCaptchaKey = qQTencentCaptchaKey;
 	}
 
-	/// <summary>
-	/// NoRegistration
-	/// </summary>
+	/**
+	 * NoRegistration
+	 */
 	public Boolean getNoRegistration() {
 		return noRegistration;
 	}
 
-	/// <summary>
-	/// NoRegistration
-	/// </summary>
+	/**
+	 * NoRegistration
+	 */
 	public void setNoRegistration(Boolean noRegistration) {
 		this.noRegistration = noRegistration;
 	}
 
-	/// <summary>
-	/// CustomDomain
-	/// </summary>
+	/**
+	 * CustomDomain
+	 */
 	public Object getCustomDomain() {
 		return customDomain;
 	}
 
-	/// <summary>
-	/// CustomDomain
-	/// </summary>
+	/**
+	 * CustomDomain
+	 */
 	public void setCustomDomain(Object customDomain) {
 		this.customDomain = customDomain;
 	}
 
-	/// <summary>
-	/// PrivacyPolicyConfiguration
-	/// </summary>
+	/**
+	 * PrivacyPolicyConfiguration
+	 */
 	public PrivacyPolicyConfiguration getPrivacyPolicyConfiguration() {
 		return privacyPolicyConfiguration;
 	}
 
-	/// <summary>
-	/// PrivacyPolicyConfiguration
-	/// </summary>
+	/**
+	 * PrivacyPolicyConfiguration
+	 */
 	public void setPrivacyPolicyConfiguration(PrivacyPolicyConfiguration privacyPolicyConfiguration) {
 		this.privacyPolicyConfiguration = privacyPolicyConfiguration;
 	}
 
-	/// <summary>
-	/// OptionalRecaptchaConfiguration
-	/// </summary>
+	/**
+	 * OptionalRecaptchaConfiguration
+	 */
 	public OptionalRecaptchaConfiguration getOptionalRecaptchaConfiguration() {
 		return optionalRecaptchaConfiguration;
 	}
 
-	/// <summary>
-	/// OptionalRecaptchaConfiguration
-	/// </summary>
+	/**
+	 * OptionalRecaptchaConfiguration
+	 */
 	public void setOptionalRecaptchaConfiguration(OptionalRecaptchaConfiguration optionalRecaptchaConfiguration) {
 		this.optionalRecaptchaConfiguration = optionalRecaptchaConfiguration;
 	}
 
-	/// <summary>
-	/// ApiRequestSigningConfig
-	/// </summary>
+	/**
+	 * ApiRequestSigningConfig
+	 */
 	public ApiRequestSigningConfig getApiRequestSigningConfig() {
 		return apiRequestSigningConfig;
 	}
 
-	/// <summary>
-	/// ApiRequestSigningConfig
-	/// </summary>
+	/**
+	 * ApiRequestSigningConfig
+	 */
 	public void setApiRequestSigningConfig(ApiRequestSigningConfig apiRequestSigningConfig) {
 		this.apiRequestSigningConfig = apiRequestSigningConfig;
 	}

@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete active sessions
-	// </summary>
+	/**
+	 * Response containing Definition for Complete active sessions
+	 */
 	public class UserActiveSession {
 	
 		
@@ -24,27 +24,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Data
-		// </summary>
+		/**
+		 * Data
+		 */
 		public List<ActiveSessionDetail> getData() {
 			return data;
 		}
-		// <summary>
-		//	Data
-		// </summary>
+		/**
+		 * Data
+		 */
 		public void setData(List<ActiveSessionDetail> data) {
 			this.data = data;
 		}
-		// <summary>
-		//	Cursor value if not all contacts can be retrieved once.
-		// </summary>
+		/**
+		 * Cursor value if not all contacts can be retrieved once.
+		 */
 		public int getNextcursor() {
 			return nextcursor;
 		}
-		// <summary>
-		//	Cursor value if not all contacts can be retrieved once.
-		// </summary>
+		/**
+		 * Cursor value if not all contacts can be retrieved once.
+		 */
 		public void setNextcursor(int nextcursor) {
 			this.nextcursor = nextcursor;
 		}

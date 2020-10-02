@@ -7,9 +7,9 @@
 
 package com.loginradius.sdk.models.enums;
 
-// <summary>
-	//	Enum Consent Profile Update Type to define the type of update
-	// </summary>
+	/**
+	 * Enum Consent Profile Update Type to define the type of update
+	 */
 	public enum ConsentProfileUpdateType {
 	
         ConsentEditor,

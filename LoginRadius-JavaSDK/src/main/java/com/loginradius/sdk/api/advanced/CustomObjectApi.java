@@ -35,14 +35,14 @@ public class CustomObjectApi {
 
    
    
-   // <summary>
-   // This API is used to write information in JSON format to the custom object for the specified account.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="objectName">LoginRadius Custom Object Name</param>
-   // <param name="payload">LoginRadius Custom Object Name</param>
-   // <returns>Response containing Definition for Complete user custom object data</returns>
-   // 6.1	    
+   /**
+    * This API is used to write information in JSON format to the custom object for the specified account.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param objectName LoginRadius Custom Object Name
+    * @param payload LoginRadius Custom Object Name
+    * @return Response containing Definition for Complete user custom object data
+    * @since 6.1
+    */
 		
 		
    public void createCustomObjectByToken(String accessToken, String objectName,
@@ -83,16 +83,16 @@ public class CustomObjectApi {
       });
    }
    
-   // <summary>
-   // This API is used to update the specified custom object data of the specified account. If the value of updatetype is 'replace' then it will fully replace custom object with the new custom object and if the value of updatetype is 'partialreplace' then it will perform an upsert type operation
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="objectName">LoginRadius Custom Object Name</param>
-   // <param name="objectRecordId">Unique identifier of the user's record in Custom Object</param>
-   // <param name="payload">LoginRadius Custom Object Name</param>
-   // <param name="updateType">Possible values: replace, partialreplace.</param>
-   // <returns>Response containing Definition for Complete user custom object data</returns>
-   // 6.2	    
+   /**
+    * This API is used to update the specified custom object data of the specified account. If the value of updatetype is 'replace' then it will fully replace custom object with the new custom object and if the value of updatetype is 'partialreplace' then it will perform an upsert type operation
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param objectName LoginRadius Custom Object Name
+    * @param objectRecordId Unique identifier of the user's record in Custom Object
+    * @param payload LoginRadius Custom Object Name
+    * @param updateType Possible values: replace, partialreplace.
+    * @return Response containing Definition for Complete user custom object data
+    * @since 6.2
+    */
 		
 		
    public void updateCustomObjectByToken(String accessToken, String objectName,
@@ -141,13 +141,13 @@ public class CustomObjectApi {
       });
    }
    
-   // <summary>
-   // This API is used to retrieve the specified Custom Object data for the specified account.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="objectName">LoginRadius Custom Object Name</param>
-   // <returns>Complete user CustomObject data</returns>
-   // 6.3	    
+   /**
+    * This API is used to retrieve the specified Custom Object data for the specified account.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param objectName LoginRadius Custom Object Name
+    * @return Complete user CustomObject data
+    * @since 6.3
+    */
 		
 		
    public void getCustomObjectByToken(String accessToken, String objectName, final AsyncHandler<ListData<UserCustomObjectData>> handler) {      
@@ -183,14 +183,14 @@ public class CustomObjectApi {
       });
    }
    
-   // <summary>
-   // This API is used to retrieve the Custom Object data for the specified account.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="objectName">LoginRadius Custom Object Name</param>
-   // <param name="objectRecordId">Unique identifier of the user's record in Custom Object</param>
-   // <returns>Response containing Definition for Complete user custom object data</returns>
-   // 6.4	    
+   /**
+    * This API is used to retrieve the Custom Object data for the specified account.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param objectName LoginRadius Custom Object Name
+    * @param objectRecordId Unique identifier of the user's record in Custom Object
+    * @return Response containing Definition for Complete user custom object data
+    * @since 6.4
+    */
 		
 		
    public void getCustomObjectByRecordIDAndToken(String accessToken, String objectName,
@@ -231,14 +231,14 @@ public class CustomObjectApi {
       });
    }
    
-   // <summary>
-   // This API is used to remove the specified Custom Object data using ObjectRecordId of a specified account.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="objectName">LoginRadius Custom Object Name</param>
-   // <param name="objectRecordId">Unique identifier of the user's record in Custom Object</param>
-   // <returns>Response containing Definition of Delete Request</returns>
-   // 6.5	    
+   /**
+    * This API is used to remove the specified Custom Object data using ObjectRecordId of a specified account.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param objectName LoginRadius Custom Object Name
+    * @param objectRecordId Unique identifier of the user's record in Custom Object
+    * @return Response containing Definition of Delete Request
+    * @since 6.5
+    */
 		
 		
    public void deleteCustomObjectByToken(String accessToken, String objectName,
@@ -279,14 +279,14 @@ public class CustomObjectApi {
       });
    }
    
-   // <summary>
-   // This API is used to write information in JSON format to the custom object for the specified account.
-   // </summary>
-   // <param name="objectName">LoginRadius Custom Object Name</param>
-   // <param name="payload">LoginRadius Custom Object Name</param>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <returns>Response containing Definition for Complete user custom object data</returns>
-   // 19.1	    
+   /**
+    * This API is used to write information in JSON format to the custom object for the specified account.
+    * @param objectName LoginRadius Custom Object Name
+    * @param payload LoginRadius Custom Object Name
+    * @param uid UID, the unified identifier for each user account
+    * @return Response containing Definition for Complete user custom object data
+    * @since 19.1
+    */
 		
 		
    public void createCustomObjectByUid(String objectName, JsonObject payload,
@@ -327,16 +327,16 @@ public class CustomObjectApi {
       });
    }
    
-   // <summary>
-   // This API is used to update the specified custom object data of a specified account. If the value of updatetype is 'replace' then it will fully replace custom object with new custom object and if the value of updatetype is partialreplace then it will perform an upsert type operation.
-   // </summary>
-   // <param name="objectName">LoginRadius Custom Object Name</param>
-   // <param name="objectRecordId">Unique identifier of the user's record in Custom Object</param>
-   // <param name="payload">LoginRadius Custom Object Name</param>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <param name="updateType">Possible values: replace, partialreplace.</param>
-   // <returns>Response containing Definition for Complete user custom object data</returns>
-   // 19.2	    
+   /**
+    * This API is used to update the specified custom object data of a specified account. If the value of updatetype is 'replace' then it will fully replace custom object with new custom object and if the value of updatetype is partialreplace then it will perform an upsert type operation.
+    * @param objectName LoginRadius Custom Object Name
+    * @param objectRecordId Unique identifier of the user's record in Custom Object
+    * @param payload LoginRadius Custom Object Name
+    * @param uid UID, the unified identifier for each user account
+    * @param updateType Possible values: replace, partialreplace.
+    * @return Response containing Definition for Complete user custom object data
+    * @since 19.2
+    */
 		
 		
    public void updateCustomObjectByUid(String objectName, String objectRecordId,
@@ -385,13 +385,13 @@ public class CustomObjectApi {
       });
    }
    
-   // <summary>
-   // This API is used to retrieve all the custom objects by UID from cloud storage.
-   // </summary>
-   // <param name="objectName">LoginRadius Custom Object Name</param>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <returns>Complete user CustomObject data</returns>
-   // 19.3	    
+   /**
+    * This API is used to retrieve all the custom objects by UID from cloud storage.
+    * @param objectName LoginRadius Custom Object Name
+    * @param uid UID, the unified identifier for each user account
+    * @return Complete user CustomObject data
+    * @since 19.3
+    */
 		
 		
    public void getCustomObjectByUid(String objectName, String uid, final AsyncHandler<ListData<UserCustomObjectData>> handler) {      
@@ -427,14 +427,14 @@ public class CustomObjectApi {
       });
    }
    
-   // <summary>
-   // This API is used to retrieve the Custom Object data for the specified account.
-   // </summary>
-   // <param name="objectName">LoginRadius Custom Object Name</param>
-   // <param name="objectRecordId">Unique identifier of the user's record in Custom Object</param>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <returns>Response containing Definition for Complete user custom object data</returns>
-   // 19.4	    
+   /**
+    * This API is used to retrieve the Custom Object data for the specified account.
+    * @param objectName LoginRadius Custom Object Name
+    * @param objectRecordId Unique identifier of the user's record in Custom Object
+    * @param uid UID, the unified identifier for each user account
+    * @return Response containing Definition for Complete user custom object data
+    * @since 19.4
+    */
 		
 		
    public void getCustomObjectByRecordID(String objectName, String objectRecordId,
@@ -475,14 +475,14 @@ public class CustomObjectApi {
       });
    }
    
-   // <summary>
-   // This API is used to remove the specified Custom Object data using ObjectRecordId of specified account.
-   // </summary>
-   // <param name="objectName">LoginRadius Custom Object Name</param>
-   // <param name="objectRecordId">Unique identifier of the user's record in Custom Object</param>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <returns>Response containing Definition of Delete Request</returns>
-   // 19.5	    
+   /**
+    * This API is used to remove the specified Custom Object data using ObjectRecordId of specified account.
+    * @param objectName LoginRadius Custom Object Name
+    * @param objectRecordId Unique identifier of the user's record in Custom Object
+    * @param uid UID, the unified identifier for each user account
+    * @return Response containing Definition of Delete Request
+    * @since 19.5
+    */
 		
 		
    public void deleteCustomObjectByRecordID(String objectName, String objectRecordId,

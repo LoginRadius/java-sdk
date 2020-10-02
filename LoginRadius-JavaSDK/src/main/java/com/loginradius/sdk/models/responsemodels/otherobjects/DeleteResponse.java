@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Delete Request
-	// </summary>
+	/**
+	 * Response containing Definition of Delete Request
+	 */
 	public class DeleteResponse {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public Boolean getIsDeleted() {
 			return isDeleted;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public void setIsDeleted(Boolean isDeleted) {
 			this.isDeleted = isDeleted;
 		}
-		// <summary>
-		//	Number of Records Deleted
-		// </summary>
+		/**
+		 * Number of Records Deleted
+		 */
 		public Integer getRecordsDeleted() {
 			return recordsDeleted;
 		}
-		// <summary>
-		//	Number of Records Deleted
-		// </summary>
+		/**
+		 * Number of Records Deleted
+		 */
 		public void setRecordsDeleted(Integer recordsDeleted) {
 			this.recordsDeleted = recordsDeleted;
 		}

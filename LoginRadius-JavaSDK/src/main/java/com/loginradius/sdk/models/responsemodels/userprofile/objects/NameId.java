@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete NameId data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete NameId data
+	 */
 	public class NameId {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Id
-		// </summary>
+		/**
+		 * Id
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Id
-		// </summary>
+		/**
+		 * Id
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	Name
-		// </summary>
+		/**
+		 * Name
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Name
-		// </summary>
+		/**
+		 * Name
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}

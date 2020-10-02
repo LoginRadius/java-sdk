@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Inspirational People data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Inspirational People data
+	 */
 	public class InspirationalPeople {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	ID of inspirational people
-		// </summary>
+		/**
+		 * ID of inspirational people
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	ID of inspirational people
-		// </summary>
+		/**
+		 * ID of inspirational people
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	name of inspirational people
-		// </summary>
+		/**
+		 * name of inspirational people
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	name of inspirational people
-		// </summary>
+		/**
+		 * name of inspirational people
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}

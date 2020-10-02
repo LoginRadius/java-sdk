@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Sports data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Sports data
+	 */
 	public class Sports {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Id of sport
-		// </summary>
+		/**
+		 * Id of sport
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Id of sport
-		// </summary>
+		/**
+		 * Id of sport
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	Name of sport
-		// </summary>
+		/**
+		 * Name of sport
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Name of sport
-		// </summary>
+		/**
+		 * Name of sport
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}

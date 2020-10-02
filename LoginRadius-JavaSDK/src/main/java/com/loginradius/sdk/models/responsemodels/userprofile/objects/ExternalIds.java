@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Externalids data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Externalids data
+	 */
 	public class ExternalIds {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	ExternalId source
-		// </summary>
+		/**
+		 * ExternalId source
+		 */
 		public String getSource() {
 			return source;
 		}
-		// <summary>
-		//	ExternalId source
-		// </summary>
+		/**
+		 * ExternalId source
+		 */
 		public void setSource(String source) {
 			this.source = source;
 		}
-		// <summary>
-		//	External source id
-		// </summary>
+		/**
+		 * External source id
+		 */
 		public String getSourceId() {
 			return sourceId;
 		}
-		// <summary>
-		//	External source id
-		// </summary>
+		/**
+		 * External source id
+		 */
 		public void setSourceId(String sourceId) {
 			this.sourceId = sourceId;
 		}

@@ -7,9 +7,9 @@
 
 package com.loginradius.sdk.models.requestmodels;
 
-// <summary>
-	//	Model Class containing Definition for OptionalReCaptcha Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for OptionalReCaptcha Property
+	 */
 	public class OptionalReCaptchaModel extends ReCaptchaModel {
 	
 

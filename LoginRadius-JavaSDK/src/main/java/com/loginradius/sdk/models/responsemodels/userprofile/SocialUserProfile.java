@@ -49,9 +49,9 @@ import com.loginradius.sdk.models.responsemodels.userprofile.objects.Suggestions
 import com.loginradius.sdk.models.responsemodels.userprofile.objects.Television;
 import com.loginradius.sdk.models.responsemodels.userprofile.objects.Volunteer;
 
-	// <summary>
-	//	Response containing Definition for Complete SocialUserProfile data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete SocialUserProfile data
+	 */
 	public class SocialUserProfile {
 	
 		
@@ -399,1371 +399,1371 @@ import com.loginradius.sdk.models.responsemodels.userprofile.objects.Volunteer;
 
 
 
-		// <summary>
-		//	About value that need to be inserted
-		// </summary>
+		/**
+		 * About value that need to be inserted
+		 */
 		public String getAbout() {
 			return about;
 		}
-		// <summary>
-		//	About value that need to be inserted
-		// </summary>
+		/**
+		 * About value that need to be inserted
+		 */
 		public void setAbout(String about) {
 			this.about = about;
 		}
-		// <summary>
-		//	Array of objects,String represents address of user
-		// </summary>
+		/**
+		 * Array of objects,String represents address of user
+		 */
 		public List<Address> getAddresses() {
 			return addresses;
 		}
-		// <summary>
-		//	Array of objects,String represents address of user
-		// </summary>
+		/**
+		 * Array of objects,String represents address of user
+		 */
 		public void setAddresses(List<Address> addresses) {
 			this.addresses = addresses;
 		}
-		// <summary>
-		//	User's Age
-		// </summary>
+		/**
+		 * User's Age
+		 */
 		public String getAge() {
 			return age;
 		}
-		// <summary>
-		//	User's Age
-		// </summary>
+		/**
+		 * User's Age
+		 */
 		public void setAge(String age) {
 			this.age = age;
 		}
-		// <summary>
-		//	user's age range.
-		// </summary>
+		/**
+		 * user's age range.
+		 */
 		public AgeRange getAgeRange() {
 			return ageRange;
 		}
-		// <summary>
-		//	user's age range.
-		// </summary>
+		/**
+		 * user's age range.
+		 */
 		public void setAgeRange(AgeRange ageRange) {
 			this.ageRange = ageRange;
 		}
-		// <summary>
-		//	Organization a person is assosciated with
-		// </summary>
+		/**
+		 * Organization a person is assosciated with
+		 */
 		public String getAssociations() {
 			return associations;
 		}
-		// <summary>
-		//	Organization a person is assosciated with
-		// </summary>
+		/**
+		 * Organization a person is assosciated with
+		 */
 		public void setAssociations(String associations) {
 			this.associations = associations;
 		}
-		// <summary>
-		//	Array of Objects,String represents Id, Name and  Issuer
-		// </summary>
+		/**
+		 * Array of Objects,String represents Id, Name and  Issuer
+		 */
 		public List<Awards> getAwards() {
 			return awards;
 		}
-		// <summary>
-		//	Array of Objects,String represents Id, Name and  Issuer
-		// </summary>
+		/**
+		 * Array of Objects,String represents Id, Name and  Issuer
+		 */
 		public void setAwards(List<Awards> awards) {
 			this.awards = awards;
 		}
-		// <summary>
-		//	User's Badges.
-		// </summary>
+		/**
+		 * User's Badges.
+		 */
 		public List<Badges> getBadges() {
 			return badges;
 		}
-		// <summary>
-		//	User's Badges.
-		// </summary>
+		/**
+		 * User's Badges.
+		 */
 		public void setBadges(List<Badges> badges) {
 			this.badges = badges;
 		}
-		// <summary>
-		//	user's birthdate
-		// </summary>
+		/**
+		 * user's birthdate
+		 */
 		public String getBirthDate() {
 			return birthDate;
 		}
-		// <summary>
-		//	user's birthdate
-		// </summary>
+		/**
+		 * user's birthdate
+		 */
 		public void setBirthDate(String birthDate) {
 			this.birthDate = birthDate;
 		}
-		// <summary>
-		//	boards count
-		// </summary>
+		/**
+		 * boards count
+		 */
 		public Integer getBoardsCount() {
 			return boardsCount;
 		}
-		// <summary>
-		//	boards count
-		// </summary>
+		/**
+		 * boards count
+		 */
 		public void setBoardsCount(Integer boardsCount) {
 			this.boardsCount = boardsCount;
 		}
-		// <summary>
-		//	Array of Objects,String represents Id,Name,Category,CreatedDate
-		// </summary>
+		/**
+		 * Array of Objects,String represents Id,Name,Category,CreatedDate
+		 */
 		public List<Books> getBooks() {
 			return books;
 		}
-		// <summary>
-		//	Array of Objects,String represents Id,Name,Category,CreatedDate
-		// </summary>
+		/**
+		 * Array of Objects,String represents Id,Name,Category,CreatedDate
+		 */
 		public void setBooks(List<Books> books) {
 			this.books = books;
 		}
-		// <summary>
-		//	Array of Objects,string represents Id,Name,Authority Number,StartDate,EndDate
-		// </summary>
+		/**
+		 * Array of Objects,string represents Id,Name,Authority Number,StartDate,EndDate
+		 */
 		public List<Certifications> getCertifications() {
 			return certifications;
 		}
-		// <summary>
-		//	Array of Objects,string represents Id,Name,Authority Number,StartDate,EndDate
-		// </summary>
+		/**
+		 * Array of Objects,string represents Id,Name,Authority Number,StartDate,EndDate
+		 */
 		public void setCertifications(List<Certifications> certifications) {
 			this.certifications = certifications;
 		}
-		// <summary>
-		//	user's city
-		// </summary>
+		/**
+		 * user's city
+		 */
 		public String getCity() {
 			return city;
 		}
-		// <summary>
-		//	user's city
-		// </summary>
+		/**
+		 * user's city
+		 */
 		public void setCity(String city) {
 			this.city = city;
 		}
-		// <summary>
-		//	users company name
-		// </summary>
+		/**
+		 * users company name
+		 */
 		public String getCompany() {
 			return company;
 		}
-		// <summary>
-		//	users company name
-		// </summary>
+		/**
+		 * users company name
+		 */
 		public void setCompany(String company) {
 			this.company = company;
 		}
-		// <summary>
-		//	Country of the user
-		// </summary>
+		/**
+		 * Country of the user
+		 */
 		public Country getCountry() {
 			return country;
 		}
-		// <summary>
-		//	Country of the user
-		// </summary>
+		/**
+		 * Country of the user
+		 */
 		public void setCountry(Country country) {
 			this.country = country;
 		}
-		// <summary>
-		//	users course information
-		// </summary>
+		/**
+		 * users course information
+		 */
 		public List<Courses> getCourses() {
 			return courses;
 		}
-		// <summary>
-		//	users course information
-		// </summary>
+		/**
+		 * users course information
+		 */
 		public void setCourses(List<Courses> courses) {
 			this.courses = courses;
 		}
-		// <summary>
-		//	URL of the photo that need to be inserted
-		// </summary>
+		/**
+		 * URL of the photo that need to be inserted
+		 */
 		public String getCoverPhoto() {
 			return coverPhoto;
 		}
-		// <summary>
-		//	URL of the photo that need to be inserted
-		// </summary>
+		/**
+		 * URL of the photo that need to be inserted
+		 */
 		public void setCoverPhoto(String coverPhoto) {
 			this.coverPhoto = coverPhoto;
 		}
-		// <summary>
-		//	created
-		// </summary>
+		/**
+		 * created
+		 */
 		public String getCreated() {
 			return created;
 		}
-		// <summary>
-		//	created
-		// </summary>
+		/**
+		 * created
+		 */
 		public void setCreated(String created) {
 			this.created = created;
 		}
-		// <summary>
-		//	Date of Creation of Profile
-		// </summary>
+		/**
+		 * Date of Creation of Profile
+		 */
 		public String getCreatedDate() {
 			return createdDate;
 		}
-		// <summary>
-		//	Date of Creation of Profile
-		// </summary>
+		/**
+		 * Date of Creation of Profile
+		 */
 		public void setCreatedDate(String createdDate) {
 			this.createdDate = createdDate;
 		}
-		// <summary>
-		//	Currency
-		// </summary>
+		/**
+		 * Currency
+		 */
 		public String getCurrency() {
 			return currency;
 		}
-		// <summary>
-		//	Currency
-		// </summary>
+		/**
+		 * Currency
+		 */
 		public void setCurrency(String currency) {
 			this.currency = currency;
 		}
-		// <summary>
-		//	Array of Objects,String represents  id ,Text ,Source  and CreatedDate
-		// </summary>
+		/**
+		 * Array of Objects,String represents  id ,Text ,Source  and CreatedDate
+		 */
 		public List<CurrentStatus> getCurrentStatus() {
 			return currentStatus;
 		}
-		// <summary>
-		//	Array of Objects,String represents  id ,Text ,Source  and CreatedDate
-		// </summary>
+		/**
+		 * Array of Objects,String represents  id ,Text ,Source  and CreatedDate
+		 */
 		public void setCurrentStatus(List<CurrentStatus> currentStatus) {
 			this.currentStatus = currentStatus;
 		}
-		// <summary>
-		//	Array of Objects,which represents the educations record
-		// </summary>
+		/**
+		 * Array of Objects,which represents the educations record
+		 */
 		public List<Education> getEducations() {
 			return educations;
 		}
-		// <summary>
-		//	Array of Objects,which represents the educations record
-		// </summary>
+		/**
+		 * Array of Objects,which represents the educations record
+		 */
 		public void setEducations(List<Education> educations) {
 			this.educations = educations;
 		}
-		// <summary>
-		//	user's email
-		// </summary>
+		/**
+		 * user's email
+		 */
 		public List<Email> getEmail() {
 			return email;
 		}
-		// <summary>
-		//	user's email
-		// </summary>
+		/**
+		 * user's email
+		 */
 		public void setEmail(List<Email> email) {
 			this.email = email;
 		}
-		// <summary>
-		//	user's family
-		// </summary>
+		/**
+		 * user's family
+		 */
 		public List<Family> getFamily() {
 			return family;
 		}
-		// <summary>
-		//	user's family
-		// </summary>
+		/**
+		 * user's family
+		 */
 		public void setFamily(List<Family> family) {
 			this.family = family;
 		}
-		// <summary>
-		//	URL of the favicon that need to be inserted
-		// </summary>
+		/**
+		 * URL of the favicon that need to be inserted
+		 */
 		public String getFavicon() {
 			return favicon;
 		}
-		// <summary>
-		//	URL of the favicon that need to be inserted
-		// </summary>
+		/**
+		 * URL of the favicon that need to be inserted
+		 */
 		public void setFavicon(String favicon) {
 			this.favicon = favicon;
 		}
-		// <summary>
-		//	Array of Objects,strings represents	Id ,Name ,Type
-		// </summary>
+		/**
+		 * Array of Objects,strings represents	Id ,Name ,Type
+		 */
 		public List<FavoriteThings> getFavoriteThings() {
 			return favoriteThings;
 		}
-		// <summary>
-		//	Array of Objects,strings represents	Id ,Name ,Type
-		// </summary>
+		/**
+		 * Array of Objects,strings represents	Id ,Name ,Type
+		 */
 		public void setFavoriteThings(List<FavoriteThings> favoriteThings) {
 			this.favoriteThings = favoriteThings;
 		}
-		// <summary>
-		//	first login
-		// </summary>
+		/**
+		 * first login
+		 */
 		public Boolean getFirstLogin() {
 			return firstLogin;
 		}
-		// <summary>
-		//	first login
-		// </summary>
+		/**
+		 * first login
+		 */
 		public void setFirstLogin(Boolean firstLogin) {
 			this.firstLogin = firstLogin;
 		}
-		// <summary>
-		//	user's first name
-		// </summary>
+		/**
+		 * user's first name
+		 */
 		public String getFirstName() {
 			return firstName;
 		}
-		// <summary>
-		//	user's first name
-		// </summary>
+		/**
+		 * user's first name
+		 */
 		public void setFirstName(String firstName) {
 			this.firstName = firstName;
 		}
-		// <summary>
-		//	user's followers count
-		// </summary>
+		/**
+		 * user's followers count
+		 */
 		public Integer getFollowersCount() {
 			return followersCount;
 		}
-		// <summary>
-		//	user's followers count
-		// </summary>
+		/**
+		 * user's followers count
+		 */
 		public void setFollowersCount(Integer followersCount) {
 			this.followersCount = followersCount;
 		}
-		// <summary>
-		//	users friends count
-		// </summary>
+		/**
+		 * users friends count
+		 */
 		public Integer getFriendsCount() {
 			return friendsCount;
 		}
-		// <summary>
-		//	users friends count
-		// </summary>
+		/**
+		 * users friends count
+		 */
 		public void setFriendsCount(Integer friendsCount) {
 			this.friendsCount = friendsCount;
 		}
-		// <summary>
-		//	Users complete name
-		// </summary>
+		/**
+		 * Users complete name
+		 */
 		public String getFullName() {
 			return fullName;
 		}
-		// <summary>
-		//	Users complete name
-		// </summary>
+		/**
+		 * Users complete name
+		 */
 		public void setFullName(String fullName) {
 			this.fullName = fullName;
 		}
-		// <summary>
-		//	Array of Objects,string represents Id,Name,Category,CreatedDate
-		// </summary>
+		/**
+		 * Array of Objects,string represents Id,Name,Category,CreatedDate
+		 */
 		public List<Games> getGames() {
 			return games;
 		}
-		// <summary>
-		//	Array of Objects,string represents Id,Name,Category,CreatedDate
-		// </summary>
+		/**
+		 * Array of Objects,string represents Id,Name,Category,CreatedDate
+		 */
 		public void setGames(List<Games> games) {
 			this.games = games;
 		}
-		// <summary>
-		//	user's gender
-		// </summary>
+		/**
+		 * user's gender
+		 */
 		public String getGender() {
 			return gender;
 		}
-		// <summary>
-		//	user's gender
-		// </summary>
+		/**
+		 * user's gender
+		 */
 		public void setGender(String gender) {
 			this.gender = gender;
 		}
-		// <summary>
-		//	Git Repository URL
-		// </summary>
+		/**
+		 * Git Repository URL
+		 */
 		public String getGistsUrl() {
 			return gistsUrl;
 		}
-		// <summary>
-		//	Git Repository URL
-		// </summary>
+		/**
+		 * Git Repository URL
+		 */
 		public void setGistsUrl(String gistsUrl) {
 			this.gistsUrl = gistsUrl;
 		}
-		// <summary>
-		//	URL of image that need to be inserted
-		// </summary>
+		/**
+		 * URL of image that need to be inserted
+		 */
 		public String getGravatarImageUrl() {
 			return gravatarImageUrl;
 		}
-		// <summary>
-		//	URL of image that need to be inserted
-		// </summary>
+		/**
+		 * URL of image that need to be inserted
+		 */
 		public void setGravatarImageUrl(String gravatarImageUrl) {
 			this.gravatarImageUrl = gravatarImageUrl;
 		}
-		// <summary>
-		//	boolean type value, default value is true
-		// </summary>
+		/**
+		 * boolean type value, default value is true
+		 */
 		public Boolean getHireable() {
 			return hireable;
 		}
-		// <summary>
-		//	boolean type value, default value is true
-		// </summary>
+		/**
+		 * boolean type value, default value is true
+		 */
 		public void setHireable(Boolean hireable) {
 			this.hireable = hireable;
 		}
-		// <summary>
-		//	user's home town name
-		// </summary>
+		/**
+		 * user's home town name
+		 */
 		public String getHomeTown() {
 			return homeTown;
 		}
-		// <summary>
-		//	user's home town name
-		// </summary>
+		/**
+		 * user's home town name
+		 */
 		public void setHomeTown(String homeTown) {
 			this.homeTown = homeTown;
 		}
-		// <summary>
-		//	Awards lists from the social provider
-		// </summary>
+		/**
+		 * Awards lists from the social provider
+		 */
 		public String getHonors() {
 			return honors;
 		}
-		// <summary>
-		//	Awards lists from the social provider
-		// </summary>
+		/**
+		 * Awards lists from the social provider
+		 */
 		public void setHonors(String honors) {
 			this.honors = honors;
 		}
-		// <summary>
-		//	URL of the Image that need to be inserted
-		// </summary>
+		/**
+		 * URL of the Image that need to be inserted
+		 */
 		public String getHttpsImageUrl() {
 			return httpsImageUrl;
 		}
-		// <summary>
-		//	URL of the Image that need to be inserted
-		// </summary>
+		/**
+		 * URL of the Image that need to be inserted
+		 */
 		public void setHttpsImageUrl(String httpsImageUrl) {
 			this.httpsImageUrl = httpsImageUrl;
 		}
-		// <summary>
-		//	ID of the User
-		// </summary>
+		/**
+		 * ID of the User
+		 */
 		public String getID() {
 			return iD;
 		}
-		// <summary>
-		//	ID of the User
-		// </summary>
+		/**
+		 * ID of the User
+		 */
 		public void setID(String iD) {
 			this.iD = iD;
 		}
-		// <summary>
-		//	Array of objects, String represents account type and account name.
-		// </summary>
+		/**
+		 * Array of objects, String represents account type and account name.
+		 */
 		public List<IMAccount> getIMAccounts() {
 			return iMAccounts;
 		}
-		// <summary>
-		//	Array of objects, String represents account type and account name.
-		// </summary>
+		/**
+		 * Array of objects, String represents account type and account name.
+		 */
 		public void setIMAccounts(List<IMAccount> iMAccounts) {
 			this.iMAccounts = iMAccounts;
 		}
-		// <summary>
-		//	image URL should be absolute and has HTTPS domain
-		// </summary>
+		/**
+		 * image URL should be absolute and has HTTPS domain
+		 */
 		public String getImageUrl() {
 			return imageUrl;
 		}
-		// <summary>
-		//	image URL should be absolute and has HTTPS domain
-		// </summary>
+		/**
+		 * image URL should be absolute and has HTTPS domain
+		 */
 		public void setImageUrl(String imageUrl) {
 			this.imageUrl = imageUrl;
 		}
-		// <summary>
-		//	Industry name
-		// </summary>
+		/**
+		 * Industry name
+		 */
 		public String getIndustry() {
 			return industry;
 		}
-		// <summary>
-		//	Industry name
-		// </summary>
+		/**
+		 * Industry name
+		 */
 		public void setIndustry(String industry) {
 			this.industry = industry;
 		}
-		// <summary>
-		//	Array of Objects,string represents Id and Name
-		// </summary>
+		/**
+		 * Array of Objects,string represents Id and Name
+		 */
 		public List<InspirationalPeople> getInspirationalPeople() {
 			return inspirationalPeople;
 		}
-		// <summary>
-		//	Array of Objects,string represents Id and Name
-		// </summary>
+		/**
+		 * Array of Objects,string represents Id and Name
+		 */
 		public void setInspirationalPeople(List<InspirationalPeople> inspirationalPeople) {
 			this.inspirationalPeople = inspirationalPeople;
 		}
-		// <summary>
-		//	array of string represents interest
-		// </summary>
+		/**
+		 * array of string represents interest
+		 */
 		public List<String> getInterestedIn() {
 			return interestedIn;
 		}
-		// <summary>
-		//	array of string represents interest
-		// </summary>
+		/**
+		 * array of string represents interest
+		 */
 		public void setInterestedIn(List<String> interestedIn) {
 			this.interestedIn = interestedIn;
 		}
-		// <summary>
-		//	Array of objects, string shows InterestedType and InterestedName
-		// </summary>
+		/**
+		 * Array of objects, string shows InterestedType and InterestedName
+		 */
 		public List<Interests> getInterests() {
 			return interests;
 		}
-		// <summary>
-		//	Array of objects, string shows InterestedType and InterestedName
-		// </summary>
+		/**
+		 * Array of objects, string shows InterestedType and InterestedName
+		 */
 		public void setInterests(List<Interests> interests) {
 			this.interests = interests;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public String getIsGeoEnabled() {
 			return isGeoEnabled;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public void setIsGeoEnabled(String isGeoEnabled) {
 			this.isGeoEnabled = isGeoEnabled;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public Boolean getIsProtected() {
 			return isProtected;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public void setIsProtected(Boolean isProtected) {
 			this.isProtected = isProtected;
 		}
-		// <summary>
-		//	Array of Objects,Strings,boolean,object represents IsApplied,ApplyTimestamp,IsSaved,SavedTimestamp,Job
-		// </summary>
+		/**
+		 * Array of Objects,Strings,boolean,object represents IsApplied,ApplyTimestamp,IsSaved,SavedTimestamp,Job
+		 */
 		public List<JobBookmarks> getJobBookmarks() {
 			return jobBookmarks;
 		}
-		// <summary>
-		//	Array of Objects,Strings,boolean,object represents IsApplied,ApplyTimestamp,IsSaved,SavedTimestamp,Job
-		// </summary>
+		/**
+		 * Array of Objects,Strings,boolean,object represents IsApplied,ApplyTimestamp,IsSaved,SavedTimestamp,Job
+		 */
 		public void setJobBookmarks(List<JobBookmarks> jobBookmarks) {
 			this.jobBookmarks = jobBookmarks;
 		}
-		// <summary>
-		//	Object, string represents KloutId and double represents Score
-		// </summary>
+		/**
+		 * Object, string represents KloutId and double represents Score
+		 */
 		public KloutProfile getKloutScore() {
 			return kloutScore;
 		}
-		// <summary>
-		//	Object, string represents KloutId and double represents Score
-		// </summary>
+		/**
+		 * Object, string represents KloutId and double represents Score
+		 */
 		public void setKloutScore(KloutProfile kloutScore) {
 			this.kloutScore = kloutScore;
 		}
-		// <summary>
-		//	language known by user's
-		// </summary>
+		/**
+		 * language known by user's
+		 */
 		public String getLanguage() {
 			return language;
 		}
-		// <summary>
-		//	language known by user's
-		// </summary>
+		/**
+		 * language known by user's
+		 */
 		public void setLanguage(String language) {
 			this.language = language;
 		}
-		// <summary>
-		//	language known by user's
-		// </summary>
+		/**
+		 * language known by user's
+		 */
 		public List<Languages> getLanguages() {
 			return languages;
 		}
-		// <summary>
-		//	language known by user's
-		// </summary>
+		/**
+		 * language known by user's
+		 */
 		public void setLanguages(List<Languages> languages) {
 			this.languages = languages;
 		}
-		// <summary>
-		//	last login date
-		// </summary>
+		/**
+		 * last login date
+		 */
 		public String getLastLoginDate() {
 			return lastLoginDate;
 		}
-		// <summary>
-		//	last login date
-		// </summary>
+		/**
+		 * last login date
+		 */
 		public void setLastLoginDate(String lastLoginDate) {
 			this.lastLoginDate = lastLoginDate;
 		}
-		// <summary>
-		//	user's last name
-		// </summary>
+		/**
+		 * user's last name
+		 */
 		public String getLastName() {
 			return lastName;
 		}
-		// <summary>
-		//	user's last name
-		// </summary>
+		/**
+		 * user's last name
+		 */
 		public void setLastName(String lastName) {
 			this.lastName = lastName;
 		}
-		// <summary>
-		//	likes count
-		// </summary>
+		/**
+		 * likes count
+		 */
 		public Integer getLikesCount() {
 			return likesCount;
 		}
-		// <summary>
-		//	likes count
-		// </summary>
+		/**
+		 * likes count
+		 */
 		public void setLikesCount(Integer likesCount) {
 			this.likesCount = likesCount;
 		}
-		// <summary>
-		//	Local City of the user
-		// </summary>
+		/**
+		 * Local City of the user
+		 */
 		public String getLocalCity() {
 			return localCity;
 		}
-		// <summary>
-		//	Local City of the user
-		// </summary>
+		/**
+		 * Local City of the user
+		 */
 		public void setLocalCity(String localCity) {
 			this.localCity = localCity;
 		}
-		// <summary>
-		//	Local country of the user
-		// </summary>
+		/**
+		 * Local country of the user
+		 */
 		public String getLocalCountry() {
 			return localCountry;
 		}
-		// <summary>
-		//	Local country of the user
-		// </summary>
+		/**
+		 * Local country of the user
+		 */
 		public void setLocalCountry(String localCountry) {
 			this.localCountry = localCountry;
 		}
-		// <summary>
-		//	Local language of the user
-		// </summary>
+		/**
+		 * Local language of the user
+		 */
 		public String getLocalLanguage() {
 			return localLanguage;
 		}
-		// <summary>
-		//	Local language of the user
-		// </summary>
+		/**
+		 * Local language of the user
+		 */
 		public void setLocalLanguage(String localLanguage) {
 			this.localLanguage = localLanguage;
 		}
-		// <summary>
-		//	LR user id
-		// </summary>
+		/**
+		 * LR user id
+		 */
 		public String getLRUserID() {
 			return lRUserID;
 		}
-		// <summary>
-		//	LR user id
-		// </summary>
+		/**
+		 * LR user id
+		 */
 		public void setLRUserID(String lRUserID) {
 			this.lRUserID = lRUserID;
 		}
-		// <summary>
-		//	Main address of the user
-		// </summary>
+		/**
+		 * Main address of the user
+		 */
 		public String getMainAddress() {
 			return mainAddress;
 		}
-		// <summary>
-		//	Main address of the user
-		// </summary>
+		/**
+		 * Main address of the user
+		 */
 		public void setMainAddress(String mainAddress) {
 			this.mainAddress = mainAddress;
 		}
-		// <summary>
-		//	Array of Objects,String represents Url,UrlName
-		// </summary>
+		/**
+		 * Array of Objects,String represents Url,UrlName
+		 */
 		public List<Memberurlresources> getMemberUrlResources() {
 			return memberUrlResources;
 		}
-		// <summary>
-		//	Array of Objects,String represents Url,UrlName
-		// </summary>
+		/**
+		 * Array of Objects,String represents Url,UrlName
+		 */
 		public void setMemberUrlResources(List<Memberurlresources> memberUrlResources) {
 			this.memberUrlResources = memberUrlResources;
 		}
-		// <summary>
-		//	user's middle name
-		// </summary>
+		/**
+		 * user's middle name
+		 */
 		public String getMiddleName() {
 			return middleName;
 		}
-		// <summary>
-		//	user's middle name
-		// </summary>
+		/**
+		 * user's middle name
+		 */
 		public void setMiddleName(String middleName) {
 			this.middleName = middleName;
 		}
-		// <summary>
-		//	profile updated date
-		// </summary>
+		/**
+		 * profile updated date
+		 */
 		public String getModifiedDate() {
 			return modifiedDate;
 		}
-		// <summary>
-		//	profile updated date
-		// </summary>
+		/**
+		 * profile updated date
+		 */
 		public void setModifiedDate(String modifiedDate) {
 			this.modifiedDate = modifiedDate;
 		}
-		// <summary>
-		//	Array of Objects,strings represents	Id,Name,Category,CreatedDate
-		// </summary>
+		/**
+		 * Array of Objects,strings represents	Id,Name,Category,CreatedDate
+		 */
 		public List<Movies> getMovies() {
 			return movies;
 		}
-		// <summary>
-		//	Array of Objects,strings represents	Id,Name,Category,CreatedDate
-		// </summary>
+		/**
+		 * Array of Objects,strings represents	Id,Name,Category,CreatedDate
+		 */
 		public void setMovies(List<Movies> movies) {
 			this.movies = movies;
 		}
-		// <summary>
-		//	Array of Objects, strings represents Id,Name,FirstName,LastName,Birthday,Hometown,Link,Gender
-		// </summary>
+		/**
+		 * Array of Objects, strings represents Id,Name,FirstName,LastName,Birthday,Hometown,Link,Gender
+		 */
 		public List<MutualFriends> getMutualFriends() {
 			return mutualFriends;
 		}
-		// <summary>
-		//	Array of Objects, strings represents Id,Name,FirstName,LastName,Birthday,Hometown,Link,Gender
-		// </summary>
+		/**
+		 * Array of Objects, strings represents Id,Name,FirstName,LastName,Birthday,Hometown,Link,Gender
+		 */
 		public void setMutualFriends(List<MutualFriends> mutualFriends) {
 			this.mutualFriends = mutualFriends;
 		}
-		// <summary>
-		//	Nick name of the user
-		// </summary>
+		/**
+		 * Nick name of the user
+		 */
 		public String getNickName() {
 			return nickName;
 		}
-		// <summary>
-		//	Nick name of the user
-		// </summary>
+		/**
+		 * Nick name of the user
+		 */
 		public void setNickName(String nickName) {
 			this.nickName = nickName;
 		}
-		// <summary>
-		//	Count for the user profile recommended
-		// </summary>
+		/**
+		 * Count for the user profile recommended
+		 */
 		public Integer getNumRecommenders() {
 			return numRecommenders;
 		}
-		// <summary>
-		//	Count for the user profile recommended
-		// </summary>
+		/**
+		 * Count for the user profile recommended
+		 */
 		public void setNumRecommenders(Integer numRecommenders) {
 			this.numRecommenders = numRecommenders;
 		}
-		// <summary>
-		//	Patents Registered
-		// </summary>
+		/**
+		 * Patents Registered
+		 */
 		public List<Patents> getPatents() {
 			return patents;
 		}
-		// <summary>
-		//	Patents Registered
-		// </summary>
+		/**
+		 * Patents Registered
+		 */
 		public void setPatents(List<Patents> patents) {
 			this.patents = patents;
 		}
-		// <summary>
-		//	Users Phone Number
-		// </summary>
+		/**
+		 * Users Phone Number
+		 */
 		public List<Phone> getPhoneNumbers() {
 			return phoneNumbers;
 		}
-		// <summary>
-		//	Users Phone Number
-		// </summary>
+		/**
+		 * Users Phone Number
+		 */
 		public void setPhoneNumbers(List<Phone> phoneNumbers) {
 			this.phoneNumbers = phoneNumbers;
 		}
-		// <summary>
-		//	count of pins
-		// </summary>
+		/**
+		 * count of pins
+		 */
 		public Integer getPinsCount() {
 			return pinsCount;
 		}
-		// <summary>
-		//	count of pins
-		// </summary>
+		/**
+		 * count of pins
+		 */
 		public void setPinsCount(Integer pinsCount) {
 			this.pinsCount = pinsCount;
 		}
-		// <summary>
-		//	Array of Objects,strings Name and boolean IsPrimary
-		// </summary>
+		/**
+		 * Array of Objects,strings Name and boolean IsPrimary
+		 */
 		public List<PlacesLived> getPlacesLived() {
 			return placesLived;
 		}
-		// <summary>
-		//	Array of Objects,strings Name and boolean IsPrimary
-		// </summary>
+		/**
+		 * Array of Objects,strings Name and boolean IsPrimary
+		 */
 		public void setPlacesLived(List<PlacesLived> placesLived) {
 			this.placesLived = placesLived;
 		}
-		// <summary>
-		//	List of Political interest
-		// </summary>
+		/**
+		 * List of Political interest
+		 */
 		public String getPolitical() {
 			return political;
 		}
-		// <summary>
-		//	List of Political interest
-		// </summary>
+		/**
+		 * List of Political interest
+		 */
 		public void setPolitical(String political) {
 			this.political = political;
 		}
-		// <summary>
-		//	Array of Objects,which represents the PositionSummary,StartDate,EndDate,IsCurrent,Company,Location
-		// </summary>
+		/**
+		 * Array of Objects,which represents the PositionSummary,StartDate,EndDate,IsCurrent,Company,Location
+		 */
 		public List<ProfessionalPosition> getPositions() {
 			return positions;
 		}
-		// <summary>
-		//	Array of Objects,which represents the PositionSummary,StartDate,EndDate,IsCurrent,Company,Location
-		// </summary>
+		/**
+		 * Array of Objects,which represents the PositionSummary,StartDate,EndDate,IsCurrent,Company,Location
+		 */
 		public void setPositions(List<ProfessionalPosition> positions) {
 			this.positions = positions;
 		}
-		// <summary>
-		//	Prefix for FirstName
-		// </summary>
+		/**
+		 * Prefix for FirstName
+		 */
 		public String getPrefix() {
 			return prefix;
 		}
-		// <summary>
-		//	Prefix for FirstName
-		// </summary>
+		/**
+		 * Prefix for FirstName
+		 */
 		public void setPrefix(String prefix) {
 			this.prefix = prefix;
 		}
-		// <summary>
-		//	previous ids
-		// </summary>
+		/**
+		 * previous ids
+		 */
 		public List<String> getPreviousUids() {
 			return previousUids;
 		}
-		// <summary>
-		//	previous ids
-		// </summary>
+		/**
+		 * previous ids
+		 */
 		public void setPreviousUids(List<String> previousUids) {
 			this.previousUids = previousUids;
 		}
-		// <summary>
-		//	user private Repository Urls
-		// </summary>
+		/**
+		 * user private Repository Urls
+		 */
 		public Integer getPrivateGists() {
 			return privateGists;
 		}
-		// <summary>
-		//	user private Repository Urls
-		// </summary>
+		/**
+		 * user private Repository Urls
+		 */
 		public void setPrivateGists(Integer privateGists) {
 			this.privateGists = privateGists;
 		}
-		// <summary>
-		//	This field provide by linkedin.contain our linkedin profile headline
-		// </summary>
+		/**
+		 * This field provide by linkedin.contain our linkedin profile headline
+		 */
 		public String getProfessionalHeadline() {
 			return professionalHeadline;
 		}
-		// <summary>
-		//	This field provide by linkedin.contain our linkedin profile headline
-		// </summary>
+		/**
+		 * This field provide by linkedin.contain our linkedin profile headline
+		 */
 		public void setProfessionalHeadline(String professionalHeadline) {
 			this.professionalHeadline = professionalHeadline;
 		}
-		// <summary>
-		//	ProfileCity value that need to be inserted
-		// </summary>
+		/**
+		 * ProfileCity value that need to be inserted
+		 */
 		public String getProfileCity() {
 			return profileCity;
 		}
-		// <summary>
-		//	ProfileCity value that need to be inserted
-		// </summary>
+		/**
+		 * ProfileCity value that need to be inserted
+		 */
 		public void setProfileCity(String profileCity) {
 			this.profileCity = profileCity;
 		}
-		// <summary>
-		//	ProfileCountry value that need to be inserted
-		// </summary>
+		/**
+		 * ProfileCountry value that need to be inserted
+		 */
 		public String getProfileCountry() {
 			return profileCountry;
 		}
-		// <summary>
-		//	ProfileCountry value that need to be inserted
-		// </summary>
+		/**
+		 * ProfileCountry value that need to be inserted
+		 */
 		public void setProfileCountry(String profileCountry) {
 			this.profileCountry = profileCountry;
 		}
-		// <summary>
-		//	ProfileImageUrls that need to be inserted
-		// </summary>
+		/**
+		 * ProfileImageUrls that need to be inserted
+		 */
 		public Map<String,String> getProfileImageUrls() {
 			return profileImageUrls;
 		}
-		// <summary>
-		//	ProfileImageUrls that need to be inserted
-		// </summary>
+		/**
+		 * ProfileImageUrls that need to be inserted
+		 */
 		public void setProfileImageUrls(Map<String,String> profileImageUrls) {
 			this.profileImageUrls = profileImageUrls;
 		}
-		// <summary>
-		//	profile updated date
-		// </summary>
+		/**
+		 * profile updated date
+		 */
 		public String getProfileModifiedDate() {
 			return profileModifiedDate;
 		}
-		// <summary>
-		//	profile updated date
-		// </summary>
+		/**
+		 * profile updated date
+		 */
 		public void setProfileModifiedDate(String profileModifiedDate) {
 			this.profileModifiedDate = profileModifiedDate;
 		}
-		// <summary>
-		//	ProfileName value field that need to be inserted
-		// </summary>
+		/**
+		 * ProfileName value field that need to be inserted
+		 */
 		public String getProfileName() {
 			return profileName;
 		}
-		// <summary>
-		//	ProfileName value field that need to be inserted
-		// </summary>
+		/**
+		 * ProfileName value field that need to be inserted
+		 */
 		public void setProfileName(String profileName) {
 			this.profileName = profileName;
 		}
-		// <summary>
-		//	User profile url like facebook profile Url
-		// </summary>
+		/**
+		 * User profile url like facebook profile Url
+		 */
 		public String getProfileUrl() {
 			return profileUrl;
 		}
-		// <summary>
-		//	User profile url like facebook profile Url
-		// </summary>
+		/**
+		 * User profile url like facebook profile Url
+		 */
 		public void setProfileUrl(String profileUrl) {
 			this.profileUrl = profileUrl;
 		}
-		// <summary>
-		//	Array of Objects,string represents  Id,Name,Summary With StartDate,EndDate,IsCurrent
-		// </summary>
+		/**
+		 * Array of Objects,string represents  Id,Name,Summary With StartDate,EndDate,IsCurrent
+		 */
 		public List<Projects> getProjects() {
 			return projects;
 		}
-		// <summary>
-		//	Array of Objects,string represents  Id,Name,Summary With StartDate,EndDate,IsCurrent
-		// </summary>
+		/**
+		 * Array of Objects,string represents  Id,Name,Summary With StartDate,EndDate,IsCurrent
+		 */
 		public void setProjects(List<Projects> projects) {
 			this.projects = projects;
 		}
-		// <summary>
-		//	Name of the provider
-		// </summary>
+		/**
+		 * Name of the provider
+		 */
 		public String getProvider() {
 			return provider;
 		}
-		// <summary>
-		//	Name of the provider
-		// </summary>
+		/**
+		 * Name of the provider
+		 */
 		public void setProvider(String provider) {
 			this.provider = provider;
 		}
-		// <summary>
-		//	Object,string represents AccessToken,TokenSecret
-		// </summary>
+		/**
+		 * Object,string represents AccessToken,TokenSecret
+		 */
 		public ProviderAccessCredential getProviderAccessCredential() {
 			return providerAccessCredential;
 		}
-		// <summary>
-		//	Object,string represents AccessToken,TokenSecret
-		// </summary>
+		/**
+		 * Object,string represents AccessToken,TokenSecret
+		 */
 		public void setProviderAccessCredential(ProviderAccessCredential providerAccessCredential) {
 			this.providerAccessCredential = providerAccessCredential;
 		}
-		// <summary>
-		//	Array of Objects,string represents Id,Title,Publisher,Authors,Date,Url,Summary
-		// </summary>
+		/**
+		 * Array of Objects,string represents Id,Title,Publisher,Authors,Date,Url,Summary
+		 */
 		public List<Publications> getPublications() {
 			return publications;
 		}
-		// <summary>
-		//	Array of Objects,string represents Id,Title,Publisher,Authors,Date,Url,Summary
-		// </summary>
+		/**
+		 * Array of Objects,string represents Id,Title,Publisher,Authors,Date,Url,Summary
+		 */
 		public void setPublications(List<Publications> publications) {
 			this.publications = publications;
 		}
-		// <summary>
-		//	gist is a Git repository, which means that it can be forked and cloned.
-		// </summary>
+		/**
+		 * gist is a Git repository, which means that it can be forked and cloned.
+		 */
 		public Integer getPublicGists() {
 			return publicGists;
 		}
-		// <summary>
-		//	gist is a Git repository, which means that it can be forked and cloned.
-		// </summary>
+		/**
+		 * gist is a Git repository, which means that it can be forked and cloned.
+		 */
 		public void setPublicGists(Integer publicGists) {
 			this.publicGists = publicGists;
 		}
-		// <summary>
-		//	user public Repository Urls
-		// </summary>
+		/**
+		 * user public Repository Urls
+		 */
 		public String getPublicRepository() {
 			return publicRepository;
 		}
-		// <summary>
-		//	user public Repository Urls
-		// </summary>
+		/**
+		 * user public Repository Urls
+		 */
 		public void setPublicRepository(String publicRepository) {
 			this.publicRepository = publicRepository;
 		}
-		// <summary>
-		//	Quota
-		// </summary>
+		/**
+		 * Quota
+		 */
 		public String getQuota() {
 			return quota;
 		}
-		// <summary>
-		//	Quota
-		// </summary>
+		/**
+		 * Quota
+		 */
 		public void setQuota(String quota) {
 			this.quota = quota;
 		}
-		// <summary>
-		//	quote
-		// </summary>
+		/**
+		 * quote
+		 */
 		public String getQuote() {
 			return quote;
 		}
-		// <summary>
-		//	quote
-		// </summary>
+		/**
+		 * quote
+		 */
 		public void setQuote(String quote) {
 			this.quote = quote;
 		}
-		// <summary>
-		//	Array of Objects,string represents Id,RecommendationType,RecommendationText,Recommender
-		// </summary>
+		/**
+		 * Array of Objects,string represents Id,RecommendationType,RecommendationText,Recommender
+		 */
 		public List<RecommendationsReceived> getRecommendationsReceived() {
 			return recommendationsReceived;
 		}
-		// <summary>
-		//	Array of Objects,string represents Id,RecommendationType,RecommendationText,Recommender
-		// </summary>
+		/**
+		 * Array of Objects,string represents Id,RecommendationType,RecommendationText,Recommender
+		 */
 		public void setRecommendationsReceived(List<RecommendationsReceived> recommendationsReceived) {
 			this.recommendationsReceived = recommendationsReceived;
 		}
-		// <summary>
-		//	Array of Objects,String represents Id,FirstName,LastName
-		// </summary>
+		/**
+		 * Array of Objects,String represents Id,FirstName,LastName
+		 */
 		public List<RelatedProfileViews> getRelatedProfileViews() {
 			return relatedProfileViews;
 		}
-		// <summary>
-		//	Array of Objects,String represents Id,FirstName,LastName
-		// </summary>
+		/**
+		 * Array of Objects,String represents Id,FirstName,LastName
+		 */
 		public void setRelatedProfileViews(List<RelatedProfileViews> relatedProfileViews) {
 			this.relatedProfileViews = relatedProfileViews;
 		}
-		// <summary>
-		//	user's relationship status
-		// </summary>
+		/**
+		 * user's relationship status
+		 */
 		public String getRelationshipStatus() {
 			return relationshipStatus;
 		}
-		// <summary>
-		//	user's relationship status
-		// </summary>
+		/**
+		 * user's relationship status
+		 */
 		public void setRelationshipStatus(String relationshipStatus) {
 			this.relationshipStatus = relationshipStatus;
 		}
-		// <summary>
-		//	String shows users religion
-		// </summary>
+		/**
+		 * String shows users religion
+		 */
 		public String getReligion() {
 			return religion;
 		}
-		// <summary>
-		//	String shows users religion
-		// </summary>
+		/**
+		 * String shows users religion
+		 */
 		public void setReligion(String religion) {
 			this.religion = religion;
 		}
-		// <summary>
-		//	Repository URL
-		// </summary>
+		/**
+		 * Repository URL
+		 */
 		public String getRepositoryUrl() {
 			return repositoryUrl;
 		}
-		// <summary>
-		//	Repository URL
-		// </summary>
+		/**
+		 * Repository URL
+		 */
 		public void setRepositoryUrl(String repositoryUrl) {
 			this.repositoryUrl = repositoryUrl;
 		}
-		// <summary>
-		//	Signup date
-		// </summary>
+		/**
+		 * Signup date
+		 */
 		public String getSignupDate() {
 			return signupDate;
 		}
-		// <summary>
-		//	Signup date
-		// </summary>
+		/**
+		 * Signup date
+		 */
 		public void setSignupDate(String signupDate) {
 			this.signupDate = signupDate;
 		}
-		// <summary>
-		//	Array of objects, String represents ID and Name
-		// </summary>
+		/**
+		 * Array of objects, String represents ID and Name
+		 */
 		public List<Skills> getSkills() {
 			return skills;
 		}
-		// <summary>
-		//	Array of objects, String represents ID and Name
-		// </summary>
+		/**
+		 * Array of objects, String represents ID and Name
+		 */
 		public void setSkills(List<Skills> skills) {
 			this.skills = skills;
 		}
-		// <summary>
-		//	Array of objects, String represents ID and Name
-		// </summary>
+		/**
+		 * Array of objects, String represents ID and Name
+		 */
 		public List<Sports> getSports() {
 			return sports;
 		}
-		// <summary>
-		//	Array of objects, String represents ID and Name
-		// </summary>
+		/**
+		 * Array of objects, String represents ID and Name
+		 */
 		public void setSports(List<Sports> sports) {
 			this.sports = sports;
 		}
-		// <summary>
-		//	Git users bookmark repositories
-		// </summary>
+		/**
+		 * Git users bookmark repositories
+		 */
 		public String getStarredUrl() {
 			return starredUrl;
 		}
-		// <summary>
-		//	Git users bookmark repositories
-		// </summary>
+		/**
+		 * Git users bookmark repositories
+		 */
 		public void setStarredUrl(String starredUrl) {
 			this.starredUrl = starredUrl;
 		}
-		// <summary>
-		//	State of the user
-		// </summary>
+		/**
+		 * State of the user
+		 */
 		public String getState() {
 			return state;
 		}
-		// <summary>
-		//	State of the user
-		// </summary>
+		/**
+		 * State of the user
+		 */
 		public void setState(String state) {
 			this.state = state;
 		}
-		// <summary>
-		//	Object,string represents Name,Space,PrivateRepos,Collaborators
-		// </summary>
+		/**
+		 * Object,string represents Name,Space,PrivateRepos,Collaborators
+		 */
 		public GitHubPlan getSubscription() {
 			return subscription;
 		}
-		// <summary>
-		//	Object,string represents Name,Space,PrivateRepos,Collaborators
-		// </summary>
+		/**
+		 * Object,string represents Name,Space,PrivateRepos,Collaborators
+		 */
 		public void setSubscription(GitHubPlan subscription) {
 			this.subscription = subscription;
 		}
-		// <summary>
-		//	Suffix for the User.
-		// </summary>
+		/**
+		 * Suffix for the User.
+		 */
 		public String getSuffix() {
 			return suffix;
 		}
-		// <summary>
-		//	Suffix for the User.
-		// </summary>
+		/**
+		 * Suffix for the User.
+		 */
 		public void setSuffix(String suffix) {
 			this.suffix = suffix;
 		}
-		// <summary>
-		//	Object,array of objects represents	CompaniestoFollow,IndustriestoFollow,NewssourcetoFollow,PeopletoFollow
-		// </summary>
+		/**
+		 * Object,array of objects represents	CompaniestoFollow,IndustriestoFollow,NewssourcetoFollow,PeopletoFollow
+		 */
 		public Suggestions getSuggestions() {
 			return suggestions;
 		}
-		// <summary>
-		//	Object,array of objects represents	CompaniestoFollow,IndustriestoFollow,NewssourcetoFollow,PeopletoFollow
-		// </summary>
+		/**
+		 * Object,array of objects represents	CompaniestoFollow,IndustriestoFollow,NewssourcetoFollow,PeopletoFollow
+		 */
 		public void setSuggestions(Suggestions suggestions) {
 			this.suggestions = suggestions;
 		}
-		// <summary>
-		//	Tagline that need to be inserted
-		// </summary>
+		/**
+		 * Tagline that need to be inserted
+		 */
 		public String getTagLine() {
 			return tagLine;
 		}
-		// <summary>
-		//	Tagline that need to be inserted
-		// </summary>
+		/**
+		 * Tagline that need to be inserted
+		 */
 		public void setTagLine(String tagLine) {
 			this.tagLine = tagLine;
 		}
-		// <summary>
-		//	Array of Objects,string represents Id,Name,Category,CreatedDate
-		// </summary>
+		/**
+		 * Array of Objects,string represents Id,Name,Category,CreatedDate
+		 */
 		public List<Television> getTeleVisionShow() {
 			return teleVisionShow;
 		}
-		// <summary>
-		//	Array of Objects,string represents Id,Name,Category,CreatedDate
-		// </summary>
+		/**
+		 * Array of Objects,string represents Id,Name,Category,CreatedDate
+		 */
 		public void setTeleVisionShow(List<Television> teleVisionShow) {
 			this.teleVisionShow = teleVisionShow;
 		}
-		// <summary>
-		//	URL for the Thumbnail
-		// </summary>
+		/**
+		 * URL for the Thumbnail
+		 */
 		public String getThumbnailImageUrl() {
 			return thumbnailImageUrl;
 		}
-		// <summary>
-		//	URL for the Thumbnail
-		// </summary>
+		/**
+		 * URL for the Thumbnail
+		 */
 		public void setThumbnailImageUrl(String thumbnailImageUrl) {
 			this.thumbnailImageUrl = thumbnailImageUrl;
 		}
-		// <summary>
-		//	The Current Time Zone.
-		// </summary>
+		/**
+		 * The Current Time Zone.
+		 */
 		public String getTimeZone() {
 			return timeZone;
 		}
-		// <summary>
-		//	The Current Time Zone.
-		// </summary>
+		/**
+		 * The Current Time Zone.
+		 */
 		public void setTimeZone(String timeZone) {
 			this.timeZone = timeZone;
 		}
-		// <summary>
-		//	Total Private repository
-		// </summary>
+		/**
+		 * Total Private repository
+		 */
 		public Integer getTotalPrivateRepository() {
 			return totalPrivateRepository;
 		}
-		// <summary>
-		//	Total Private repository
-		// </summary>
+		/**
+		 * Total Private repository
+		 */
 		public void setTotalPrivateRepository(Integer totalPrivateRepository) {
 			this.totalPrivateRepository = totalPrivateRepository;
 		}
-		// <summary>
-		//	Count of Total status
-		// </summary>
+		/**
+		 * Count of Total status
+		 */
 		public Integer getTotalStatusesCount() {
 			return totalStatusesCount;
 		}
-		// <summary>
-		//	Count of Total status
-		// </summary>
+		/**
+		 * Count of Total status
+		 */
 		public void setTotalStatusesCount(Integer totalStatusesCount) {
 			this.totalStatusesCount = totalStatusesCount;
 		}
-		// <summary>
-		//	updated date
-		// </summary>
+		/**
+		 * updated date
+		 */
 		public String getUpdatedTime() {
 			return updatedTime;
 		}
-		// <summary>
-		//	updated date
-		// </summary>
+		/**
+		 * updated date
+		 */
 		public void setUpdatedTime(String updatedTime) {
 			this.updatedTime = updatedTime;
 		}
-		// <summary>
-		//	verified
-		// </summary>
+		/**
+		 * verified
+		 */
 		public String getVerified() {
 			return verified;
 		}
-		// <summary>
-		//	verified
-		// </summary>
+		/**
+		 * verified
+		 */
 		public void setVerified(String verified) {
 			this.verified = verified;
 		}
-		// <summary>
-		//	Array of Objects,string represents Id,Role,Organization,Cause
-		// </summary>
+		/**
+		 * Array of Objects,string represents Id,Role,Organization,Cause
+		 */
 		public List<Volunteer> getVolunteer() {
 			return volunteer;
 		}
-		// <summary>
-		//	Array of Objects,string represents Id,Role,Organization,Cause
-		// </summary>
+		/**
+		 * Array of Objects,string represents Id,Role,Organization,Cause
+		 */
 		public void setVolunteer(List<Volunteer> volunteer) {
 			this.volunteer = volunteer;
 		}
-		// <summary>
-		//	Twitter, Facebook ProfileUrls
-		// </summary>
+		/**
+		 * Twitter, Facebook ProfileUrls
+		 */
 		public Map<String,String> getWebProfiles() {
 			return webProfiles;
 		}
-		// <summary>
-		//	Twitter, Facebook ProfileUrls
-		// </summary>
+		/**
+		 * Twitter, Facebook ProfileUrls
+		 */
 		public void setWebProfiles(Map<String,String> webProfiles) {
 			this.webProfiles = webProfiles;
 		}
-		// <summary>
-		//	Personal Website a User has
-		// </summary>
+		/**
+		 * Personal Website a User has
+		 */
 		public String getWebsite() {
 			return website;
 		}
-		// <summary>
-		//	Personal Website a User has
-		// </summary>
+		/**
+		 * Personal Website a User has
+		 */
 		public void setWebsite(String website) {
 			this.website = website;
 		}

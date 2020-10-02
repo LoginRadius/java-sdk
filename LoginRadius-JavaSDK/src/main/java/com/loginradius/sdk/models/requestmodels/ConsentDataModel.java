@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model class containing defination of consent data
-	// </summary>
+	/**
+	 * Model class containing defination of consent data
+	 */
 	public class ConsentDataModel {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Consent Option Id
-		// </summary>
+		/**
+		 * Consent Option Id
+		 */
 		public String getConsentOptionId() {
 			return consentOptionId;
 		}
-		// <summary>
-		//	Consent Option Id
-		// </summary>
+		/**
+		 * Consent Option Id
+		 */
 		public void setConsentOptionId(String consentOptionId) {
 			this.consentOptionId = consentOptionId;
 		}
-		// <summary>
-		//	Is Accepted
-		// </summary>
+		/**
+		 * Is Accepted
+		 */
 		public Boolean getIsAccepted() {
 			return isAccepted;
 		}
-		// <summary>
-		//	Is Accepted
-		// </summary>
+		/**
+		 * Is Accepted
+		 */
 		public void setIsAccepted(Boolean isAccepted) {
 			this.isAccepted = isAccepted;
 		}

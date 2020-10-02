@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Validation data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Validation data
+	 */
 	public class PostValidationResponse {
 	
 		
@@ -19,15 +19,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	check data is validate
-		// </summary>
+		/**
+		 * check data is validate
+		 */
 		public Boolean getIsValid() {
 			return isValid;
 		}
-		// <summary>
-		//	check data is validate
-		// </summary>
+		/**
+		 * check data is validate
+		 */
 		public void setIsValid(Boolean isValid) {
 			this.isValid = isValid;
 		}

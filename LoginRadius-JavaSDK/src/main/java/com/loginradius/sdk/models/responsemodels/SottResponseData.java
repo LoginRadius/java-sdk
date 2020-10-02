@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Sott data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Sott data
+	 */
 	public class SottResponseData {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Sott expiry time
-		// </summary>
+		/**
+		 * Sott expiry time
+		 */
 		public String getExpiryTime() {
 			return expiryTime;
 		}
-		// <summary>
-		//	Sott expiry time
-		// </summary>
+		/**
+		 * Sott expiry time
+		 */
 		public void setExpiryTime(String expiryTime) {
 			this.expiryTime = expiryTime;
 		}
-		// <summary>
-		//	SOTT is a secure one time token
-		// </summary>
+		/**
+		 * SOTT is a secure one time token
+		 */
 		public String getSott() {
 			return sott;
 		}
-		// <summary>
-		//	SOTT is a secure one time token
-		// </summary>
+		/**
+		 * SOTT is a secure one time token
+		 */
 		public void setSott(String sott) {
 			this.sott = sott;
 		}

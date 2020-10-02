@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for ProviderAccessCredential Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for ProviderAccessCredential Property
+	 */
 	public class ProviderAccessCredential {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
-		// </summary>
+		/**
+		 * Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+		 */
 		public String getAccessToken() {
 			return accessToken;
 		}
-		// <summary>
-		//	Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
-		// </summary>
+		/**
+		 * Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+		 */
 		public void setAccessToken(String accessToken) {
 			this.accessToken = accessToken;
 		}
-		// <summary>
-		//	secret token of the provider
-		// </summary>
+		/**
+		 * secret token of the provider
+		 */
 		public String getTokenSecret() {
 			return tokenSecret;
 		}
-		// <summary>
-		//	secret token of the provider
-		// </summary>
+		/**
+		 * secret token of the provider
+		 */
 		public void setTokenSecret(String tokenSecret) {
 			this.tokenSecret = tokenSecret;
 		}

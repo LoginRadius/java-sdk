@@ -55,21 +55,21 @@ public class AuthenticationApi {
    }
 
    
-   // <summary>
-   // This API is used to update the user's profile by passing the access_token.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius 
-   // that is activated after successful authentication.</param>
-   // <param name="payload">Json data for update profile</param>
-   // <param name="emailTemplate">Email template name</param>
-   // <param name="fields">The fields parameter filters the API response so that
-   // the response only includes a specific set of fields</param>
-   // <param name="nullSupport">Boolean, pass true if you wish to update any user
-   // profile field with a NULL value.</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <param name="verificationUrl">Email verification url</param>
-   // <returns>Response containing Definition for Complete profile data</returns>
-   // 5.4
+   /**
+    * This API is used to update the user's profile by passing the access_token.
+    * @param accessToken Uniquely generated identifier key by LoginRadius 
+    that is activated after successful authentication.
+    * @param payload Json data for update profile
+    * @param emailTemplate Email template name
+    * @param fields The fields parameter filters the API response so that
+    the response only includes a specific set of fields
+    * @param nullSupport Boolean, pass true if you wish to update any user
+    profile field with a NULL value.
+    * @param smsTemplate SMS Template name
+    * @param verificationUrl Email verification url
+    * @return Response containing Definition for Complete profile data
+    * @since 5.4
+    */
 
 	public void updateProfileByAccessToken(String accessToken, JsonObject payload,
 			String emailTemplate, String fields, Boolean nullSupport, String smsTemplate, String verificationUrl,
@@ -129,12 +129,12 @@ public class AuthenticationApi {
 	}
    
    
-   // <summary>
-   // This API is used to retrieve the list of questions that are configured on the respective LoginRadius site.
-   // </summary>
-   // <param name="email">Email of the user</param>
-   // <returns>Response containing Definition for Complete SecurityQuestions data</returns>
-   // 2.1	    
+   /**
+    * This API is used to retrieve the list of questions that are configured on the respective LoginRadius site.
+    * @param email Email of the user
+    * @return Response containing Definition for Complete SecurityQuestions data
+    * @since 2.1
+    */
 		
 		
    public void getSecurityQuestionsByEmail(String email, final AsyncHandler<SecurityQuestions[]> handler) {      
@@ -165,12 +165,12 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to retrieve the list of questions that are configured on the respective LoginRadius site.
-   // </summary>
-   // <param name="userName">UserName of the user</param>
-   // <returns>Response containing Definition for Complete SecurityQuestions data</returns>
-   // 2.2	    
+   /**
+    * This API is used to retrieve the list of questions that are configured on the respective LoginRadius site.
+    * @param userName UserName of the user
+    * @return Response containing Definition for Complete SecurityQuestions data
+    * @since 2.2
+    */
 		
 		
    public void getSecurityQuestionsByUserName(String userName, final AsyncHandler<SecurityQuestions[]> handler) {      
@@ -201,12 +201,12 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to retrieve the list of questions that are configured on the respective LoginRadius site.
-   // </summary>
-   // <param name="phone">The Registered Phone Number</param>
-   // <returns>Response containing Definition for Complete SecurityQuestions data</returns>
-   // 2.3	    
+   /**
+    * This API is used to retrieve the list of questions that are configured on the respective LoginRadius site.
+    * @param phone The Registered Phone Number
+    * @return Response containing Definition for Complete SecurityQuestions data
+    * @since 2.3
+    */
 		
 		
    public void getSecurityQuestionsByPhone(String phone, final AsyncHandler<SecurityQuestions[]> handler) {      
@@ -237,12 +237,12 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to retrieve the list of questions that are configured on the respective LoginRadius site.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <returns>Response containing Definition for Complete SecurityQuestions data</returns>
-   // 2.4	    
+   /**
+    * This API is used to retrieve the list of questions that are configured on the respective LoginRadius site.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @return Response containing Definition for Complete SecurityQuestions data
+    * @since 2.4
+    */
 		
 		
    public void getSecurityQuestionsByAccessToken(String accessToken, final AsyncHandler<SecurityQuestions[]> handler) {      
@@ -273,12 +273,12 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This api validates access token, if valid then returns a response with its expiry otherwise error.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <returns>Response containing Definition of Complete Token data</returns>
-   // 4.1	    
+   /**
+    * This api validates access token, if valid then returns a response with its expiry otherwise error.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @return Response containing Definition of Complete Token data
+    * @since 4.1
+    */
 		
 		
    public void authValidateAccessToken(String accessToken, final AsyncHandler<AccessTokenBase> handler) {      
@@ -309,13 +309,13 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This api call invalidates the active access token or expires an access token's validity.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="preventRefresh">Boolean value that when set as true, in addition of the access token being invalidated, it will no longer have the capability of being refreshed.</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 4.2	    
+   /**
+    * This api call invalidates the active access token or expires an access token's validity.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param preventRefresh Boolean value that when set as true, in addition of the access token being invalidated, it will no longer have the capability of being refreshed.
+    * @return Response containing Definition of Complete Validation data
+    * @since 4.2
+    */
 		
 		
    public void authInValidateAccessToken(String accessToken, Boolean preventRefresh, final AsyncHandler<PostResponse> handler) {      
@@ -350,12 +350,12 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This api call provide the active access token Information
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <returns>Response containing Definition of Token Information</returns>
-   // 4.3	    
+   /**
+    * This api call provide the active access token Information
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @return Response containing Definition of Token Information
+    * @since 4.3
+    */
 		
 		
    public void getAccessTokenInfo(String accessToken, final AsyncHandler<TokenInfoResponseModel> handler) {      
@@ -386,13 +386,13 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API retrieves a copy of the user data based on the access token.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <returns>Response containing Definition for Complete profile data</returns>
-   // 5.2	    
+   /**
+    * This API retrieves a copy of the user data based on the access token.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @return Response containing Definition for Complete profile data
+    * @since 5.2
+    */
 		
 		
    public void getProfileByAccessToken(String accessToken, String fields, final AsyncHandler<Identity> handler) {      
@@ -427,13 +427,13 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API sends a welcome email
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="welcomeEmailTemplate">Name of the welcome email template</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 5.3	    
+   /**
+    * This API sends a welcome email
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param welcomeEmailTemplate Name of the welcome email template
+    * @return Response containing Definition of Complete Validation data
+    * @since 5.3
+    */
 		
 		
    public void sendWelcomeEmail(String accessToken, String welcomeEmailTemplate, final AsyncHandler<PostResponse> handler) {      
@@ -468,17 +468,17 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to update the user's profile by passing the access token.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="userProfileUpdateModel">Model Class containing Definition of payload for User Profile update API</param>
-   // <param name="emailTemplate">Email template name</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <param name="verificationUrl">Email verification url</param>
-   // <returns>Response containing Definition of Complete Validation and UserProfile data</returns>
-   // 5.4	    
+   /**
+    * This API is used to update the user's profile by passing the access token.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param userProfileUpdateModel Model Class containing Definition of payload for User Profile update API
+    * @param emailTemplate Email template name
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param smsTemplate SMS Template name
+    * @param verificationUrl Email verification url
+    * @return Response containing Definition of Complete Validation and UserProfile data
+    * @since 5.4
+    */
 		
 		
    public void updateProfileByAccessToken(String accessToken, UserProfileUpdateModel userProfileUpdateModel,
@@ -530,14 +530,14 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API will send a confirmation email for account deletion to the customer's email when passed the customer's access token
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="deleteUrl">Url of the site</param>
-   // <param name="emailTemplate">Email template name</param>
-   // <returns>Response containing Definition of Delete Request</returns>
-   // 5.5	    
+   /**
+    * This API will send a confirmation email for account deletion to the customer's email when passed the customer's access token
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param deleteUrl Url of the site
+    * @param emailTemplate Email template name
+    * @return Response containing Definition of Delete Request
+    * @since 5.5
+    */
 		
 		
    public void deleteAccountWithEmailConfirmation(String accessToken, String deleteUrl,
@@ -577,12 +577,12 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to delete an account by passing it a delete token.
-   // </summary>
-   // <param name="deletetoken">Delete token received in the email</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 5.6	    
+   /**
+    * This API is used to delete an account by passing it a delete token.
+    * @param deletetoken Delete token received in the email
+    * @return Response containing Definition of Complete Validation data
+    * @since 5.6
+    */
 		
 		
    public void deleteAccountByDeleteToken(String deletetoken, final AsyncHandler<PostResponse> handler) {      
@@ -613,13 +613,13 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to allow a customer with a valid access token to unlock their account provided that they successfully pass the prompted Bot Protection challenges. The Block or Suspend block types are not applicable for this API. For additional details see our Auth Security Configuration documentation.You are only required to pass the Post Parameters that correspond to the prompted challenges.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="unlockProfileModel">Payload containing Unlock Profile API</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 5.15	    
+   /**
+    * This API is used to allow a customer with a valid access token to unlock their account provided that they successfully pass the prompted Bot Protection challenges. The Block or Suspend block types are not applicable for this API. For additional details see our Auth Security Configuration documentation.You are only required to pass the Post Parameters that correspond to the prompted challenges.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param unlockProfileModel Payload containing Unlock Profile API
+    * @return Response containing Definition of Complete Validation data
+    * @since 5.15
+    */
 		
 		
    public void unlockAccountByToken(String accessToken, UnlockProfileModel unlockProfileModel, final AsyncHandler<PostResponse> handler) {      
@@ -654,12 +654,12 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to check the email exists or not on your site.
-   // </summary>
-   // <param name="email">Email of the user</param>
-   // <returns>Response containing Definition Complete ExistResponse data</returns>
-   // 8.1	    
+   /**
+    * This API is used to check the email exists or not on your site.
+    * @param email Email of the user
+    * @return Response containing Definition Complete ExistResponse data
+    * @since 8.1
+    */
 		
 		
    public void checkEmailAvailability(String email, final AsyncHandler<ExistResponse> handler) {      
@@ -690,15 +690,15 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to verify the email of user. Note: This API will only return the full profile if you have 'Enable auto login after email verification' set in your LoginRadius Admin Console's Email Workflow settings under 'Verification Email'.
-   // </summary>
-   // <param name="verificationToken">Verification token received in the email</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="url">Mention URL to log the main URL(Domain name) in Database.</param>
-   // <param name="welcomeEmailTemplate">Name of the welcome email template</param>
-   // <returns>Response containing Definition of Complete Validation, UserProfile data and Access Token</returns>
-   // 8.2	    
+   /**
+    * This API is used to verify the email of user. Note: This API will only return the full profile if you have 'Enable auto login after email verification' set in your LoginRadius Admin Console's Email Workflow settings under 'Verification Email'.
+    * @param verificationToken Verification token received in the email
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param url Mention URL to log the main URL(Domain name) in Database.
+    * @param welcomeEmailTemplate Name of the welcome email template
+    * @return Response containing Definition of Complete Validation, UserProfile data and Access Token
+    * @since 8.2
+    */
 		
 		
    public void verifyEmail(String verificationToken, String fields,
@@ -742,15 +742,15 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to verify the email of user when the OTP Email verification flow is enabled, please note that you must contact LoginRadius to have this feature enabled.
-   // </summary>
-   // <param name="emailVerificationByOtpModel">Model Class containing Definition for EmailVerificationByOtpModel API</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="url">Mention URL to log the main URL(Domain name) in Database.</param>
-   // <param name="welcomeEmailTemplate">Name of the welcome email template</param>
-   // <returns>Response containing Definition of Complete Validation, UserProfile data and Access Token</returns>
-   // 8.3	    
+   /**
+    * This API is used to verify the email of user when the OTP Email verification flow is enabled, please note that you must contact LoginRadius to have this feature enabled.
+    * @param emailVerificationByOtpModel Model Class containing Definition for EmailVerificationByOtpModel API
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param url Mention URL to log the main URL(Domain name) in Database.
+    * @param welcomeEmailTemplate Name of the welcome email template
+    * @return Response containing Definition of Complete Validation, UserProfile data and Access Token
+    * @since 8.3
+    */
 		
 		
    public void verifyEmailByOTP(EmailVerificationByOtpModel emailVerificationByOtpModel, String fields,
@@ -793,16 +793,16 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to add additional emails to a user's account.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="email">user's email</param>
-   // <param name="type">String to identify the type of parameter</param>
-   // <param name="emailTemplate">Email template name</param>
-   // <param name="verificationUrl">Email verification url</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 8.5	    
+   /**
+    * This API is used to add additional emails to a user's account.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param email user's email
+    * @param type String to identify the type of parameter
+    * @param emailTemplate Email template name
+    * @param verificationUrl Email verification url
+    * @return Response containing Definition of Complete Validation data
+    * @since 8.5
+    */
 		
 		
    public void addEmail(String accessToken, String email,
@@ -854,13 +854,13 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to remove additional emails from a user's account.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="email">user's email</param>
-   // <returns>Response containing Definition of Delete Request</returns>
-   // 8.6	    
+   /**
+    * This API is used to remove additional emails from a user's account.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param email user's email
+    * @return Response containing Definition of Delete Request
+    * @since 8.6
+    */
 		
 		
    public void removeEmail(String accessToken, String email, final AsyncHandler<DeleteResponse> handler) {      
@@ -898,16 +898,16 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API retrieves a copy of the user data based on the Email
-   // </summary>
-   // <param name="emailAuthenticationModel">Model Class containing Definition of payload for Email Authentication API</param>
-   // <param name="emailTemplate">Email template name</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="loginUrl">Url where the user is logging from</param>
-   // <param name="verificationUrl">Email verification url</param>
-   // <returns>Response containing User Profile Data and access token</returns>
-   // 9.2.1	    
+   /**
+    * This API retrieves a copy of the user data based on the Email
+    * @param emailAuthenticationModel Model Class containing Definition of payload for Email Authentication API
+    * @param emailTemplate Email template name
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param loginUrl Url where the user is logging from
+    * @param verificationUrl Email verification url
+    * @return Response containing User Profile Data and access token
+    * @since 9.2.1
+    */
 		
 		
    public void loginByEmail(EmailAuthenticationModel emailAuthenticationModel, String emailTemplate,
@@ -954,16 +954,16 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API retrieves a copy of the user data based on the Username
-   // </summary>
-   // <param name="userNameAuthenticationModel">Model Class containing Definition of payload for Username Authentication API</param>
-   // <param name="emailTemplate">Email template name</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="loginUrl">Url where the user is logging from</param>
-   // <param name="verificationUrl">Email verification url</param>
-   // <returns>Response containing User Profile Data and access token</returns>
-   // 9.2.2	    
+   /**
+    * This API retrieves a copy of the user data based on the Username
+    * @param userNameAuthenticationModel Model Class containing Definition of payload for Username Authentication API
+    * @param emailTemplate Email template name
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param loginUrl Url where the user is logging from
+    * @param verificationUrl Email verification url
+    * @return Response containing User Profile Data and access token
+    * @since 9.2.2
+    */
 		
 		
    public void loginByUserName(UserNameAuthenticationModel userNameAuthenticationModel, String emailTemplate,
@@ -1010,14 +1010,14 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to send the reset password url to a specified account. Note: If you have the UserName workflow enabled, you may replace the 'email' parameter with 'username'
-   // </summary>
-   // <param name="email">user's email</param>
-   // <param name="resetPasswordUrl">Url to which user should get re-directed to for resetting the password</param>
-   // <param name="emailTemplate">Email template name</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 10.1	    
+   /**
+    * This API is used to send the reset password url to a specified account. Note: If you have the UserName workflow enabled, you may replace the 'email' parameter with 'username'
+    * @param email user's email
+    * @param resetPasswordUrl Url to which user should get re-directed to for resetting the password
+    * @param emailTemplate Email template name
+    * @return Response containing Definition of Complete Validation data
+    * @since 10.1
+    */
 		
 		
    public void forgotPassword(String email, String resetPasswordUrl,
@@ -1060,12 +1060,12 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to reset password for the specified account by security question
-   // </summary>
-   // <param name="resetPasswordBySecurityAnswerAndEmailModel">Model Class containing Definition of payload for ResetPasswordBySecurityAnswerAndEmail API</param>
-   // <returns>Response containing Definition of Validation data and access token</returns>
-   // 10.3.1	    
+   /**
+    * This API is used to reset password for the specified account by security question
+    * @param resetPasswordBySecurityAnswerAndEmailModel Model Class containing Definition of payload for ResetPasswordBySecurityAnswerAndEmail API
+    * @return Response containing Definition of Validation data and access token
+    * @since 10.3.1
+    */
 		
 		
    public void resetPasswordBySecurityAnswerAndEmail(ResetPasswordBySecurityAnswerAndEmailModel resetPasswordBySecurityAnswerAndEmailModel, final AsyncHandler<UserProfilePostResponse<AccessTokenBase>> handler) {
@@ -1095,12 +1095,12 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to reset password for the specified account by security question
-   // </summary>
-   // <param name="resetPasswordBySecurityAnswerAndPhoneModel">Model Class containing Definition of payload for ResetPasswordBySecurityAnswerAndPhone API</param>
-   // <returns>Response containing Definition of Validation data and access token</returns>
-   // 10.3.2	    
+   /**
+    * This API is used to reset password for the specified account by security question
+    * @param resetPasswordBySecurityAnswerAndPhoneModel Model Class containing Definition of payload for ResetPasswordBySecurityAnswerAndPhone API
+    * @return Response containing Definition of Validation data and access token
+    * @since 10.3.2
+    */
 		
 		
    public void resetPasswordBySecurityAnswerAndPhone(ResetPasswordBySecurityAnswerAndPhoneModel resetPasswordBySecurityAnswerAndPhoneModel, final AsyncHandler<UserProfilePostResponse<AccessTokenBase>> handler) {
@@ -1130,12 +1130,12 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to reset password for the specified account by security question
-   // </summary>
-   // <param name="resetPasswordBySecurityAnswerAndUserNameModel">Model Class containing Definition of payload for ResetPasswordBySecurityAnswerAndUserName API</param>
-   // <returns>Response containing Definition of Validation data and access token</returns>
-   // 10.3.3	    
+   /**
+    * This API is used to reset password for the specified account by security question
+    * @param resetPasswordBySecurityAnswerAndUserNameModel Model Class containing Definition of payload for ResetPasswordBySecurityAnswerAndUserName API
+    * @return Response containing Definition of Validation data and access token
+    * @since 10.3.3
+    */
 		
 		
    public void resetPasswordBySecurityAnswerAndUserName(ResetPasswordBySecurityAnswerAndUserNameModel resetPasswordBySecurityAnswerAndUserNameModel, final AsyncHandler<UserProfilePostResponse<AccessTokenBase>> handler) {
@@ -1165,12 +1165,12 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to set a new password for the specified account.
-   // </summary>
-   // <param name="resetPasswordByResetTokenModel">Model Class containing Definition of payload for ResetToken API</param>
-   // <returns>Response containing Definition of Validation data and access token</returns>
-   // 10.7.1	    
+   /**
+    * This API is used to set a new password for the specified account.
+    * @param resetPasswordByResetTokenModel Model Class containing Definition of payload for ResetToken API
+    * @return Response containing Definition of Validation data and access token
+    * @since 10.7.1
+    */
 		
 		
    public void resetPasswordByResetToken(ResetPasswordByResetTokenModel resetPasswordByResetTokenModel, final AsyncHandler<UserProfilePostResponse<AccessTokenBase>> handler) {
@@ -1200,12 +1200,12 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to set a new password for the specified account.
-   // </summary>
-   // <param name="resetPasswordByEmailAndOtpModel">Model Class containing Definition of payload for ResetPasswordByEmailAndOtp API</param>
-   // <returns>Response containing Definition of Validation data and access token</returns>
-   // 10.7.2	    
+   /**
+    * This API is used to set a new password for the specified account.
+    * @param resetPasswordByEmailAndOtpModel Model Class containing Definition of payload for ResetPasswordByEmailAndOtp API
+    * @return Response containing Definition of Validation data and access token
+    * @since 10.7.2
+    */
 		
 		
    public void resetPasswordByEmailOTP(ResetPasswordByEmailAndOtpModel resetPasswordByEmailAndOtpModel, final AsyncHandler<UserProfilePostResponse<AccessTokenBase>> handler) {
@@ -1235,12 +1235,12 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to set a new password for the specified account if you are using the username as the unique identifier in your workflow
-   // </summary>
-   // <param name="resetPasswordByUserNameModel">Model Class containing Definition of payload for ResetPasswordByUserName API</param>
-   // <returns>Response containing Definition of Validation data and access token</returns>
-   // 10.7.3	    
+   /**
+    * This API is used to set a new password for the specified account if you are using the username as the unique identifier in your workflow
+    * @param resetPasswordByUserNameModel Model Class containing Definition of payload for ResetPasswordByUserName API
+    * @return Response containing Definition of Validation data and access token
+    * @since 10.7.3
+    */
 		
 		
    public void resetPasswordByOTPAndUserName(ResetPasswordByUserNameModel resetPasswordByUserNameModel, final AsyncHandler<UserProfilePostResponse<AccessTokenBase>> handler) {
@@ -1270,14 +1270,14 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to change the accounts password based on the previous password
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="newPassword">New password</param>
-   // <param name="oldPassword">User's current password</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 10.8	    
+   /**
+    * This API is used to change the accounts password based on the previous password
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param newPassword New password
+    * @param oldPassword User's current password
+    * @return Response containing Definition of Complete Validation data
+    * @since 10.8
+    */
 		
 		
    public void changePassword(String accessToken, String newPassword,
@@ -1321,14 +1321,14 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to unlink up a social provider account with the specified account based on the access token and the social providers user access token. The unlinked account will automatically get removed from your database.
-   // </summary>
-   // <param name="accessToken">Access_Token</param>
-   // <param name="provider">Name of the provider</param>
-   // <param name="providerId">Unique ID of the linked account</param>
-   // <returns>Response containing Definition of Delete Request</returns>
-   // 12.2	    
+   /**
+    * This API is used to unlink up a social provider account with the specified account based on the access token and the social providers user access token. The unlinked account will automatically get removed from your database.
+    * @param accessToken Access_Token
+    * @param provider Name of the provider
+    * @param providerId Unique ID of the linked account
+    * @return Response containing Definition of Delete Request
+    * @since 12.2
+    */
 		
 		
    public void unlinkSocialIdentities(String accessToken, String provider,
@@ -1372,13 +1372,13 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to link up a social provider account with an existing LoginRadius account on the basis of access token and the social providers user access token.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="candidateToken">Access token of the account to be linked</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 12.4	    
+   /**
+    * This API is used to link up a social provider account with an existing LoginRadius account on the basis of access token and the social providers user access token.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param candidateToken Access token of the account to be linked
+    * @return Response containing Definition of Complete Validation data
+    * @since 12.4
+    */
 		
 		
    public void linkSocialIdentities(String accessToken, String candidateToken, final AsyncHandler<PostResponse> handler) {      
@@ -1416,13 +1416,13 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to link up a social provider account with an existing LoginRadius account on the basis of ping and the social providers user access token.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="clientGuid">Unique ID generated by client</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 12.5	    
+   /**
+    * This API is used to link up a social provider account with an existing LoginRadius account on the basis of ping and the social providers user access token.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param clientGuid Unique ID generated by client
+    * @return Response containing Definition of Complete Validation data
+    * @since 12.5
+    */
 		
 		
    public void linkSocialIdentitiesByPing(String accessToken, String clientGuid, final AsyncHandler<PostResponse> handler) {      
@@ -1460,13 +1460,13 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to set or change UserName by access token.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="username">Username of the user</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 13.1	    
+   /**
+    * This API is used to set or change UserName by access token.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param username Username of the user
+    * @return Response containing Definition of Complete Validation data
+    * @since 13.1
+    */
 		
 		
    public void setOrChangeUserName(String accessToken, String username, final AsyncHandler<PostResponse> handler) {      
@@ -1504,12 +1504,12 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to check the UserName exists or not on your site.
-   // </summary>
-   // <param name="username">UserName of the user</param>
-   // <returns>Response containing Definition Complete ExistResponse data</returns>
-   // 13.2	    
+   /**
+    * This API is used to check the UserName exists or not on your site.
+    * @param username UserName of the user
+    * @return Response containing Definition Complete ExistResponse data
+    * @since 13.2
+    */
 		
 		
    public void checkUserNameAvailability(String username, final AsyncHandler<ExistResponse> handler) {      
@@ -1540,13 +1540,13 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to update the privacy policy stored in the user's profile by providing the access token of the user accepting the privacy policy
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <returns>Response containing Definition for Complete profile data</returns>
-   // 15.1	    
+   /**
+    * This API is used to update the privacy policy stored in the user's profile by providing the access token of the user accepting the privacy policy
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @return Response containing Definition for Complete profile data
+    * @since 15.1
+    */
 		
 		
    public void acceptPrivacyPolicy(String accessToken, String fields, final AsyncHandler<Identity> handler) {      
@@ -1581,12 +1581,12 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API will return all the accepted privacy policies for the user by providing the access token of that user.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <returns>Complete Policy History data</returns>
-   // 15.2	    
+   /**
+    * This API will return all the accepted privacy policies for the user by providing the access token of that user.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @return Complete Policy History data
+    * @since 15.2
+    */
 		
 		
    public void getPrivacyPolicyHistoryByAccessToken(String accessToken, final AsyncHandler<PrivacyPolicyHistoryResponse> handler) {      
@@ -1617,18 +1617,18 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API creates a user in the database as well as sends a verification email to the user.
-   // </summary>
-   // <param name="authUserRegistrationModel">Model Class containing Definition of payload for Auth User Registration API</param>
-   // <param name="sott">LoginRadius Secured One Time Token</param>
-   // <param name="emailTemplate">Email template name</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="options">PreventVerificationEmail (Specifying this value prevents the verification email from being sent. Only applicable if you have the optional email verification flow)</param>
-   // <param name="verificationUrl">Email verification url</param>
-   // <param name="welcomeEmailTemplate">Name of the welcome email template</param>
-   // <returns>Response containing Definition of Complete Validation, UserProfile data and Access Token</returns>
-   // 17.1.1	    
+   /**
+    * This API creates a user in the database as well as sends a verification email to the user.
+    * @param authUserRegistrationModel Model Class containing Definition of payload for Auth User Registration API
+    * @param sott LoginRadius Secured One Time Token
+    * @param emailTemplate Email template name
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param options PreventVerificationEmail (Specifying this value prevents the verification email from being sent. Only applicable if you have the optional email verification flow)
+    * @param verificationUrl Email verification url
+    * @param welcomeEmailTemplate Name of the welcome email template
+    * @return Response containing Definition of Complete Validation, UserProfile data and Access Token
+    * @since 17.1.1
+    */
 		
 		
    public void userRegistrationByEmail(AuthUserRegistrationModel authUserRegistrationModel, String sott,
@@ -1684,18 +1684,18 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API creates a user in the database as well as sends a verification email to the user.
-   // </summary>
-   // <param name="authUserRegistrationModelWithCaptcha">Model Class containing Definition of payload for Auth User Registration by Recaptcha API</param>
-   // <param name="emailTemplate">Email template name</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="options">PreventVerificationEmail (Specifying this value prevents the verification email from being sent. Only applicable if you have the optional email verification flow)</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <param name="verificationUrl">Email verification url</param>
-   // <param name="welcomeEmailTemplate">Name of the welcome email template</param>
-   // <returns>Response containing Definition of Complete Validation, UserProfile data and Access Token</returns>
-   // 17.2	    
+   /**
+    * This API creates a user in the database as well as sends a verification email to the user.
+    * @param authUserRegistrationModelWithCaptcha Model Class containing Definition of payload for Auth User Registration by Recaptcha API
+    * @param emailTemplate Email template name
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param options PreventVerificationEmail (Specifying this value prevents the verification email from being sent. Only applicable if you have the optional email verification flow)
+    * @param smsTemplate SMS Template name
+    * @param verificationUrl Email verification url
+    * @param welcomeEmailTemplate Name of the welcome email template
+    * @return Response containing Definition of Complete Validation, UserProfile data and Access Token
+    * @since 17.2
+    */
 		
 		
    public void userRegistrationByCaptcha(AuthUserRegistrationModelWithCaptcha authUserRegistrationModelWithCaptcha, String emailTemplate,
@@ -1750,14 +1750,14 @@ public class AuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API resends the verification email to the user.
-   // </summary>
-   // <param name="email">user's email</param>
-   // <param name="emailTemplate">Email template name</param>
-   // <param name="verificationUrl">Email verification url</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 17.3	    
+   /**
+    * This API resends the verification email to the user.
+    * @param email user's email
+    * @param emailTemplate Email template name
+    * @param verificationUrl Email verification url
+    * @return Response containing Definition of Complete Validation data
+    * @since 17.3
+    */
 		
 		
    public void authResendEmailVerification(String email, String emailTemplate,

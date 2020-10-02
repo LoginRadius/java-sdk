@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Complete verified response data
-	// </summary>
+	/**
+	 * Complete verified response data
+	 */
 	public class VerifiedResponse {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	check data is posted
-		// </summary>
+		/**
+		 * check data is posted
+		 */
 		public Boolean getIsPosted() {
 			return isPosted;
 		}
-		// <summary>
-		//	check data is posted
-		// </summary>
+		/**
+		 * check data is posted
+		 */
 		public void setIsPosted(Boolean isPosted) {
 			this.isPosted = isPosted;
 		}
-		// <summary>
-		//	is verified or not
-		// </summary>
+		/**
+		 * is verified or not
+		 */
 		public Boolean getIsVerified() {
 			return isVerified;
 		}
-		// <summary>
-		//	is verified or not
-		// </summary>
+		/**
+		 * is verified or not
+		 */
 		public void setIsVerified(Boolean isVerified) {
 			this.isVerified = isVerified;
 		}

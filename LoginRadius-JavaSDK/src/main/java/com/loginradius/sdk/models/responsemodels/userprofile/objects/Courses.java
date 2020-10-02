@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Courses data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Courses data
+	 */
 	public class Courses {
 	
 		
@@ -25,39 +25,39 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Course id
-		// </summary>
+		/**
+		 * Course id
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Course id
-		// </summary>
+		/**
+		 * Course id
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	Course name
-		// </summary>
+		/**
+		 * Course name
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Course name
-		// </summary>
+		/**
+		 * Course name
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
-		// <summary>
-		//	Course number
-		// </summary>
+		/**
+		 * Course number
+		 */
 		public String getNumber() {
 			return number;
 		}
-		// <summary>
-		//	Course number
-		// </summary>
+		/**
+		 * Course number
+		 */
 		public void setNumber(String number) {
 			this.number = number;
 		}

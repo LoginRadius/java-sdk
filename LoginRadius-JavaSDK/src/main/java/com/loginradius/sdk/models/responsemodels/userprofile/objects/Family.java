@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Family data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Family data
+	 */
 	public class Family {
 	
 		
@@ -25,39 +25,39 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Family id
-		// </summary>
+		/**
+		 * Family id
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Family id
-		// </summary>
+		/**
+		 * Family id
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	Family name
-		// </summary>
+		/**
+		 * Family name
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Family name
-		// </summary>
+		/**
+		 * Family name
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
-		// <summary>
-		//	Family relationship
-		// </summary>
+		/**
+		 * Family relationship
+		 */
 		public String getRelationship() {
 			return relationship;
 		}
-		// <summary>
-		//	Family relationship
-		// </summary>
+		/**
+		 * Family relationship
+		 */
 		public void setRelationship(String relationship) {
 			this.relationship = relationship;
 		}

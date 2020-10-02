@@ -13,30 +13,30 @@ public class OptionalRecaptchaConfiguration {
 	@Expose
 	private Apis apis;
 
-	/// <summary>
-	/// IsEnabled
-	/// </summary>
+	/**
+	 * IsEnabled
+	 */
 	public Boolean getIsEnabled() {
 		return isEnabled;
 	}
 
-	/// <summary>
-	/// IsEnabled
-	/// </summary>
+	/**
+	 * IsEnabled
+	 */
 	public void setIsEnabled(Boolean isEnabled) {
 		this.isEnabled = isEnabled;
 	}
 
-	/// <summary>
-	/// Apis
-	/// </summary>
+	/**
+	 * Apis
+	 */
 	public Apis getApis() {
 		return apis;
 	}
 
-	/// <summary>
-	/// Apis
-	/// </summary>
+	/**
+	 * Apis
+	 */
 	public void setApis(Apis apis) {
 		this.apis = apis;
 	}

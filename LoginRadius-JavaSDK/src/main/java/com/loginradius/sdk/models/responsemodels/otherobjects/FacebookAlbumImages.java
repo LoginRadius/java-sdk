@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Album data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Album data
+	 */
 	public class FacebookAlbumImages {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Photo dimensions
-		// </summary>
+		/**
+		 * Photo dimensions
+		 */
 		public String getDimensions() {
 			return dimensions;
 		}
-		// <summary>
-		//	Photo dimensions
-		// </summary>
+		/**
+		 * Photo dimensions
+		 */
 		public void setDimensions(String dimensions) {
 			this.dimensions = dimensions;
 		}
-		// <summary>
-		//	Images
-		// </summary>
+		/**
+		 * Images
+		 */
 		public String getImage() {
 			return image;
 		}
-		// <summary>
-		//	Images
-		// </summary>
+		/**
+		 * Images
+		 */
 		public void setImage(String image) {
 			this.image = image;
 		}

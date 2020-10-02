@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete page data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete page data
+	 */
 	public class Page {
 	
 		
@@ -99,327 +99,327 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	About value that need to be inserted
-		// </summary>
+		/**
+		 * About value that need to be inserted
+		 */
 		public String getAbout() {
 			return about;
 		}
-		// <summary>
-		//	About value that need to be inserted
-		// </summary>
+		/**
+		 * About value that need to be inserted
+		 */
 		public void setAbout(String about) {
 			this.about = about;
 		}
-		// <summary>
-		//	Array of Objects,String represents Id, Name and  Issuer
-		// </summary>
+		/**
+		 * Array of Objects,String represents Id, Name and  Issuer
+		 */
 		public String getAwards() {
 			return awards;
 		}
-		// <summary>
-		//	Array of Objects,String represents Id, Name and  Issuer
-		// </summary>
+		/**
+		 * Array of Objects,String represents Id, Name and  Issuer
+		 */
 		public void setAwards(String awards) {
 			this.awards = awards;
 		}
-		// <summary>
-		//	Page category
-		// </summary>
+		/**
+		 * Page category
+		 */
 		public String getCategory() {
 			return category;
 		}
-		// <summary>
-		//	Page category
-		// </summary>
+		/**
+		 * Page category
+		 */
 		public void setCategory(String category) {
 			this.category = category;
 		}
-		// <summary>
-		//	Category list
-		// </summary>
+		/**
+		 * Category list
+		 */
 		public List<PageCategoryList> getCategoryList() {
 			return categoryList;
 		}
-		// <summary>
-		//	Category list
-		// </summary>
+		/**
+		 * Category list
+		 */
 		public void setCategoryList(List<PageCategoryList> categoryList) {
 			this.categoryList = categoryList;
 		}
-		// <summary>
-		//	checkin count
-		// </summary>
+		/**
+		 * checkin count
+		 */
 		public String getCheckinCount() {
 			return checkinCount;
 		}
-		// <summary>
-		//	checkin count
-		// </summary>
+		/**
+		 * checkin count
+		 */
 		public void setCheckinCount(String checkinCount) {
 			this.checkinCount = checkinCount;
 		}
-		// <summary>
-		//	Image url
-		// </summary>
+		/**
+		 * Image url
+		 */
 		public PageCover getCoverImage() {
 			return coverImage;
 		}
-		// <summary>
-		//	Image url
-		// </summary>
+		/**
+		 * Image url
+		 */
 		public void setCoverImage(PageCover coverImage) {
 			this.coverImage = coverImage;
 		}
-		// <summary>
-		//	detailed information
-		// </summary>
+		/**
+		 * detailed information
+		 */
 		public String getDescription() {
 			return description;
 		}
-		// <summary>
-		//	detailed information
-		// </summary>
+		/**
+		 * detailed information
+		 */
 		public void setDescription(String description) {
 			this.description = description;
 		}
-		// <summary>
-		//	Employee count range
-		// </summary>
+		/**
+		 * Employee count range
+		 */
 		public PageCodeName getEmployeeCountRange() {
 			return employeeCountRange;
 		}
-		// <summary>
-		//	Employee count range
-		// </summary>
+		/**
+		 * Employee count range
+		 */
 		public void setEmployeeCountRange(PageCodeName employeeCountRange) {
 			this.employeeCountRange = employeeCountRange;
 		}
-		// <summary>
-		//	Founded
-		// </summary>
+		/**
+		 * Founded
+		 */
 		public String getFounded() {
 			return founded;
 		}
-		// <summary>
-		//	Founded
-		// </summary>
+		/**
+		 * Founded
+		 */
 		public void setFounded(String founded) {
 			this.founded = founded;
 		}
-		// <summary>
-		//	Page id
-		// </summary>
+		/**
+		 * Page id
+		 */
 		public String getID() {
 			return iD;
 		}
-		// <summary>
-		//	Page id
-		// </summary>
+		/**
+		 * Page id
+		 */
 		public void setID(String iD) {
 			this.iD = iD;
 		}
-		// <summary>
-		//	Image url
-		// </summary>
+		/**
+		 * Image url
+		 */
 		public String getImage() {
 			return image;
 		}
-		// <summary>
-		//	Image url
-		// </summary>
+		/**
+		 * Image url
+		 */
 		public void setImage(String image) {
 			this.image = image;
 		}
-		// <summary>
-		//	List of Industries
-		// </summary>
+		/**
+		 * List of Industries
+		 */
 		public List<PageCodeName> getIndustries() {
 			return industries;
 		}
-		// <summary>
-		//	List of Industries
-		// </summary>
+		/**
+		 * List of Industries
+		 */
 		public void setIndustries(List<PageCodeName> industries) {
 			this.industries = industries;
 		}
-		// <summary>
-		//	Page likes
-		// </summary>
+		/**
+		 * Page likes
+		 */
 		public String getLikes() {
 			return likes;
 		}
-		// <summary>
-		//	Page likes
-		// </summary>
+		/**
+		 * Page likes
+		 */
 		public void setLikes(String likes) {
 			this.likes = likes;
 		}
-		// <summary>
-		//	Location of page
-		// </summary>
+		/**
+		 * Location of page
+		 */
 		public List<PageLocations> getLocations() {
 			return locations;
 		}
-		// <summary>
-		//	Location of page
-		// </summary>
+		/**
+		 * Location of page
+		 */
 		public void setLocations(List<PageLocations> locations) {
 			this.locations = locations;
 		}
-		// <summary>
-		//	Page mission
-		// </summary>
+		/**
+		 * Page mission
+		 */
 		public String getMission() {
 			return mission;
 		}
-		// <summary>
-		//	Page mission
-		// </summary>
+		/**
+		 * Page mission
+		 */
 		public void setMission(String mission) {
 			this.mission = mission;
 		}
-		// <summary>
-		//	Page name
-		// </summary>
+		/**
+		 * Page name
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Page name
-		// </summary>
+		/**
+		 * Page name
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
-		// <summary>
-		//	New Phone Number
-		// </summary>
+		/**
+		 * New Phone Number
+		 */
 		public String getPhone() {
 			return phone;
 		}
-		// <summary>
-		//	New Phone Number
-		// </summary>
+		/**
+		 * New Phone Number
+		 */
 		public void setPhone(String phone) {
 			this.phone = phone;
 		}
-		// <summary>
-		//	Products
-		// </summary>
+		/**
+		 * Products
+		 */
 		public String getProducts() {
 			return products;
 		}
-		// <summary>
-		//	Products
-		// </summary>
+		/**
+		 * Products
+		 */
 		public void setProducts(String products) {
 			this.products = products;
 		}
-		// <summary>
-		//	Published
-		// </summary>
+		/**
+		 * Published
+		 */
 		public Boolean getPublished() {
 			return published;
 		}
-		// <summary>
-		//	Published
-		// </summary>
+		/**
+		 * Published
+		 */
 		public void setPublished(Boolean published) {
 			this.published = published;
 		}
-		// <summary>
-		//	Release Date
-		// </summary>
+		/**
+		 * Release Date
+		 */
 		public String getReleaseDate() {
 			return releaseDate;
 		}
-		// <summary>
-		//	Release Date
-		// </summary>
+		/**
+		 * Release Date
+		 */
 		public void setReleaseDate(String releaseDate) {
 			this.releaseDate = releaseDate;
 		}
-		// <summary>
-		//	Specialties
-		// </summary>
+		/**
+		 * Specialties
+		 */
 		public Speciality getSpecialties() {
 			return specialties;
 		}
-		// <summary>
-		//	Specialties
-		// </summary>
+		/**
+		 * Specialties
+		 */
 		public void setSpecialties(Speciality specialties) {
 			this.specialties = specialties;
 		}
-		// <summary>
-		//	Page Status
-		// </summary>
+		/**
+		 * Page Status
+		 */
 		public PageCodeName getStatus() {
 			return status;
 		}
-		// <summary>
-		//	Page Status
-		// </summary>
+		/**
+		 * Page Status
+		 */
 		public void setStatus(PageCodeName status) {
 			this.status = status;
 		}
-		// <summary>
-		//	Stock Exchange
-		// </summary>
+		/**
+		 * Stock Exchange
+		 */
 		public PageCodeName getStockExchange() {
 			return stockExchange;
 		}
-		// <summary>
-		//	Stock Exchange
-		// </summary>
+		/**
+		 * Stock Exchange
+		 */
 		public void setStockExchange(PageCodeName stockExchange) {
 			this.stockExchange = stockExchange;
 		}
-		// <summary>
-		//	Talking About Count
-		// </summary>
+		/**
+		 * Talking About Count
+		 */
 		public String getTalkingAboutCount() {
 			return talkingAboutCount;
 		}
-		// <summary>
-		//	Talking About Count
-		// </summary>
+		/**
+		 * Talking About Count
+		 */
 		public void setTalkingAboutCount(String talkingAboutCount) {
 			this.talkingAboutCount = talkingAboutCount;
 		}
-		// <summary>
-		//	String represents website url
-		// </summary>
+		/**
+		 * String represents website url
+		 */
 		public String getUrl() {
 			return url;
 		}
-		// <summary>
-		//	String represents website url
-		// </summary>
+		/**
+		 * String represents website url
+		 */
 		public void setUrl(String url) {
 			this.url = url;
 		}
-		// <summary>
-		//	Username of the user
-		// </summary>
+		/**
+		 * Username of the user
+		 */
 		public String getUserName() {
 			return userName;
 		}
-		// <summary>
-		//	Username of the user
-		// </summary>
+		/**
+		 * Username of the user
+		 */
 		public void setUserName(String userName) {
 			this.userName = userName;
 		}
-		// <summary>
-		//	Personal Website a User has
-		// </summary>
+		/**
+		 * Personal Website a User has
+		 */
 		public String getWebsite() {
 			return website;
 		}
-		// <summary>
-		//	Personal Website a User has
-		// </summary>
+		/**
+		 * Personal Website a User has
+		 */
 		public void setWebsite(String website) {
 			this.website = website;
 		}

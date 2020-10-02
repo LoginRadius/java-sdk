@@ -9,9 +9,9 @@ package com.loginradius.sdk.models.responsemodels;
 import com.google.gson.annotations.SerializedName;
 import com.loginradius.sdk.models.enums.ConsentProfileActions;
 
-	// <summary>
-	//	Response containing consent profile logs
-	// </summary>
+	/**
+	 * Response containing consent profile logs
+	 */
 	public class ConsentProfileLog {
 	
 		
@@ -23,27 +23,27 @@ import com.loginradius.sdk.models.enums.ConsentProfileActions;
 
 
 
-		// <summary>
-		//	Consent ID
-		// </summary>
+		/**
+		 * Consent ID
+		 */
 		public String getConsentId() {
 			return consentId;
 		}
-		// <summary>
-		//	Consent ID
-		// </summary>
+		/**
+		 * Consent ID
+		 */
 		public void setConsentId(String consentId) {
 			this.consentId = consentId;
 		}
-		// <summary>
-		//	ConsentProfileActions
-		// </summary>
+		/**
+		 * ConsentProfileActions
+		 */
 		public ConsentProfileActions getEvent() {
 			return event;
 		}
-		// <summary>
-		//	ConsentProfileActions
-		// </summary>
+		/**
+		 * ConsentProfileActions
+		 */
 		public void setEvent(ConsentProfileActions event) {
 			this.event = event;
 		}

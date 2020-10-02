@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Status data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Status data
+	 */
 	public class Status {
 	
 		
@@ -43,111 +43,111 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Status date and time
-		// </summary>
+		/**
+		 * Status date and time
+		 */
 		public String getDateTime() {
 			return dateTime;
 		}
-		// <summary>
-		//	Status date and time
-		// </summary>
+		/**
+		 * Status date and time
+		 */
 		public void setDateTime(String dateTime) {
 			this.dateTime = dateTime;
 		}
-		// <summary>
-		//	ID of the User
-		// </summary>
+		/**
+		 * ID of the User
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	ID of the User
-		// </summary>
+		/**
+		 * ID of the User
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	image URL should be absolute and has HTTPS domain
-		// </summary>
+		/**
+		 * image URL should be absolute and has HTTPS domain
+		 */
 		public String getImageUrl() {
 			return imageUrl;
 		}
-		// <summary>
-		//	image URL should be absolute and has HTTPS domain
-		// </summary>
+		/**
+		 * image URL should be absolute and has HTTPS domain
+		 */
 		public void setImageUrl(String imageUrl) {
 			this.imageUrl = imageUrl;
 		}
-		// <summary>
-		//	Likes
-		// </summary>
+		/**
+		 * Likes
+		 */
 		public int getLikes() {
 			return likes;
 		}
-		// <summary>
-		//	Likes
-		// </summary>
+		/**
+		 * Likes
+		 */
 		public void setLikes(int likes) {
 			this.likes = likes;
 		}
-		// <summary>
-		//	Status Link URL
-		// </summary>
+		/**
+		 * Status Link URL
+		 */
 		public String getLinkUrl() {
 			return linkUrl;
 		}
-		// <summary>
-		//	Status Link URL
-		// </summary>
+		/**
+		 * Status Link URL
+		 */
 		public void setLinkUrl(String linkUrl) {
 			this.linkUrl = linkUrl;
 		}
-		// <summary>
-		//	Name of the customer
-		// </summary>
+		/**
+		 * Name of the customer
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Name of the customer
-		// </summary>
+		/**
+		 * Name of the customer
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
-		// <summary>
-		//	Status Place
-		// </summary>
+		/**
+		 * Status Place
+		 */
 		public String getPlace() {
 			return place;
 		}
-		// <summary>
-		//	Status Place
-		// </summary>
+		/**
+		 * Status Place
+		 */
 		public void setPlace(String place) {
 			this.place = place;
 		}
-		// <summary>
-		//	Status Source
-		// </summary>
+		/**
+		 * Status Source
+		 */
 		public String getSource() {
 			return source;
 		}
-		// <summary>
-		//	Status Source
-		// </summary>
+		/**
+		 * Status Source
+		 */
 		public void setSource(String source) {
 			this.source = source;
 		}
-		// <summary>
-		//	text user
-		// </summary>
+		/**
+		 * text user
+		 */
 		public String getText() {
 			return text;
 		}
-		// <summary>
-		//	text user
-		// </summary>
+		/**
+		 * text user
+		 */
 		public void setText(String text) {
 			this.text = text;
 		}

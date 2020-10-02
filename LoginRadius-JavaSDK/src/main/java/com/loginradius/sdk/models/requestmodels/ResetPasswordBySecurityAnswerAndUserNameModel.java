@@ -10,9 +10,9 @@ import java.util.Map;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for ResetPasswordBySecurityAnswerAndUserName API
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for ResetPasswordBySecurityAnswerAndUserName API
+	 */
 	public class ResetPasswordBySecurityAnswerAndUserNameModel {
 	
 		
@@ -30,51 +30,51 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Password for the email
-		// </summary>
+		/**
+		 * Password for the email
+		 */
 		public String getPassword() {
 			return password;
 		}
-		// <summary>
-		//	Password for the email
-		// </summary>
+		/**
+		 * Password for the email
+		 */
 		public void setPassword(String password) {
 			this.password = password;
 		}
-		// <summary>
-		//	If you are sending an email via the sendemail parameter, this parameter allows you to specify which reset Password email template you would like to use.
-		// </summary>
+		/**
+		 * If you are sending an email via the sendemail parameter, this parameter allows you to specify which reset Password email template you would like to use.
+		 */
 		public String getResetPasswordEmailTemplate() {
 			return resetPasswordEmailTemplate;
 		}
-		// <summary>
-		//	If you are sending an email via the sendemail parameter, this parameter allows you to specify which reset Password email template you would like to use.
-		// </summary>
+		/**
+		 * If you are sending an email via the sendemail parameter, this parameter allows you to specify which reset Password email template you would like to use.
+		 */
 		public void setResetPasswordEmailTemplate(String resetPasswordEmailTemplate) {
 			this.resetPasswordEmailTemplate = resetPasswordEmailTemplate;
 		}
-		// <summary>
-		//	Valid JSON object of Unique Security Question ID and Answer of set Security Question. It is only required for locked accounts when logging in. Details about this feature
-		// </summary>
+		/**
+		 * Valid JSON object of Unique Security Question ID and Answer of set Security Question. It is only required for locked accounts when logging in. Details about this feature
+		 */
 		public Map<String,String> getSecurityAnswer() {
 			return securityAnswer;
 		}
-		// <summary>
-		//	Valid JSON object of Unique Security Question ID and Answer of set Security Question. It is only required for locked accounts when logging in. Details about this feature
-		// </summary>
+		/**
+		 * Valid JSON object of Unique Security Question ID and Answer of set Security Question. It is only required for locked accounts when logging in. Details about this feature
+		 */
 		public void setSecurityAnswer(Map<String,String> securityAnswer) {
 			this.securityAnswer = securityAnswer;
 		}
-		// <summary>
-		//	Username of the user
-		// </summary>
+		/**
+		 * Username of the user
+		 */
 		public String getUserName() {
 			return userName;
 		}
-		// <summary>
-		//	Username of the user
-		// </summary>
+		/**
+		 * Username of the user
+		 */
 		public void setUserName(String userName) {
 			this.userName = userName;
 		}

@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for Awards Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for Awards Property
+	 */
 	public class Awards {
 	
 		
@@ -25,39 +25,39 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Id of the Awards
-		// </summary>
+		/**
+		 * Id of the Awards
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Id of the Awards
-		// </summary>
+		/**
+		 * Id of the Awards
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	Award issuer details
-		// </summary>
+		/**
+		 * Award issuer details
+		 */
 		public String getIssuer() {
 			return issuer;
 		}
-		// <summary>
-		//	Award issuer details
-		// </summary>
+		/**
+		 * Award issuer details
+		 */
 		public void setIssuer(String issuer) {
 			this.issuer = issuer;
 		}
-		// <summary>
-		//	Award name
-		// </summary>
+		/**
+		 * Award name
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Award name
-		// </summary>
+		/**
+		 * Award name
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}

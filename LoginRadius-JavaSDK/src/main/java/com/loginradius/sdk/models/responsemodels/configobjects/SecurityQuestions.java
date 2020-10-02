@@ -15,30 +15,30 @@ public class SecurityQuestions {
 	@Expose
 	private Integer securityQuestionCount;
 
-	/// <summary>
-	/// Question
-	/// </summary>
+	/**
+	 * Question
+	 */
 	public List<Object> getQuestions() {
 		return questions;
 	}
 
-	/// <summary>
-	/// Question
-	/// </summary>
+	/**
+	 * Question
+	 */
 	public void setQuestions(List<Object> questions) {
 		this.questions = questions;
 	}
 
-	/// <summary>
-	/// Number of Question
-	/// </summary>
+	/**
+	 * Number of Question
+	 */
 	public Integer getSecurityQuestionCount() {
 		return securityQuestionCount;
 	}
 
-	/// <summary>
-	/// Number of Question
-	/// </summary>
+	/**
+	 * Number of Question
+	 */
 	public void setSecurityQuestionCount(Integer securityQuestionCount) {
 		this.securityQuestionCount = securityQuestionCount;
 	}

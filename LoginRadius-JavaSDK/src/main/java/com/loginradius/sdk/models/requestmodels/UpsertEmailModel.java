@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for UpsertEmail Property
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for UpsertEmail Property
+	 */
 	public class UpsertEmailModel {
 	
 		
@@ -21,15 +21,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	user's email
-		// </summary>
+		/**
+		 * user's email
+		 */
 		public List<EmailModel> getEmail() {
 			return email;
 		}
-		// <summary>
-		//	user's email
-		// </summary>
+		/**
+		 * user's email
+		 */
 		public void setEmail(List<EmailModel> email) {
 			this.email = email;
 		}

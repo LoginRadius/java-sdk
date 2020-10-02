@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for IMAccount Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for IMAccount Property
+	 */
 	public class IMAccount {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Name of account
-		// </summary>
+		/**
+		 * Name of account
+		 */
 		public String getAccountName() {
 			return accountName;
 		}
-		// <summary>
-		//	Name of account
-		// </summary>
+		/**
+		 * Name of account
+		 */
 		public void setAccountName(String accountName) {
 			this.accountName = accountName;
 		}
-		// <summary>
-		//	Type of account
-		// </summary>
+		/**
+		 * Type of account
+		 */
 		public String getAccountType() {
 			return accountType;
 		}
-		// <summary>
-		//	Type of account
-		// </summary>
+		/**
+		 * Type of account
+		 */
 		public void setAccountType(String accountType) {
 			this.accountType = accountType;
 		}

@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for MultiFactorAuth By BackupCode API
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for MultiFactorAuth By BackupCode API
+	 */
 	public class MultiFactorAuthModelByBackupCode {
 	
 		
@@ -19,15 +19,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	The Code generated as a recourse
-		// </summary>
+		/**
+		 * The Code generated as a recourse
+		 */
 		public String getBackupCode() {
 			return backupCode;
 		}
-		// <summary>
-		//	The Code generated as a recourse
-		// </summary>
+		/**
+		 * The Code generated as a recourse
+		 */
 		public void setBackupCode(String backupCode) {
 			this.backupCode = backupCode;
 		}

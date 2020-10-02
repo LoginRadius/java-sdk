@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Album data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Album data
+	 */
 	public class Album {
 	
 		
@@ -52,147 +52,147 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Image url
-		// </summary>
+		/**
+		 * Image url
+		 */
 		public String getCoverImageUrl() {
 			return coverImageUrl;
 		}
-		// <summary>
-		//	Image url
-		// </summary>
+		/**
+		 * Image url
+		 */
 		public void setCoverImageUrl(String coverImageUrl) {
 			this.coverImageUrl = coverImageUrl;
 		}
-		// <summary>
-		//	Date of Creation of Profile
-		// </summary>
+		/**
+		 * Date of Creation of Profile
+		 */
 		public String getCreatedDate() {
 			return createdDate;
 		}
-		// <summary>
-		//	Date of Creation of Profile
-		// </summary>
+		/**
+		 * Date of Creation of Profile
+		 */
 		public void setCreatedDate(String createdDate) {
 			this.createdDate = createdDate;
 		}
-		// <summary>
-		//	detailed information
-		// </summary>
+		/**
+		 * detailed information
+		 */
 		public String getDescription() {
 			return description;
 		}
-		// <summary>
-		//	detailed information
-		// </summary>
+		/**
+		 * detailed information
+		 */
 		public void setDescription(String description) {
 			this.description = description;
 		}
-		// <summary>
-		//	Directory's url
-		// </summary>
+		/**
+		 * Directory's url
+		 */
 		public String getDirectoryUrl() {
 			return directoryUrl;
 		}
-		// <summary>
-		//	Directory's url
-		// </summary>
+		/**
+		 * Directory's url
+		 */
 		public void setDirectoryUrl(String directoryUrl) {
 			this.directoryUrl = directoryUrl;
 		}
-		// <summary>
-		//	ID of the User
-		// </summary>
+		/**
+		 * ID of the User
+		 */
 		public String getID() {
 			return iD;
 		}
-		// <summary>
-		//	ID of the User
-		// </summary>
+		/**
+		 * ID of the User
+		 */
 		public void setID(String iD) {
 			this.iD = iD;
 		}
-		// <summary>
-		//	Number of images
-		// </summary>
+		/**
+		 * Number of images
+		 */
 		public String getImageCount() {
 			return imageCount;
 		}
-		// <summary>
-		//	Number of images
-		// </summary>
+		/**
+		 * Number of images
+		 */
 		public void setImageCount(String imageCount) {
 			this.imageCount = imageCount;
 		}
-		// <summary>
-		//	user's location
-		// </summary>
+		/**
+		 * user's location
+		 */
 		public String getLocation() {
 			return location;
 		}
-		// <summary>
-		//	user's location
-		// </summary>
+		/**
+		 * user's location
+		 */
 		public void setLocation(String location) {
 			this.location = location;
 		}
-		// <summary>
-		//	ID of account owner
-		// </summary>
+		/**
+		 * ID of account owner
+		 */
 		public String getOwnerId() {
 			return ownerId;
 		}
-		// <summary>
-		//	ID of account owner
-		// </summary>
+		/**
+		 * ID of account owner
+		 */
 		public void setOwnerId(String ownerId) {
 			this.ownerId = ownerId;
 		}
-		// <summary>
-		//	Name of account owner
-		// </summary>
+		/**
+		 * Name of account owner
+		 */
 		public String getOwnerName() {
 			return ownerName;
 		}
-		// <summary>
-		//	Name of account owner
-		// </summary>
+		/**
+		 * Name of account owner
+		 */
 		public void setOwnerName(String ownerName) {
 			this.ownerName = ownerName;
 		}
-		// <summary>
-		//	Title of Linked URL
-		// </summary>
+		/**
+		 * Title of Linked URL
+		 */
 		public String getTitle() {
 			return title;
 		}
-		// <summary>
-		//	Title of Linked URL
-		// </summary>
+		/**
+		 * Title of Linked URL
+		 */
 		public void setTitle(String title) {
 			this.title = title;
 		}
-		// <summary>
-		//	String to identify the type of parameter
-		// </summary>
+		/**
+		 * String to identify the type of parameter
+		 */
 		public String getType() {
 			return type;
 		}
-		// <summary>
-		//	String to identify the type of parameter
-		// </summary>
+		/**
+		 * String to identify the type of parameter
+		 */
 		public void setType(String type) {
 			this.type = type;
 		}
-		// <summary>
-		//	Updated date
-		// </summary>
+		/**
+		 * Updated date
+		 */
 		public String getUpdatedDate() {
 			return updatedDate;
 		}
-		// <summary>
-		//	Updated date
-		// </summary>
+		/**
+		 * Updated date
+		 */
 		public void setUpdatedDate(String updatedDate) {
 			this.updatedDate = updatedDate;
 		}

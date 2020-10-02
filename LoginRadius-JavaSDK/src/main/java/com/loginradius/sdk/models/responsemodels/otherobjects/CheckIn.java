@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete CheckIn data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete CheckIn data
+	 */
 	public class CheckIn {
 	
 		
@@ -58,171 +58,171 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Array of objects,String represents address of user
-		// </summary>
+		/**
+		 * Array of objects,String represents address of user
+		 */
 		public String getAddress() {
 			return address;
 		}
-		// <summary>
-		//	Array of objects,String represents address of user
-		// </summary>
+		/**
+		 * Array of objects,String represents address of user
+		 */
 		public void setAddress(String address) {
 			this.address = address;
 		}
-		// <summary>
-		//	user's city
-		// </summary>
+		/**
+		 * user's city
+		 */
 		public String getCity() {
 			return city;
 		}
-		// <summary>
-		//	user's city
-		// </summary>
+		/**
+		 * user's city
+		 */
 		public void setCity(String city) {
 			this.city = city;
 		}
-		// <summary>
-		//	Country of the user
-		// </summary>
+		/**
+		 * Country of the user
+		 */
 		public String getCountry() {
 			return country;
 		}
-		// <summary>
-		//	Country of the user
-		// </summary>
+		/**
+		 * Country of the user
+		 */
 		public void setCountry(String country) {
 			this.country = country;
 		}
-		// <summary>
-		//	Date of Creation of Profile
-		// </summary>
+		/**
+		 * Date of Creation of Profile
+		 */
 		public String getCreatedDate() {
 			return createdDate;
 		}
-		// <summary>
-		//	Date of Creation of Profile
-		// </summary>
+		/**
+		 * Date of Creation of Profile
+		 */
 		public void setCreatedDate(String createdDate) {
 			this.createdDate = createdDate;
 		}
-		// <summary>
-		//	distance
-		// </summary>
+		/**
+		 * distance
+		 */
 		public String getDistance() {
 			return distance;
 		}
-		// <summary>
-		//	distance
-		// </summary>
+		/**
+		 * distance
+		 */
 		public void setDistance(String distance) {
 			this.distance = distance;
 		}
-		// <summary>
-		//	ID of the User
-		// </summary>
+		/**
+		 * ID of the User
+		 */
 		public String getID() {
 			return iD;
 		}
-		// <summary>
-		//	ID of the User
-		// </summary>
+		/**
+		 * ID of the User
+		 */
 		public void setID(String iD) {
 			this.iD = iD;
 		}
-		// <summary>
-		//	image URL should be absolute and has HTTPS domain
-		// </summary>
+		/**
+		 * image URL should be absolute and has HTTPS domain
+		 */
 		public String getImageUrl() {
 			return imageUrl;
 		}
-		// <summary>
-		//	image URL should be absolute and has HTTPS domain
-		// </summary>
+		/**
+		 * image URL should be absolute and has HTTPS domain
+		 */
 		public void setImageUrl(String imageUrl) {
 			this.imageUrl = imageUrl;
 		}
-		// <summary>
-		//	The Latitude
-		// </summary>
+		/**
+		 * The Latitude
+		 */
 		public String getLatitude() {
 			return latitude;
 		}
-		// <summary>
-		//	The Latitude
-		// </summary>
+		/**
+		 * The Latitude
+		 */
 		public void setLatitude(String latitude) {
 			this.latitude = latitude;
 		}
-		// <summary>
-		//	The Longitude
-		// </summary>
+		/**
+		 * The Longitude
+		 */
 		public String getLongitude() {
 			return longitude;
 		}
-		// <summary>
-		//	The Longitude
-		// </summary>
+		/**
+		 * The Longitude
+		 */
 		public void setLongitude(String longitude) {
 			this.longitude = longitude;
 		}
-		// <summary>
-		//	message
-		// </summary>
+		/**
+		 * message
+		 */
 		public String getMessage() {
 			return message;
 		}
-		// <summary>
-		//	message
-		// </summary>
+		/**
+		 * message
+		 */
 		public void setMessage(String message) {
 			this.message = message;
 		}
-		// <summary>
-		//	ID of account owner
-		// </summary>
+		/**
+		 * ID of account owner
+		 */
 		public String getOwnerId() {
 			return ownerId;
 		}
-		// <summary>
-		//	ID of account owner
-		// </summary>
+		/**
+		 * ID of account owner
+		 */
 		public void setOwnerId(String ownerId) {
 			this.ownerId = ownerId;
 		}
-		// <summary>
-		//	Name of account owner
-		// </summary>
+		/**
+		 * Name of account owner
+		 */
 		public String getOwnerName() {
 			return ownerName;
 		}
-		// <summary>
-		//	Name of account owner
-		// </summary>
+		/**
+		 * Name of account owner
+		 */
 		public void setOwnerName(String ownerName) {
 			this.ownerName = ownerName;
 		}
-		// <summary>
-		//	The place title
-		// </summary>
+		/**
+		 * The place title
+		 */
 		public String getPlaceTitle() {
 			return placeTitle;
 		}
-		// <summary>
-		//	The place title
-		// </summary>
+		/**
+		 * The place title
+		 */
 		public void setPlaceTitle(String placeTitle) {
 			this.placeTitle = placeTitle;
 		}
-		// <summary>
-		//	String to identify the type of parameter
-		// </summary>
+		/**
+		 * String to identify the type of parameter
+		 */
 		public String getType() {
 			return type;
 		}
-		// <summary>
-		//	String to identify the type of parameter
-		// </summary>
+		/**
+		 * String to identify the type of parameter
+		 */
 		public void setType(String type) {
 			this.type = type;
 		}

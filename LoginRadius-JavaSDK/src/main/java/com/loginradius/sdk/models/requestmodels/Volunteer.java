@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for Volunteer Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for Volunteer Property
+	 */
 	public class Volunteer {
 	
 		
@@ -28,51 +28,51 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Cause of volunteer
-		// </summary>
+		/**
+		 * Cause of volunteer
+		 */
 		public String getCause() {
 			return cause;
 		}
-		// <summary>
-		//	Cause of volunteer
-		// </summary>
+		/**
+		 * Cause of volunteer
+		 */
 		public void setCause(String cause) {
 			this.cause = cause;
 		}
-		// <summary>
-		//	Volunteer Id
-		// </summary>
+		/**
+		 * Volunteer Id
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Volunteer Id
-		// </summary>
+		/**
+		 * Volunteer Id
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	Volunteer organization
-		// </summary>
+		/**
+		 * Volunteer organization
+		 */
 		public String getOrganization() {
 			return organization;
 		}
-		// <summary>
-		//	Volunteer organization
-		// </summary>
+		/**
+		 * Volunteer organization
+		 */
 		public void setOrganization(String organization) {
 			this.organization = organization;
 		}
-		// <summary>
-		//	Volunteer role
-		// </summary>
+		/**
+		 * Volunteer role
+		 */
 		public String getRole() {
 			return role;
 		}
-		// <summary>
-		//	Volunteer role
-		// </summary>
+		/**
+		 * Volunteer role
+		 */
 		public void setRole(String role) {
 			this.role = role;
 		}

@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Verification data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Verification data
+	 */
 	public class EmailVerificationTokenResponse {
 	
 		
@@ -19,15 +19,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Verification token received in the email
-		// </summary>
+		/**
+		 * Verification token received in the email
+		 */
 		public String getVerificationToken() {
 			return verificationToken;
 		}
-		// <summary>
-		//	Verification token received in the email
-		// </summary>
+		/**
+		 * Verification token received in the email
+		 */
 		public void setVerificationToken(String verificationToken) {
 			this.verificationToken = verificationToken;
 		}

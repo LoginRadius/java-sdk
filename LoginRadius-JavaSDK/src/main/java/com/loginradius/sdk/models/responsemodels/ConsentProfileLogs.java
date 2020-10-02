@@ -11,9 +11,9 @@ import java.util.List;
 import com.google.gson.annotations.SerializedName;
 import com.loginradius.sdk.models.enums.ConsentProfileUpdateType;
 
-	// <summary>
-	//	Response containg consent profile logs
-	// </summary>
+	/**
+	 * Response containg consent profile logs
+	 */
 	public class ConsentProfileLogs {
 	
 		
@@ -43,99 +43,99 @@ import com.loginradius.sdk.models.enums.ConsentProfileUpdateType;
 
 
 
-		// <summary>
-		//	List of consent logs
-		// </summary>
+		/**
+		 * List of consent logs
+		 */
 		public List<ConsentProfileLog> getConsentLogs() {
 			return consentLogs;
 		}
-		// <summary>
-		//	List of consent logs
-		// </summary>
+		/**
+		 * List of consent logs
+		 */
 		public void setConsentLogs(List<ConsentProfileLog> consentLogs) {
 			this.consentLogs = consentLogs;
 		}
-		// <summary>
-		//	List of consetforms version
-		// </summary>
+		/**
+		 * List of consetforms version
+		 */
 		public List<ConsentVersions> getCurrentConsentFormsVersions() {
 			return currentConsentFormsVersions;
 		}
-		// <summary>
-		//	List of consetforms version
-		// </summary>
+		/**
+		 * List of consetforms version
+		 */
 		public void setCurrentConsentFormsVersions(List<ConsentVersions> currentConsentFormsVersions) {
 			this.currentConsentFormsVersions = currentConsentFormsVersions;
 		}
-		// <summary>
-		//	Host name
-		// </summary>
+		/**
+		 * Host name
+		 */
 		public String getHost() {
 			return host;
 		}
-		// <summary>
-		//	Host name
-		// </summary>
+		/**
+		 * Host name
+		 */
 		public void setHost(String host) {
 			this.host = host;
 		}
-		// <summary>
-		//	ID of the User
-		// </summary>
+		/**
+		 * ID of the User
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	ID of the User
-		// </summary>
+		/**
+		 * ID of the User
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	users ip address
-		// </summary>
+		/**
+		 * users ip address
+		 */
 		public String getIP() {
 			return iP;
 		}
-		// <summary>
-		//	users ip address
-		// </summary>
+		/**
+		 * users ip address
+		 */
 		public void setIP(String iP) {
 			this.iP = iP;
 		}
-		// <summary>
-		//	Logged On Date
-		// </summary>
+		/**
+		 * Logged On Date
+		 */
 		public String getLoggedOnDate() {
 			return loggedOnDate;
 		}
-		// <summary>
-		//	Logged On Date
-		// </summary>
+		/**
+		 * Logged On Date
+		 */
 		public void setLoggedOnDate(String loggedOnDate) {
 			this.loggedOnDate = loggedOnDate;
 		}
-		// <summary>
-		//	Consent Profile Update Type
-		// </summary>
+		/**
+		 * Consent Profile Update Type
+		 */
 		public ConsentProfileUpdateType getUpdateType() {
 			return updateType;
 		}
-		// <summary>
-		//	Consent Profile Update Type
-		// </summary>
+		/**
+		 * Consent Profile Update Type
+		 */
 		public void setUpdateType(ConsentProfileUpdateType updateType) {
 			this.updateType = updateType;
 		}
-		// <summary>
-		//	UserAgent
-		// </summary>
+		/**
+		 * UserAgent
+		 */
 		public String getUserAgent() {
 			return userAgent;
 		}
-		// <summary>
-		//	UserAgent
-		// </summary>
+		/**
+		 * UserAgent
+		 */
 		public void setUserAgent(String userAgent) {
 			this.userAgent = userAgent;
 		}

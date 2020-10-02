@@ -7,9 +7,9 @@
 
 package com.loginradius.sdk.models.enums;
 
-// <summary>
-	//	Enum Consent Profile Actions type of operation on parameters like subscribe,unsubscribe,notopted
-	// </summary>
+	/**
+	 * Enum Consent Profile Actions type of operation on parameters like subscribe,unsubscribe,notopted
+	 */
 	public enum ConsentProfileActions {
 	
         Subscribe,

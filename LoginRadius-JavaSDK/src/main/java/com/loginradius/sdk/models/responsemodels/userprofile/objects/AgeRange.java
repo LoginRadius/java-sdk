@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Age data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Age data
+	 */
 	public class AgeRange {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Maximum Value Range
-		// </summary>
+		/**
+		 * Maximum Value Range
+		 */
 		public Integer getMax() {
 			return max;
 		}
-		// <summary>
-		//	Maximum Value Range
-		// </summary>
+		/**
+		 * Maximum Value Range
+		 */
 		public void setMax(Integer max) {
 			this.max = max;
 		}
-		// <summary>
-		//	Minimum Value Range
-		// </summary>
+		/**
+		 * Minimum Value Range
+		 */
 		public Integer getMin() {
 			return min;
 		}
-		// <summary>
-		//	Minimum Value Range
-		// </summary>
+		/**
+		 * Minimum Value Range
+		 */
 		public void setMin(Integer min) {
 			this.min = min;
 		}

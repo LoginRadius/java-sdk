@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Page Category data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Page Category data
+	 */
 	public class PageCodeName {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	page code
-		// </summary>
+		/**
+		 * page code
+		 */
 		public String getCode() {
 			return code;
 		}
-		// <summary>
-		//	page code
-		// </summary>
+		/**
+		 * page code
+		 */
 		public void setCode(String code) {
 			this.code = code;
 		}
-		// <summary>
-		//	page code name
-		// </summary>
+		/**
+		 * page code name
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	page code name
-		// </summary>
+		/**
+		 * page code name
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}

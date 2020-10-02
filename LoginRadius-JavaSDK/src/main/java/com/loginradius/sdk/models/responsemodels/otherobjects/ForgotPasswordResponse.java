@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Forgot Password data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Forgot Password data
+	 */
 	public class ForgotPasswordResponse {
 	
 		
@@ -24,27 +24,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Forgot token
-		// </summary>
+		/**
+		 * Forgot token
+		 */
 		public String getForgotToken() {
 			return forgotToken;
 		}
-		// <summary>
-		//	Forgot token
-		// </summary>
+		/**
+		 * Forgot token
+		 */
 		public void setForgotToken(String forgotToken) {
 			this.forgotToken = forgotToken;
 		}
-		// <summary>
-		//	Identity providers
-		// </summary>
+		/**
+		 * Identity providers
+		 */
 		public List<String> getIdentityProviders() {
 			return identityProviders;
 		}
-		// <summary>
-		//	Identity providers
-		// </summary>
+		/**
+		 * Identity providers
+		 */
 		public void setIdentityProviders(List<String> identityProviders) {
 			this.identityProviders = identityProviders;
 		}

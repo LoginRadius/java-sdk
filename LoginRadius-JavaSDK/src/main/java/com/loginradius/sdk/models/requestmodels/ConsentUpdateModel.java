@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model class containg list of multiple consent
-	// </summary>
+	/**
+	 * Model class containg list of multiple consent
+	 */
 	public class ConsentUpdateModel {
 	
 		
@@ -21,15 +21,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	List of Consents
-		// </summary>
+		/**
+		 * List of Consents
+		 */
 		public List<ConsentDataModel> getConsents() {
 			return consents;
 		}
-		// <summary>
-		//	List of Consents
-		// </summary>
+		/**
+		 * List of Consents
+		 */
 		public void setConsents(List<ConsentDataModel> consents) {
 			this.consents = consents;
 		}

@@ -10,9 +10,9 @@ import java.util.Map;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for Reset Pin By Security Question API
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for Reset Pin By Security Question API
+	 */
 	public class ResetPINBySecurityQuestionAnswer {
 	
 		
@@ -24,27 +24,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	PIN of user
-		// </summary>
+		/**
+		 * PIN of user
+		 */
 		public String getPIN() {
 			return pin;
 		}
-		// <summary>
-		//	PIN of user
-		// </summary>
+		/**
+		 * PIN of user
+		 */
 		public void setPIN(String pin) {
 			this.pin = pin;
 		}
-		// <summary>
-		//	Valid JSON object of Unique Security Question ID and Answer of set Security Question. It is only required for locked accounts when logging in. Details about this feature
-		// </summary>
+		/**
+		 * Valid JSON object of Unique Security Question ID and Answer of set Security Question. It is only required for locked accounts when logging in. Details about this feature
+		 */
 		public Map<String,String> getSecurityAnswer() {
 			return securityAnswer;
 		}
-		// <summary>
-		//	Valid JSON object of Unique Security Question ID and Answer of set Security Question. It is only required for locked accounts when logging in. Details about this feature
-		// </summary>
+		/**
+		 * Valid JSON object of Unique Security Question ID and Answer of set Security Question. It is only required for locked accounts when logging in. Details about this feature
+		 */
 		public void setSecurityAnswer(Map<String,String> securityAnswer) {
 			this.securityAnswer = securityAnswer;
 		}

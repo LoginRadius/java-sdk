@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Volunteer data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Volunteer data
+	 */
 	public class Volunteer {
 	
 		
@@ -28,51 +28,51 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Cause of volunteer
-		// </summary>
+		/**
+		 * Cause of volunteer
+		 */
 		public String getCause() {
 			return cause;
 		}
-		// <summary>
-		//	Cause of volunteer
-		// </summary>
+		/**
+		 * Cause of volunteer
+		 */
 		public void setCause(String cause) {
 			this.cause = cause;
 		}
-		// <summary>
-		//	Volunteer Id
-		// </summary>
+		/**
+		 * Volunteer Id
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Volunteer Id
-		// </summary>
+		/**
+		 * Volunteer Id
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	name
-		// </summary>
+		/**
+		 * name
+		 */
 		public String getOrganization() {
 			return organization;
 		}
-		// <summary>
-		//	name
-		// </summary>
+		/**
+		 * name
+		 */
 		public void setOrganization(String organization) {
 			this.organization = organization;
 		}
-		// <summary>
-		//	Name of role
-		// </summary>
+		/**
+		 * Name of role
+		 */
 		public String getRole() {
 			return role;
 		}
-		// <summary>
-		//	Name of role
-		// </summary>
+		/**
+		 * Name of role
+		 */
 		public void setRole(String role) {
 			this.role = role;
 		}

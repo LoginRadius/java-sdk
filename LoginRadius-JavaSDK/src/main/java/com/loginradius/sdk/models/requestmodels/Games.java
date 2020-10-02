@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for Games Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for Games Property
+	 */
 	public class Games {
 	
 		
@@ -28,51 +28,51 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Category of game
-		// </summary>
+		/**
+		 * Category of game
+		 */
 		public String getCategory() {
 			return category;
 		}
-		// <summary>
-		//	Category of game
-		// </summary>
+		/**
+		 * Category of game
+		 */
 		public void setCategory(String category) {
 			this.category = category;
 		}
-		// <summary>
-		//	Game created date
-		// </summary>
+		/**
+		 * Game created date
+		 */
 		public String getCreatedDate() {
 			return createdDate;
 		}
-		// <summary>
-		//	Game created date
-		// </summary>
+		/**
+		 * Game created date
+		 */
 		public void setCreatedDate(String createdDate) {
 			this.createdDate = createdDate;
 		}
-		// <summary>
-		//	Id of game
-		// </summary>
+		/**
+		 * Id of game
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Id of game
-		// </summary>
+		/**
+		 * Id of game
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	Game name
-		// </summary>
+		/**
+		 * Game name
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Game name
-		// </summary>
+		/**
+		 * Game name
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}

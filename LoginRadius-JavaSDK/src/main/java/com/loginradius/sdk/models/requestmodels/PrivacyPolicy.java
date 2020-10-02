@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for PrivacyPolicy Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for PrivacyPolicy Property
+	 */
 	public class PrivacyPolicy {
 	
 		
@@ -19,15 +19,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Privacy policy version
-		// </summary>
+		/**
+		 * Privacy policy version
+		 */
 		public String getVersion() {
 			return version;
 		}
-		// <summary>
-		//	Privacy policy version
-		// </summary>
+		/**
+		 * Privacy policy version
+		 */
 		public void setVersion(String version) {
 			this.version = version;
 		}

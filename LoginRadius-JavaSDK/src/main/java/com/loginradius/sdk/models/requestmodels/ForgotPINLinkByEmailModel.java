@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for Forgot Pin Link By Email API
-	// </summary>
+	/**
+	 * Model Class containing Definition for Forgot Pin Link By Email API
+	 */
 	public class ForgotPINLinkByEmailModel {
 	
 		
@@ -19,15 +19,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	user's email
-		// </summary>
+		/**
+		 * user's email
+		 */
 		public String getEmail() {
 			return email;
 		}
-		// <summary>
-		//	user's email
-		// </summary>
+		/**
+		 * user's email
+		 */
 		public void setEmail(String email) {
 			this.email = email;
 		}

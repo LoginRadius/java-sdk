@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete List data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete List data
+	 */
 	public class ListReturn<T> {
 	
 		
@@ -21,15 +21,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Data
-		// </summary>
+		/**
+		 * Data
+		 */
 		public List<T> getData() {
 			return data;
 		}
-		// <summary>
-		//	Data
-		// </summary>
+		/**
+		 * Data
+		 */
 		public void setData(List<T> data) {
 			this.data = data;
 		}

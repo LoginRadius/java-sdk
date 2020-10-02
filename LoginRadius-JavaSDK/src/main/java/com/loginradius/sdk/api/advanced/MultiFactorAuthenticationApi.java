@@ -41,13 +41,13 @@ public class MultiFactorAuthenticationApi {
 
    
    
-   // <summary>
-   // This API is used to configure the Multi-factor authentication after login by using the access token when MFA is set as optional on the LoginRadius site.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="smsTemplate2FA">SMS Template Name</param>
-   // <returns>Response containing Definition of Complete Multi-Factor Authentication Settings data</returns>
-   // 5.7	    
+   /**
+    * This API is used to configure the Multi-factor authentication after login by using the access token when MFA is set as optional on the LoginRadius site.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param smsTemplate2FA SMS Template Name
+    * @return Response containing Definition of Complete Multi-Factor Authentication Settings data
+    * @since 5.7
+    */
 		
 		
    public void mfaConfigureByAccessToken(String accessToken, String smsTemplate2FA, final AsyncHandler<MultiFactorAuthenticationSettingsResponse> handler) {      
@@ -82,14 +82,14 @@ public class MultiFactorAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to trigger the Multi-factor authentication settings after login for secure actions
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="multiFactorAuthModelWithLockout">Model Class containing Definition of payload for MultiFactorAuthModel With Lockout API</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <returns>Response containing Definition for Complete profile data</returns>
-   // 5.9	    
+   /**
+    * This API is used to trigger the Multi-factor authentication settings after login for secure actions
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param multiFactorAuthModelWithLockout Model Class containing Definition of payload for MultiFactorAuthModel With Lockout API
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @return Response containing Definition for Complete profile data
+    * @since 5.9
+    */
 		
 		
    public void mfaUpdateSetting(String accessToken, MultiFactorAuthModelWithLockout multiFactorAuthModelWithLockout,
@@ -129,15 +129,15 @@ public class MultiFactorAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to Enable Multi-factor authentication by access token on user login
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="multiFactorAuthModelByGoogleAuthenticatorCode">Model Class containing Definition of payload for MultiFactorAuthModel By GoogleAuthenticator Code API</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <returns>Response containing Definition for Complete profile data</returns>
-   // 5.10	    
+   /**
+    * This API is used to Enable Multi-factor authentication by access token on user login
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param multiFactorAuthModelByGoogleAuthenticatorCode Model Class containing Definition of payload for MultiFactorAuthModel By GoogleAuthenticator Code API
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param smsTemplate SMS Template name
+    * @return Response containing Definition for Complete profile data
+    * @since 5.10
+    */
 		
 		
    public void mfaUpdateByAccessToken(String accessToken, MultiFactorAuthModelByGoogleAuthenticatorCode multiFactorAuthModelByGoogleAuthenticatorCode,
@@ -181,14 +181,14 @@ public class MultiFactorAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to update the Multi-factor authentication phone number by sending the verification OTP to the provided phone number
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="phoneNo2FA">Phone Number For 2FA</param>
-   // <param name="smsTemplate2FA">SMS Template Name</param>
-   // <returns>Response containing Definition for Complete SMS data</returns>
-   // 5.11	    
+   /**
+    * This API is used to update the Multi-factor authentication phone number by sending the verification OTP to the provided phone number
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param phoneNo2FA Phone Number For 2FA
+    * @param smsTemplate2FA SMS Template Name
+    * @return Response containing Definition for Complete SMS data
+    * @since 5.11
+    */
 		
 		
    public void mfaUpdatePhoneNumberByToken(String accessToken, String phoneNo2FA,
@@ -231,13 +231,13 @@ public class MultiFactorAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API Resets the Google Authenticator configurations on a given account via the access token
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="googleauthenticator">boolean type value,Enable google Authenticator Code.</param>
-   // <returns>Response containing Definition of Delete Request</returns>
-   // 5.12.1	    
+   /**
+    * This API Resets the Google Authenticator configurations on a given account via the access token
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param googleauthenticator boolean type value,Enable google Authenticator Code.
+    * @return Response containing Definition of Delete Request
+    * @since 5.12.1
+    */
 		
 		
    public void mfaResetGoogleAuthByToken(String accessToken, Boolean googleauthenticator, final AsyncHandler<DeleteResponse> handler) {      
@@ -271,13 +271,13 @@ public class MultiFactorAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API resets the SMS Authenticator configurations on a given account via the access token.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="otpauthenticator">Pass 'otpauthenticator' to remove SMS Authenticator</param>
-   // <returns>Response containing Definition of Delete Request</returns>
-   // 5.12.2	    
+   /**
+    * This API resets the SMS Authenticator configurations on a given account via the access token.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param otpauthenticator Pass 'otpauthenticator' to remove SMS Authenticator
+    * @return Response containing Definition of Delete Request
+    * @since 5.12.2
+    */
 		
 		
    public void mfaResetSMSAuthByToken(String accessToken, Boolean otpauthenticator, final AsyncHandler<DeleteResponse> handler) {      
@@ -311,12 +311,12 @@ public class MultiFactorAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to get a set of backup codes via access token to allow the user login on a site that has Multi-factor Authentication enabled in the event that the user does not have a secondary factor available. We generate 10 codes, each code can only be consumed once. If any user attempts to go over the number of invalid login attempts configured in the Dashboard then the account gets blocked automatically
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <returns>Response containing Definition of Complete Backup Code data</returns>
-   // 5.13	    
+   /**
+    * This API is used to get a set of backup codes via access token to allow the user login on a site that has Multi-factor Authentication enabled in the event that the user does not have a secondary factor available. We generate 10 codes, each code can only be consumed once. If any user attempts to go over the number of invalid login attempts configured in the Dashboard then the account gets blocked automatically
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @return Response containing Definition of Complete Backup Code data
+    * @since 5.13
+    */
 		
 		
    public void mfaBackupCodeByAccessToken(String accessToken, final AsyncHandler<BackupCodeResponse> handler) {      
@@ -347,12 +347,12 @@ public class MultiFactorAuthenticationApi {
       });
    }
    
-   // <summary>
-   // API is used to reset the backup codes on a given account via the access token. This API call will generate 10 new codes, each code can only be consumed once
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <returns>Response containing Definition of Complete Backup Code data</returns>
-   // 5.14	    
+   /**
+    * API is used to reset the backup codes on a given account via the access token. This API call will generate 10 new codes, each code can only be consumed once
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @return Response containing Definition of Complete Backup Code data
+    * @since 5.14
+    */
 		
 		
    public void mfaResetBackupCodeByAccessToken(String accessToken, final AsyncHandler<BackupCodeResponse> handler) {      
@@ -383,19 +383,19 @@ public class MultiFactorAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API can be used to login by emailid on a Multi-factor authentication enabled LoginRadius site.
-   // </summary>
-   // <param name="email">user's email</param>
-   // <param name="password">Password for the email</param>
-   // <param name="emailTemplate">Email template name</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="loginUrl">Url where the user is logging from</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <param name="smsTemplate2FA">SMS Template Name</param>
-   // <param name="verificationUrl">Email verification url</param>
-   // <returns>Complete user UserProfile data</returns>
-   // 9.8.1	    
+   /**
+    * This API can be used to login by emailid on a Multi-factor authentication enabled LoginRadius site.
+    * @param email user's email
+    * @param password Password for the email
+    * @param emailTemplate Email template name
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param loginUrl Url where the user is logging from
+    * @param smsTemplate SMS Template name
+    * @param smsTemplate2FA SMS Template Name
+    * @param verificationUrl Email verification url
+    * @return Complete user UserProfile data
+    * @since 9.8.1
+    */
 		
 		
    public void mfaLoginByEmail(String email, String password,
@@ -459,19 +459,19 @@ public class MultiFactorAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API can be used to login by username on a Multi-factor authentication enabled LoginRadius site.
-   // </summary>
-   // <param name="password">Password for the email</param>
-   // <param name="username">Username of the user</param>
-   // <param name="emailTemplate">Email template name</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="loginUrl">Url where the user is logging from</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <param name="smsTemplate2FA">SMS Template Name</param>
-   // <param name="verificationUrl">Email verification url</param>
-   // <returns>Complete user UserProfile data</returns>
-   // 9.8.2	    
+   /**
+    * This API can be used to login by username on a Multi-factor authentication enabled LoginRadius site.
+    * @param password Password for the email
+    * @param username Username of the user
+    * @param emailTemplate Email template name
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param loginUrl Url where the user is logging from
+    * @param smsTemplate SMS Template name
+    * @param smsTemplate2FA SMS Template Name
+    * @param verificationUrl Email verification url
+    * @return Complete user UserProfile data
+    * @since 9.8.2
+    */
 		
 		
    public void mfaLoginByUserName(String password, String username,
@@ -535,19 +535,19 @@ public class MultiFactorAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API can be used to login by Phone on a Multi-factor authentication enabled LoginRadius site.
-   // </summary>
-   // <param name="password">Password for the email</param>
-   // <param name="phone">New Phone Number</param>
-   // <param name="emailTemplate">Email template name</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="loginUrl">Url where the user is logging from</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <param name="smsTemplate2FA">SMS Template Name</param>
-   // <param name="verificationUrl">Email verification url</param>
-   // <returns>Complete user UserProfile data</returns>
-   // 9.8.3	    
+   /**
+    * This API can be used to login by Phone on a Multi-factor authentication enabled LoginRadius site.
+    * @param password Password for the email
+    * @param phone New Phone Number
+    * @param emailTemplate Email template name
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param loginUrl Url where the user is logging from
+    * @param smsTemplate SMS Template name
+    * @param smsTemplate2FA SMS Template Name
+    * @param verificationUrl Email verification url
+    * @return Complete user UserProfile data
+    * @since 9.8.3
+    */
 		
 		
    public void mfaLoginByPhone(String password, String phone,
@@ -611,15 +611,15 @@ public class MultiFactorAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to login via Multi-factor authentication by passing the One Time Password received via SMS
-   // </summary>
-   // <param name="multiFactorAuthModelWithLockout">Model Class containing Definition of payload for MultiFactorAuthModel With Lockout API</param>
-   // <param name="secondFactorAuthenticationToken">A Uniquely generated MFA identifier token after successful authentication</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="smsTemplate2FA">SMS Template Name</param>
-   // <returns>Complete user UserProfile data</returns>
-   // 9.12	    
+   /**
+    * This API is used to login via Multi-factor authentication by passing the One Time Password received via SMS
+    * @param multiFactorAuthModelWithLockout Model Class containing Definition of payload for MultiFactorAuthModel With Lockout API
+    * @param secondFactorAuthenticationToken A Uniquely generated MFA identifier token after successful authentication
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param smsTemplate2FA SMS Template Name
+    * @return Complete user UserProfile data
+    * @since 9.12
+    */
 		
 		
    public void mfaValidateOTPByPhone(MultiFactorAuthModelWithLockout multiFactorAuthModelWithLockout, String secondFactorAuthenticationToken,
@@ -663,15 +663,15 @@ public class MultiFactorAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to login via Multi-factor-authentication by passing the google authenticator code.
-   // </summary>
-   // <param name="googleAuthenticatorCode">The code generated by google authenticator app after scanning QR code</param>
-   // <param name="secondFactorAuthenticationToken">A Uniquely generated MFA identifier token after successful authentication</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="smsTemplate2FA">SMS Template Name</param>
-   // <returns>Complete user UserProfile data</returns>
-   // 9.13	    
+   /**
+    * This API is used to login via Multi-factor-authentication by passing the google authenticator code.
+    * @param googleAuthenticatorCode The code generated by google authenticator app after scanning QR code
+    * @param secondFactorAuthenticationToken A Uniquely generated MFA identifier token after successful authentication
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param smsTemplate2FA SMS Template Name
+    * @return Complete user UserProfile data
+    * @since 9.13
+    */
 		
 		
    public void mfaValidateGoogleAuthCode(String googleAuthenticatorCode, String secondFactorAuthenticationToken,
@@ -718,14 +718,14 @@ public class MultiFactorAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to validate the backup code provided by the user and if valid, we return an access token allowing the user to login incases where Multi-factor authentication (MFA) is enabled and the secondary factor is unavailable. When a user initially downloads the Backup codes, We generate 10 codes, each code can only be consumed once. if any user attempts to go over the number of invalid login attempts configured in the Dashboard then the account gets blocked automatically
-   // </summary>
-   // <param name="multiFactorAuthModelByBackupCode">Model Class containing Definition of payload for MultiFactorAuth By BackupCode API</param>
-   // <param name="secondFactorAuthenticationToken">A Uniquely generated MFA identifier token after successful authentication</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <returns>Complete user UserProfile data</returns>
-   // 9.14	    
+   /**
+    * This API is used to validate the backup code provided by the user and if valid, we return an access token allowing the user to login incases where Multi-factor authentication (MFA) is enabled and the secondary factor is unavailable. When a user initially downloads the Backup codes, We generate 10 codes, each code can only be consumed once. if any user attempts to go over the number of invalid login attempts configured in the Dashboard then the account gets blocked automatically
+    * @param multiFactorAuthModelByBackupCode Model Class containing Definition of payload for MultiFactorAuth By BackupCode API
+    * @param secondFactorAuthenticationToken A Uniquely generated MFA identifier token after successful authentication
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @return Complete user UserProfile data
+    * @since 9.14
+    */
 		
 		
    public void mfaValidateBackupCode(MultiFactorAuthModelByBackupCode multiFactorAuthModelByBackupCode, String secondFactorAuthenticationToken,
@@ -765,14 +765,14 @@ public class MultiFactorAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to update (if configured) the phone number used for Multi-factor authentication by sending the verification OTP to the provided phone number
-   // </summary>
-   // <param name="phoneNo2FA">Phone Number For 2FA</param>
-   // <param name="secondFactorAuthenticationToken">A Uniquely generated MFA identifier token after successful authentication</param>
-   // <param name="smsTemplate2FA">SMS Template Name</param>
-   // <returns>Response containing Definition for Complete SMS data</returns>
-   // 9.16	    
+   /**
+    * This API is used to update (if configured) the phone number used for Multi-factor authentication by sending the verification OTP to the provided phone number
+    * @param phoneNo2FA Phone Number For 2FA
+    * @param secondFactorAuthenticationToken A Uniquely generated MFA identifier token after successful authentication
+    * @param smsTemplate2FA SMS Template Name
+    * @return Response containing Definition for Complete SMS data
+    * @since 9.16
+    */
 		
 		
    public void mfaUpdatePhoneNumber(String phoneNo2FA, String secondFactorAuthenticationToken,
@@ -815,13 +815,13 @@ public class MultiFactorAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to resending the verification OTP to the provided phone number
-   // </summary>
-   // <param name="secondFactorAuthenticationToken">A Uniquely generated MFA identifier token after successful authentication</param>
-   // <param name="smsTemplate2FA">SMS Template Name</param>
-   // <returns>Response containing Definition for Complete SMS data</returns>
-   // 9.17	    
+   /**
+    * This API is used to resending the verification OTP to the provided phone number
+    * @param secondFactorAuthenticationToken A Uniquely generated MFA identifier token after successful authentication
+    * @param smsTemplate2FA SMS Template Name
+    * @return Response containing Definition for Complete SMS data
+    * @since 9.17
+    */
 		
 		
    public void mfaResendOTP(String secondFactorAuthenticationToken, String smsTemplate2FA, final AsyncHandler<SMSResponseData> handler) {      
@@ -856,13 +856,13 @@ public class MultiFactorAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API resets the SMS Authenticator configurations on a given account via the UID.
-   // </summary>
-   // <param name="otpauthenticator">Pass 'otpauthenticator' to remove SMS Authenticator</param>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <returns>Response containing Definition of Delete Request</returns>
-   // 18.21.1	    
+   /**
+    * This API resets the SMS Authenticator configurations on a given account via the UID.
+    * @param otpauthenticator Pass 'otpauthenticator' to remove SMS Authenticator
+    * @param uid UID, the unified identifier for each user account
+    * @return Response containing Definition of Delete Request
+    * @since 18.21.1
+    */
 		
 		
    public void mfaResetSMSAuthenticatorByUid(Boolean otpauthenticator, String uid, final AsyncHandler<DeleteResponse> handler) {      
@@ -897,13 +897,13 @@ public class MultiFactorAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API resets the Google Authenticator configurations on a given account via the UID.
-   // </summary>
-   // <param name="googleauthenticator">boolean type value,Enable google Authenticator Code.</param>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <returns>Response containing Definition of Delete Request</returns>
-   // 18.21.2	    
+   /**
+    * This API resets the Google Authenticator configurations on a given account via the UID.
+    * @param googleauthenticator boolean type value,Enable google Authenticator Code.
+    * @param uid UID, the unified identifier for each user account
+    * @return Response containing Definition of Delete Request
+    * @since 18.21.2
+    */
 		
 		
    public void mfaResetGoogleAuthenticatorByUid(Boolean googleauthenticator, String uid, final AsyncHandler<DeleteResponse> handler) {      
@@ -938,12 +938,12 @@ public class MultiFactorAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to reset the backup codes on a given account via the UID. This API call will generate 10 new codes, each code can only be consumed once.
-   // </summary>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <returns>Response containing Definition of Complete Backup Code data</returns>
-   // 18.25	    
+   /**
+    * This API is used to reset the backup codes on a given account via the UID. This API call will generate 10 new codes, each code can only be consumed once.
+    * @param uid UID, the unified identifier for each user account
+    * @return Response containing Definition of Complete Backup Code data
+    * @since 18.25
+    */
 		
 		
    public void mfaBackupCodeByUid(String uid, final AsyncHandler<BackupCodeResponse> handler) {      
@@ -975,12 +975,12 @@ public class MultiFactorAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to reset the backup codes on a given account via the UID. This API call will generate 10 new codes, each code can only be consumed once.
-   // </summary>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <returns>Response containing Definition of Complete Backup Code data</returns>
-   // 18.26	    
+   /**
+    * This API is used to reset the backup codes on a given account via the UID. This API call will generate 10 new codes, each code can only be consumed once.
+    * @param uid UID, the unified identifier for each user account
+    * @return Response containing Definition of Complete Backup Code data
+    * @since 18.26
+    */
 		
 		
    public void mfaResetBackupCodeByUid(String uid, final AsyncHandler<BackupCodeResponse> handler) {      

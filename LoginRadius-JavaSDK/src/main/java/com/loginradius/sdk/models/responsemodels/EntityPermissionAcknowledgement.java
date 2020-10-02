@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Validation data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Validation data
+	 */
 	public class EntityPermissionAcknowledgement {
 	
 		
@@ -19,15 +19,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Webhook is allowed or not
-		// </summary>
+		/**
+		 * Webhook is allowed or not
+		 */
 		public Boolean getIsAllowed() {
 			return isAllowed;
 		}
-		// <summary>
-		//	Webhook is allowed or not
-		// </summary>
+		/**
+		 * Webhook is allowed or not
+		 */
 		public void setIsAllowed(Boolean isAllowed) {
 			this.isAllowed = isAllowed;
 		}

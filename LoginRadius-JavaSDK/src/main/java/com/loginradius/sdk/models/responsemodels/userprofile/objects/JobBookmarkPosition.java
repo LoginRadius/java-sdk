@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Job Bookmark Position data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Job Bookmark Position data
+	 */
 	public class JobBookmarkPosition {
 	
 		
@@ -19,15 +19,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Position title
-		// </summary>
+		/**
+		 * Position title
+		 */
 		public String getTitle() {
 			return title;
 		}
-		// <summary>
-		//	Position title
-		// </summary>
+		/**
+		 * Position title
+		 */
 		public void setTitle(String title) {
 			this.title = title;
 		}

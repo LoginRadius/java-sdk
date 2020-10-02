@@ -31,13 +31,13 @@ public class NativeSocialApi {
 
    
    
-   // <summary>
-   // The API is used to get LoginRadius access token by sending Facebook's access token. It will be valid for the specific duration of time specified in the response.
-   // </summary>
-   // <param name="fbAccessToken">Facebook Access Token</param>
-   // <param name="socialAppName">Name of Social provider APP</param>
-   // <returns>Response containing Definition of Complete Token data</returns>
-   // 20.3	    
+   /**
+    * The API is used to get LoginRadius access token by sending Facebook's access token. It will be valid for the specific duration of time specified in the response.
+    * @param fbAccessToken Facebook Access Token
+    * @param socialAppName Name of Social provider APP
+    * @return Response containing Definition of Complete Token data
+    * @since 20.3
+    */
 		
 		
    public void getAccessTokenByFacebookAccessToken(String fbAccessToken, String socialAppName, final AsyncHandler<AccessTokenBase> handler) {      
@@ -72,14 +72,14 @@ public class NativeSocialApi {
       });
    }
    
-   // <summary>
-   // The API is used to get LoginRadius access token by sending Twitter's access token. It will be valid for the specific duration of time specified in the response.
-   // </summary>
-   // <param name="twAccessToken">Twitter Access Token</param>
-   // <param name="twTokenSecret">Twitter Token Secret</param>
-   // <param name="socialAppName">Name of Social provider APP</param>
-   // <returns>Response containing Definition of Complete Token data</returns>
-   // 20.4	    
+   /**
+    * The API is used to get LoginRadius access token by sending Twitter's access token. It will be valid for the specific duration of time specified in the response.
+    * @param twAccessToken Twitter Access Token
+    * @param twTokenSecret Twitter Token Secret
+    * @param socialAppName Name of Social provider APP
+    * @return Response containing Definition of Complete Token data
+    * @since 20.4
+    */
 		
 		
    public void getAccessTokenByTwitterAccessToken(String twAccessToken, String twTokenSecret,
@@ -120,15 +120,15 @@ public class NativeSocialApi {
       });
    }
    
-   // <summary>
-   // The API is used to get LoginRadius access token by sending Google's access token. It will be valid for the specific duration of time specified in the response.
-   // </summary>
-   // <param name="googleAccessToken">Google Access Token</param>
-   // <param name="clientId">Google Client ID</param>
-   // <param name="refreshToken">LoginRadius refresh token</param>
-   // <param name="socialAppName">Name of Social provider APP</param>
-   // <returns>Response containing Definition of Complete Token data</returns>
-   // 20.5	    
+   /**
+    * The API is used to get LoginRadius access token by sending Google's access token. It will be valid for the specific duration of time specified in the response.
+    * @param googleAccessToken Google Access Token
+    * @param clientId Google Client ID
+    * @param refreshToken LoginRadius refresh token
+    * @param socialAppName Name of Social provider APP
+    * @return Response containing Definition of Complete Token data
+    * @since 20.5
+    */
 		
 		
    public void getAccessTokenByGoogleAccessToken(String googleAccessToken, String clientId,
@@ -172,12 +172,12 @@ public class NativeSocialApi {
       });
    }
    
-   // <summary>
-   // This API is used to Get LoginRadius Access Token using google jwt id token for google native mobile login/registration.
-   // </summary>
-   // <param name="idToken">Google JWT id_token</param>
-   // <returns>Response containing Definition of Complete Token data</returns>
-   // 20.6	    
+   /**
+    * This API is used to Get LoginRadius Access Token using google jwt id token for google native mobile login/registration.
+    * @param idToken Google JWT id_token
+    * @return Response containing Definition of Complete Token data
+    * @since 20.6
+    */
 		
 		
    public void getAccessTokenByGoogleJWTAccessToken(String idToken, final AsyncHandler<AccessTokenBase> handler) {      
@@ -208,13 +208,13 @@ public class NativeSocialApi {
       });
    }
    
-   // <summary>
-   // The API is used to get LoginRadius access token by sending Linkedin's access token. It will be valid for the specific duration of time specified in the response.
-   // </summary>
-   // <param name="lnAccessToken">Linkedin Access Token</param>
-   // <param name="socialAppName">Name of Social provider APP</param>
-   // <returns>Response containing Definition of Complete Token data</returns>
-   // 20.7	    
+   /**
+    * The API is used to get LoginRadius access token by sending Linkedin's access token. It will be valid for the specific duration of time specified in the response.
+    * @param lnAccessToken Linkedin Access Token
+    * @param socialAppName Name of Social provider APP
+    * @return Response containing Definition of Complete Token data
+    * @since 20.7
+    */
 		
 		
    public void getAccessTokenByLinkedinAccessToken(String lnAccessToken, String socialAppName, final AsyncHandler<AccessTokenBase> handler) {      
@@ -249,12 +249,12 @@ public class NativeSocialApi {
       });
    }
    
-   // <summary>
-   // The API is used to get LoginRadius access token by sending Foursquare's access token. It will be valid for the specific duration of time specified in the response.
-   // </summary>
-   // <param name="fsAccessToken">Foursquare Access Token</param>
-   // <returns>Response containing Definition of Complete Token data</returns>
-   // 20.8	    
+   /**
+    * The API is used to get LoginRadius access token by sending Foursquare's access token. It will be valid for the specific duration of time specified in the response.
+    * @param fsAccessToken Foursquare Access Token
+    * @return Response containing Definition of Complete Token data
+    * @since 20.8
+    */
 		
 		
    public void getAccessTokenByFoursquareAccessToken(String fsAccessToken, final AsyncHandler<AccessTokenBase> handler) {      
@@ -285,13 +285,13 @@ public class NativeSocialApi {
       });
    }
    
-   // <summary>
-   // The API is used to get LoginRadius access token by sending a valid Apple ID OAuth Code. It will be valid for the specific duration of time specified in the response.
-   // </summary>
-   // <param name="code">Apple Code</param>
-   // <param name="socialAppName">Name of Social provider APP</param>
-   // <returns>Response containing Definition of Complete Token data</returns>
-   // 20.12	    
+   /**
+    * The API is used to get LoginRadius access token by sending a valid Apple ID OAuth Code. It will be valid for the specific duration of time specified in the response.
+    * @param code Apple Code
+    * @param socialAppName Name of Social provider APP
+    * @return Response containing Definition of Complete Token data
+    * @since 20.12
+    */
 		
 		
    public void getAccessTokenByAppleIdCode(String code, String socialAppName, final AsyncHandler<AccessTokenBase> handler) {      
@@ -326,12 +326,12 @@ public class NativeSocialApi {
       });
    }
    
-   // <summary>
-   // This API is used to retrieve a LoginRadius access token by passing in a valid WeChat OAuth Code.
-   // </summary>
-   // <param name="code">WeChat Code</param>
-   // <returns>Response containing Definition of Complete Token data</returns>
-   // 20.13	    
+   /**
+    * This API is used to retrieve a LoginRadius access token by passing in a valid WeChat OAuth Code.
+    * @param code WeChat Code
+    * @return Response containing Definition of Complete Token data
+    * @since 20.13
+    */
 		
 		
    public void getAccessTokenByWeChatCode(String code, final AsyncHandler<AccessTokenBase> handler) {      
@@ -362,12 +362,12 @@ public class NativeSocialApi {
       });
    }
    
-   // <summary>
-   // The API is used to get LoginRadius access token by sending Vkontakte's access token. It will be valid for the specific duration of time specified in the response.
-   // </summary>
-   // <param name="vkAccessToken">Vkontakte Access Token</param>
-   // <returns>Response containing Definition of Complete Token data</returns>
-   // 20.15	    
+   /**
+    * The API is used to get LoginRadius access token by sending Vkontakte's access token. It will be valid for the specific duration of time specified in the response.
+    * @param vkAccessToken Vkontakte Access Token
+    * @return Response containing Definition of Complete Token data
+    * @since 20.15
+    */
 		
 		
    public void getAccessTokenByVkontakteAccessToken(String vkAccessToken, final AsyncHandler<AccessTokenBase> handler) {      
@@ -398,13 +398,13 @@ public class NativeSocialApi {
       });
    }
    
-   // <summary>
-   // The API is used to get LoginRadius access token by sending Google's AuthCode. It will be valid for the specific duration of time specified in the response.
-   // </summary>
-   // <param name="googleAuthcode">Google AuthCode</param>
-   // <param name="socialAppName">Name of Social provider APP</param>
-   // <returns>Response containing Definition of Complete Token data</returns>
-   // 20.16	    
+   /**
+    * The API is used to get LoginRadius access token by sending Google's AuthCode. It will be valid for the specific duration of time specified in the response.
+    * @param googleAuthcode Google AuthCode
+    * @param socialAppName Name of Social provider APP
+    * @return Response containing Definition of Complete Token data
+    * @since 20.16
+    */
 		
 		
    public void getAccessTokenByGoogleAuthCode(String googleAuthcode, String socialAppName, final AsyncHandler<AccessTokenBase> handler) {      

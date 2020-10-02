@@ -10,9 +10,9 @@ import java.util.UUID;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition response of MFA reauthentication
-	// </summary>
+	/**
+	 * Response containing Definition response of MFA reauthentication
+	 */
 	public class EventBasedMultiFactorAuthenticationToken {
 	
 		
@@ -24,27 +24,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Expiration time of Access Token
-		// </summary>
+		/**
+		 * Expiration time of Access Token
+		 */
 		public String getExpireIn() {
 			return expireIn;
 		}
-		// <summary>
-		//	Expiration time of Access Token
-		// </summary>
+		/**
+		 * Expiration time of Access Token
+		 */
 		public void setExpireIn(String expireIn) {
 			this.expireIn = expireIn;
 		}
-		// <summary>
-		//	second factor validation token
-		// </summary>
+		/**
+		 * second factor validation token
+		 */
 		public UUID getSecondFactorValidationToken() {
 			return secondFactorValidationToken;
 		}
-		// <summary>
-		//	second factor validation token
-		// </summary>
+		/**
+		 * second factor validation token
+		 */
 		public void setSecondFactorValidationToken(UUID secondFactorValidationToken) {
 			this.secondFactorValidationToken = secondFactorValidationToken;
 		}

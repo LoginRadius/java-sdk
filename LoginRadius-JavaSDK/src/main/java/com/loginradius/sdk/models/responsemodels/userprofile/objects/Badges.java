@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Badges data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Badges data
+	 */
 	public class Badges {
 	
 		
@@ -37,87 +37,87 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Badge ID
-		// </summary>
+		/**
+		 * Badge ID
+		 */
 		public String getBadgeId() {
 			return badgeId;
 		}
-		// <summary>
-		//	Badge ID
-		// </summary>
+		/**
+		 * Badge ID
+		 */
 		public void setBadgeId(String badgeId) {
 			this.badgeId = badgeId;
 		}
-		// <summary>
-		//	Badge Message
-		// </summary>
+		/**
+		 * Badge Message
+		 */
 		public String getBadgeMessage() {
 			return badgeMessage;
 		}
-		// <summary>
-		//	Badge Message
-		// </summary>
+		/**
+		 * Badge Message
+		 */
 		public void setBadgeMessage(String badgeMessage) {
 			this.badgeMessage = badgeMessage;
 		}
-		// <summary>
-		//	Badge ID
-		// </summary>
+		/**
+		 * Badge ID
+		 */
 		public String getBageId() {
 			return bageId;
 		}
-		// <summary>
-		//	Badge ID
-		// </summary>
+		/**
+		 * Badge ID
+		 */
 		public void setBageId(String bageId) {
 			this.bageId = bageId;
 		}
-		// <summary>
-		//	Badge Message
-		// </summary>
+		/**
+		 * Badge Message
+		 */
 		public String getBageMessage() {
 			return bageMessage;
 		}
-		// <summary>
-		//	Badge Message
-		// </summary>
+		/**
+		 * Badge Message
+		 */
 		public void setBageMessage(String bageMessage) {
 			this.bageMessage = bageMessage;
 		}
-		// <summary>
-		//	detailed information
-		// </summary>
+		/**
+		 * detailed information
+		 */
 		public String getDescription() {
 			return description;
 		}
-		// <summary>
-		//	detailed information
-		// </summary>
+		/**
+		 * detailed information
+		 */
 		public void setDescription(String description) {
 			this.description = description;
 		}
-		// <summary>
-		//	image URL should be absolute and has HTTPS domain
-		// </summary>
+		/**
+		 * image URL should be absolute and has HTTPS domain
+		 */
 		public String getImageUrl() {
 			return imageUrl;
 		}
-		// <summary>
-		//	image URL should be absolute and has HTTPS domain
-		// </summary>
+		/**
+		 * image URL should be absolute and has HTTPS domain
+		 */
 		public void setImageUrl(String imageUrl) {
 			this.imageUrl = imageUrl;
 		}
-		// <summary>
-		//	Badge Name
-		// </summary>
+		/**
+		 * Badge Name
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Badge Name
-		// </summary>
+		/**
+		 * Badge Name
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}

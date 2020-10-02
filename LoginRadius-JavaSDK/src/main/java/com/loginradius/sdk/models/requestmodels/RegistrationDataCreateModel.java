@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for Registration Data create API
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for Registration Data create API
+	 */
 	public class RegistrationDataCreateModel {
 	
 		
@@ -34,75 +34,75 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Validation Code/Secret Code,Code Parameter, given when Login Dialog is performed
-		// </summary>
+		/**
+		 * Validation Code/Secret Code,Code Parameter, given when Login Dialog is performed
+		 */
 		public String getCode() {
 			return code;
 		}
-		// <summary>
-		//	Validation Code/Secret Code,Code Parameter, given when Login Dialog is performed
-		// </summary>
+		/**
+		 * Validation Code/Secret Code,Code Parameter, given when Login Dialog is performed
+		 */
 		public void setCode(String code) {
 			this.code = code;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public Boolean getIsActive() {
 			return isActive;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public void setIsActive(Boolean isActive) {
 			this.isActive = isActive;
 		}
-		// <summary>
-		//	Text to display for the dropdown member
-		// </summary>
+		/**
+		 * Text to display for the dropdown member
+		 */
 		public String getKey() {
 			return key;
 		}
-		// <summary>
-		//	Text to display for the dropdown member
-		// </summary>
+		/**
+		 * Text to display for the dropdown member
+		 */
 		public void setKey(String key) {
 			this.key = key;
 		}
-		// <summary>
-		//	Id of parent dropdown member
-		// </summary>
+		/**
+		 * Id of parent dropdown member
+		 */
 		public String getParentId() {
 			return parentId;
 		}
-		// <summary>
-		//	Id of parent dropdown member
-		// </summary>
+		/**
+		 * Id of parent dropdown member
+		 */
 		public void setParentId(String parentId) {
 			this.parentId = parentId;
 		}
-		// <summary>
-		//	String to identify the type of parameter
-		// </summary>
+		/**
+		 * String to identify the type of parameter
+		 */
 		public String getType() {
 			return type;
 		}
-		// <summary>
-		//	String to identify the type of parameter
-		// </summary>
+		/**
+		 * String to identify the type of parameter
+		 */
 		public void setType(String type) {
 			this.type = type;
 		}
-		// <summary>
-		//	Value of the dropdown member
-		// </summary>
+		/**
+		 * Value of the dropdown member
+		 */
 		public String getValue() {
 			return value;
 		}
-		// <summary>
-		//	Value of the dropdown member
-		// </summary>
+		/**
+		 * Value of the dropdown member
+		 */
 		public void setValue(String value) {
 			this.value = value;
 		}

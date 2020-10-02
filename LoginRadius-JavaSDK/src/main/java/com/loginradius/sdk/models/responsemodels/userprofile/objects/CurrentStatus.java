@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete CurrentStatus data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete CurrentStatus data
+	 */
 	public class CurrentStatus {
 	
 		
@@ -28,51 +28,51 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Current status created date
-		// </summary>
+		/**
+		 * Current status created date
+		 */
 		public String getCreatedDate() {
 			return createdDate;
 		}
-		// <summary>
-		//	Current status created date
-		// </summary>
+		/**
+		 * Current status created date
+		 */
 		public void setCreatedDate(String createdDate) {
 			this.createdDate = createdDate;
 		}
-		// <summary>
-		//	Current status id
-		// </summary>
+		/**
+		 * Current status id
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Current status id
-		// </summary>
+		/**
+		 * Current status id
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	Current status source
-		// </summary>
+		/**
+		 * Current status source
+		 */
 		public String getSource() {
 			return source;
 		}
-		// <summary>
-		//	Current status source
-		// </summary>
+		/**
+		 * Current status source
+		 */
 		public void setSource(String source) {
 			this.source = source;
 		}
-		// <summary>
-		//	Current status text
-		// </summary>
+		/**
+		 * Current status text
+		 */
 		public String getText() {
 			return text;
 		}
-		// <summary>
-		//	Current status text
-		// </summary>
+		/**
+		 * Current status text
+		 */
 		public void setText(String text) {
 			this.text = text;
 		}

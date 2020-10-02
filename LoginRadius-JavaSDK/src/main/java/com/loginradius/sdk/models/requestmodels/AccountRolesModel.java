@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for Create Role API
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for Create Role API
+	 */
 	public class AccountRolesModel {
 	
 		
@@ -21,15 +21,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Array of String, which represents the role name
-		// </summary>
+		/**
+		 * Array of String, which represents the role name
+		 */
 		public List<String> getRoles() {
 			return roles;
 		}
-		// <summary>
-		//	Array of String, which represents the role name
-		// </summary>
+		/**
+		 * Array of String, which represents the role name
+		 */
 		public void setRoles(List<String> roles) {
 			this.roles = roles;
 		}

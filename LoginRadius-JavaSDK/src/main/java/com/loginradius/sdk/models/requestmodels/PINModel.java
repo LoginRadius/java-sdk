@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for PinInfo
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for PinInfo
+	 */
 	public class PINModel {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	PIN of user
-		// </summary>
+		/**
+		 * PIN of user
+		 */
 		public String getPIN() {
 			return pin;
 		}
-		// <summary>
-		//	PIN of user
-		// </summary>
+		/**
+		 * PIN of user
+		 */
 		public void setPIN(String pin) {
 			this.pin = pin;
 		}
-		// <summary>
-		//	possible values are true/false/null
-		// </summary>
+		/**
+		 * possible values are true/false/null
+		 */
 		public Boolean getSkipped() {
 			return skipped;
 		}
-		// <summary>
-		//	possible values are true/false/null
-		// </summary>
+		/**
+		 * possible values are true/false/null
+		 */
 		public void setSkipped(Boolean skipped) {
 			this.skipped = skipped;
 		}

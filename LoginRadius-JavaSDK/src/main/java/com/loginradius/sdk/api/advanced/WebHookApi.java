@@ -34,12 +34,12 @@ public class WebHookApi {
 
    
    
-   // <summary>
-   // This API is used to fatch all the subscribed URLs, for particular event
-   // </summary>
-   // <param name="event">Allowed events: Login, Register, UpdateProfile, ResetPassword, ChangePassword, emailVerification, AddEmail, RemoveEmail, BlockAccount, DeleteAccount, SetUsername, AssignRoles, UnassignRoles, SetPassword, LinkAccount, UnlinkAccount, UpdatePhoneId, VerifyPhoneNumber, CreateCustomObject, UpdateCustomobject, DeleteCustomObject</param>
-   // <returns>Response Containing List of Webhhook Data</returns>
-   // 40.1	    
+   /**
+    * This API is used to fatch all the subscribed URLs, for particular event
+    * @param event Allowed events: Login, Register, UpdateProfile, ResetPassword, ChangePassword, emailVerification, AddEmail, RemoveEmail, BlockAccount, DeleteAccount, SetUsername, AssignRoles, UnassignRoles, SetPassword, LinkAccount, UnlinkAccount, UpdatePhoneId, VerifyPhoneNumber, CreateCustomObject, UpdateCustomobject, DeleteCustomObject
+    * @return Response Containing List of Webhhook Data
+    * @since 40.1
+    */
 		
 		
    public void getWebHookSubscribedURLs(String event, final AsyncHandler<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> handler) {      
@@ -71,12 +71,12 @@ public class WebHookApi {
       });
    }
    
-   // <summary>
-   // API can be used to configure a WebHook on your LoginRadius site. Webhooks also work on subscribe and notification model, subscribe your hook and get a notification. Equivalent to RESThook but these provide security on basis of signature and RESThook work on unique URL. Following are the events that are allowed by LoginRadius to trigger a WebHook service call.
-   // </summary>
-   // <param name="webHookSubscribeModel">Model Class containing Definition of payload for Webhook Subscribe API</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 40.2	    
+   /**
+    * API can be used to configure a WebHook on your LoginRadius site. Webhooks also work on subscribe and notification model, subscribe your hook and get a notification. Equivalent to RESThook but these provide security on basis of signature and RESThook work on unique URL. Following are the events that are allowed by LoginRadius to trigger a WebHook service call.
+    * @param webHookSubscribeModel Model Class containing Definition of payload for Webhook Subscribe API
+    * @return Response containing Definition of Complete Validation data
+    * @since 40.2
+    */
 		
 		
    public void webHookSubscribe(com.loginradius.sdk.models.requestmodels.WebHookSubscribeModel webHookSubscribeModel, final AsyncHandler<PostResponse> handler) {
@@ -107,11 +107,11 @@ public class WebHookApi {
       });
    }
    
-   // <summary>
-   // API can be used to test a subscribed WebHook.
-   // </summary>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 40.3	    
+   /**
+    * API can be used to test a subscribed WebHook.
+    * @return Response containing Definition of Complete Validation data
+    * @since 40.3
+    */
 		
 		
    public void webhookTest(final AsyncHandler<EntityPermissionAcknowledgement> handler) {
@@ -138,12 +138,12 @@ public class WebHookApi {
       });
    }
    
-   // <summary>
-   // API can be used to unsubscribe a WebHook configured on your LoginRadius site.
-   // </summary>
-   // <param name="webHookSubscribeModel">Model Class containing Definition of payload for Webhook Subscribe API</param>
-   // <returns>Response containing Definition of Delete Request</returns>
-   // 40.4	    
+   /**
+    * API can be used to unsubscribe a WebHook configured on your LoginRadius site.
+    * @param webHookSubscribeModel Model Class containing Definition of payload for Webhook Subscribe API
+    * @return Response containing Definition of Delete Request
+    * @since 40.4
+    */
 		
 		
    public void webHookUnsubscribe(com.loginradius.sdk.models.requestmodels.WebHookSubscribeModel webHookSubscribeModel, final AsyncHandler<DeleteResponse> handler) {

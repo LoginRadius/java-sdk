@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for GitHubPlan Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for GitHubPlan Property
+	 */
 	public class GitHubPlan {
 	
 		
@@ -28,51 +28,51 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Github plan collaborators
-		// </summary>
+		/**
+		 * Github plan collaborators
+		 */
 		public String getCollaborators() {
 			return collaborators;
 		}
-		// <summary>
-		//	Github plan collaborators
-		// </summary>
+		/**
+		 * Github plan collaborators
+		 */
 		public void setCollaborators(String collaborators) {
 			this.collaborators = collaborators;
 		}
-		// <summary>
-		//	Github plan name
-		// </summary>
+		/**
+		 * Github plan name
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Github plan name
-		// </summary>
+		/**
+		 * Github plan name
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
-		// <summary>
-		//	Private repos of github
-		// </summary>
+		/**
+		 * Private repos of github
+		 */
 		public String getPrivateRepos() {
 			return privateRepos;
 		}
-		// <summary>
-		//	Private repos of github
-		// </summary>
+		/**
+		 * Private repos of github
+		 */
 		public void setPrivateRepos(String privateRepos) {
 			this.privateRepos = privateRepos;
 		}
-		// <summary>
-		//	Github plan space
-		// </summary>
+		/**
+		 * Github plan space
+		 */
 		public String getSpace() {
 			return space;
 		}
-		// <summary>
-		//	Github plan space
-		// </summary>
+		/**
+		 * Github plan space
+		 */
 		public void setSpace(String space) {
 			this.space = space;
 		}

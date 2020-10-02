@@ -30,13 +30,11 @@ public class ConfigurationApi {
    }
 
    
-   // <summary>
-   // This API is used to get the configurations which are set in the LoginRadius Dashboard for a particular LoginRadius site/environment
-   // </summary>
-   // <param name="apiKey">LoginRadius API Key
-   // <returns>Response containing LoginRadius App configurations which are set in the LoginRadius Dashboard for a particular LoginRadius 
-   // site/environment</returns>
-   // 100
+   /**
+    * This API is used to get the configurations which are set in the LoginRadius Dashboard for a particular LoginRadius site/environment
+    * @return Response containing LoginRadius App configurations which are set in the LoginRadius Dashboard for a particular LoginRadius 
+    site/environment
+    */
         
    public void getConfigurations(final AsyncHandler<ConfigResponseModel> handler)
    {
@@ -63,12 +61,12 @@ public class ConfigurationApi {
 	
    
    
-   // <summary>
-   // This API allows you to query your LoginRadius account for basic server information and server time information which is useful when generating an SOTT token.
-   // </summary>
-   // <param name="timeDifference">The time difference you would like to pass, If you not pass difference then the default value is 10 minutes</param>
-   // <returns>Response containing Definition of Complete service info data</returns>
-   // 3.1	    
+   /**
+    * This API allows you to query your LoginRadius account for basic server information and server time information which is useful when generating an SOTT token.
+    * @param timeDifference The time difference you would like to pass, If you not pass difference then the default value is 10 minutes
+    * @return Response containing Definition of Complete service info data
+    * @since 3.1
+    */
 		
 		
    public void getServerInfo(Integer timeDifference, final AsyncHandler<ServiceInfoModel> handler) {

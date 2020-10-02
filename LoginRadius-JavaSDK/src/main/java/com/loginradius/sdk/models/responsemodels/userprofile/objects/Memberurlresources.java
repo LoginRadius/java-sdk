@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Member url resources data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Member url resources data
+	 */
 	public class Memberurlresources {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	String represents website url
-		// </summary>
+		/**
+		 * String represents website url
+		 */
 		public String getUrl() {
 			return url;
 		}
-		// <summary>
-		//	String represents website url
-		// </summary>
+		/**
+		 * String represents website url
+		 */
 		public void setUrl(String url) {
 			this.url = url;
 		}
-		// <summary>
-		//	URL name
-		// </summary>
+		/**
+		 * URL name
+		 */
 		public String getUrlName() {
 			return urlName;
 		}
-		// <summary>
-		//	URL name
-		// </summary>
+		/**
+		 * URL name
+		 */
 		public void setUrlName(String urlName) {
 			this.urlName = urlName;
 		}

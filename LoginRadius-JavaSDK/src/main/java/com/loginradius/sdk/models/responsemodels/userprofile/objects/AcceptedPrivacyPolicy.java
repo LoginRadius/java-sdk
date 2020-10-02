@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete privacy policy data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete privacy policy data
+	 */
 	public class AcceptedPrivacyPolicy {
 	
 		
@@ -25,39 +25,39 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Privacy policy accept date time
-		// </summary>
+		/**
+		 * Privacy policy accept date time
+		 */
 		public String getAcceptDateTime() {
 			return acceptDateTime;
 		}
-		// <summary>
-		//	Privacy policy accept date time
-		// </summary>
+		/**
+		 * Privacy policy accept date time
+		 */
 		public void setAcceptDateTime(String acceptDateTime) {
 			this.acceptDateTime = acceptDateTime;
 		}
-		// <summary>
-		//	Privacy policy accept source
-		// </summary>
+		/**
+		 * Privacy policy accept source
+		 */
 		public String getAcceptSource() {
 			return acceptSource;
 		}
-		// <summary>
-		//	Privacy policy accept source
-		// </summary>
+		/**
+		 * Privacy policy accept source
+		 */
 		public void setAcceptSource(String acceptSource) {
 			this.acceptSource = acceptSource;
 		}
-		// <summary>
-		//	Privacy policy version
-		// </summary>
+		/**
+		 * Privacy policy version
+		 */
 		public String getVersion() {
 			return version;
 		}
-		// <summary>
-		//	Privacy policy version
-		// </summary>
+		/**
+		 * Privacy policy version
+		 */
 		public void setVersion(String version) {
 			this.version = version;
 		}

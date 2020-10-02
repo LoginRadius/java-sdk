@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for LoginByPin API
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for LoginByPin API
+	 */
 	public class LoginByPINModel {
 	
 		
@@ -19,15 +19,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	PIN of user
-		// </summary>
+		/**
+		 * PIN of user
+		 */
 		public String getPIN() {
 			return pin;
 		}
-		// <summary>
-		//	PIN of user
-		// </summary>
+		/**
+		 * PIN of user
+		 */
 		public void setPIN(String pin) {
 			this.pin = pin;
 		}

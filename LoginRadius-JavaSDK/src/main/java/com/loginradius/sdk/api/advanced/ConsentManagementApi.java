@@ -37,12 +37,12 @@ public class ConsentManagementApi {
 
    
    
-   // <summary>
-   // This API is used to get the Consent logs of the user.
-   // </summary>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <returns>Response containing consent logs</returns>
-   // 18.37	    
+   /**
+    * This API is used to get the Consent logs of the user.
+    * @param uid UID, the unified identifier for each user account
+    * @return Response containing consent logs
+    * @since 18.37
+    */
 		
 		
    public void getConsentLogsByUid(String uid, final AsyncHandler<ConsentLogsResponseModel> handler) {      
@@ -73,13 +73,13 @@ public class ConsentManagementApi {
       });
    }
    
-   // <summary>
-   // This API is to submit consent form using consent token.
-   // </summary>
-   // <param name="consentToken">The consent token received after login error 1226 </param>
-   // <param name="consentSubmitModel">Model class containing list of multiple consent</param>
-   // <returns>Response containing User Profile Data and access token</returns>
-   // 43.1	    
+   /**
+    * This API is to submit consent form using consent token.
+    * @param consentToken The consent token received after login error 1226
+    * @param consentSubmitModel Model class containing list of multiple consent
+    * @return Response containing User Profile Data and access token
+    * @since 43.1
+    */
 		
 		
    public void submitConsentByConsentToken(String consentToken, ConsentSubmitModel consentSubmitModel, final AsyncHandler<AccessToken<Identity>> handler) {      
@@ -114,12 +114,12 @@ public class ConsentManagementApi {
       });
    }
    
-   // <summary>
-   // This API is used to fetch consent logs.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <returns>Response containing consent logs</returns>
-   // 43.2	    
+   /**
+    * This API is used to fetch consent logs.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @return Response containing consent logs
+    * @since 43.2
+    */
 		
 		
    public void getConsentLogs(String accessToken, final AsyncHandler<ConsentLogsResponseModel> handler) {      
@@ -150,13 +150,13 @@ public class ConsentManagementApi {
       });
    }
    
-   // <summary>
-   // API to provide a way to end user to submit a consent form for particular event type.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="consentSubmitModel">Model class containing list of multiple consent</param>
-   // <returns>Response containing Definition for Complete profile data</returns>
-   // 43.3	    
+   /**
+    * API to provide a way to end user to submit a consent form for particular event type.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param consentSubmitModel Model class containing list of multiple consent
+    * @return Response containing Definition for Complete profile data
+    * @since 43.3
+    */
 		
 		
    public void submitConsentByAccessToken(String accessToken, ConsentSubmitModel consentSubmitModel, final AsyncHandler<Identity> handler) {      
@@ -191,14 +191,14 @@ public class ConsentManagementApi {
       });
    }
    
-   // <summary>
-   // This API is used to check if consent is submitted for a particular event or not.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="event">Allowed events: Login, Register, UpdateProfile, ResetPassword, ChangePassword, emailVerification, AddEmail, RemoveEmail, BlockAccount, DeleteAccount, SetUsername, AssignRoles, UnassignRoles, SetPassword, LinkAccount, UnlinkAccount, UpdatePhoneId, VerifyPhoneNumber, CreateCustomObject, UpdateCustomobject, DeleteCustomObject</param>
-   // <param name="isCustom">true/false</param>
-   // <returns>Response containing consent profile</returns>
-   // 43.4	    
+   /**
+    * This API is used to check if consent is submitted for a particular event or not.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param event Allowed events: Login, Register, UpdateProfile, ResetPassword, ChangePassword, emailVerification, AddEmail, RemoveEmail, BlockAccount, DeleteAccount, SetUsername, AssignRoles, UnassignRoles, SetPassword, LinkAccount, UnlinkAccount, UpdatePhoneId, VerifyPhoneNumber, CreateCustomObject, UpdateCustomobject, DeleteCustomObject
+    * @param isCustom true/false
+    * @return Response containing consent profile
+    * @since 43.4
+    */
 		
 		
    public void verifyConsentByAccessToken(String accessToken, String event,
@@ -236,13 +236,13 @@ public class ConsentManagementApi {
       });
    }
    
-   // <summary>
-   // This API is to update consents using access token.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="consentUpdateModel">Model class containg list of multiple consent</param>
-   // <returns>Response containing consent profile</returns>
-   // 43.5	    
+   /**
+    * This API is to update consents using access token.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param consentUpdateModel Model class containg list of multiple consent
+    * @return Response containing consent profile
+    * @since 43.5
+    */
 		
 		
    public void updateConsentProfileByAccessToken(String accessToken, ConsentUpdateModel consentUpdateModel, final AsyncHandler<ConsentProfile> handler) {      

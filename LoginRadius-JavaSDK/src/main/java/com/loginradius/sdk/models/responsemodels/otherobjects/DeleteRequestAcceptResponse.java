@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Delete Request
-	// </summary>
+	/**
+	 * Response containing Definition of Delete Request
+	 */
 	public class DeleteRequestAcceptResponse {
 	
 		
@@ -19,15 +19,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Is Delete Request Accepted
-		// </summary>
+		/**
+		 * Is Delete Request Accepted
+		 */
 		public Boolean getIsDeleteRequestAccepted() {
 			return isDeleteRequestAccepted;
 		}
-		// <summary>
-		//	Is Delete Request Accepted
-		// </summary>
+		/**
+		 * Is Delete Request Accepted
+		 */
 		public void setIsDeleteRequestAccepted(Boolean isDeleteRequestAccepted) {
 			this.isDeleteRequestAccepted = isDeleteRequestAccepted;
 		}

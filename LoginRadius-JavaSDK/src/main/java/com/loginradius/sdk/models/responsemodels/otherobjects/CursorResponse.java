@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Cursor data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Cursor data
+	 */
 	public class CursorResponse<T> {
 	
 		
@@ -24,27 +24,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Data
-		// </summary>
+		/**
+		 * Data
+		 */
 		public List<T> getData() {
 			return data;
 		}
-		// <summary>
-		//	Data
-		// </summary>
+		/**
+		 * Data
+		 */
 		public void setData(List<T> data) {
 			this.data = data;
 		}
-		// <summary>
-		//	Cursor value if not all contacts can be retrieved once.
-		// </summary>
+		/**
+		 * Cursor value if not all contacts can be retrieved once.
+		 */
 		public String getNextCursor() {
 			return nextCursor;
 		}
-		// <summary>
-		//	Cursor value if not all contacts can be retrieved once.
-		// </summary>
+		/**
+		 * Cursor value if not all contacts can be retrieved once.
+		 */
 		public void setNextCursor(String nextCursor) {
 			this.nextCursor = nextCursor;
 		}

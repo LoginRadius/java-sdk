@@ -10,16 +10,16 @@ public class SuspendConfiguration {
 	@Expose
 	private Integer effectivePeriodInSeconds;
 
-	/// <summary>
-	/// Suspended time in seconds
-	/// </summary>
+	/**
+	 * Suspended time in seconds
+	 */
 	public Integer getEffectivePeriodInSeconds() {
 		return effectivePeriodInSeconds;
 	}
 
-	/// <summary>
-	/// Suspended time in seconds
-	/// </summary>
+	/**
+	 * Suspended time in seconds
+	 */
 	public void setEffectivePeriodInSeconds(Integer effectivePeriodInSeconds) {
 		this.effectivePeriodInSeconds = effectivePeriodInSeconds;
 	}

@@ -30,12 +30,12 @@ public class SottApi {
 
    
    
-   // <summary>
-   // This API allows you to generate SOTT with a given expiration time.
-   // </summary>
-   // <param name="timeDifference">The time difference you would like to pass, If you not pass difference then the default value is 10 minutes</param>
-   // <returns>Sott data For Registration</returns>
-   // 18.28	    
+   /**
+    * This API allows you to generate SOTT with a given expiration time.
+    * @param timeDifference The time difference you would like to pass, If you not pass difference then the default value is 10 minutes
+    * @return Sott data For Registration
+    * @since 18.28
+    */
 		
 		
    public void generateSott(Integer timeDifference, final AsyncHandler<SottResponseData> handler) {

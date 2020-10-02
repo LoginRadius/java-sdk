@@ -11,9 +11,9 @@ import java.util.List;
 import com.google.gson.annotations.SerializedName;
 import com.loginradius.sdk.models.responsemodels.userprofile.objects.AcceptedPrivacyPolicy;
 
-	// <summary>
-	//	Response containing Definition of Complete PrivacyPolicyHistory
-	// </summary>
+	/**
+	 * Response containing Definition of Complete PrivacyPolicyHistory
+	 */
 	public class PrivacyPolicyHistoryResponse {
 	
 		
@@ -28,39 +28,39 @@ import com.loginradius.sdk.models.responsemodels.userprofile.objects.AcceptedPri
 
 
 
-		// <summary>
-		//	Current privacy policy
-		// </summary>
+		/**
+		 * Current privacy policy
+		 */
 		public AcceptedPrivacyPolicy getCurrent() {
 			return current;
 		}
-		// <summary>
-		//	Current privacy policy
-		// </summary>
+		/**
+		 * Current privacy policy
+		 */
 		public void setCurrent(AcceptedPrivacyPolicy current) {
 			this.current = current;
 		}
-		// <summary>
-		//	Privacy policy history
-		// </summary>
+		/**
+		 * Privacy policy history
+		 */
 		public List<AcceptedPrivacyPolicy> getHistory() {
 			return history;
 		}
-		// <summary>
-		//	Privacy policy history
-		// </summary>
+		/**
+		 * Privacy policy history
+		 */
 		public void setHistory(List<AcceptedPrivacyPolicy> history) {
 			this.history = history;
 		}
-		// <summary>
-		//	UID, the unified identifier for each user account
-		// </summary>
+		/**
+		 * UID, the unified identifier for each user account
+		 */
 		public String getUid() {
 			return uid;
 		}
-		// <summary>
-		//	UID, the unified identifier for each user account
-		// </summary>
+		/**
+		 * UID, the unified identifier for each user account
+		 */
 		public void setUid(String uid) {
 			this.uid = uid;
 		}

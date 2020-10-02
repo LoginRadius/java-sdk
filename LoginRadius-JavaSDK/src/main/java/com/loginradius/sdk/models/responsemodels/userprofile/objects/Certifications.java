@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Certifications data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Certifications data
+	 */
 	public class Certifications {
 	
 		
@@ -34,75 +34,75 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Authority of certifications
-		// </summary>
+		/**
+		 * Authority of certifications
+		 */
 		public String getAuthority() {
 			return authority;
 		}
-		// <summary>
-		//	Authority of certifications
-		// </summary>
+		/**
+		 * Authority of certifications
+		 */
 		public void setAuthority(String authority) {
 			this.authority = authority;
 		}
-		// <summary>
-		//	Certification end date
-		// </summary>
+		/**
+		 * Certification end date
+		 */
 		public String getEndDate() {
 			return endDate;
 		}
-		// <summary>
-		//	Certification end date
-		// </summary>
+		/**
+		 * Certification end date
+		 */
 		public void setEndDate(String endDate) {
 			this.endDate = endDate;
 		}
-		// <summary>
-		//	Certification id
-		// </summary>
+		/**
+		 * Certification id
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Certification id
-		// </summary>
+		/**
+		 * Certification id
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	Certification name
-		// </summary>
+		/**
+		 * Certification name
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Certification name
-		// </summary>
+		/**
+		 * Certification name
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
-		// <summary>
-		//	Certification number
-		// </summary>
+		/**
+		 * Certification number
+		 */
 		public String getNumber() {
 			return number;
 		}
-		// <summary>
-		//	Certification number
-		// </summary>
+		/**
+		 * Certification number
+		 */
 		public void setNumber(String number) {
 			this.number = number;
 		}
-		// <summary>
-		//	Certification start date
-		// </summary>
+		/**
+		 * Certification start date
+		 */
 		public String getStartDate() {
 			return startDate;
 		}
-		// <summary>
-		//	Certification start date
-		// </summary>
+		/**
+		 * Certification start date
+		 */
 		public void setStartDate(String startDate) {
 			this.startDate = startDate;
 		}

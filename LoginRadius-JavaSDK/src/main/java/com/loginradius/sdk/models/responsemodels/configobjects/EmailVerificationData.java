@@ -11,30 +11,30 @@ public class EmailVerificationData<T> extends AccessTokenBase {
 	@SerializedName("Email")
 	private String email;
 
-	/// <summary>
-	/// user's email
-	/// </summary>
+	/**
+	 * user's email
+	 */
 	public String getEmail() {
 		return email;
 	}
 
-	/// <summary>
-	/// user's email
-	/// </summary>
+	/**
+	 * user's email
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	/// <summary>
-	/// user's profile data
-	/// </summary>
+	/**
+	 * user's profile data
+	 */
 	public T getProfile() {
 		return profile;
 	}
 
-	/// <summary>
-	/// user's profile data
-	/// </summary>
+	/**
+	 * user's profile data
+	 */
 	public void setProfile(T profile) {
 		this.profile = profile;
 	}

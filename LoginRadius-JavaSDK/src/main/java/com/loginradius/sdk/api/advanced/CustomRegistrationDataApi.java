@@ -38,15 +38,15 @@ public class CustomRegistrationDataApi {
 
    
    
-   // <summary>
-   // This API is used to retrieve dropdown data.
-   // </summary>
-   // <param name="type">Type of the Datasource</param>
-   // <param name="limit">Retrieve number of records at a time(max limit is 50)</param>
-   // <param name="parentId">Id of parent dropdown member(if any).</param>
-   // <param name="skip">Skip number of records from start</param>
-   // <returns>Complete user Registration data</returns>
-   // 7.1	    
+   /**
+    * This API is used to retrieve dropdown data.
+    * @param type Type of the Datasource
+    * @param limit Retrieve number of records at a time(max limit is 50)
+    * @param parentId Id of parent dropdown member(if any).
+    * @param skip Skip number of records from start
+    * @return Complete user Registration data
+    * @since 7.1
+    */
 		
 		
    public void authGetRegistrationData(String type, Integer limit,
@@ -89,13 +89,13 @@ public class CustomRegistrationDataApi {
       });
    }
    
-   // <summary>
-   // This API allows you to validate code for a particular dropdown member.
-   // </summary>
-   // <param name="code">Secret Code</param>
-   // <param name="recordId">Selected dropdown item’s record id</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 7.2	    
+   /**
+    * This API allows you to validate code for a particular dropdown member.
+    * @param code Secret Code
+    * @param recordId Selected dropdown item’s record id
+    * @return Response containing Definition of Complete Validation data
+    * @since 7.2
+    */
 		
 		
    public void validateRegistrationDataCode(String code, String recordId, final AsyncHandler<PostValidationResponse> handler) {      
@@ -133,15 +133,15 @@ public class CustomRegistrationDataApi {
       });
    }
    
-   // <summary>
-   // This API is used to retrieve dropdown data.
-   // </summary>
-   // <param name="type">Type of the Datasource</param>
-   // <param name="limit">Retrive number of records at a time(max limit is 50</param>
-   // <param name="parentId">Id of parent dropdown member(if any).</param>
-   // <param name="skip">Skip number of records from start</param>
-   // <returns>Complete user Registration data Fields</returns>
-   // 16.1	    
+   /**
+    * This API is used to retrieve dropdown data.
+    * @param type Type of the Datasource
+    * @param limit Retrive number of records at a time(max limit is 50
+    * @param parentId Id of parent dropdown member(if any).
+    * @param skip Skip number of records from start
+    * @return Complete user Registration data Fields
+    * @since 16.1
+    */
 		
 		
    public void getRegistrationData(String type, Integer limit,
@@ -185,12 +185,12 @@ public class CustomRegistrationDataApi {
       });
    }
    
-   // <summary>
-   // This API allows you to fill data into a dropdown list which you have created for user Registration. For more details on how to use this API please see our Custom Registration Data Overview
-   // </summary>
-   // <param name="registrationDataCreateModelList">Model Class containing Definition of List of Registration Data</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 16.2	    
+   /**
+    * This API allows you to fill data into a dropdown list which you have created for user Registration. For more details on how to use this API please see our Custom Registration Data Overview
+    * @param registrationDataCreateModelList Model Class containing Definition of List of Registration Data
+    * @return Response containing Definition of Complete Validation data
+    * @since 16.2
+    */
 		
 		
    public void addRegistrationData(RegistrationDataCreateModelList registrationDataCreateModelList, final AsyncHandler<PostResponse> handler) {
@@ -221,13 +221,13 @@ public class CustomRegistrationDataApi {
       });
    }
    
-   // <summary>
-   // This API allows you to update a dropdown item
-   // </summary>
-   // <param name="registrationDataUpdateModel">Model Class containing Definition of payload for Registration Data update API</param>
-   // <param name="recordId">Registration data RecordId</param>
-   // <returns>Complete user Registration data Field</returns>
-   // 16.3	    
+   /**
+    * This API allows you to update a dropdown item
+    * @param registrationDataUpdateModel Model Class containing Definition of payload for Registration Data update API
+    * @param recordId Registration data RecordId
+    * @return Complete user Registration data Field
+    * @since 16.3
+    */
 		
 		
    public void updateRegistrationData(RegistrationDataUpdateModel registrationDataUpdateModel, String recordId, final AsyncHandler<UserProfilePostResponse<RegistrationDataField>> handler) {
@@ -262,12 +262,12 @@ public class CustomRegistrationDataApi {
       });
    }
    
-   // <summary>
-   // This API allows you to delete an item from a dropdown list.
-   // </summary>
-   // <param name="recordId">Registration data RecordId</param>
-   // <returns>Response containing Definition of Delete Request</returns>
-   // 16.4	    
+   /**
+    * This API allows you to delete an item from a dropdown list.
+    * @param recordId Registration data RecordId
+    * @return Response containing Definition of Delete Request
+    * @since 16.4
+    */
 		
 		
    public void deleteRegistrationData(String recordId, final AsyncHandler<DeleteResponse> handler) {      
@@ -298,12 +298,12 @@ public class CustomRegistrationDataApi {
       });
    }
    
-   // <summary>
-   // This API allows you to delete all records contained in a datasource.
-   // </summary>
-   // <param name="type">Type of the Datasource</param>
-   // <returns>Response containing Definition of Delete Request</returns>
-   // 16.5	    
+   /**
+    * This API allows you to delete all records contained in a datasource.
+    * @param type Type of the Datasource
+    * @return Response containing Definition of Delete Request
+    * @since 16.5
+    */
 		
 		
    public void deleteAllRecordsByDataSource(String type, final AsyncHandler<DeleteResponse> handler) {      

@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Klout Profile data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Klout Profile data
+	 */
 	public class KloutProfile {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Id of klout
-		// </summary>
+		/**
+		 * Id of klout
+		 */
 		public String getKloutId() {
 			return kloutId;
 		}
-		// <summary>
-		//	Id of klout
-		// </summary>
+		/**
+		 * Id of klout
+		 */
 		public void setKloutId(String kloutId) {
 			this.kloutId = kloutId;
 		}
-		// <summary>
-		//	Object, string represents KloutId and double represents Score
-		// </summary>
+		/**
+		 * Object, string represents KloutId and double represents Score
+		 */
 		public Double getScore() {
 			return score;
 		}
-		// <summary>
-		//	Object, string represents KloutId and double represents Score
-		// </summary>
+		/**
+		 * Object, string represents KloutId and double represents Score
+		 */
 		public void setScore(Double score) {
 			this.score = score;
 		}

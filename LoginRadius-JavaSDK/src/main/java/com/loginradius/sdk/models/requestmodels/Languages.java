@@ -9,9 +9,9 @@ package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 import com.loginradius.sdk.models.enums.OperationType;
 
-	// <summary>
-	//	Model Class containing Definition for Languages Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for Languages Property
+	 */
 	public class Languages {
 	
 		
@@ -29,51 +29,51 @@ import com.loginradius.sdk.models.enums.OperationType;
 
 
 
-		// <summary>
-		//	Language id
-		// </summary>
+		/**
+		 * Language id
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Language id
-		// </summary>
+		/**
+		 * Language id
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	Name of language
-		// </summary>
+		/**
+		 * Name of language
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Name of language
-		// </summary>
+		/**
+		 * Name of language
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
-		// <summary>
-		//	Languages operation Type
-		// </summary>
+		/**
+		 * Languages operation Type
+		 */
 		public OperationType getOp() {
 			return op;
 		}
-		// <summary>
-		//	Languages operation Type
-		// </summary>
+		/**
+		 * Languages operation Type
+		 */
 		public void setOp(OperationType op) {
 			this.op = op;
 		}
-		// <summary>
-		//	Proficiency in language
-		// </summary>
+		/**
+		 * Proficiency in language
+		 */
 		public String getProficiency() {
 			return proficiency;
 		}
-		// <summary>
-		//	Proficiency in language
-		// </summary>
+		/**
+		 * Proficiency in language
+		 */
 		public void setProficiency(String proficiency) {
 			this.proficiency = proficiency;
 		}

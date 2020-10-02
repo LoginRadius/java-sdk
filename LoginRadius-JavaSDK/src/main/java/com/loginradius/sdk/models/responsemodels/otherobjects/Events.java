@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Events data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Events data
+	 */
 	public class Events {
 	
 		
@@ -49,135 +49,135 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	detailed information
-		// </summary>
+		/**
+		 * detailed information
+		 */
 		public String getDescription() {
 			return description;
 		}
-		// <summary>
-		//	detailed information
-		// </summary>
+		/**
+		 * detailed information
+		 */
 		public void setDescription(String description) {
 			this.description = description;
 		}
-		// <summary>
-		//	EndTime
-		// </summary>
+		/**
+		 * EndTime
+		 */
 		public String getEndTime() {
 			return endTime;
 		}
-		// <summary>
-		//	EndTime
-		// </summary>
+		/**
+		 * EndTime
+		 */
 		public void setEndTime(String endTime) {
 			this.endTime = endTime;
 		}
-		// <summary>
-		//	ID of the User
-		// </summary>
+		/**
+		 * ID of the User
+		 */
 		public String getID() {
 			return iD;
 		}
-		// <summary>
-		//	ID of the User
-		// </summary>
+		/**
+		 * ID of the User
+		 */
 		public void setID(String iD) {
 			this.iD = iD;
 		}
-		// <summary>
-		//	Event Location
-		// </summary>
+		/**
+		 * Event Location
+		 */
 		public String getLocation() {
 			return location;
 		}
-		// <summary>
-		//	Event Location
-		// </summary>
+		/**
+		 * Event Location
+		 */
 		public void setLocation(String location) {
 			this.location = location;
 		}
-		// <summary>
-		//	Event name
-		// </summary>
+		/**
+		 * Event name
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Event name
-		// </summary>
+		/**
+		 * Event name
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
-		// <summary>
-		//	ID of account owner
-		// </summary>
+		/**
+		 * ID of account owner
+		 */
 		public String getOwnerId() {
 			return ownerId;
 		}
-		// <summary>
-		//	ID of account owner
-		// </summary>
+		/**
+		 * ID of account owner
+		 */
 		public void setOwnerId(String ownerId) {
 			this.ownerId = ownerId;
 		}
-		// <summary>
-		//	Name of account owner
-		// </summary>
+		/**
+		 * Name of account owner
+		 */
 		public String getOwnerName() {
 			return ownerName;
 		}
-		// <summary>
-		//	Name of account owner
-		// </summary>
+		/**
+		 * Name of account owner
+		 */
 		public void setOwnerName(String ownerName) {
 			this.ownerName = ownerName;
 		}
-		// <summary>
-		//	Privacy
-		// </summary>
+		/**
+		 * Privacy
+		 */
 		public String getPrivacy() {
 			return privacy;
 		}
-		// <summary>
-		//	Privacy
-		// </summary>
+		/**
+		 * Privacy
+		 */
 		public void setPrivacy(String privacy) {
 			this.privacy = privacy;
 		}
-		// <summary>
-		//	RsvpStatus
-		// </summary>
+		/**
+		 * RsvpStatus
+		 */
 		public String getRsvpStatus() {
 			return rsvpStatus;
 		}
-		// <summary>
-		//	RsvpStatus
-		// </summary>
+		/**
+		 * RsvpStatus
+		 */
 		public void setRsvpStatus(String rsvpStatus) {
 			this.rsvpStatus = rsvpStatus;
 		}
-		// <summary>
-		//	Start time
-		// </summary>
+		/**
+		 * Start time
+		 */
 		public String getStartTime() {
 			return startTime;
 		}
-		// <summary>
-		//	Start time
-		// </summary>
+		/**
+		 * Start time
+		 */
 		public void setStartTime(String startTime) {
 			this.startTime = startTime;
 		}
-		// <summary>
-		//	Updated date
-		// </summary>
+		/**
+		 * Updated date
+		 */
 		public String getUpdatedDate() {
 			return updatedDate;
 		}
-		// <summary>
-		//	Updated date
-		// </summary>
+		/**
+		 * Updated date
+		 */
 		public void setUpdatedDate(String updatedDate) {
 			this.updatedDate = updatedDate;
 		}

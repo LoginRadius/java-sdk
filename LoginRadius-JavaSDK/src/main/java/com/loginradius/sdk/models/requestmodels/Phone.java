@@ -9,9 +9,9 @@ package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 import com.loginradius.sdk.models.enums.OperationType;
 
-	// <summary>
-	//	Model Class containing Definition for Phone Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for Phone Property
+	 */
 	public class Phone {
 	
 		
@@ -26,39 +26,39 @@ import com.loginradius.sdk.models.enums.OperationType;
 
 
 
-		// <summary>
-		//	operation type
-		// </summary>
+		/**
+		 * operation type
+		 */
 		public OperationType getOp() {
 			return op;
 		}
-		// <summary>
-		//	operation type
-		// </summary>
+		/**
+		 * operation type
+		 */
 		public void setOp(OperationType op) {
 			this.op = op;
 		}
-		// <summary>
-		//	Phone number
-		// </summary>
+		/**
+		 * Phone number
+		 */
 		public String getPhoneNumber() {
 			return phoneNumber;
 		}
-		// <summary>
-		//	Phone number
-		// </summary>
+		/**
+		 * Phone number
+		 */
 		public void setPhoneNumber(String phoneNumber) {
 			this.phoneNumber = phoneNumber;
 		}
-		// <summary>
-		//	Phone type
-		// </summary>
+		/**
+		 * Phone type
+		 */
 		public String getPhoneType() {
 			return phoneType;
 		}
-		// <summary>
-		//	Phone type
-		// </summary>
+		/**
+		 * Phone type
+		 */
 		public void setPhoneType(String phoneType) {
 			this.phoneType = phoneType;
 		}

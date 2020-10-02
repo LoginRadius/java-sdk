@@ -10,9 +10,9 @@ import java.util.Map;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for Email Authentication API
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for Email Authentication API
+	 */
 	public class EmailAuthenticationModel extends ReCaptchaModel {
 	
 		
@@ -27,39 +27,39 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	user's email
-		// </summary>
+		/**
+		 * user's email
+		 */
 		public String getEmail() {
 			return email;
 		}
-		// <summary>
-		//	user's email
-		// </summary>
+		/**
+		 * user's email
+		 */
 		public void setEmail(String email) {
 			this.email = email;
 		}
-		// <summary>
-		//	Password for the email
-		// </summary>
+		/**
+		 * Password for the email
+		 */
 		public String getPassword() {
 			return password;
 		}
-		// <summary>
-		//	Password for the email
-		// </summary>
+		/**
+		 * Password for the email
+		 */
 		public void setPassword(String password) {
 			this.password = password;
 		}
-		// <summary>
-		//	Valid JSON object of Unique Security Question ID and Answer of set Security Question. It is only required for locked accounts when logging in. Details about this feature
-		// </summary>
+		/**
+		 * Valid JSON object of Unique Security Question ID and Answer of set Security Question. It is only required for locked accounts when logging in. Details about this feature
+		 */
 		public Map<String,String> getSecurityAnswer() {
 			return securityAnswer;
 		}
-		// <summary>
-		//	Valid JSON object of Unique Security Question ID and Answer of set Security Question. It is only required for locked accounts when logging in. Details about this feature
-		// </summary>
+		/**
+		 * Valid JSON object of Unique Security Question ID and Answer of set Security Question. It is only required for locked accounts when logging in. Details about this feature
+		 */
 		public void setSecurityAnswer(Map<String,String> securityAnswer) {
 			this.securityAnswer = securityAnswer;
 		}

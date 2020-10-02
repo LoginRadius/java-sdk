@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing consent version information
-	// </summary>
+	/**
+	 * Response containing consent version information
+	 */
 	public class ConsentVersions {
 	
 		
@@ -25,39 +25,39 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Allowed events: Login, Register, UpdateProfile, ResetPassword, ChangePassword, emailVerification, AddEmail, RemoveEmail, BlockAccount, DeleteAccount, SetUsername, AssignRoles, UnassignRoles, SetPassword, LinkAccount, UnlinkAccount, UpdatePhoneId, VerifyPhoneNumber, CreateCustomObject, UpdateCustomobject, DeleteCustomObject
-		// </summary>
+		/**
+		 * Allowed events: Login, Register, UpdateProfile, ResetPassword, ChangePassword, emailVerification, AddEmail, RemoveEmail, BlockAccount, DeleteAccount, SetUsername, AssignRoles, UnassignRoles, SetPassword, LinkAccount, UnlinkAccount, UpdatePhoneId, VerifyPhoneNumber, CreateCustomObject, UpdateCustomobject, DeleteCustomObject
+		 */
 		public String getEvent() {
 			return event;
 		}
-		// <summary>
-		//	Allowed events: Login, Register, UpdateProfile, ResetPassword, ChangePassword, emailVerification, AddEmail, RemoveEmail, BlockAccount, DeleteAccount, SetUsername, AssignRoles, UnassignRoles, SetPassword, LinkAccount, UnlinkAccount, UpdatePhoneId, VerifyPhoneNumber, CreateCustomObject, UpdateCustomobject, DeleteCustomObject
-		// </summary>
+		/**
+		 * Allowed events: Login, Register, UpdateProfile, ResetPassword, ChangePassword, emailVerification, AddEmail, RemoveEmail, BlockAccount, DeleteAccount, SetUsername, AssignRoles, UnassignRoles, SetPassword, LinkAccount, UnlinkAccount, UpdatePhoneId, VerifyPhoneNumber, CreateCustomObject, UpdateCustomobject, DeleteCustomObject
+		 */
 		public void setEvent(String event) {
 			this.event = event;
 		}
-		// <summary>
-		//	true/false
-		// </summary>
+		/**
+		 * true/false
+		 */
 		public Boolean getIsCustom() {
 			return isCustom;
 		}
-		// <summary>
-		//	true/false
-		// </summary>
+		/**
+		 * true/false
+		 */
 		public void setIsCustom(Boolean isCustom) {
 			this.isCustom = isCustom;
 		}
-		// <summary>
-		//	privacy policy version
-		// </summary>
+		/**
+		 * privacy policy version
+		 */
 		public Integer getVersion() {
 			return version;
 		}
-		// <summary>
-		//	privacy policy version
-		// </summary>
+		/**
+		 * privacy policy version
+		 */
 		public void setVersion(Integer version) {
 			this.version = version;
 		}

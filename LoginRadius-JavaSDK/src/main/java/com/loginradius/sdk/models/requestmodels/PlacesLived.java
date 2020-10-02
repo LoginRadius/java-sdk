@@ -9,9 +9,9 @@ package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 import com.loginradius.sdk.models.enums.OperationType;
 
-	// <summary>
-	//	Model Class containing Definition for PlacesLived Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for PlacesLived Property
+	 */
 	public class PlacesLived {
 	
 		
@@ -26,39 +26,39 @@ import com.loginradius.sdk.models.enums.OperationType;
 
 
 
-		// <summary>
-		//	place is primary or not
-		// </summary>
+		/**
+		 * place is primary or not
+		 */
 		public Boolean getIsPrimary() {
 			return isPrimary;
 		}
-		// <summary>
-		//	place is primary or not
-		// </summary>
+		/**
+		 * place is primary or not
+		 */
 		public void setIsPrimary(Boolean isPrimary) {
 			this.isPrimary = isPrimary;
 		}
-		// <summary>
-		//	Name of lived place
-		// </summary>
+		/**
+		 * Name of lived place
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Name of lived place
-		// </summary>
+		/**
+		 * Name of lived place
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
-		// <summary>
-		//	Places Lived Operation type
-		// </summary>
+		/**
+		 * Places Lived Operation type
+		 */
 		public OperationType getOp() {
 			return op;
 		}
-		// <summary>
-		//	Places Lived Operation type
-		// </summary>
+		/**
+		 * Places Lived Operation type
+		 */
 		public void setOp(OperationType op) {
 			this.op = op;
 		}

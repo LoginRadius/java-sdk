@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Roles data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Roles data
+	 */
 	public class AccountRolesModel {
 	
 		
@@ -21,15 +21,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Array of String, which represents the role name
-		// </summary>
+		/**
+		 * Array of String, which represents the role name
+		 */
 		public List<String> getRoles() {
 			return roles;
 		}
-		// <summary>
-		//	Array of String, which represents the role name
-		// </summary>
+		/**
+		 * Array of String, which represents the role name
+		 */
 		public void setRoles(List<String> roles) {
 			this.roles = roles;
 		}

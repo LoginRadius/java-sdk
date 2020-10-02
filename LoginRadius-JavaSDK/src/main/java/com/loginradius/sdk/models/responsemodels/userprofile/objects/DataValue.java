@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response Model Class containing Definition of Registration Data
-	// </summary>
+	/**
+	 * Response Model Class containing Definition of Registration Data
+	 */
 	public class DataValue {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Registration Data Source
-		// </summary>
+		/**
+		 * Registration Data Source
+		 */
 		public String getDataSource() {
 			return dataSource;
 		}
-		// <summary>
-		//	Registration Data Source
-		// </summary>
+		/**
+		 * Registration Data Source
+		 */
 		public void setDataSource(String dataSource) {
 			this.dataSource = dataSource;
 		}
-		// <summary>
-		//	Value of the dropdown member
-		// </summary>
+		/**
+		 * Value of the dropdown member
+		 */
 		public RegistrationDataValueObject getValue() {
 			return value;
 		}
-		// <summary>
-		//	Value of the dropdown member
-		// </summary>
+		/**
+		 * Value of the dropdown member
+		 */
 		public void setValue(RegistrationDataValueObject value) {
 			this.value = value;
 		}

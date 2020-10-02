@@ -10,9 +10,9 @@ import java.util.UUID;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Token Information
-	// </summary>
+	/**
+	 * Response containing Definition of Token Information
+	 */
 	public class TokenInfoResponseModel {
 	
 		
@@ -27,39 +27,39 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
-		// </summary>
+		/**
+		 * Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+		 */
 		public UUID getAccess_Token() {
 			return access_token;
 		}
-		// <summary>
-		//	Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
-		// </summary>
+		/**
+		 * Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+		 */
 		public void setAccess_Token(UUID access_token) {
 			this.access_token = access_token;
 		}
-		// <summary>
-		//	is remember login or not
-		// </summary>
+		/**
+		 * is remember login or not
+		 */
 		public Boolean getIsRememberMe() {
 			return isrememberme;
 		}
-		// <summary>
-		//	is remember login or not
-		// </summary>
+		/**
+		 * is remember login or not
+		 */
 		public void setIsRememberMe(Boolean isrememberme) {
 			this.isrememberme = isrememberme;
 		}
-		// <summary>
-		//	Name of the provider
-		// </summary>
+		/**
+		 * Name of the provider
+		 */
 		public String getProvider() {
 			return provider;
 		}
-		// <summary>
-		//	Name of the provider
-		// </summary>
+		/**
+		 * Name of the provider
+		 */
 		public void setProvider(String provider) {
 			this.provider = provider;
 		}

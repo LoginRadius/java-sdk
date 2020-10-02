@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Movies data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Movies data
+	 */
 	public class Movies {
 	
 		
@@ -28,51 +28,51 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Category of movie
-		// </summary>
+		/**
+		 * Category of movie
+		 */
 		public String getCategory() {
 			return category;
 		}
-		// <summary>
-		//	Category of movie
-		// </summary>
+		/**
+		 * Category of movie
+		 */
 		public void setCategory(String category) {
 			this.category = category;
 		}
-		// <summary>
-		//	Movie created date
-		// </summary>
+		/**
+		 * Movie created date
+		 */
 		public String getCreatedDate() {
 			return createdDate;
 		}
-		// <summary>
-		//	Movie created date
-		// </summary>
+		/**
+		 * Movie created date
+		 */
 		public void setCreatedDate(String createdDate) {
 			this.createdDate = createdDate;
 		}
-		// <summary>
-		//	Id of movie
-		// </summary>
+		/**
+		 * Id of movie
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Id of movie
-		// </summary>
+		/**
+		 * Id of movie
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	Name of movie
-		// </summary>
+		/**
+		 * Name of movie
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Name of movie
-		// </summary>
+		/**
+		 * Name of movie
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}

@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for MFA Reauthentication by OTP
-	// </summary>
+	/**
+	 * Model Class containing Definition for MFA Reauthentication by OTP
+	 */
 	public class ReauthByOtpModel extends LockoutModel {
 	
 		
@@ -19,15 +19,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	The Verification Code
-		// </summary>
+		/**
+		 * The Verification Code
+		 */
 		public String getOtp() {
 			return otp;
 		}
-		// <summary>
-		//	The Verification Code
-		// </summary>
+		/**
+		 * The Verification Code
+		 */
 		public void setOtp(String otp) {
 			this.otp = otp;
 		}

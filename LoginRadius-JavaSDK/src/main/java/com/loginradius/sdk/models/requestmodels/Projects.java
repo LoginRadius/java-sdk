@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for Projects Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for Projects Property
+	 */
 	public class Projects {
 	
 		
@@ -39,87 +39,87 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	End date of the project
-		// </summary>
+		/**
+		 * End date of the project
+		 */
 		public String getEndDate() {
 			return endDate;
 		}
-		// <summary>
-		//	End date of the project
-		// </summary>
+		/**
+		 * End date of the project
+		 */
 		public void setEndDate(String endDate) {
 			this.endDate = endDate;
 		}
-		// <summary>
-		//	Id of the project
-		// </summary>
+		/**
+		 * Id of the project
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Id of the project
-		// </summary>
+		/**
+		 * Id of the project
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	is current or not
-		// </summary>
+		/**
+		 * is current or not
+		 */
 		public String getIsCurrent() {
 			return isCurrent;
 		}
-		// <summary>
-		//	is current or not
-		// </summary>
+		/**
+		 * is current or not
+		 */
 		public void setIsCurrent(String isCurrent) {
 			this.isCurrent = isCurrent;
 		}
-		// <summary>
-		//	Name of the project
-		// </summary>
+		/**
+		 * Name of the project
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Name of the project
-		// </summary>
+		/**
+		 * Name of the project
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
-		// <summary>
-		//	Start date of the project
-		// </summary>
+		/**
+		 * Start date of the project
+		 */
 		public String getStartDate() {
 			return startDate;
 		}
-		// <summary>
-		//	Start date of the project
-		// </summary>
+		/**
+		 * Start date of the project
+		 */
 		public void setStartDate(String startDate) {
 			this.startDate = startDate;
 		}
-		// <summary>
-		//	Summary of the project
-		// </summary>
+		/**
+		 * Summary of the project
+		 */
 		public String getSummary() {
 			return summary;
 		}
-		// <summary>
-		//	Summary of the project
-		// </summary>
+		/**
+		 * Summary of the project
+		 */
 		public void setSummary(String summary) {
 			this.summary = summary;
 		}
-		// <summary>
-		//	Projects done with
-		// </summary>
+		/**
+		 * Projects done with
+		 */
 		public List<NameId> getWith() {
 			return with;
 		}
-		// <summary>
-		//	Projects done with
-		// </summary>
+		/**
+		 * Projects done with
+		 */
 		public void setWith(List<NameId> with) {
 			this.with = with;
 		}

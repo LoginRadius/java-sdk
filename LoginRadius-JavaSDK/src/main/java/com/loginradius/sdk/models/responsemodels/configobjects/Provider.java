@@ -13,30 +13,30 @@ public class Provider {
 	@Expose
 	private String endpoint;
 
-	/// <summary>
-	/// Provider's name
-	/// </summary>
+	/**
+	 * Provider's name
+	 */
 	public String getName() {
 		return name;
 	}
 
-	/// <summary>
-	/// Provider's name
-	/// </summary>
+	/**
+	 * Provider's name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	/// <summary>
-	/// Provider's EndPoint
-	/// </summary>
+	/**
+	 * Provider's EndPoint
+	 */
 	public String getEndpoint() {
 		return endpoint;
 	}
 
-	/// <summary>
-	/// Provider's EndPoint
-	/// </summary>
+	/**
+	 * Provider's EndPoint
+	 */
 	public void setEndpoint(String endpoint) {
 		this.endpoint = endpoint;
 	}

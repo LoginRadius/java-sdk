@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Publications data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Publications data
+	 */
 	public class Publications {
 	
 		
@@ -39,87 +39,87 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Author of the publication
-		// </summary>
+		/**
+		 * Author of the publication
+		 */
 		public List<PublicationsAuthors> getAuthors() {
 			return authors;
 		}
-		// <summary>
-		//	Author of the publication
-		// </summary>
+		/**
+		 * Author of the publication
+		 */
 		public void setAuthors(List<PublicationsAuthors> authors) {
 			this.authors = authors;
 		}
-		// <summary>
-		//	Date of the publication
-		// </summary>
+		/**
+		 * Date of the publication
+		 */
 		public String getDate() {
 			return date;
 		}
-		// <summary>
-		//	Date of the publication
-		// </summary>
+		/**
+		 * Date of the publication
+		 */
 		public void setDate(String date) {
 			this.date = date;
 		}
-		// <summary>
-		//	Id of the Publication
-		// </summary>
+		/**
+		 * Id of the Publication
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Id of the Publication
-		// </summary>
+		/**
+		 * Id of the Publication
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	Publisher of the Publication
-		// </summary>
+		/**
+		 * Publisher of the Publication
+		 */
 		public String getPublisher() {
 			return publisher;
 		}
-		// <summary>
-		//	Publisher of the Publication
-		// </summary>
+		/**
+		 * Publisher of the Publication
+		 */
 		public void setPublisher(String publisher) {
 			this.publisher = publisher;
 		}
-		// <summary>
-		//	Summary of the publication
-		// </summary>
+		/**
+		 * Summary of the publication
+		 */
 		public String getSummary() {
 			return summary;
 		}
-		// <summary>
-		//	Summary of the publication
-		// </summary>
+		/**
+		 * Summary of the publication
+		 */
 		public void setSummary(String summary) {
 			this.summary = summary;
 		}
-		// <summary>
-		//	Title of the publication
-		// </summary>
+		/**
+		 * Title of the publication
+		 */
 		public String getTitle() {
 			return title;
 		}
-		// <summary>
-		//	Title of the publication
-		// </summary>
+		/**
+		 * Title of the publication
+		 */
 		public void setTitle(String title) {
 			this.title = title;
 		}
-		// <summary>
-		//	Publication url
-		// </summary>
+		/**
+		 * Publication url
+		 */
 		public String getUrl() {
 			return url;
 		}
-		// <summary>
-		//	Publication url
-		// </summary>
+		/**
+		 * Publication url
+		 */
 		public void setUrl(String url) {
 			this.url = url;
 		}

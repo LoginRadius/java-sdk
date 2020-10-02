@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Audio data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Audio data
+	 */
 	public class Audio {
 	
 		
@@ -43,111 +43,111 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Artist
-		// </summary>
+		/**
+		 * Artist
+		 */
 		public String getArtist() {
 			return artist;
 		}
-		// <summary>
-		//	Artist
-		// </summary>
+		/**
+		 * Artist
+		 */
 		public void setArtist(String artist) {
 			this.artist = artist;
 		}
-		// <summary>
-		//	Date of Creation of Profile
-		// </summary>
+		/**
+		 * Date of Creation of Profile
+		 */
 		public String getCreatedDate() {
 			return createdDate;
 		}
-		// <summary>
-		//	Date of Creation of Profile
-		// </summary>
+		/**
+		 * Date of Creation of Profile
+		 */
 		public void setCreatedDate(String createdDate) {
 			this.createdDate = createdDate;
 		}
-		// <summary>
-		//	Total time of audio
-		// </summary>
+		/**
+		 * Total time of audio
+		 */
 		public String getDuration() {
 			return duration;
 		}
-		// <summary>
-		//	Total time of audio
-		// </summary>
+		/**
+		 * Total time of audio
+		 */
 		public void setDuration(String duration) {
 			this.duration = duration;
 		}
-		// <summary>
-		//	Id of audio file
-		// </summary>
+		/**
+		 * Id of audio file
+		 */
 		public String getID() {
 			return iD;
 		}
-		// <summary>
-		//	Id of audio file
-		// </summary>
+		/**
+		 * Id of audio file
+		 */
 		public void setID(String iD) {
 			this.iD = iD;
 		}
-		// <summary>
-		//	ID of account owner
-		// </summary>
+		/**
+		 * ID of account owner
+		 */
 		public String getOwnerId() {
 			return ownerId;
 		}
-		// <summary>
-		//	ID of account owner
-		// </summary>
+		/**
+		 * ID of account owner
+		 */
 		public void setOwnerId(String ownerId) {
 			this.ownerId = ownerId;
 		}
-		// <summary>
-		//	Name of account owner
-		// </summary>
+		/**
+		 * Name of account owner
+		 */
 		public String getOwnerName() {
 			return ownerName;
 		}
-		// <summary>
-		//	Name of account owner
-		// </summary>
+		/**
+		 * Name of account owner
+		 */
 		public void setOwnerName(String ownerName) {
 			this.ownerName = ownerName;
 		}
-		// <summary>
-		//	Title of audio file
-		// </summary>
+		/**
+		 * Title of audio file
+		 */
 		public String getTitle() {
 			return title;
 		}
-		// <summary>
-		//	Title of audio file
-		// </summary>
+		/**
+		 * Title of audio file
+		 */
 		public void setTitle(String title) {
 			this.title = title;
 		}
-		// <summary>
-		//	Updated date
-		// </summary>
+		/**
+		 * Updated date
+		 */
 		public String getUpdatedDate() {
 			return updatedDate;
 		}
-		// <summary>
-		//	Updated date
-		// </summary>
+		/**
+		 * Updated date
+		 */
 		public void setUpdatedDate(String updatedDate) {
 			this.updatedDate = updatedDate;
 		}
-		// <summary>
-		//	String represents website url
-		// </summary>
+		/**
+		 * String represents website url
+		 */
 		public String getUrl() {
 			return url;
 		}
-		// <summary>
-		//	String represents website url
-		// </summary>
+		/**
+		 * String represents website url
+		 */
 		public void setUrl(String url) {
 			this.url = url;
 		}

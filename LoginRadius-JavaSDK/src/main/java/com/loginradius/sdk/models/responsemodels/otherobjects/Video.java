@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Video data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Video data
+	 */
 	public class Video {
 	
 		
@@ -52,147 +52,147 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Date of Creation of Profile
-		// </summary>
+		/**
+		 * Date of Creation of Profile
+		 */
 		public String getCreatedDate() {
 			return createdDate;
 		}
-		// <summary>
-		//	Date of Creation of Profile
-		// </summary>
+		/**
+		 * Date of Creation of Profile
+		 */
 		public void setCreatedDate(String createdDate) {
 			this.createdDate = createdDate;
 		}
-		// <summary>
-		//	detailed information
-		// </summary>
+		/**
+		 * detailed information
+		 */
 		public String getDescription() {
 			return description;
 		}
-		// <summary>
-		//	detailed information
-		// </summary>
+		/**
+		 * detailed information
+		 */
 		public void setDescription(String description) {
 			this.description = description;
 		}
-		// <summary>
-		//	Video direct link
-		// </summary>
+		/**
+		 * Video direct link
+		 */
 		public String getDirectLink() {
 			return directLink;
 		}
-		// <summary>
-		//	Video direct link
-		// </summary>
+		/**
+		 * Video direct link
+		 */
 		public void setDirectLink(String directLink) {
 			this.directLink = directLink;
 		}
-		// <summary>
-		//	Video duration
-		// </summary>
+		/**
+		 * Video duration
+		 */
 		public String getDuration() {
 			return duration;
 		}
-		// <summary>
-		//	Video duration
-		// </summary>
+		/**
+		 * Video duration
+		 */
 		public void setDuration(String duration) {
 			this.duration = duration;
 		}
-		// <summary>
-		//	Embed html of video
-		// </summary>
+		/**
+		 * Embed html of video
+		 */
 		public String getEmbedHtml() {
 			return embedHtml;
 		}
-		// <summary>
-		//	Embed html of video
-		// </summary>
+		/**
+		 * Embed html of video
+		 */
 		public void setEmbedHtml(String embedHtml) {
 			this.embedHtml = embedHtml;
 		}
-		// <summary>
-		//	Video id
-		// </summary>
+		/**
+		 * Video id
+		 */
 		public String getID() {
 			return iD;
 		}
-		// <summary>
-		//	Video id
-		// </summary>
+		/**
+		 * Video id
+		 */
 		public void setID(String iD) {
 			this.iD = iD;
 		}
-		// <summary>
-		//	image URL should be absolute and has HTTPS domain
-		// </summary>
+		/**
+		 * image URL should be absolute and has HTTPS domain
+		 */
 		public String getImage() {
 			return image;
 		}
-		// <summary>
-		//	image URL should be absolute and has HTTPS domain
-		// </summary>
+		/**
+		 * image URL should be absolute and has HTTPS domain
+		 */
 		public void setImage(String image) {
 			this.image = image;
 		}
-		// <summary>
-		//	Video name
-		// </summary>
+		/**
+		 * Video name
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Video name
-		// </summary>
+		/**
+		 * Video name
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
-		// <summary>
-		//	Video owner id
-		// </summary>
+		/**
+		 * Video owner id
+		 */
 		public String getOwnerId() {
 			return ownerId;
 		}
-		// <summary>
-		//	Video owner id
-		// </summary>
+		/**
+		 * Video owner id
+		 */
 		public void setOwnerId(String ownerId) {
 			this.ownerId = ownerId;
 		}
-		// <summary>
-		//	Video owner name
-		// </summary>
+		/**
+		 * Video owner name
+		 */
 		public String getOwnerName() {
 			return ownerName;
 		}
-		// <summary>
-		//	Video owner name
-		// </summary>
+		/**
+		 * Video owner name
+		 */
 		public void setOwnerName(String ownerName) {
 			this.ownerName = ownerName;
 		}
-		// <summary>
-		//	Source of video
-		// </summary>
+		/**
+		 * Source of video
+		 */
 		public String getSource() {
 			return source;
 		}
-		// <summary>
-		//	Source of video
-		// </summary>
+		/**
+		 * Source of video
+		 */
 		public void setSource(String source) {
 			this.source = source;
 		}
-		// <summary>
-		//	Updated date
-		// </summary>
+		/**
+		 * Updated date
+		 */
 		public String getUpdatedDate() {
 			return updatedDate;
 		}
-		// <summary>
-		//	Updated date
-		// </summary>
+		/**
+		 * Updated date
+		 */
 		public void setUpdatedDate(String updatedDate) {
 			this.updatedDate = updatedDate;
 		}

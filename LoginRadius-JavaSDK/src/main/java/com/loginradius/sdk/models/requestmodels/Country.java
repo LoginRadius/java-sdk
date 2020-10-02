@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for Country Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for Country Property
+	 */
 	public class Country {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Country code
-		// </summary>
+		/**
+		 * Country code
+		 */
 		public String getCode() {
 			return code;
 		}
-		// <summary>
-		//	Country code
-		// </summary>
+		/**
+		 * Country code
+		 */
 		public void setCode(String code) {
 			this.code = code;
 		}
-		// <summary>
-		//	Country name
-		// </summary>
+		/**
+		 * Country name
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Country name
-		// </summary>
+		/**
+		 * Country name
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}

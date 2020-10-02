@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for ResetPasswordByEmailAndOtp API
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for ResetPasswordByEmailAndOtp API
+	 */
 	public class ResetPasswordByEmailAndOtpModel extends LockoutModel {
 	
 		
@@ -31,63 +31,63 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	user's email
-		// </summary>
+		/**
+		 * user's email
+		 */
 		public String getEmail() {
 			return email;
 		}
-		// <summary>
-		//	user's email
-		// </summary>
+		/**
+		 * user's email
+		 */
 		public void setEmail(String email) {
 			this.email = email;
 		}
-		// <summary>
-		//	The Verification Code
-		// </summary>
+		/**
+		 * The Verification Code
+		 */
 		public String getOtp() {
 			return otp;
 		}
-		// <summary>
-		//	The Verification Code
-		// </summary>
+		/**
+		 * The Verification Code
+		 */
 		public void setOtp(String otp) {
 			this.otp = otp;
 		}
-		// <summary>
-		//	Password for the email
-		// </summary>
+		/**
+		 * Password for the email
+		 */
 		public String getPassword() {
 			return password;
 		}
-		// <summary>
-		//	Password for the email
-		// </summary>
+		/**
+		 * Password for the email
+		 */
 		public void setPassword(String password) {
 			this.password = password;
 		}
-		// <summary>
-		//	If you are sending an email via the sendemail parameter, this parameter allows you to specify which reset Password email template you would like to use.
-		// </summary>
+		/**
+		 * If you are sending an email via the sendemail parameter, this parameter allows you to specify which reset Password email template you would like to use.
+		 */
 		public String getResetPasswordEmailTemplate() {
 			return resetPasswordEmailTemplate;
 		}
-		// <summary>
-		//	If you are sending an email via the sendemail parameter, this parameter allows you to specify which reset Password email template you would like to use.
-		// </summary>
+		/**
+		 * If you are sending an email via the sendemail parameter, this parameter allows you to specify which reset Password email template you would like to use.
+		 */
 		public void setResetPasswordEmailTemplate(String resetPasswordEmailTemplate) {
 			this.resetPasswordEmailTemplate = resetPasswordEmailTemplate;
 		}
-		// <summary>
-		//	If you are sending an email via the sendemail parameter, this parameter allows you to specify which welcome email template you would like to use.
-		// </summary>
+		/**
+		 * If you are sending an email via the sendemail parameter, this parameter allows you to specify which welcome email template you would like to use.
+		 */
 		public String getWelcomeEmailTemplate() {
 			return welcomeEmailTemplate;
 		}
-		// <summary>
-		//	If you are sending an email via the sendemail parameter, this parameter allows you to specify which welcome email template you would like to use.
-		// </summary>
+		/**
+		 * If you are sending an email via the sendemail parameter, this parameter allows you to specify which welcome email template you would like to use.
+		 */
 		public void setWelcomeEmailTemplate(String welcomeEmailTemplate) {
 			this.welcomeEmailTemplate = welcomeEmailTemplate;
 		}

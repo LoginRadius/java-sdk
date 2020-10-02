@@ -28,100 +28,100 @@ public class Apis {
 	@Expose
 	private Boolean putUpdateProfile;
 
-	/// <summary>
-	/// PostForgotPasswordByEmail
-	/// </summary>
+	/**
+	 * PostForgotPasswordByEmail
+	 */
 	public Boolean getPostForgotPasswordByEmail() {
 		return postForgotPasswordByEmail;
 	}
 
-	/// <summary>
-	/// PostForgotPasswordByEmail
-	/// </summary>
+	/**
+	 * PostForgotPasswordByEmail
+	 */
 	public void setPostForgotPasswordByEmail(Boolean postForgotPasswordByEmail) {
 		this.postForgotPasswordByEmail = postForgotPasswordByEmail;
 	}
 
-	/// <summary>
-	/// PostForgotPasswordByPhone
-	/// </summary>
+	/**
+	 * PostForgotPasswordByPhone
+	 */
 	public Boolean getPostForgotPasswordByPhone() {
 		return postForgotPasswordByPhone;
 	}
 
-	/// <summary>
-	/// PostForgotPasswordByPhone
-	/// </summary>
+	/**
+	 * PostForgotPasswordByPhone
+	 */
 	public void setPostForgotPasswordByPhone(Boolean postForgotPasswordByPhone) {
 		this.postForgotPasswordByPhone = postForgotPasswordByPhone;
 	}
 
-	/// <summary>
-	/// PutChangePassword
-	/// </summary>
+	/**
+	 * PutChangePassword
+	 */
 	public Boolean getPutChangePassword() {
 		return putChangePassword;
 	}
 
-	/// <summary>
-	/// PutChangePassword
-	/// </summary>
+	/**
+	 * PutChangePassword
+	 */
 	public void setPutChangePassword(Boolean putChangePassword) {
 		this.putChangePassword = putChangePassword;
 	}
 
-	/// <summary>
-	/// PostLoginByEmailAndPassword
-	/// </summary>
+	/**
+	 * PostLoginByEmailAndPassword
+	 */
 	public Boolean getPostLoginByEmailAndPassword() {
 		return postLoginByEmailAndPassword;
 	}
 
-	/// <summary>
-	/// PostLoginByEmailAndPassword
-	/// </summary>
+	/**
+	 * PostLoginByEmailAndPassword
+	 */
 	public void setPostLoginByEmailAndPassword(Boolean postLoginByEmailAndPassword) {
 		this.postLoginByEmailAndPassword = postLoginByEmailAndPassword;
 	}
 
-	/// <summary>
-	/// PostLoginByUserNameAndPassword
-	/// </summary>
+	/**
+	 * PostLoginByUserNameAndPassword
+	 */
 	public Boolean getPostLoginByUserNameAndPassword() {
 		return postLoginByUserNameAndPassword;
 	}
 
-	/// <summary>
-	/// PostLoginByUserNameAndPassword
-	/// </summary>
+	/**
+	 * PostLoginByUserNameAndPassword
+	 */
 	public void setPostLoginByUserNameAndPassword(Boolean postLoginByUserNameAndPassword) {
 		this.postLoginByUserNameAndPassword = postLoginByUserNameAndPassword;
 	}
 
-	/// <summary>
-	/// PostLoginByPhoneAndPassword
-	/// </summary>
+	/**
+	 * PostLoginByPhoneAndPassword
+	 */
 	public Boolean getPostLoginByPhoneAndPassword() {
 		return postLoginByPhoneAndPassword;
 	}
 
-	/// <summary>
-	/// PostLoginByPhoneAndPassword
-	/// </summary>
+	/**
+	 * PostLoginByPhoneAndPassword
+	 */
 	public void setPostLoginByPhoneAndPassword(Boolean postLoginByPhoneAndPassword) {
 		this.postLoginByPhoneAndPassword = postLoginByPhoneAndPassword;
 	}
 
-	/// <summary>
-	/// PutUpdateProfile
-	/// </summary>
+	/**
+	 * PutUpdateProfile
+	 */
 	public Boolean getPutUpdateProfile() {
 		return putUpdateProfile;
 	}
 
-	/// <summary>
-	/// PutUpdateProfile
-	/// </summary>
+	/**
+	 * PutUpdateProfile
+	 */
 	public void setPutUpdateProfile(Boolean putUpdateProfile) {
 		this.putUpdateProfile = putUpdateProfile;
 	}

@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete RoleContext data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete RoleContext data
+	 */
 	public class RoleContext {
 	
 		
@@ -30,51 +30,51 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Array of String, which represents the additional permissions
-		// </summary>
+		/**
+		 * Array of String, which represents the additional permissions
+		 */
 		public List<String> getAdditionalPermissions() {
 			return additionalPermissions;
 		}
-		// <summary>
-		//	Array of String, which represents the additional permissions
-		// </summary>
+		/**
+		 * Array of String, which represents the additional permissions
+		 */
 		public void setAdditionalPermissions(List<String> additionalPermissions) {
 			this.additionalPermissions = additionalPermissions;
 		}
-		// <summary>
-		//	Array of RoleContext object, see body tab for structure
-		// </summary>
+		/**
+		 * Array of RoleContext object, see body tab for structure
+		 */
 		public String getContext() {
 			return context;
 		}
-		// <summary>
-		//	Array of RoleContext object, see body tab for structure
-		// </summary>
+		/**
+		 * Array of RoleContext object, see body tab for structure
+		 */
 		public void setContext(String context) {
 			this.context = context;
 		}
-		// <summary>
-		//	Role expiration date
-		// </summary>
+		/**
+		 * Role expiration date
+		 */
 		public String getExpiration() {
 			return expiration;
 		}
-		// <summary>
-		//	Role expiration date
-		// </summary>
+		/**
+		 * Role expiration date
+		 */
 		public void setExpiration(String expiration) {
 			this.expiration = expiration;
 		}
-		// <summary>
-		//	Array of String, which represents the role name
-		// </summary>
+		/**
+		 * Array of String, which represents the role name
+		 */
 		public List<String> getRoles() {
 			return roles;
 		}
-		// <summary>
-		//	Array of String, which represents the role name
-		// </summary>
+		/**
+		 * Array of String, which represents the role name
+		 */
 		public void setRoles(List<String> roles) {
 			this.roles = roles;
 		}

@@ -41,15 +41,15 @@ public class PhoneAuthenticationApi {
 
    
    
-   // <summary>
-   // This API retrieves a copy of the user data based on the Phone
-   // </summary>
-   // <param name="phoneAuthenticationModel">Model Class containing Definition of payload for PhoneAuthenticationModel API</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="loginUrl">Url where the user is logging from</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <returns>Response containing User Profile Data and access token</returns>
-   // 9.2.3	    
+   /**
+    * This API retrieves a copy of the user data based on the Phone
+    * @param phoneAuthenticationModel Model Class containing Definition of payload for PhoneAuthenticationModel API
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param loginUrl Url where the user is logging from
+    * @param smsTemplate SMS Template name
+    * @return Response containing User Profile Data and access token
+    * @since 9.2.3
+    */
 		
 		
    public void loginByPhone(PhoneAuthenticationModel phoneAuthenticationModel, String fields,
@@ -92,13 +92,13 @@ public class PhoneAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to send the OTP to reset the account password.
-   // </summary>
-   // <param name="phone">New Phone Number</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <returns>Response Containing Validation Data and SMS Data</returns>
-   // 10.4	    
+   /**
+    * This API is used to send the OTP to reset the account password.
+    * @param phone New Phone Number
+    * @param smsTemplate SMS Template name
+    * @return Response Containing Validation Data and SMS Data
+    * @since 10.4
+    */
 		
 		
    public void forgotPasswordByPhoneOTP(String phone, String smsTemplate, final AsyncHandler<UserProfilePostResponse<SMSResponseData>> handler) {      
@@ -135,12 +135,12 @@ public class PhoneAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to reset the password
-   // </summary>
-   // <param name="resetPasswordByOTPModel">Model Class containing Definition of payload for ResetPasswordByOTP API</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 10.5	    
+   /**
+    * This API is used to reset the password
+    * @param resetPasswordByOTPModel Model Class containing Definition of payload for ResetPasswordByOTP API
+    * @return Response containing Definition of Complete Validation data
+    * @since 10.5
+    */
 		
 		
    public void resetPasswordByPhoneOTP(ResetPasswordByOTPModel resetPasswordByOTPModel, final AsyncHandler<PostResponse> handler) {
@@ -170,15 +170,15 @@ public class PhoneAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to validate the verification code sent to verify a user's phone number
-   // </summary>
-   // <param name="otp">The Verification Code</param>
-   // <param name="phone">New Phone Number</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <returns>Response containing User Profile Data and access token</returns>
-   // 11.1.1	    
+   /**
+    * This API is used to validate the verification code sent to verify a user's phone number
+    * @param otp The Verification Code
+    * @param phone New Phone Number
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param smsTemplate SMS Template name
+    * @return Response containing User Profile Data and access token
+    * @since 11.1.1
+    */
 		
 		
    public void phoneVerificationByOTP(String otp, String phone,
@@ -225,14 +225,14 @@ public class PhoneAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to consume the verification code sent to verify a user's phone number. Use this call for front-end purposes in cases where the user is already logged in by passing the user's access token.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="otp">The Verification Code</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 11.1.2	    
+   /**
+    * This API is used to consume the verification code sent to verify a user's phone number. Use this call for front-end purposes in cases where the user is already logged in by passing the user's access token.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param otp The Verification Code
+    * @param smsTemplate SMS Template name
+    * @return Response containing Definition of Complete Validation data
+    * @since 11.1.2
+    */
 		
 		
    public void phoneVerificationOTPByAccessToken(String accessToken, String otp,
@@ -273,13 +273,13 @@ public class PhoneAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to resend a verification OTP to verify a user's Phone Number. The user will receive a verification code that they will need to input
-   // </summary>
-   // <param name="phone">New Phone Number</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <returns>Response Containing Validation Data and SMS Data</returns>
-   // 11.2.1	    
+   /**
+    * This API is used to resend a verification OTP to verify a user's Phone Number. The user will receive a verification code that they will need to input
+    * @param phone New Phone Number
+    * @param smsTemplate SMS Template name
+    * @return Response Containing Validation Data and SMS Data
+    * @since 11.2.1
+    */
 		
 		
    public void phoneResendVerificationOTP(String phone, String smsTemplate, final AsyncHandler<UserProfilePostResponse<SMSResponseData>> handler) {      
@@ -316,14 +316,14 @@ public class PhoneAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to resend a verification OTP to verify a user's Phone Number in cases in which an active token already exists
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="phone">New Phone Number</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <returns>Response Containing Validation Data and SMS Data</returns>
-   // 11.2.2	    
+   /**
+    * This API is used to resend a verification OTP to verify a user's Phone Number in cases in which an active token already exists
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param phone New Phone Number
+    * @param smsTemplate SMS Template name
+    * @return Response Containing Validation Data and SMS Data
+    * @since 11.2.2
+    */
 		
 		
    public void phoneResendVerificationOTPByToken(String accessToken, String phone,
@@ -366,14 +366,14 @@ public class PhoneAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to update the login Phone Number of users
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="phone">New Phone Number</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <returns>Response Containing Validation Data and SMS Data</returns>
-   // 11.5	    
+   /**
+    * This API is used to update the login Phone Number of users
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param phone New Phone Number
+    * @param smsTemplate SMS Template name
+    * @return Response Containing Validation Data and SMS Data
+    * @since 11.5
+    */
 		
 		
    public void updatePhoneNumber(String accessToken, String phone,
@@ -416,12 +416,12 @@ public class PhoneAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to check the Phone Number exists or not on your site.
-   // </summary>
-   // <param name="phone">The Registered Phone Number</param>
-   // <returns>Response containing Definition Complete ExistResponse data</returns>
-   // 11.6	    
+   /**
+    * This API is used to check the Phone Number exists or not on your site.
+    * @param phone The Registered Phone Number
+    * @return Response containing Definition Complete ExistResponse data
+    * @since 11.6
+    */
 		
 		
    public void checkPhoneNumberAvailability(String phone, final AsyncHandler<ExistResponse> handler) {      
@@ -452,12 +452,12 @@ public class PhoneAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to delete the Phone ID on a user's account via the access token
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <returns>Response containing Definition of Delete Request</returns>
-   // 11.7	    
+   /**
+    * This API is used to delete the Phone ID on a user's account via the access token
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @return Response containing Definition of Delete Request
+    * @since 11.7
+    */
 		
 		
    public void removePhoneIDByAccessToken(String accessToken, final AsyncHandler<DeleteResponse> handler) {      
@@ -488,18 +488,18 @@ public class PhoneAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API registers the new users into your Cloud Storage and triggers the phone verification process.
-   // </summary>
-   // <param name="authUserRegistrationModel">Model Class containing Definition of payload for Auth User Registration API</param>
-   // <param name="sott">LoginRadius Secured One Time Token</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="options">PreventVerificationEmail (Specifying this value prevents the verification email from being sent. Only applicable if you have the optional email verification flow)</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <param name="verificationUrl">Email verification url</param>
-   // <param name="welcomeEmailTemplate">Name of the welcome email template</param>
-   // <returns>Response containing Definition of Complete Validation, UserProfile data and Access Token</returns>
-   // 17.1.2	    
+   /**
+    * This API registers the new users into your Cloud Storage and triggers the phone verification process.
+    * @param authUserRegistrationModel Model Class containing Definition of payload for Auth User Registration API
+    * @param sott LoginRadius Secured One Time Token
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param options PreventVerificationEmail (Specifying this value prevents the verification email from being sent. Only applicable if you have the optional email verification flow)
+    * @param smsTemplate SMS Template name
+    * @param verificationUrl Email verification url
+    * @param welcomeEmailTemplate Name of the welcome email template
+    * @return Response containing Definition of Complete Validation, UserProfile data and Access Token
+    * @since 17.1.2
+    */
 		
 		
    public void userRegistrationByPhone(AuthUserRegistrationModel authUserRegistrationModel, String sott,

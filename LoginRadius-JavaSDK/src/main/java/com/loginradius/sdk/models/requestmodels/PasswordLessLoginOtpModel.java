@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for PasswordLessLoginOtpModel API
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for PasswordLessLoginOtpModel API
+	 */
 	public class PasswordLessLoginOtpModel extends LockoutModel {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	The Verification Code
-		// </summary>
+		/**
+		 * The Verification Code
+		 */
 		public String getOtp() {
 			return otp;
 		}
-		// <summary>
-		//	The Verification Code
-		// </summary>
+		/**
+		 * The Verification Code
+		 */
 		public void setOtp(String otp) {
 			this.otp = otp;
 		}
-		// <summary>
-		//	New Phone Number
-		// </summary>
+		/**
+		 * New Phone Number
+		 */
 		public String getPhone() {
 			return phone;
 		}
-		// <summary>
-		//	New Phone Number
-		// </summary>
+		/**
+		 * New Phone Number
+		 */
 		public void setPhone(String phone) {
 			this.phone = phone;
 		}

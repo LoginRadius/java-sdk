@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of List of Registration Data
-	// </summary>
+	/**
+	 * Model Class containing Definition of List of Registration Data
+	 */
 	public class RegistrationDataCreateModelList {
 	
 		
@@ -21,15 +21,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Data
-		// </summary>
+		/**
+		 * Data
+		 */
 		public List<RegistrationDataCreateModel> getData() {
 			return data;
 		}
-		// <summary>
-		//	Data
-		// </summary>
+		/**
+		 * Data
+		 */
 		public void setData(List<RegistrationDataCreateModel> data) {
 			this.data = data;
 		}

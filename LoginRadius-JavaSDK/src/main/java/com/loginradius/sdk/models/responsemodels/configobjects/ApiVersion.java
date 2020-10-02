@@ -13,30 +13,30 @@ public class ApiVersion {
 	@Expose
 	private Boolean v2;
 
-	/// <summary>
-	/// APIVersion V1
-	/// </summary>
+	/**
+	 * APIVersion V1
+	 */
 	public Boolean getV1() {
 		return v1;
 	}
 
-	/// <summary>
-	/// APIVersion V1
-	/// </summary>
+	/**
+	 * APIVersion V1
+	 */
 	public void setV1(Boolean v1) {
 		this.v1 = v1;
 	}
 
-	/// <summary>
-	/// APIVersion V2
-	/// </summary>
+	/**
+	 * APIVersion V2
+	 */
 	public Boolean getV2() {
 		return v2;
 	}
 
-	/// <summary>
-	/// APIVersion V2
-	/// </summary>
+	/**
+	 * APIVersion V2
+	 */
 	public void setV2(Boolean v2) {
 		this.v2 = v2;
 	}

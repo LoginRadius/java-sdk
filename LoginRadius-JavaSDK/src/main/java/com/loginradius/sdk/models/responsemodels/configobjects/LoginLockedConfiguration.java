@@ -16,44 +16,44 @@ public class LoginLockedConfiguration {
 	@Expose
 	private SuspendConfiguration suspendConfiguration;
 
-	/// <summary>
-	/// LoginLockedType
-	/// </summary>
+	/**
+	 * LoginLockedType
+	 */
 	public String getLoginLockedType() {
 		return loginLockedType;
 	}
 
-	/// <summary>
-	/// LoginLockedType
-	/// </summary>
+	/**
+	 * LoginLockedType
+	 */
 	public void setLoginLockedType(String loginLockedType) {
 		this.loginLockedType = loginLockedType;
 	}
 
-	/// <summary>
-	/// MaximumFailedLoginAttempts
-	/// </summary>
+	/**
+	 * MaximumFailedLoginAttempts
+	 */
 	public Integer getMaximumFailedLoginAttempts() {
 		return maximumFailedLoginAttempts;
 	}
 
-	/// <summary>
-	/// MaximumFailedLoginAttempts
-	/// </summary>
+	/**
+	 * MaximumFailedLoginAttempts
+	 */
 	public void setMaximumFailedLoginAttempts(Integer maximumFailedLoginAttempts) {
 		this.maximumFailedLoginAttempts = maximumFailedLoginAttempts;
 	}
 
-	/// <summary>
-	/// SuspendConfiguration
-	/// </summary>
+	/**
+	 * SuspendConfiguration
+	 */
 	public SuspendConfiguration getSuspendConfiguration() {
 		return suspendConfiguration;
 	}
 
-	/// <summary>
-	/// SuspendConfiguration
-	/// </summary>
+	/**
+	 * SuspendConfiguration
+	 */
 	public void setSuspendConfiguration(SuspendConfiguration suspendConfiguration) {
 		this.suspendConfiguration = suspendConfiguration;
 	}

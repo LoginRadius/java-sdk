@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for Reset Pin By Security Question and Phone API
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for Reset Pin By Security Question and Phone API
+	 */
 	public class ResetPINBySecurityQuestionAnswerAndPhoneModel extends ResetPINBySecurityQuestionAnswer {
 	
 		
@@ -19,15 +19,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	New Phone Number
-		// </summary>
+		/**
+		 * New Phone Number
+		 */
 		public String getPhone() {
 			return phone;
 		}
-		// <summary>
-		//	New Phone Number
-		// </summary>
+		/**
+		 * New Phone Number
+		 */
 		public void setPhone(String phone) {
 			this.phone = phone;
 		}

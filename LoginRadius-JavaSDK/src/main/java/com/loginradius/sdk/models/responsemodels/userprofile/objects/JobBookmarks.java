@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Job Bookmark data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Job Bookmark data
+	 */
 	public class JobBookmarks {
 	
 		
@@ -31,63 +31,63 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Job Bookmarks Apply Timestamp
-		// </summary>
+		/**
+		 * Job Bookmarks Apply Timestamp
+		 */
 		public String getApplyTimestamp() {
 			return applyTimestamp;
 		}
-		// <summary>
-		//	Job Bookmarks Apply Timestamp
-		// </summary>
+		/**
+		 * Job Bookmarks Apply Timestamp
+		 */
 		public void setApplyTimestamp(String applyTimestamp) {
 			this.applyTimestamp = applyTimestamp;
 		}
-		// <summary>
-		//	Job bookmark is applied or not
-		// </summary>
+		/**
+		 * Job bookmark is applied or not
+		 */
 		public Boolean getIsApplied() {
 			return isApplied;
 		}
-		// <summary>
-		//	Job bookmark is applied or not
-		// </summary>
+		/**
+		 * Job bookmark is applied or not
+		 */
 		public void setIsApplied(Boolean isApplied) {
 			this.isApplied = isApplied;
 		}
-		// <summary>
-		//	Job bookmark is saved or not
-		// </summary>
+		/**
+		 * Job bookmark is saved or not
+		 */
 		public Boolean getIsSaved() {
 			return isSaved;
 		}
-		// <summary>
-		//	Job bookmark is saved or not
-		// </summary>
+		/**
+		 * Job bookmark is saved or not
+		 */
 		public void setIsSaved(Boolean isSaved) {
 			this.isSaved = isSaved;
 		}
-		// <summary>
-		//	Job
-		// </summary>
+		/**
+		 * Job
+		 */
 		public Job getJob() {
 			return job;
 		}
-		// <summary>
-		//	Job
-		// </summary>
+		/**
+		 * Job
+		 */
 		public void setJob(Job job) {
 			this.job = job;
 		}
-		// <summary>
-		//	Saved time stamp of Job bookmarks
-		// </summary>
+		/**
+		 * Saved time stamp of Job bookmarks
+		 */
 		public String getSavedTimestamp() {
 			return savedTimestamp;
 		}
-		// <summary>
-		//	Saved time stamp of Job bookmarks
-		// </summary>
+		/**
+		 * Saved time stamp of Job bookmarks
+		 */
 		public void setSavedTimestamp(String savedTimestamp) {
 			this.savedTimestamp = savedTimestamp;
 		}

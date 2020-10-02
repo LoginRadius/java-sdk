@@ -39,13 +39,13 @@ public class ReAuthenticationApi {
 
    
    
-   // <summary>
-   // This API is used to trigger the Multi-Factor Autentication workflow for the provided access token
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="smsTemplate2FA">SMS Template Name</param>
-   // <returns>Response containing Definition of Complete Multi-Factor Authentication Settings data</returns>
-   // 14.3	    
+   /**
+    * This API is used to trigger the Multi-Factor Autentication workflow for the provided access token
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param smsTemplate2FA SMS Template Name
+    * @return Response containing Definition of Complete Multi-Factor Authentication Settings data
+    * @since 14.3
+    */
 		
 		
    public void mfaReAuthenticate(String accessToken, String smsTemplate2FA, final AsyncHandler<MultiFactorAuthenticationSettingsResponse> handler) {      
@@ -80,13 +80,13 @@ public class ReAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to re-authenticate via Multi-factor authentication by passing the One Time Password received via SMS
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="reauthByOtpModel">Model Class containing Definition for MFA Reauthentication by OTP</param>
-   // <returns>Complete user Multi-Factor Authentication Token data</returns>
-   // 14.4	    
+   /**
+    * This API is used to re-authenticate via Multi-factor authentication by passing the One Time Password received via SMS
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param reauthByOtpModel Model Class containing Definition for MFA Reauthentication by OTP
+    * @return Complete user Multi-Factor Authentication Token data
+    * @since 14.4
+    */
 		
 		
    public void mfaReAuthenticateByOTP(String accessToken, ReauthByOtpModel reauthByOtpModel, final AsyncHandler<EventBasedMultiFactorAuthenticationToken> handler) {      
@@ -121,13 +121,13 @@ public class ReAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to re-authenticate by set of backup codes via access token on the site that has Multi-factor authentication enabled in re-authentication for the user that does not have the device
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="reauthByBackupCodeModel">Model Class containing Definition for MFA Reauthentication by Backup code</param>
-   // <returns>Complete user Multi-Factor Authentication Token data</returns>
-   // 14.5	    
+   /**
+    * This API is used to re-authenticate by set of backup codes via access token on the site that has Multi-factor authentication enabled in re-authentication for the user that does not have the device
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param reauthByBackupCodeModel Model Class containing Definition for MFA Reauthentication by Backup code
+    * @return Complete user Multi-Factor Authentication Token data
+    * @since 14.5
+    */
 		
 		
    public void mfaReAuthenticateByBackupCode(String accessToken, ReauthByBackupCodeModel reauthByBackupCodeModel, final AsyncHandler<EventBasedMultiFactorAuthenticationToken> handler) {      
@@ -162,13 +162,13 @@ public class ReAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to re-authenticate via Multi-factor-authentication by passing the google authenticator code
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="reauthByGoogleAuthenticatorCodeModel">Model Class containing Definition for MFA Reauthentication by Google Authenticator</param>
-   // <returns>Complete user Multi-Factor Authentication Token data</returns>
-   // 14.6	    
+   /**
+    * This API is used to re-authenticate via Multi-factor-authentication by passing the google authenticator code
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param reauthByGoogleAuthenticatorCodeModel Model Class containing Definition for MFA Reauthentication by Google Authenticator
+    * @return Complete user Multi-Factor Authentication Token data
+    * @since 14.6
+    */
 		
 		
    public void mfaReAuthenticateByGoogleAuth(String accessToken, ReauthByGoogleAuthenticatorCodeModel reauthByGoogleAuthenticatorCodeModel, final AsyncHandler<EventBasedMultiFactorAuthenticationToken> handler) {      
@@ -203,14 +203,14 @@ public class ReAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to re-authenticate via Multi-factor-authentication by passing the password
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="passwordEventBasedAuthModelWithLockout">Model Class containing Definition of payload for PasswordEventBasedAuthModel with Lockout API</param>
-   // <param name="smsTemplate2FA">SMS Template Name</param>
-   // <returns>Complete user Multi-Factor Authentication Token data</returns>
-   // 14.7	    
+   /**
+    * This API is used to re-authenticate via Multi-factor-authentication by passing the password
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param passwordEventBasedAuthModelWithLockout Model Class containing Definition of payload for PasswordEventBasedAuthModel with Lockout API
+    * @param smsTemplate2FA SMS Template Name
+    * @return Complete user Multi-Factor Authentication Token data
+    * @since 14.7
+    */
 		
 		
    public void mfaReAuthenticateByPassword(String accessToken, PasswordEventBasedAuthModelWithLockout passwordEventBasedAuthModelWithLockout,
@@ -250,13 +250,13 @@ public class ReAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used on the server-side to validate and verify the re-authentication token created by the MFA re-authentication API. This API checks re-authentications created by OTP.
-   // </summary>
-   // <param name="eventBasedMultiFactorToken">Model Class containing Definition for SecondFactorValidationToken</param>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 18.38	    
+   /**
+    * This API is used on the server-side to validate and verify the re-authentication token created by the MFA re-authentication API. This API checks re-authentications created by OTP.
+    * @param eventBasedMultiFactorToken Model Class containing Definition for SecondFactorValidationToken
+    * @param uid UID, the unified identifier for each user account
+    * @return Response containing Definition of Complete Validation data
+    * @since 18.38
+    */
 		
 		
    public void verifyMultiFactorOtpReauthentication(EventBasedMultiFactorToken eventBasedMultiFactorToken, String uid, final AsyncHandler<PostValidationResponse> handler) {
@@ -291,13 +291,13 @@ public class ReAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used on the server-side to validate and verify the re-authentication token created by the MFA re-authentication API. This API checks re-authentications created by password.
-   // </summary>
-   // <param name="eventBasedMultiFactorToken">Model Class containing Definition for SecondFactorValidationToken</param>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 18.39	    
+   /**
+    * This API is used on the server-side to validate and verify the re-authentication token created by the MFA re-authentication API. This API checks re-authentications created by password.
+    * @param eventBasedMultiFactorToken Model Class containing Definition for SecondFactorValidationToken
+    * @param uid UID, the unified identifier for each user account
+    * @return Response containing Definition of Complete Validation data
+    * @since 18.39
+    */
 		
 		
    public void verifyMultiFactorPasswordReauthentication(EventBasedMultiFactorToken eventBasedMultiFactorToken, String uid, final AsyncHandler<PostValidationResponse> handler) {
@@ -332,13 +332,13 @@ public class ReAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used on the server-side to validate and verify the re-authentication token created by the MFA re-authentication API. This API checks re-authentications created by PIN.
-   // </summary>
-   // <param name="eventBasedMultiFactorToken">Model Class containing Definition for SecondFactorValidationToken</param>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 18.40	    
+   /**
+    * This API is used on the server-side to validate and verify the re-authentication token created by the MFA re-authentication API. This API checks re-authentications created by PIN.
+    * @param eventBasedMultiFactorToken Model Class containing Definition for SecondFactorValidationToken
+    * @param uid UID, the unified identifier for each user account
+    * @return Response containing Definition of Complete Validation data
+    * @since 18.40
+    */
 		
 		
    public void verifyMultiFactorPINReauthentication(EventBasedMultiFactorToken eventBasedMultiFactorToken, String uid, final AsyncHandler<PostValidationResponse> handler) {
@@ -373,14 +373,14 @@ public class ReAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API is used to validate the triggered MFA authentication flow with a password.
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="pINAuthEventBasedAuthModelWithLockout">Model Class containing Definition of payload for PIN</param>
-   // <param name="smsTemplate2FA">SMS Template Name</param>
-   // <returns>Response containing Definition response of MFA reauthentication</returns>
-   // 42.13	    
+   /**
+    * This API is used to validate the triggered MFA authentication flow with a password.
+    * @param accessToken Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+    * @param pINAuthEventBasedAuthModelWithLockout Model Class containing Definition of payload for PIN
+    * @param smsTemplate2FA SMS Template Name
+    * @return Response containing Definition response of MFA reauthentication
+    * @since 42.13
+    */
 		
 		
    public void verifyPINAuthentication(String accessToken, PINAuthEventBasedAuthModelWithLockout pINAuthEventBasedAuthModelWithLockout,

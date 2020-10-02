@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete SecurityQuestions data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete SecurityQuestions data
+	 */
 	public class SecurityQuestions {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Question
-		// </summary>
+		/**
+		 * Question
+		 */
 		public String getQuestion() {
 			return question;
 		}
-		// <summary>
-		//	Question
-		// </summary>
+		/**
+		 * Question
+		 */
 		public void setQuestion(String question) {
 			this.question = question;
 		}
-		// <summary>
-		//	Id of question
-		// </summary>
+		/**
+		 * Id of question
+		 */
 		public String getQuestionId() {
 			return questionId;
 		}
-		// <summary>
-		//	Id of question
-		// </summary>
+		/**
+		 * Id of question
+		 */
 		public void setQuestionId(String questionId) {
 			this.questionId = questionId;
 		}

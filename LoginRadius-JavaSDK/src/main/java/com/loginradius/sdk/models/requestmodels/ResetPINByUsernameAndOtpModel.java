@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for Reset Pin By Username and Otp API
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for Reset Pin By Username and Otp API
+	 */
 	public class ResetPINByUsernameAndOtpModel extends LockoutModel {
 	
 		
@@ -25,39 +25,39 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	The Verification Code
-		// </summary>
+		/**
+		 * The Verification Code
+		 */
 		public String getOtp() {
 			return otp;
 		}
-		// <summary>
-		//	The Verification Code
-		// </summary>
+		/**
+		 * The Verification Code
+		 */
 		public void setOtp(String otp) {
 			this.otp = otp;
 		}
-		// <summary>
-		//	PIN of user
-		// </summary>
+		/**
+		 * PIN of user
+		 */
 		public String getPIN() {
 			return pin;
 		}
-		// <summary>
-		//	PIN of user
-		// </summary>
+		/**
+		 * PIN of user
+		 */
 		public void setPIN(String pin) {
 			this.pin = pin;
 		}
-		// <summary>
-		//	Username of the user
-		// </summary>
+		/**
+		 * Username of the user
+		 */
 		public String getUsername() {
 			return username;
 		}
-		// <summary>
-		//	Username of the user
-		// </summary>
+		/**
+		 * Username of the user
+		 */
 		public void setUsername(String username) {
 			this.username = username;
 		}

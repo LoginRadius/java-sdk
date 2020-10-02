@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete ActiveSession data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete ActiveSession data
+	 */
 	public class ActiveSessionDetail {
 	
 		
@@ -43,111 +43,111 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
-		// </summary>
+		/**
+		 * Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+		 */
 		public String getAccessToken() {
 			return accessToken;
 		}
-		// <summary>
-		//	Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
-		// </summary>
+		/**
+		 * Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+		 */
 		public void setAccessToken(String accessToken) {
 			this.accessToken = accessToken;
 		}
-		// <summary>
-		//	Browser details of user
-		// </summary>
+		/**
+		 * Browser details of user
+		 */
 		public String getBrowser() {
 			return browser;
 		}
-		// <summary>
-		//	Browser details of user
-		// </summary>
+		/**
+		 * Browser details of user
+		 */
 		public void setBrowser(String browser) {
 			this.browser = browser;
 		}
-		// <summary>
-		//	user's city
-		// </summary>
+		/**
+		 * user's city
+		 */
 		public String getCity() {
 			return city;
 		}
-		// <summary>
-		//	user's city
-		// </summary>
+		/**
+		 * user's city
+		 */
 		public void setCity(String city) {
 			this.city = city;
 		}
-		// <summary>
-		//	Country of the user
-		// </summary>
+		/**
+		 * Country of the user
+		 */
 		public String getCountry() {
 			return country;
 		}
-		// <summary>
-		//	Country of the user
-		// </summary>
+		/**
+		 * Country of the user
+		 */
 		public void setCountry(String country) {
 			this.country = country;
 		}
-		// <summary>
-		//	Device of user
-		// </summary>
+		/**
+		 * Device of user
+		 */
 		public String getDevice() {
 			return device;
 		}
-		// <summary>
-		//	Device of user
-		// </summary>
+		/**
+		 * Device of user
+		 */
 		public void setDevice(String device) {
 			this.device = device;
 		}
-		// <summary>
-		//	type of device
-		// </summary>
+		/**
+		 * type of device
+		 */
 		public String getDeviceType() {
 			return deviceType;
 		}
-		// <summary>
-		//	type of device
-		// </summary>
+		/**
+		 * type of device
+		 */
 		public void setDeviceType(String deviceType) {
 			this.deviceType = deviceType;
 		}
-		// <summary>
-		//	IP of user
-		// </summary>
+		/**
+		 * IP of user
+		 */
 		public String getIp() {
 			return ip;
 		}
-		// <summary>
-		//	IP of user
-		// </summary>
+		/**
+		 * IP of user
+		 */
 		public void setIp(String ip) {
 			this.ip = ip;
 		}
-		// <summary>
-		//	last login date
-		// </summary>
+		/**
+		 * last login date
+		 */
 		public String getLoginDate() {
 			return loginDate;
 		}
-		// <summary>
-		//	last login date
-		// </summary>
+		/**
+		 * last login date
+		 */
 		public void setLoginDate(String loginDate) {
 			this.loginDate = loginDate;
 		}
-		// <summary>
-		//	Os Details of user
-		// </summary>
+		/**
+		 * Os Details of user
+		 */
 		public String getOs() {
 			return os;
 		}
-		// <summary>
-		//	Os Details of user
-		// </summary>
+		/**
+		 * Os Details of user
+		 */
 		public void setOs(String os) {
 			this.os = os;
 		}

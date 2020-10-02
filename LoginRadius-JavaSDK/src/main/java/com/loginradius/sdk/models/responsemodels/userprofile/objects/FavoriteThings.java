@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Favorite data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Favorite data
+	 */
 	public class FavoriteThings {
 	
 		
@@ -25,39 +25,39 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Id of favorite things
-		// </summary>
+		/**
+		 * Id of favorite things
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Id of favorite things
-		// </summary>
+		/**
+		 * Id of favorite things
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	Name of favorite things
-		// </summary>
+		/**
+		 * Name of favorite things
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Name of favorite things
-		// </summary>
+		/**
+		 * Name of favorite things
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
-		// <summary>
-		//	Type of favorite things
-		// </summary>
+		/**
+		 * Type of favorite things
+		 */
 		public String getType() {
 			return type;
 		}
-		// <summary>
-		//	Type of favorite things
-		// </summary>
+		/**
+		 * Type of favorite things
+		 */
 		public void setType(String type) {
 			this.type = type;
 		}

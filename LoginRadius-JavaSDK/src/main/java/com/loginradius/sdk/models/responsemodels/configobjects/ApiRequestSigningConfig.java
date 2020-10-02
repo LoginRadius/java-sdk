@@ -13,30 +13,30 @@ public class ApiRequestSigningConfig {
 	@Expose
 	private String mode;
 
-	/// <summary>
-	/// IsEnabled
-	/// </summary>
+	/**
+	 * IsEnabled
+	 */
 	public Boolean getIsEnabled() {
 		return isEnabled;
 	}
 
-	/// <summary>
-	/// IsEnabled
-	/// </summary>
+	/**
+	 * IsEnabled
+	 */
 	public void setIsEnabled(Boolean isEnabled) {
 		this.isEnabled = isEnabled;
 	}
 
-	/// <summary>
-	/// ApiRequestSigningConfig's Mode
-	/// </summary>
+	/**
+	 * ApiRequestSigningConfig's Mode
+	 */
 	public String getMode() {
 		return mode;
 	}
 
-	/// <summary>
-	/// ApiRequestSigningConfig's Mode
-	/// </summary>
+	/**
+	 * ApiRequestSigningConfig's Mode
+	 */
 	public void setMode(String mode) {
 		this.mode = mode;
 	}

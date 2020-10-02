@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Post data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Post data
+	 */
 	public class Post {
 	
 		
@@ -49,135 +49,135 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	ID of the User
-		// </summary>
+		/**
+		 * ID of the User
+		 */
 		public String getID() {
 			return iD;
 		}
-		// <summary>
-		//	ID of the User
-		// </summary>
+		/**
+		 * ID of the User
+		 */
 		public void setID(String iD) {
 			this.iD = iD;
 		}
-		// <summary>
-		//	Likes
-		// </summary>
+		/**
+		 * Likes
+		 */
 		public int getLikes() {
 			return likes;
 		}
-		// <summary>
-		//	Likes
-		// </summary>
+		/**
+		 * Likes
+		 */
 		public void setLikes(int likes) {
 			this.likes = likes;
 		}
-		// <summary>
-		//	message
-		// </summary>
+		/**
+		 * message
+		 */
 		public String getMessage() {
 			return message;
 		}
-		// <summary>
-		//	message
-		// </summary>
+		/**
+		 * message
+		 */
 		public void setMessage(String message) {
 			this.message = message;
 		}
-		// <summary>
-		//	Name of the customer
-		// </summary>
+		/**
+		 * Name of the customer
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Name of the customer
-		// </summary>
+		/**
+		 * Name of the customer
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
-		// <summary>
-		//	Images
-		// </summary>
+		/**
+		 * Images
+		 */
 		public String getPicture() {
 			return picture;
 		}
-		// <summary>
-		//	Images
-		// </summary>
+		/**
+		 * Images
+		 */
 		public void setPicture(String picture) {
 			this.picture = picture;
 		}
-		// <summary>
-		//	Location of user
-		// </summary>
+		/**
+		 * Location of user
+		 */
 		public String getPlace() {
 			return place;
 		}
-		// <summary>
-		//	Location of user
-		// </summary>
+		/**
+		 * Location of user
+		 */
 		public void setPlace(String place) {
 			this.place = place;
 		}
-		// <summary>
-		//	share
-		// </summary>
+		/**
+		 * share
+		 */
 		public int getShare() {
 			return share;
 		}
-		// <summary>
-		//	share
-		// </summary>
+		/**
+		 * share
+		 */
 		public void setShare(int share) {
 			this.share = share;
 		}
-		// <summary>
-		//	Start time
-		// </summary>
+		/**
+		 * Start time
+		 */
 		public String getStartTime() {
 			return startTime;
 		}
-		// <summary>
-		//	Start time
-		// </summary>
+		/**
+		 * Start time
+		 */
 		public void setStartTime(String startTime) {
 			this.startTime = startTime;
 		}
-		// <summary>
-		//	Title of Linked URL
-		// </summary>
+		/**
+		 * Title of Linked URL
+		 */
 		public String getTitle() {
 			return title;
 		}
-		// <summary>
-		//	Title of Linked URL
-		// </summary>
+		/**
+		 * Title of Linked URL
+		 */
 		public void setTitle(String title) {
 			this.title = title;
 		}
-		// <summary>
-		//	String to identify the type of parameter
-		// </summary>
+		/**
+		 * String to identify the type of parameter
+		 */
 		public String getType() {
 			return type;
 		}
-		// <summary>
-		//	String to identify the type of parameter
-		// </summary>
+		/**
+		 * String to identify the type of parameter
+		 */
 		public void setType(String type) {
 			this.type = type;
 		}
-		// <summary>
-		//	last update time
-		// </summary>
+		/**
+		 * last update time
+		 */
 		public String getUpdateTime() {
 			return updateTime;
 		}
-		// <summary>
-		//	last update time
-		// </summary>
+		/**
+		 * last update time
+		 */
 		public void setUpdateTime(String updateTime) {
 			this.updateTime = updateTime;
 		}

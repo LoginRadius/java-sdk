@@ -10,9 +10,9 @@ import java.util.Map;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for PhoneAuthenticationModel API
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for PhoneAuthenticationModel API
+	 */
 	public class PhoneAuthenticationModel extends ReCaptchaModel {
 	
 		
@@ -27,39 +27,39 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Password for the email
-		// </summary>
+		/**
+		 * Password for the email
+		 */
 		public String getPassword() {
 			return password;
 		}
-		// <summary>
-		//	Password for the email
-		// </summary>
+		/**
+		 * Password for the email
+		 */
 		public void setPassword(String password) {
 			this.password = password;
 		}
-		// <summary>
-		//	New Phone Number
-		// </summary>
+		/**
+		 * New Phone Number
+		 */
 		public String getPhone() {
 			return phone;
 		}
-		// <summary>
-		//	New Phone Number
-		// </summary>
+		/**
+		 * New Phone Number
+		 */
 		public void setPhone(String phone) {
 			this.phone = phone;
 		}
-		// <summary>
-		//	Valid JSON object of Unique Security Question ID and Answer of set Security Question. It is only required for locked accounts when logging in. Details about this feature
-		// </summary>
+		/**
+		 * Valid JSON object of Unique Security Question ID and Answer of set Security Question. It is only required for locked accounts when logging in. Details about this feature
+		 */
 		public Map<String,String> getSecurityAnswer() {
 			return securityAnswer;
 		}
-		// <summary>
-		//	Valid JSON object of Unique Security Question ID and Answer of set Security Question. It is only required for locked accounts when logging in. Details about this feature
-		// </summary>
+		/**
+		 * Valid JSON object of Unique Security Question ID and Answer of set Security Question. It is only required for locked accounts when logging in. Details about this feature
+		 */
 		public void setSecurityAnswer(Map<String,String> securityAnswer) {
 			this.securityAnswer = securityAnswer;
 		}

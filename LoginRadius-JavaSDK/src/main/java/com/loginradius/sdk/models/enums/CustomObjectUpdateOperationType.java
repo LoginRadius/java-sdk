@@ -7,9 +7,9 @@
 
 package com.loginradius.sdk.models.enums;
 
-// <summary>
-	//	Enum Custom Object Operation Type to define the type of update
-	// </summary>
+	/**
+	 * Enum Custom Object Operation Type to define the type of update
+	 */
 	public enum CustomObjectUpdateOperationType {
 	
         Default,

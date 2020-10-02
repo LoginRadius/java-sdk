@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Multi-Factor Authentication Settings data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Multi-Factor Authentication Settings data
+	 */
 	public class MultiFactorAuthenticationSettingsResponse {
 	
 		
@@ -34,75 +34,75 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	google authenticator verified or not
-		// </summary>
+		/**
+		 * google authenticator verified or not
+		 */
 		public Boolean getIsGoogleAuthenticatorVerified() {
 			return isGoogleAuthenticatorVerified;
 		}
-		// <summary>
-		//	google authenticator verified or not
-		// </summary>
+		/**
+		 * google authenticator verified or not
+		 */
 		public void setIsGoogleAuthenticatorVerified(Boolean isGoogleAuthenticatorVerified) {
 			this.isGoogleAuthenticatorVerified = isGoogleAuthenticatorVerified;
 		}
-		// <summary>
-		//	OTP authenticator verified or not
-		// </summary>
+		/**
+		 * OTP authenticator verified or not
+		 */
 		public Boolean getIsOTPAuthenticatorVerified() {
 			return isOTPAuthenticatorVerified;
 		}
-		// <summary>
-		//	OTP authenticator verified or not
-		// </summary>
+		/**
+		 * OTP authenticator verified or not
+		 */
 		public void setIsOTPAuthenticatorVerified(Boolean isOTPAuthenticatorVerified) {
 			this.isOTPAuthenticatorVerified = isOTPAuthenticatorVerified;
 		}
-		// <summary>
-		//	Manual entry code
-		// </summary>
+		/**
+		 * Manual entry code
+		 */
 		public String getManualEntryCode() {
 			return manualEntryCode;
 		}
-		// <summary>
-		//	Manual entry code
-		// </summary>
+		/**
+		 * Manual entry code
+		 */
 		public void setManualEntryCode(String manualEntryCode) {
 			this.manualEntryCode = manualEntryCode;
 		}
-		// <summary>
-		//	Otp phone number
-		// </summary>
+		/**
+		 * Otp phone number
+		 */
 		public String getOTPPhoneNo() {
 			return oTPPhoneNo;
 		}
-		// <summary>
-		//	Otp phone number
-		// </summary>
+		/**
+		 * Otp phone number
+		 */
 		public void setOTPPhoneNo(String oTPPhoneNo) {
 			this.oTPPhoneNo = oTPPhoneNo;
 		}
-		// <summary>
-		//	OTP status
-		// </summary>
+		/**
+		 * OTP status
+		 */
 		public SMSResponseData getOTPStatus() {
 			return oTPStatus;
 		}
-		// <summary>
-		//	OTP status
-		// </summary>
+		/**
+		 * OTP status
+		 */
 		public void setOTPStatus(SMSResponseData oTPStatus) {
 			this.oTPStatus = oTPStatus;
 		}
-		// <summary>
-		//	QR code
-		// </summary>
+		/**
+		 * QR code
+		 */
 		public String getQRCode() {
 			return qRCode;
 		}
-		// <summary>
-		//	QR code
-		// </summary>
+		/**
+		 * QR code
+		 */
 		public void setQRCode(String qRCode) {
 			this.qRCode = qRCode;
 		}

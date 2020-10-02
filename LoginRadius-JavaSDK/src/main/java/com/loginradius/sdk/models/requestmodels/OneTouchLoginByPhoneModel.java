@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for OneTouchLogin By PhoneModel API
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for OneTouchLogin By PhoneModel API
+	 */
 	public class OneTouchLoginByPhoneModel extends ReCaptchaBodyModel {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Name of the customer
-		// </summary>
+		/**
+		 * Name of the customer
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Name of the customer
-		// </summary>
+		/**
+		 * Name of the customer
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
-		// <summary>
-		//	New Phone Number
-		// </summary>
+		/**
+		 * New Phone Number
+		 */
 		public String getPhone() {
 			return phone;
 		}
-		// <summary>
-		//	New Phone Number
-		// </summary>
+		/**
+		 * New Phone Number
+		 */
 		public void setPhone(String phone) {
 			this.phone = phone;
 		}

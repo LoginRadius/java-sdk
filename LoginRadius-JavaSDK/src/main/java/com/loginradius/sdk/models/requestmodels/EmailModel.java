@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for EmailModel Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for EmailModel Property
+	 */
 	public class EmailModel {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	String to identify the type of parameter
-		// </summary>
+		/**
+		 * String to identify the type of parameter
+		 */
 		public String getType() {
 			return type;
 		}
-		// <summary>
-		//	String to identify the type of parameter
-		// </summary>
+		/**
+		 * String to identify the type of parameter
+		 */
 		public void setType(String type) {
 			this.type = type;
 		}
-		// <summary>
-		//	Value of the dropdown member
-		// </summary>
+		/**
+		 * Value of the dropdown member
+		 */
 		public String getValue() {
 			return value;
 		}
-		// <summary>
-		//	Value of the dropdown member
-		// </summary>
+		/**
+		 * Value of the dropdown member
+		 */
 		public void setValue(String value) {
 			this.value = value;
 		}

@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Profile data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Profile data
+	 */
 	public class AccessToken<T> extends AccessTokenBase {
 	
 		
@@ -19,15 +19,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Complete user profile data
-		// </summary>
+		/**
+		 * Complete user profile data
+		 */
 		public T getProfile() {
 			return profile;
 		}
-		// <summary>
-		//	Complete user profile data
-		// </summary>
+		/**
+		 * Complete user profile data
+		 */
 		public void setProfile(T profile) {
 			this.profile = profile;
 		}

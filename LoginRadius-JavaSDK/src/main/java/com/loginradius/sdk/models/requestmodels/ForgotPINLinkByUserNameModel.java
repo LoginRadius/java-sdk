@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for Forgot Pin Link By UserName API
-	// </summary>
+	/**
+	 * Model Class containing Definition for Forgot Pin Link By UserName API
+	 */
 	public class ForgotPINLinkByUserNameModel {
 	
 		
@@ -19,15 +19,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Username of the user
-		// </summary>
+		/**
+		 * Username of the user
+		 */
 		public String getUserName() {
 			return userName;
 		}
-		// <summary>
-		//	Username of the user
-		// </summary>
+		/**
+		 * Username of the user
+		 */
 		public void setUserName(String userName) {
 			this.userName = userName;
 		}

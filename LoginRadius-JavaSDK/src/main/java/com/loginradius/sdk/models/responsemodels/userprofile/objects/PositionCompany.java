@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Position Company data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Position Company data
+	 */
 	public class PositionCompany {
 	
 		
@@ -25,39 +25,39 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	position company industry
-		// </summary>
+		/**
+		 * position company industry
+		 */
 		public String getIndustry() {
 			return industry;
 		}
-		// <summary>
-		//	position company industry
-		// </summary>
+		/**
+		 * position company industry
+		 */
 		public void setIndustry(String industry) {
 			this.industry = industry;
 		}
-		// <summary>
-		//	position company name
-		// </summary>
+		/**
+		 * position company name
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	position company name
-		// </summary>
+		/**
+		 * position company name
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
-		// <summary>
-		//	position company type
-		// </summary>
+		/**
+		 * position company type
+		 */
 		public String getType() {
 			return type;
 		}
-		// <summary>
-		//	position company type
-		// </summary>
+		/**
+		 * position company type
+		 */
 		public void setType(String type) {
 			this.type = type;
 		}

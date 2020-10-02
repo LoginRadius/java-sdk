@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Page Cover data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Page Cover data
+	 */
 	public class PageCover {
 	
 		
@@ -28,51 +28,51 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Page cover id
-		// </summary>
+		/**
+		 * Page cover id
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Page cover id
-		// </summary>
+		/**
+		 * Page cover id
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	Page cover offset X
-		// </summary>
+		/**
+		 * Page cover offset X
+		 */
 		public String getOffsetX() {
 			return offsetX;
 		}
-		// <summary>
-		//	Page cover offset X
-		// </summary>
+		/**
+		 * Page cover offset X
+		 */
 		public void setOffsetX(String offsetX) {
 			this.offsetX = offsetX;
 		}
-		// <summary>
-		//	Page cover offset Y
-		// </summary>
+		/**
+		 * Page cover offset Y
+		 */
 		public String getOffsetY() {
 			return offsetY;
 		}
-		// <summary>
-		//	Page cover offset Y
-		// </summary>
+		/**
+		 * Page cover offset Y
+		 */
 		public void setOffsetY(String offsetY) {
 			this.offsetY = offsetY;
 		}
-		// <summary>
-		//	Page cover source
-		// </summary>
+		/**
+		 * Page cover source
+		 */
 		public String getSource() {
 			return source;
 		}
-		// <summary>
-		//	Page cover source
-		// </summary>
+		/**
+		 * Page cover source
+		 */
 		public void setSource(String source) {
 			this.source = source;
 		}

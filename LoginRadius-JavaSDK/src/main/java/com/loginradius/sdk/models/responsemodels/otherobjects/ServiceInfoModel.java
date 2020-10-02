@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete service info data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete service info data
+	 */
 	public class ServiceInfoModel {
 	
 		
@@ -28,51 +28,51 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Current time
-		// </summary>
+		/**
+		 * Current time
+		 */
 		public String getCurrentTime() {
 			return currentTime;
 		}
-		// <summary>
-		//	Current time
-		// </summary>
+		/**
+		 * Current time
+		 */
 		public void setCurrentTime(String currentTime) {
 			this.currentTime = currentTime;
 		}
-		// <summary>
-		//	Location of server
-		// </summary>
+		/**
+		 * Location of server
+		 */
 		public String getServerLocation() {
 			return serverLocation;
 		}
-		// <summary>
-		//	Location of server
-		// </summary>
+		/**
+		 * Location of server
+		 */
 		public void setServerLocation(String serverLocation) {
 			this.serverLocation = serverLocation;
 		}
-		// <summary>
-		//	server name
-		// </summary>
+		/**
+		 * server name
+		 */
 		public String getServerName() {
 			return serverName;
 		}
-		// <summary>
-		//	server name
-		// </summary>
+		/**
+		 * server name
+		 */
 		public void setServerName(String serverName) {
 			this.serverName = serverName;
 		}
-		// <summary>
-		//	SOTT is a secure one time token
-		// </summary>
+		/**
+		 * SOTT is a secure one time token
+		 */
 		public ServiceSottInfo getSott() {
 			return sott;
 		}
-		// <summary>
-		//	SOTT is a secure one time token
-		// </summary>
+		/**
+		 * SOTT is a secure one time token
+		 */
 		public void setSott(ServiceSottInfo sott) {
 			this.sott = sott;
 		}

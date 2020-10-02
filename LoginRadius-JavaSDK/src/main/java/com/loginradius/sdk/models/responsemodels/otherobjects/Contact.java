@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Contact data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Contact data
+	 */
 	public class Contact {
 	
 		
@@ -52,147 +52,147 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Country of the user
-		// </summary>
+		/**
+		 * Country of the user
+		 */
 		public String getCountry() {
 			return country;
 		}
-		// <summary>
-		//	Country of the user
-		// </summary>
+		/**
+		 * Country of the user
+		 */
 		public void setCountry(String country) {
 			this.country = country;
 		}
-		// <summary>
-		//	user's date of birth
-		// </summary>
+		/**
+		 * user's date of birth
+		 */
 		public String getDateOfBirth() {
 			return dateOfBirth;
 		}
-		// <summary>
-		//	user's date of birth
-		// </summary>
+		/**
+		 * user's date of birth
+		 */
 		public void setDateOfBirth(String dateOfBirth) {
 			this.dateOfBirth = dateOfBirth;
 		}
-		// <summary>
-		//	user's email address
-		// </summary>
+		/**
+		 * user's email address
+		 */
 		public String getEmailID() {
 			return emailID;
 		}
-		// <summary>
-		//	user's email address
-		// </summary>
+		/**
+		 * user's email address
+		 */
 		public void setEmailID(String emailID) {
 			this.emailID = emailID;
 		}
-		// <summary>
-		//	user's gender
-		// </summary>
+		/**
+		 * user's gender
+		 */
 		public String getGender() {
 			return gender;
 		}
-		// <summary>
-		//	user's gender
-		// </summary>
+		/**
+		 * user's gender
+		 */
 		public void setGender(String gender) {
 			this.gender = gender;
 		}
-		// <summary>
-		//	Contact ID
-		// </summary>
+		/**
+		 * Contact ID
+		 */
 		public String getID() {
 			return iD;
 		}
-		// <summary>
-		//	Contact ID
-		// </summary>
+		/**
+		 * Contact ID
+		 */
 		public void setID(String iD) {
 			this.iD = iD;
 		}
-		// <summary>
-		//	image URL should be absolute and has HTTPS domain
-		// </summary>
+		/**
+		 * image URL should be absolute and has HTTPS domain
+		 */
 		public String getImageUrl() {
 			return imageUrl;
 		}
-		// <summary>
-		//	image URL should be absolute and has HTTPS domain
-		// </summary>
+		/**
+		 * image URL should be absolute and has HTTPS domain
+		 */
 		public void setImageUrl(String imageUrl) {
 			this.imageUrl = imageUrl;
 		}
-		// <summary>
-		//	Industry name
-		// </summary>
+		/**
+		 * Industry name
+		 */
 		public String getIndustry() {
 			return industry;
 		}
-		// <summary>
-		//	Industry name
-		// </summary>
+		/**
+		 * Industry name
+		 */
 		public void setIndustry(String industry) {
 			this.industry = industry;
 		}
-		// <summary>
-		//	Contact location
-		// </summary>
+		/**
+		 * Contact location
+		 */
 		public String getLocation() {
 			return location;
 		}
-		// <summary>
-		//	Contact location
-		// </summary>
+		/**
+		 * Contact location
+		 */
 		public void setLocation(String location) {
 			this.location = location;
 		}
-		// <summary>
-		//	Contact's name
-		// </summary>
+		/**
+		 * Contact's name
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Contact's name
-		// </summary>
+		/**
+		 * Contact's name
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
-		// <summary>
-		//	Phone number of contact
-		// </summary>
+		/**
+		 * Phone number of contact
+		 */
 		public String getPhoneNumber() {
 			return phoneNumber;
 		}
-		// <summary>
-		//	Phone number of contact
-		// </summary>
+		/**
+		 * Phone number of contact
+		 */
 		public void setPhoneNumber(String phoneNumber) {
 			this.phoneNumber = phoneNumber;
 		}
-		// <summary>
-		//	Profile URL
-		// </summary>
+		/**
+		 * Profile URL
+		 */
 		public String getProfileUrl() {
 			return profileUrl;
 		}
-		// <summary>
-		//	Profile URL
-		// </summary>
+		/**
+		 * Profile URL
+		 */
 		public void setProfileUrl(String profileUrl) {
 			this.profileUrl = profileUrl;
 		}
-		// <summary>
-		//	Main body of the Status update.
-		// </summary>
+		/**
+		 * Main body of the Status update.
+		 */
 		public String getStatus() {
 			return status;
 		}
-		// <summary>
-		//	Main body of the Status update.
-		// </summary>
+		/**
+		 * Main body of the Status update.
+		 */
 		public void setStatus(String status) {
 			this.status = status;
 		}

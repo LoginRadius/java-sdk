@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Patents data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Patents data
+	 */
 	public class Patents {
 	
 		
@@ -25,39 +25,39 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Date of patents
-		// </summary>
+		/**
+		 * Date of patents
+		 */
 		public String getDate() {
 			return date;
 		}
-		// <summary>
-		//	Date of patents
-		// </summary>
+		/**
+		 * Date of patents
+		 */
 		public void setDate(String date) {
 			this.date = date;
 		}
-		// <summary>
-		//	Id of the patents
-		// </summary>
+		/**
+		 * Id of the patents
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Id of the patents
-		// </summary>
+		/**
+		 * Id of the patents
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	Title of the patents
-		// </summary>
+		/**
+		 * Title of the patents
+		 */
 		public String getTitle() {
 			return title;
 		}
-		// <summary>
-		//	Title of the patents
-		// </summary>
+		/**
+		 * Title of the patents
+		 */
 		public void setTitle(String title) {
 			this.title = title;
 		}

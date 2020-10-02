@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for change PIN Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for change PIN Property
+	 */
 	public class ChangePINModel {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	New PIN of user
-		// </summary>
+		/**
+		 * New PIN of user
+		 */
 		public String getNewPIN() {
 			return newPIN;
 		}
-		// <summary>
-		//	New PIN of user
-		// </summary>
+		/**
+		 * New PIN of user
+		 */
 		public void setNewPIN(String newPIN) {
 			this.newPIN = newPIN;
 		}
-		// <summary>
-		//	Old PIN of user
-		// </summary>
+		/**
+		 * Old PIN of user
+		 */
 		public String getOldPIN() {
 			return oldPIN;
 		}
-		// <summary>
-		//	Old PIN of user
-		// </summary>
+		/**
+		 * Old PIN of user
+		 */
 		public void setOldPIN(String oldPIN) {
 			this.oldPIN = oldPIN;
 		}

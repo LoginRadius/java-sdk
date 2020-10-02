@@ -16,44 +16,44 @@ public class TwoFactorAuthentication {
 	@Expose
 	private Boolean isGoogleAuthenticator;
 
-	/// <summary>
-	/// Enable two factor authentication true or false
-	/// </summary>
+	/**
+	 * Enable two factor authentication true or false
+	 */
 	public Boolean getIsEnabled() {
 		return isEnabled;
 	}
 
-	/// <summary>
-	/// Enable two factor authentication true or false
-	/// </summary>
+	/**
+	 * Enable two factor authentication true or false
+	 */
 	public void setIsEnabled(Boolean isEnabled) {
 		this.isEnabled = isEnabled;
 	}
 
-	/// <summary>
-	/// IsRequired
-	/// </summary>
+	/**
+	 * IsRequired
+	 */
 	public Boolean getIsRequired() {
 		return isRequired;
 	}
 
-	/// <summary>
-	/// IsRequired
-	/// </summary>
+	/**
+	 * IsRequired
+	 */
 	public void setIsRequired(Boolean isRequired) {
 		this.isRequired = isRequired;
 	}
 
-	/// <summary>
-	/// Enable google authenticator true or false
-	/// </summary>
+	/**
+	 * Enable google authenticator true or false
+	 */
 	public Boolean getIsGoogleAuthenticator() {
 		return isGoogleAuthenticator;
 	}
 
-	/// <summary>
-	/// Enable google authenticator true or false
-	/// </summary>
+	/**
+	 * Enable google authenticator true or false
+	 */
 	public void setIsGoogleAuthenticator(Boolean isGoogleAuthenticator) {
 		this.isGoogleAuthenticator = isGoogleAuthenticator;
 	}

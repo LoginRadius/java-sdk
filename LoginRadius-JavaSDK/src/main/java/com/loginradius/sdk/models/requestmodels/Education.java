@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for Education Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for Education Property
+	 */
 	public class Education {
 	
 		
@@ -43,111 +43,111 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Activities
-		// </summary>
+		/**
+		 * Activities
+		 */
 		public String getActivities() {
 			return activities;
 		}
-		// <summary>
-		//	Activities
-		// </summary>
+		/**
+		 * Activities
+		 */
 		public void setActivities(String activities) {
 			this.activities = activities;
 		}
-		// <summary>
-		//	Degree
-		// </summary>
+		/**
+		 * Degree
+		 */
 		public String getDegree() {
 			return degree;
 		}
-		// <summary>
-		//	Degree
-		// </summary>
+		/**
+		 * Degree
+		 */
 		public void setDegree(String degree) {
 			this.degree = degree;
 		}
-		// <summary>
-		//	Education End Date
-		// </summary>
+		/**
+		 * Education End Date
+		 */
 		public String getEndDate() {
 			return endDate;
 		}
-		// <summary>
-		//	Education End Date
-		// </summary>
+		/**
+		 * Education End Date
+		 */
 		public void setEndDate(String endDate) {
 			this.endDate = endDate;
 		}
-		// <summary>
-		//	Fields of study
-		// </summary>
+		/**
+		 * Fields of study
+		 */
 		public String getFieldofstudy() {
 			return fieldofstudy;
 		}
-		// <summary>
-		//	Fields of study
-		// </summary>
+		/**
+		 * Fields of study
+		 */
 		public void setFieldofstudy(String fieldofstudy) {
 			this.fieldofstudy = fieldofstudy;
 		}
-		// <summary>
-		//	Notes
-		// </summary>
+		/**
+		 * Notes
+		 */
 		public String getNotes() {
 			return notes;
 		}
-		// <summary>
-		//	Notes
-		// </summary>
+		/**
+		 * Notes
+		 */
 		public void setNotes(String notes) {
 			this.notes = notes;
 		}
-		// <summary>
-		//	School of the user
-		// </summary>
+		/**
+		 * School of the user
+		 */
 		public String getSchool() {
 			return school;
 		}
-		// <summary>
-		//	School of the user
-		// </summary>
+		/**
+		 * School of the user
+		 */
 		public void setSchool(String school) {
 			this.school = school;
 		}
-		// <summary>
-		//	Start date of Education of user
-		// </summary>
+		/**
+		 * Start date of Education of user
+		 */
 		public String getStartDate() {
 			return startDate;
 		}
-		// <summary>
-		//	Start date of Education of user
-		// </summary>
+		/**
+		 * Start date of Education of user
+		 */
 		public void setStartDate(String startDate) {
 			this.startDate = startDate;
 		}
-		// <summary>
-		//	Type
-		// </summary>
+		/**
+		 * Type
+		 */
 		public String getType() {
 			return type;
 		}
-		// <summary>
-		//	Type
-		// </summary>
+		/**
+		 * Type
+		 */
 		public void setType(String type) {
 			this.type = type;
 		}
-		// <summary>
-		//	Year of Education
-		// </summary>
+		/**
+		 * Year of Education
+		 */
 		public String getYear() {
 			return year;
 		}
-		// <summary>
-		//	Year of Education
-		// </summary>
+		/**
+		 * Year of Education
+		 */
 		public void setYear(String year) {
 			this.year = year;
 		}

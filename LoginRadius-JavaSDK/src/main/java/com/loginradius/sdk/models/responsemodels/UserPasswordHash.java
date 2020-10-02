@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete PasswordHash data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete PasswordHash data
+	 */
 	public class UserPasswordHash {
 	
 		
@@ -19,15 +19,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Password hash
-		// </summary>
+		/**
+		 * Password hash
+		 */
 		public String getPasswordHash() {
 			return passwordHash;
 		}
-		// <summary>
-		//	Password hash
-		// </summary>
+		/**
+		 * Password hash
+		 */
 		public void setPasswordHash(String passwordHash) {
 			this.passwordHash = passwordHash;
 		}

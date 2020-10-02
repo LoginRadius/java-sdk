@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing consent logs
-	// </summary>
+	/**
+	 * Response containing consent logs
+	 */
 	public class ConsentLogsResponseModel {
 	
 		
@@ -24,27 +24,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	List of consent logs
-		// </summary>
+		/**
+		 * List of consent logs
+		 */
 		public List<ConsentProfileLogs> getConsentLogs() {
 			return consentLogs;
 		}
-		// <summary>
-		//	List of consent logs
-		// </summary>
+		/**
+		 * List of consent logs
+		 */
 		public void setConsentLogs(List<ConsentProfileLogs> consentLogs) {
 			this.consentLogs = consentLogs;
 		}
-		// <summary>
-		//	UID, the unified identifier for each user account
-		// </summary>
+		/**
+		 * UID, the unified identifier for each user account
+		 */
 		public String getUid() {
 			return uid;
 		}
-		// <summary>
-		//	UID, the unified identifier for each user account
-		// </summary>
+		/**
+		 * UID, the unified identifier for each user account
+		 */
 		public void setUid(String uid) {
 			this.uid = uid;
 		}

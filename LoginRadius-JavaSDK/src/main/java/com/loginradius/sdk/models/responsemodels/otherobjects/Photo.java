@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Photo data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Photo data
+	 */
 	public class Photo {
 	
 		
@@ -63,183 +63,183 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	User's Album Id
-		// </summary>
+		/**
+		 * User's Album Id
+		 */
 		public String getAlbumId() {
 			return albumId;
 		}
-		// <summary>
-		//	User's Album Id
-		// </summary>
+		/**
+		 * User's Album Id
+		 */
 		public void setAlbumId(String albumId) {
 			this.albumId = albumId;
 		}
-		// <summary>
-		//	Date of Creation of Profile
-		// </summary>
+		/**
+		 * Date of Creation of Profile
+		 */
 		public String getCreatedDate() {
 			return createdDate;
 		}
-		// <summary>
-		//	Date of Creation of Profile
-		// </summary>
+		/**
+		 * Date of Creation of Profile
+		 */
 		public void setCreatedDate(String createdDate) {
 			this.createdDate = createdDate;
 		}
-		// <summary>
-		//	detailed information
-		// </summary>
+		/**
+		 * detailed information
+		 */
 		public String getDescription() {
 			return description;
 		}
-		// <summary>
-		//	detailed information
-		// </summary>
+		/**
+		 * detailed information
+		 */
 		public void setDescription(String description) {
 			this.description = description;
 		}
-		// <summary>
-		//	DirectUrl
-		// </summary>
+		/**
+		 * DirectUrl
+		 */
 		public String getDirectUrl() {
 			return directUrl;
 		}
-		// <summary>
-		//	DirectUrl
-		// </summary>
+		/**
+		 * DirectUrl
+		 */
 		public void setDirectUrl(String directUrl) {
 			this.directUrl = directUrl;
 		}
-		// <summary>
-		//	Height of the image
-		// </summary>
+		/**
+		 * Height of the image
+		 */
 		public String getHeight() {
 			return height;
 		}
-		// <summary>
-		//	Height of the image
-		// </summary>
+		/**
+		 * Height of the image
+		 */
 		public void setHeight(String height) {
 			this.height = height;
 		}
-		// <summary>
-		//	Id of the image
-		// </summary>
+		/**
+		 * Id of the image
+		 */
 		public String getID() {
 			return iD;
 		}
-		// <summary>
-		//	Id of the image
-		// </summary>
+		/**
+		 * Id of the image
+		 */
 		public void setID(String iD) {
 			this.iD = iD;
 		}
-		// <summary>
-		//	Images
-		// </summary>
+		/**
+		 * Images
+		 */
 		public List<FacebookAlbumImages> getImages() {
 			return images;
 		}
-		// <summary>
-		//	Images
-		// </summary>
+		/**
+		 * Images
+		 */
 		public void setImages(List<FacebookAlbumImages> images) {
 			this.images = images;
 		}
-		// <summary>
-		//	image URL should be absolute and has HTTPS domain
-		// </summary>
+		/**
+		 * image URL should be absolute and has HTTPS domain
+		 */
 		public String getImageUrl() {
 			return imageUrl;
 		}
-		// <summary>
-		//	image URL should be absolute and has HTTPS domain
-		// </summary>
+		/**
+		 * image URL should be absolute and has HTTPS domain
+		 */
 		public void setImageUrl(String imageUrl) {
 			this.imageUrl = imageUrl;
 		}
-		// <summary>
-		//	Image's link
-		// </summary>
+		/**
+		 * Image's link
+		 */
 		public String getLink() {
 			return link;
 		}
-		// <summary>
-		//	Image's link
-		// </summary>
+		/**
+		 * Image's link
+		 */
 		public void setLink(String link) {
 			this.link = link;
 		}
-		// <summary>
-		//	Photo Location
-		// </summary>
+		/**
+		 * Photo Location
+		 */
 		public String getLocation() {
 			return location;
 		}
-		// <summary>
-		//	Photo Location
-		// </summary>
+		/**
+		 * Photo Location
+		 */
 		public void setLocation(String location) {
 			this.location = location;
 		}
-		// <summary>
-		//	Name of the image
-		// </summary>
+		/**
+		 * Name of the image
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Name of the image
-		// </summary>
+		/**
+		 * Name of the image
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
-		// <summary>
-		//	ID of account owner
-		// </summary>
+		/**
+		 * ID of account owner
+		 */
 		public String getOwnerId() {
 			return ownerId;
 		}
-		// <summary>
-		//	ID of account owner
-		// </summary>
+		/**
+		 * ID of account owner
+		 */
 		public void setOwnerId(String ownerId) {
 			this.ownerId = ownerId;
 		}
-		// <summary>
-		//	Name of account owner
-		// </summary>
+		/**
+		 * Name of account owner
+		 */
 		public String getOwnerName() {
 			return ownerName;
 		}
-		// <summary>
-		//	Name of account owner
-		// </summary>
+		/**
+		 * Name of account owner
+		 */
 		public void setOwnerName(String ownerName) {
 			this.ownerName = ownerName;
 		}
-		// <summary>
-		//	Updated date
-		// </summary>
+		/**
+		 * Updated date
+		 */
 		public String getUpdatedDate() {
 			return updatedDate;
 		}
-		// <summary>
-		//	Updated date
-		// </summary>
+		/**
+		 * Updated date
+		 */
 		public void setUpdatedDate(String updatedDate) {
 			this.updatedDate = updatedDate;
 		}
-		// <summary>
-		//	Width of the image
-		// </summary>
+		/**
+		 * Width of the image
+		 */
 		public String getWidth() {
 			return width;
 		}
-		// <summary>
-		//	Width of the image
-		// </summary>
+		/**
+		 * Width of the image
+		 */
 		public void setWidth(String width) {
 			this.width = width;
 		}

@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for EmailVerificationByOtpModel API
-	// </summary>
+	/**
+	 * Model Class containing Definition for EmailVerificationByOtpModel API
+	 */
 	public class EmailVerificationByOtpModel extends LockoutModel {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	user's email
-		// </summary>
+		/**
+		 * user's email
+		 */
 		public String getEmail() {
 			return email;
 		}
-		// <summary>
-		//	user's email
-		// </summary>
+		/**
+		 * user's email
+		 */
 		public void setEmail(String email) {
 			this.email = email;
 		}
-		// <summary>
-		//	The Verification Code
-		// </summary>
+		/**
+		 * The Verification Code
+		 */
 		public String getOtp() {
 			return otp;
 		}
-		// <summary>
-		//	The Verification Code
-		// </summary>
+		/**
+		 * The Verification Code
+		 */
 		public void setOtp(String otp) {
 			this.otp = otp;
 		}

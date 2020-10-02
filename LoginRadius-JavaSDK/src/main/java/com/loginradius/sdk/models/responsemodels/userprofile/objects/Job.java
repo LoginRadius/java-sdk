@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Job data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Job data
+	 */
 	public class Job {
 	
 		
@@ -34,75 +34,75 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Is active or not
-		// </summary>
+		/**
+		 * Is active or not
+		 */
 		public Boolean getActive() {
 			return active;
 		}
-		// <summary>
-		//	Is active or not
-		// </summary>
+		/**
+		 * Is active or not
+		 */
 		public void setActive(Boolean active) {
 			this.active = active;
 		}
-		// <summary>
-		//	Job company
-		// </summary>
+		/**
+		 * Job company
+		 */
 		public JobBookmarkCompany getCompany() {
 			return company;
 		}
-		// <summary>
-		//	Job company
-		// </summary>
+		/**
+		 * Job company
+		 */
 		public void setCompany(JobBookmarkCompany company) {
 			this.company = company;
 		}
-		// <summary>
-		//	Job description
-		// </summary>
+		/**
+		 * Job description
+		 */
 		public String getDescriptionSnippet() {
 			return descriptionSnippet;
 		}
-		// <summary>
-		//	Job description
-		// </summary>
+		/**
+		 * Job description
+		 */
 		public void setDescriptionSnippet(String descriptionSnippet) {
 			this.descriptionSnippet = descriptionSnippet;
 		}
-		// <summary>
-		//	Job id
-		// </summary>
+		/**
+		 * Job id
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Job id
-		// </summary>
+		/**
+		 * Job id
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	Position of job
-		// </summary>
+		/**
+		 * Position of job
+		 */
 		public JobBookmarkPosition getPosition() {
 			return position;
 		}
-		// <summary>
-		//	Position of job
-		// </summary>
+		/**
+		 * Position of job
+		 */
 		public void setPosition(JobBookmarkPosition position) {
 			this.position = position;
 		}
-		// <summary>
-		//	Job posting timestamp
-		// </summary>
+		/**
+		 * Job posting timestamp
+		 */
 		public String getPostingTimestamp() {
 			return postingTimestamp;
 		}
-		// <summary>
-		//	Job posting timestamp
-		// </summary>
+		/**
+		 * Job posting timestamp
+		 */
 		public void setPostingTimestamp(String postingTimestamp) {
 			this.postingTimestamp = postingTimestamp;
 		}

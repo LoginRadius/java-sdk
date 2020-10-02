@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Address data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Address data
+	 */
 	public class Address {
 	
 		
@@ -40,99 +40,99 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Address field value that needs to be updated
-		// </summary>
+		/**
+		 * Address field value that needs to be updated
+		 */
 		public String getAddress1() {
 			return address1;
 		}
-		// <summary>
-		//	Address field value that needs to be updated
-		// </summary>
+		/**
+		 * Address field value that needs to be updated
+		 */
 		public void setAddress1(String address1) {
 			this.address1 = address1;
 		}
-		// <summary>
-		//	Address field value that needs to be updated
-		// </summary>
+		/**
+		 * Address field value that needs to be updated
+		 */
 		public String getAddress2() {
 			return address2;
 		}
-		// <summary>
-		//	Address field value that needs to be updated
-		// </summary>
+		/**
+		 * Address field value that needs to be updated
+		 */
 		public void setAddress2(String address2) {
 			this.address2 = address2;
 		}
-		// <summary>
-		//	user's city
-		// </summary>
+		/**
+		 * user's city
+		 */
 		public String getCity() {
 			return city;
 		}
-		// <summary>
-		//	user's city
-		// </summary>
+		/**
+		 * user's city
+		 */
 		public void setCity(String city) {
 			this.city = city;
 		}
-		// <summary>
-		//	Country of the user
-		// </summary>
+		/**
+		 * Country of the user
+		 */
 		public String getCountry() {
 			return country;
 		}
-		// <summary>
-		//	Country of the user
-		// </summary>
+		/**
+		 * Country of the user
+		 */
 		public void setCountry(String country) {
 			this.country = country;
 		}
-		// <summary>
-		//	Postal code value that need to be updated
-		// </summary>
+		/**
+		 * Postal code value that need to be updated
+		 */
 		public String getPostalCode() {
 			return postalCode;
 		}
-		// <summary>
-		//	Postal code value that need to be updated
-		// </summary>
+		/**
+		 * Postal code value that need to be updated
+		 */
 		public void setPostalCode(String postalCode) {
 			this.postalCode = postalCode;
 		}
-		// <summary>
-		//	Region
-		// </summary>
+		/**
+		 * Region
+		 */
 		public String getRegion() {
 			return region;
 		}
-		// <summary>
-		//	Region
-		// </summary>
+		/**
+		 * Region
+		 */
 		public void setRegion(String region) {
 			this.region = region;
 		}
-		// <summary>
-		//	State of the user
-		// </summary>
+		/**
+		 * State of the user
+		 */
 		public String getState() {
 			return state;
 		}
-		// <summary>
-		//	State of the user
-		// </summary>
+		/**
+		 * State of the user
+		 */
 		public void setState(String state) {
 			this.state = state;
 		}
-		// <summary>
-		//	type of address
-		// </summary>
+		/**
+		 * type of address
+		 */
 		public String getType() {
 			return type;
 		}
-		// <summary>
-		//	type of address
-		// </summary>
+		/**
+		 * type of address
+		 */
 		public void setType(String type) {
 			this.type = type;
 		}

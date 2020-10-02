@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Page data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Page data
+	 */
 	public class PageLocations {
 	
 		
@@ -40,99 +40,99 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	user's city
-		// </summary>
+		/**
+		 * user's city
+		 */
 		public String getCity() {
 			return city;
 		}
-		// <summary>
-		//	user's city
-		// </summary>
+		/**
+		 * user's city
+		 */
 		public void setCity(String city) {
 			this.city = city;
 		}
-		// <summary>
-		//	Country of the user
-		// </summary>
+		/**
+		 * Country of the user
+		 */
 		public CountryCodeName getCountry() {
 			return country;
 		}
-		// <summary>
-		//	Country of the user
-		// </summary>
+		/**
+		 * Country of the user
+		 */
 		public void setCountry(CountryCodeName country) {
 			this.country = country;
 		}
-		// <summary>
-		//	The Latitude
-		// </summary>
+		/**
+		 * The Latitude
+		 */
 		public double getLatitude() {
 			return latitude;
 		}
-		// <summary>
-		//	The Latitude
-		// </summary>
+		/**
+		 * The Latitude
+		 */
 		public void setLatitude(double latitude) {
 			this.latitude = latitude;
 		}
-		// <summary>
-		//	The Longitude
-		// </summary>
+		/**
+		 * The Longitude
+		 */
 		public double getLongitude() {
 			return longitude;
 		}
-		// <summary>
-		//	The Longitude
-		// </summary>
+		/**
+		 * The Longitude
+		 */
 		public void setLongitude(double longitude) {
 			this.longitude = longitude;
 		}
-		// <summary>
-		//	New Phone Number
-		// </summary>
+		/**
+		 * New Phone Number
+		 */
 		public String getPhone() {
 			return phone;
 		}
-		// <summary>
-		//	New Phone Number
-		// </summary>
+		/**
+		 * New Phone Number
+		 */
 		public void setPhone(String phone) {
 			this.phone = phone;
 		}
-		// <summary>
-		//	State of the user
-		// </summary>
+		/**
+		 * State of the user
+		 */
 		public String getState() {
 			return state;
 		}
-		// <summary>
-		//	State of the user
-		// </summary>
+		/**
+		 * State of the user
+		 */
 		public void setState(String state) {
 			this.state = state;
 		}
-		// <summary>
-		//	Street of the user
-		// </summary>
+		/**
+		 * Street of the user
+		 */
 		public String getStreet() {
 			return street;
 		}
-		// <summary>
-		//	Street of the user
-		// </summary>
+		/**
+		 * Street of the user
+		 */
 		public void setStreet(String street) {
 			this.street = street;
 		}
-		// <summary>
-		//	ZipCode of the user
-		// </summary>
+		/**
+		 * ZipCode of the user
+		 */
 		public String getZip() {
 			return zip;
 		}
-		// <summary>
-		//	ZipCode of the user
-		// </summary>
+		/**
+		 * ZipCode of the user
+		 */
 		public void setZip(String zip) {
 			this.zip = zip;
 		}

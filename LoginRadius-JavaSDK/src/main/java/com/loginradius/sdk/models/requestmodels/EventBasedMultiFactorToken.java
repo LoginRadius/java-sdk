@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for SecondFactorValidationToken
-	// </summary>
+	/**
+	 * Model Class containing Definition for SecondFactorValidationToken
+	 */
 	public class EventBasedMultiFactorToken {
 	
 		
@@ -19,15 +19,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	second factor validation token
-		// </summary>
+		/**
+		 * second factor validation token
+		 */
 		public String getSecondFactorValidationToken() {
 			return secondFactorValidationToken;
 		}
-		// <summary>
-		//	second factor validation token
-		// </summary>
+		/**
+		 * second factor validation token
+		 */
 		public void setSecondFactorValidationToken(String secondFactorValidationToken) {
 			this.secondFactorValidationToken = secondFactorValidationToken;
 		}

@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for Roles API
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for Roles API
+	 */
 	public class RolesModel {
 	
 		
@@ -21,15 +21,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Array of String, which represents the role name
-		// </summary>
+		/**
+		 * Array of String, which represents the role name
+		 */
 		public List<com.loginradius.sdk.models.requestmodels.RoleModel> getRoles() {
 			return roles;
 		}
-		// <summary>
-		//	Array of String, which represents the role name
-		// </summary>
+		/**
+		 * Array of String, which represents the role name
+		 */
 		public void setRoles(List<com.loginradius.sdk.models.requestmodels.RoleModel> roles) {
 			this.roles = roles;
 		}

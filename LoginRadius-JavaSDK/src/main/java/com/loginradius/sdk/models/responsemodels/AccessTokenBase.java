@@ -10,9 +10,9 @@ import java.util.UUID;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Token data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Token data
+	 */
 	public class AccessTokenBase {
 	
 		
@@ -33,63 +33,63 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
-		// </summary>
+		/**
+		 * Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+		 */
 		public UUID getAccess_Token() {
 			return access_token;
 		}
-		// <summary>
-		//	Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
-		// </summary>
+		/**
+		 * Uniquely generated identifier key by LoginRadius that is activated after successful authentication.
+		 */
 		public void setAccess_Token(UUID access_token) {
 			this.access_token = access_token;
 		}
-		// <summary>
-		//	Expiration time of Access Token
-		// </summary>
+		/**
+		 * Expiration time of Access Token
+		 */
 		public String getExpires_In() {
 			return expires_in;
 		}
-		// <summary>
-		//	Expiration time of Access Token
-		// </summary>
+		/**
+		 * Expiration time of Access Token
+		 */
 		public void setExpires_In(String expires_in) {
 			this.expires_in = expires_in;
 		}
-		// <summary>
-		//	refresh token to refresh access token
-		// </summary>
+		/**
+		 * refresh token to refresh access token
+		 */
 		public UUID getRefresh_Token() {
 			return refresh_token;
 		}
-		// <summary>
-		//	refresh token to refresh access token
-		// </summary>
+		/**
+		 * refresh token to refresh access token
+		 */
 		public void setRefresh_Token(UUID refresh_token) {
 			this.refresh_token = refresh_token;
 		}
-		// <summary>
-		//	session token expiry time
-		// </summary>
+		/**
+		 * session token expiry time
+		 */
 		public String getSession_expires_in() {
 			return session_expires_in;
 		}
-		// <summary>
-		//	session token expiry time
-		// </summary>
+		/**
+		 * session token expiry time
+		 */
 		public void setSession_expires_in(String session_expires_in) {
 			this.session_expires_in = session_expires_in;
 		}
-		// <summary>
-		//	session token of user
-		// </summary>
+		/**
+		 * session token of user
+		 */
 		public UUID getSession_token() {
 			return session_token;
 		}
-		// <summary>
-		//	session token of user
-		// </summary>
+		/**
+		 * session token of user
+		 */
 		public void setSession_token(UUID session_token) {
 			this.session_token = session_token;
 		}

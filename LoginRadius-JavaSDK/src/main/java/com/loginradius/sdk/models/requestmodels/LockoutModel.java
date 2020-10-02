@@ -10,9 +10,9 @@ import java.util.Map;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for LockoutModel Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for LockoutModel Property
+	 */
 	public class LockoutModel extends ReCaptchaModel {
 	
 		
@@ -21,15 +21,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Valid JSON object of Unique Security Question ID and Answer of set Security Question. It is only required for locked accounts when logging in. Details about this feature
-		// </summary>
+		/**
+		 * Valid JSON object of Unique Security Question ID and Answer of set Security Question. It is only required for locked accounts when logging in. Details about this feature
+		 */
 		public Map<String,String> getSecurityAnswer() {
 			return securityAnswer;
 		}
-		// <summary>
-		//	Valid JSON object of Unique Security Question ID and Answer of set Security Question. It is only required for locked accounts when logging in. Details about this feature
-		// </summary>
+		/**
+		 * Valid JSON object of Unique Security Question ID and Answer of set Security Question. It is only required for locked accounts when logging in. Details about this feature
+		 */
 		public void setSecurityAnswer(Map<String,String> securityAnswer) {
 			this.securityAnswer = securityAnswer;
 		}

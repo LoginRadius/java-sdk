@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for Sports Property
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for Sports Property
+	 */
 	public class Sports {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Id of sport
-		// </summary>
+		/**
+		 * Id of sport
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Id of sport
-		// </summary>
+		/**
+		 * Id of sport
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	Name of sport
-		// </summary>
+		/**
+		 * Name of sport
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Name of sport
-		// </summary>
+		/**
+		 * Name of sport
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}

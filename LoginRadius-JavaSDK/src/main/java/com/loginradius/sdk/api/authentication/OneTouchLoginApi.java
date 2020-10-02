@@ -38,15 +38,15 @@ public class OneTouchLoginApi {
 
    
    
-   // <summary>
-   // This API is used to send a link to a specified email for a frictionless login/registration
-   // </summary>
-   // <param name="oneTouchLoginByEmailModel">Model Class containing Definition of payload for OneTouchLogin By EmailModel API</param>
-   // <param name="oneTouchLoginEmailTemplate">Name of the One Touch Login Email Template</param>
-   // <param name="redirecturl">Url where the user will redirect after success authentication</param>
-   // <param name="welcomeemailtemplate">Name of the welcome email template</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 1.2	    
+   /**
+    * This API is used to send a link to a specified email for a frictionless login/registration
+    * @param oneTouchLoginByEmailModel Model Class containing Definition of payload for OneTouchLogin By EmailModel API
+    * @param oneTouchLoginEmailTemplate Name of the One Touch Login Email Template
+    * @param redirecturl Url where the user will redirect after success authentication
+    * @param welcomeemailtemplate Name of the welcome email template
+    * @return Response containing Definition of Complete Validation data
+    * @since 1.2
+    */
 		
 		
    public void oneTouchLoginByEmail(OneTouchLoginByEmailModel oneTouchLoginByEmailModel, String oneTouchLoginEmailTemplate,
@@ -89,13 +89,13 @@ public class OneTouchLoginApi {
       });
    }
    
-   // <summary>
-   // This API is used to send one time password to a given phone number for a frictionless login/registration.
-   // </summary>
-   // <param name="oneTouchLoginByPhoneModel">Model Class containing Definition of payload for OneTouchLogin By PhoneModel API</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 1.4	    
+   /**
+    * This API is used to send one time password to a given phone number for a frictionless login/registration.
+    * @param oneTouchLoginByPhoneModel Model Class containing Definition of payload for OneTouchLogin By PhoneModel API
+    * @param smsTemplate SMS Template name
+    * @return Response containing Definition of Complete Validation data
+    * @since 1.4
+    */
 		
 		
    public void oneTouchLoginByPhone(OneTouchLoginByPhoneModel oneTouchLoginByPhoneModel, String smsTemplate, final AsyncHandler<PostResponse> handler) {
@@ -129,15 +129,15 @@ public class OneTouchLoginApi {
       });
    }
    
-   // <summary>
-   // This API is used to verify the otp for One Touch Login.
-   // </summary>
-   // <param name="otp">The Verification Code</param>
-   // <param name="phone">New Phone Number</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <returns>Response Containing Access Token and Complete Profile Data</returns>
-   // 1.5	    
+   /**
+    * This API is used to verify the otp for One Touch Login.
+    * @param otp The Verification Code
+    * @param phone New Phone Number
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param smsTemplate SMS Template name
+    * @return Response Containing Access Token and Complete Profile Data
+    * @since 1.5
+    */
 		
 		
    public void oneTouchLoginOTPVerification(String otp, String phone,
@@ -184,13 +184,13 @@ public class OneTouchLoginApi {
       });
    }
    
-   // <summary>
-   // This API verifies the provided token for One Touch Login
-   // </summary>
-   // <param name="verificationToken">Verification token received in the email</param>
-   // <param name="welcomeEmailTemplate">Name of the welcome email template</param>
-   // <returns>Complete verified response data</returns>
-   // 8.4.2	    
+   /**
+    * This API verifies the provided token for One Touch Login
+    * @param verificationToken Verification token received in the email
+    * @param welcomeEmailTemplate Name of the welcome email template
+    * @return Complete verified response data
+    * @since 8.4.2
+    */
 		
 		
    public void oneTouchEmailVerification(String verificationToken, String welcomeEmailTemplate, final AsyncHandler<VerifiedResponse> handler) {      
@@ -225,13 +225,13 @@ public class OneTouchLoginApi {
       });
    }
    
-   // <summary>
-   // This API is used to check if the One Touch Login link has been clicked or not.
-   // </summary>
-   // <param name="clientGuid">Unique string used in the Smart Login request</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <returns>Response containing User Profile Data and access token</returns>
-   // 9.21.2	    
+   /**
+    * This API is used to check if the One Touch Login link has been clicked or not.
+    * @param clientGuid Unique string used in the Smart Login request
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @return Response containing User Profile Data and access token
+    * @since 9.21.2
+    */
 		
 		
    public void oneTouchLoginPing(String clientGuid, String fields, final AsyncHandler<AccessToken<Identity>> handler) {      

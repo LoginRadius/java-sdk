@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Backup Code data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Backup Code data
+	 */
 	public class BackupCodeResponse {
 	
 		
@@ -21,15 +21,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	The Code generated as a recourse
-		// </summary>
+		/**
+		 * The Code generated as a recourse
+		 */
 		public List<String> getBackUpCodes() {
 			return backUpCodes;
 		}
-		// <summary>
-		//	The Code generated as a recourse
-		// </summary>
+		/**
+		 * The Code generated as a recourse
+		 */
 		public void setBackUpCodes(List<String> backUpCodes) {
 			this.backUpCodes = backUpCodes;
 		}

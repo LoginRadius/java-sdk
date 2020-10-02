@@ -17,9 +17,9 @@ import com.loginradius.sdk.models.responsemodels.userprofile.objects.Email;
 import com.loginradius.sdk.models.responsemodels.userprofile.objects.ExternalIds;
 import com.loginradius.sdk.models.responsemodels.userprofile.objects.RegistrationData;
 
-	// <summary>
-	//	Response containing Definition for Complete UserProfile data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete UserProfile data
+	 */
 	public class UserProfile extends SocialUserProfile {
 	
 		
@@ -115,363 +115,379 @@ import com.loginradius.sdk.models.responsemodels.userprofile.objects.Registratio
 
 
 
-		// <summary>
-		//	Response containing consent profile
-		// </summary>
+		/**
+		 * Response containing consent profile
+		 */
 		public ConsentProfile getConsentProfile() {
 			return consentProfile;
 		}
-		// <summary>
-		//	Response containing consent profile
-		// </summary>
+		/**
+		 * Response containing consent profile
+		 */
 		public void setConsentProfile(ConsentProfile consentProfile) {
 			this.consentProfile = consentProfile;
 		}
-		// <summary>
-		//	Custom fields as user set on LoginRadius Admin Console.
-		// </summary>
+		/**
+		 * Custom fields as user set on LoginRadius Admin Console.
+		 */
 		public Map<String,String> getCustomFields() {
 			return customFields;
 		}
-		// <summary>
-		//	Custom fields as user set on LoginRadius Admin Console.
-		// </summary>
+		/**
+		 * Custom fields as user set on LoginRadius Admin Console.
+		 */
 		public void setCustomFields(Map<String,String> customFields) {
 			this.customFields = customFields;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public Boolean getEmailVerified() {
 			return emailVerified;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public void setEmailVerified(Boolean emailVerified) {
 			this.emailVerified = emailVerified;
 		}
-		// <summary>
-		//	Array of Objects,string represents SourceId,Source
-		// </summary>
+		/**
+		 * Array of Objects,string represents SourceId,Source
+		 */
 		public List<ExternalIds> getExternalIds() {
 			return externalIds;
 		}
-		// <summary>
-		//	Array of Objects,string represents SourceId,Source
-		// </summary>
+		/**
+		 * Array of Objects,string represents SourceId,Source
+		 */
 		public void setExternalIds(List<ExternalIds> externalIds) {
 			this.externalIds = externalIds;
 		}
-		// <summary>
-		//	External User Login Id
-		// </summary>
+		/**
+		 * External User Login Id
+		 */
 		public String getExternalUserLoginId() {
 			return externalUserLoginId;
 		}
-		// <summary>
-		//	External User Login Id
-		// </summary>
+		/**
+		 * External User Login Id
+		 */
 		public void setExternalUserLoginId(String externalUserLoginId) {
 			this.externalUserLoginId = externalUserLoginId;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public Boolean getIsActive() {
 			return isActive;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public void setIsActive(Boolean isActive) {
 			this.isActive = isActive;
 		}
-		// <summary>
-		//	id is custom of not
-		// </summary>
+		/**
+		 * id is custom of not
+		 */
 		public Boolean getIsCustomUid() {
 			return isCustomUid;
 		}
-		// <summary>
-		//	id is custom of not
-		// </summary>
+		/**
+		 * id is custom of not
+		 */
 		public void setIsCustomUid(Boolean isCustomUid) {
 			this.isCustomUid = isCustomUid;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public Boolean getIsDeleted() {
 			return isDeleted;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public void setIsDeleted(Boolean isDeleted) {
 			this.isDeleted = isDeleted;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public Boolean getIsEmailSubscribed() {
 			return isEmailSubscribed;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public void setIsEmailSubscribed(Boolean isEmailSubscribed) {
 			this.isEmailSubscribed = isEmailSubscribed;
 		}
-		// <summary>
-		//	Pass true if wants to lock the user's Login field else false.
-		// </summary>
+		/**
+		 * Pass true if wants to lock the user's Login field else false.
+		 */
 		public Boolean getIsLoginLocked() {
 			return isLoginLocked;
 		}
-		// <summary>
-		//	Pass true if wants to lock the user's Login field else false.
-		// </summary>
+		/**
+		 * Pass true if wants to lock the user's Login field else false.
+		 */
 		public void setIsLoginLocked(Boolean isLoginLocked) {
 			this.isLoginLocked = isLoginLocked;
 		}
-		// <summary>
-		//	Required fields filled once or not
-		// </summary>
+		/**
+		 * Required fields filled once or not
+		 */
 		public Boolean getIsRequiredFieldsFilledOnce() {
 			return isRequiredFieldsFilledOnce;
 		}
-		// <summary>
-		//	Required fields filled once or not
-		// </summary>
+		/**
+		 * Required fields filled once or not
+		 */
 		public void setIsRequiredFieldsFilledOnce(Boolean isRequiredFieldsFilledOnce) {
 			this.isRequiredFieldsFilledOnce = isRequiredFieldsFilledOnce;
 		}
-		// <summary>
-		//	Is secure password or not
-		// </summary>
+		/**
+		 * Is secure password or not
+		 */
 		public Boolean getIsSecurePassword() {
 			return isSecurePassword;
 		}
-		// <summary>
-		//	Is secure password or not
-		// </summary>
+		/**
+		 * Is secure password or not
+		 */
 		public void setIsSecurePassword(Boolean isSecurePassword) {
 			this.isSecurePassword = isSecurePassword;
 		}
-		// <summary>
-		//	Last login location
-		// </summary>
+		/**
+		 * Last login location
+		 */
 		public String getLastLoginLocation() {
 			return lastLoginLocation;
 		}
-		// <summary>
-		//	Last login location
-		// </summary>
+		/**
+		 * Last login location
+		 */
 		public void setLastLoginLocation(String lastLoginLocation) {
 			this.lastLoginLocation = lastLoginLocation;
 		}
-		// <summary>
-		//	Last password change date
-		// </summary>
+		/**
+		 * Last password change date
+		 */
 		public String getLastPasswordChangeDate() {
 			return lastPasswordChangeDate;
 		}
-		// <summary>
-		//	Last password change date
-		// </summary>
+		/**
+		 * Last password change date
+		 */
 		public void setLastPasswordChangeDate(String lastPasswordChangeDate) {
 			this.lastPasswordChangeDate = lastPasswordChangeDate;
 		}
-		// <summary>
-		//	Last password change token
-		// </summary>
+		/**
+		 * Last password change token
+		 */
 		public String getLastPasswordChangeToken() {
 			return lastPasswordChangeToken;
 		}
-		// <summary>
-		//	Last password change token
-		// </summary>
+		/**
+		 * Last password change token
+		 */
 		public void setLastPasswordChangeToken(String lastPasswordChangeToken) {
 			this.lastPasswordChangeToken = lastPasswordChangeToken;
 		}
-		// <summary>
-		//	Type of Lockout
-		// </summary>
+		/**
+		 * Type of Lockout
+		 */
 		public String getLoginLockedType() {
 			return loginLockedType;
 		}
-		// <summary>
-		//	Type of Lockout
-		// </summary>
+		/**
+		 * Type of Lockout
+		 */
 		public void setLoginLockedType(String loginLockedType) {
 			this.loginLockedType = loginLockedType;
 		}
-		// <summary>
-		//	Number of Logins
-		// </summary>
+		/**
+		 * Number of Logins
+		 */
 		public Integer getNoOfLogins() {
 			return noOfLogins;
 		}
-		// <summary>
-		//	Number of Logins
-		// </summary>
+		/**
+		 * Number of Logins
+		 */
 		public void setNoOfLogins(Integer noOfLogins) {
 			this.noOfLogins = noOfLogins;
 		}
-		// <summary>
-		//	Password for the email
-		// </summary>
+		/**
+		 * Password for the email
+		 */
 		public String getPassword() {
 			return password;
 		}
-		// <summary>
-		//	Password for the email
-		// </summary>
+		/**
+		 * Password for the email
+		 */
 		public void setPassword(String password) {
 			this.password = password;
 		}
-		// <summary>
-		//	Date of password expiration
-		// </summary>
+		/**
+		 * Date of password expiration
+		 */
 		public String getPasswordExpirationDate() {
 			return passwordExpirationDate;
 		}
-		// <summary>
-		//	Date of password expiration
-		// </summary>
+		/**
+		 * Date of password expiration
+		 */
 		public void setPasswordExpirationDate(String passwordExpirationDate) {
 			this.passwordExpirationDate = passwordExpirationDate;
 		}
-		// <summary>
-		//	Phone ID (Unique Phone Number Identifier of the user)
-		// </summary>
+		/**
+		 * Phone ID (Unique Phone Number Identifier of the user)
+		 */
 		public String getPhoneId() {
 			return phoneId;
 		}
-		// <summary>
-		//	Phone ID (Unique Phone Number Identifier of the user)
-		// </summary>
+		/**
+		 * Phone ID (Unique Phone Number Identifier of the user)
+		 */
 		public void setPhoneId(String phoneId) {
 			this.phoneId = phoneId;
 		}
-		// <summary>
-		//	boolean type value, default is false
-		// </summary>
+		/**
+		 * boolean type value, default is false
+		 */
 		public Boolean getPhoneIdVerified() {
 			return phoneIdVerified;
 		}
-		// <summary>
-		//	boolean type value, default is false
-		// </summary>
+		/**
+		 * boolean type value, default is false
+		 */
 		public void setPhoneIdVerified(Boolean phoneIdVerified) {
 			this.phoneIdVerified = phoneIdVerified;
 		}
-		// <summary>
-		//	PIN of user
-		// </summary>
+		/**
+		 * PIN of user
+		 */
 		public PINInformation getPIN() {
 			return pin;
 		}
-		// <summary>
-		//	PIN of user
-		// </summary>
+		/**
+		 * PIN of user
+		 */
 		public void setPIN(PINInformation pin) {
 			this.pin = pin;
 		}
-		// <summary>
-		//	Object type by default false, string represents Version, AcceptSource and datetime represents AcceptDateTime
-		// </summary>
+		/**
+		 * Object type by default false, string represents Version, AcceptSource and datetime represents AcceptDateTime
+		 */
 		public AcceptedPrivacyPolicy getPrivacyPolicy() {
 			return privacyPolicy;
 		}
-		// <summary>
-		//	Object type by default false, string represents Version, AcceptSource and datetime represents AcceptDateTime
-		// </summary>
+		/**
+		 * Object type by default false, string represents Version, AcceptSource and datetime represents AcceptDateTime
+		 */
 		public void setPrivacyPolicy(AcceptedPrivacyPolicy privacyPolicy) {
 			this.privacyPolicy = privacyPolicy;
 		}
-		// <summary>
-		//	User Registartion Data
-		// </summary>
+		/**
+		 * User Registartion Data
+		 */
 		public RegistrationData getRegistrationData() {
 			return registrationData;
 		}
-		// <summary>
-		//	User Registartion Data
-		// </summary>
+		/**
+		 * User Registartion Data
+		 */
 		public void setRegistrationData(RegistrationData registrationData) {
 			this.registrationData = registrationData;
 		}
-		// <summary>
-		//	Provider with which user registered
-		// </summary>
+		/**
+		 * Provider with which user registered
+		 */
 		public String getRegistrationProvider() {
 			return registrationProvider;
 		}
-		// <summary>
-		//	Provider with which user registered
-		// </summary>
+		/**
+		 * Provider with which user registered
+		 */
 		public void setRegistrationProvider(String registrationProvider) {
 			this.registrationProvider = registrationProvider;
 		}
-		// <summary>
-		//	URL of the webproperty from where the user is registered.
-		// </summary>
+		/**
+		 * URL of the webproperty from where the user is registered.
+		 */
 		public String getRegistrationSource() {
 			return registrationSource;
 		}
-		// <summary>
-		//	URL of the webproperty from where the user is registered.
-		// </summary>
+		/**
+		 * URL of the webproperty from where the user is registered.
+		 */
 		public void setRegistrationSource(String registrationSource) {
 			this.registrationSource = registrationSource;
 		}
-		// <summary>
+		/**
+		 */
 		//	
-		// </summary>
+		/**
+		 */
 		public List<String> getRoles() {
 			return roles;
 		}
-		// <summary>
+		/**
+		 */
 		//	
-		// </summary>
+		/**
+		 */
 		public void setRoles(List<String> roles) {
 			this.roles = roles;
 		}
-		// <summary>
+		/**
+		 */
 		//	UID, the unified identifier for each user account
-		// </summary>
+		/**
+		 */
 		public String getUid() {
 			return uid;
 		}
-		// <summary>
+		/**
+		 */
 		//	UID, the unified identifier for each user account
-		// </summary>
+		/**
+		 */
 		public void setUid(String uid) {
 			this.uid = uid;
 		}
-		// <summary>
+		/**
+		 */
 		//	Unverified Email Address
-		// </summary>
+		/**
+		 */
 		public List<Email> getUnverifiedEmail() {
 			return unverifiedEmail;
 		}
-		// <summary>
+		/**
+		 */
 		//	Unverified Email Address
-		// </summary>
+		/**
+		 */
 		public void setUnverifiedEmail(List<Email> unverifiedEmail) {
 			this.unverifiedEmail = unverifiedEmail;
 		}
-		// <summary>
+		/**
+		 */
 		//	Username of the user
-		// </summary>
+		/**
+		 */
 		public String getUserName() {
 			return userName;
 		}
-		// <summary>
+		/**
+		 */
 		//	Username of the user
-		// </summary>
+		/**
+		 */
 		public void setUserName(String userName) {
 			this.userName = userName;
 		}

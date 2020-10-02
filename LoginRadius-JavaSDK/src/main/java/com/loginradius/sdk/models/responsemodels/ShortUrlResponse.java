@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete ShortUrl data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete ShortUrl data
+	 */
 	public class ShortUrlResponse {
 	
 		
@@ -25,39 +25,39 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	short url
-		// </summary>
+		/**
+		 * short url
+		 */
 		public String getShortUrl() {
 			return shortUrl;
 		}
-		// <summary>
-		//	short url
-		// </summary>
+		/**
+		 * short url
+		 */
 		public void setShortUrl(String shortUrl) {
 			this.shortUrl = shortUrl;
 		}
-		// <summary>
-		//	Base 36 key of url
-		// </summary>
+		/**
+		 * Base 36 key of url
+		 */
 		public String getUrlBase36Key() {
 			return urlBase36Key;
 		}
-		// <summary>
-		//	Base 36 key of url
-		// </summary>
+		/**
+		 * Base 36 key of url
+		 */
 		public void setUrlBase36Key(String urlBase36Key) {
 			this.urlBase36Key = urlBase36Key;
 		}
-		// <summary>
-		//	Url key
-		// </summary>
+		/**
+		 * Url key
+		 */
 		public long getUrlKey() {
 			return urlKey;
 		}
-		// <summary>
-		//	Url key
-		// </summary>
+		/**
+		 * Url key
+		 */
 		public void setUrlKey(long urlKey) {
 			this.urlKey = urlKey;
 		}

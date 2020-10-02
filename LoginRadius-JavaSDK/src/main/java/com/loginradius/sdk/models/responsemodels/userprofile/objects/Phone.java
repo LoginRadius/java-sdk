@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Phone data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Phone data
+	 */
 	public class Phone {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Phone number
-		// </summary>
+		/**
+		 * Phone number
+		 */
 		public String getPhoneNumber() {
 			return phoneNumber;
 		}
-		// <summary>
-		//	Phone number
-		// </summary>
+		/**
+		 * Phone number
+		 */
 		public void setPhoneNumber(String phoneNumber) {
 			this.phoneNumber = phoneNumber;
 		}
-		// <summary>
-		//	Phone type
-		// </summary>
+		/**
+		 * Phone type
+		 */
 		public String getPhoneType() {
 			return phoneType;
 		}
-		// <summary>
-		//	Phone type
-		// </summary>
+		/**
+		 * Phone type
+		 */
 		public void setPhoneType(String phoneType) {
 			this.phoneType = phoneType;
 		}

@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for ResetToken API
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for ResetToken API
+	 */
 	public class ResetPasswordByResetTokenModel extends LockoutModel {
 	
 		
@@ -28,51 +28,51 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Password for the email
-		// </summary>
+		/**
+		 * Password for the email
+		 */
 		public String getPassword() {
 			return password;
 		}
-		// <summary>
-		//	Password for the email
-		// </summary>
+		/**
+		 * Password for the email
+		 */
 		public void setPassword(String password) {
 			this.password = password;
 		}
-		// <summary>
-		//	If you are sending an email via the sendemail parameter, this parameter allows you to specify which reset Password email template you would like to use.
-		// </summary>
+		/**
+		 * If you are sending an email via the sendemail parameter, this parameter allows you to specify which reset Password email template you would like to use.
+		 */
 		public String getResetPasswordEmailTemplate() {
 			return resetPasswordEmailTemplate;
 		}
-		// <summary>
-		//	If you are sending an email via the sendemail parameter, this parameter allows you to specify which reset Password email template you would like to use.
-		// </summary>
+		/**
+		 * If you are sending an email via the sendemail parameter, this parameter allows you to specify which reset Password email template you would like to use.
+		 */
 		public void setResetPasswordEmailTemplate(String resetPasswordEmailTemplate) {
 			this.resetPasswordEmailTemplate = resetPasswordEmailTemplate;
 		}
-		// <summary>
-		//	reset token received in the email
-		// </summary>
+		/**
+		 * reset token received in the email
+		 */
 		public String getResetToken() {
 			return resetToken;
 		}
-		// <summary>
-		//	reset token received in the email
-		// </summary>
+		/**
+		 * reset token received in the email
+		 */
 		public void setResetToken(String resetToken) {
 			this.resetToken = resetToken;
 		}
-		// <summary>
-		//	If you are sending an email via the sendemail parameter, this parameter allows you to specify which welcome email template you would like to use.
-		// </summary>
+		/**
+		 * If you are sending an email via the sendemail parameter, this parameter allows you to specify which welcome email template you would like to use.
+		 */
 		public String getWelcomeEmailTemplate() {
 			return welcomeEmailTemplate;
 		}
-		// <summary>
-		//	If you are sending an email via the sendemail parameter, this parameter allows you to specify which welcome email template you would like to use.
-		// </summary>
+		/**
+		 * If you are sending an email via the sendemail parameter, this parameter allows you to specify which welcome email template you would like to use.
+		 */
 		public void setWelcomeEmailTemplate(String welcomeEmailTemplate) {
 			this.welcomeEmailTemplate = welcomeEmailTemplate;
 		}

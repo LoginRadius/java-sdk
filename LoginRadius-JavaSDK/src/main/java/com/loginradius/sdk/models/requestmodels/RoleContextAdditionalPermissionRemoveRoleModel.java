@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for RoleContextAdditionalPermissionRemoveRole API
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for RoleContextAdditionalPermissionRemoveRole API
+	 */
 	public class RoleContextAdditionalPermissionRemoveRoleModel {
 	
 		
@@ -21,15 +21,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Array of String, which represents the additional permissions
-		// </summary>
+		/**
+		 * Array of String, which represents the additional permissions
+		 */
 		public List<String> getAdditionalPermissions() {
 			return additionalPermissions;
 		}
-		// <summary>
-		//	Array of String, which represents the additional permissions
-		// </summary>
+		/**
+		 * Array of String, which represents the additional permissions
+		 */
 		public void setAdditionalPermissions(List<String> additionalPermissions) {
 			this.additionalPermissions = additionalPermissions;
 		}

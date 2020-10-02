@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for Status API
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for Status API
+	 */
 	public class StatusModel {
 	
 		
@@ -37,87 +37,87 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Message displayed below the description(Requires URL, Under 70 Characters).
-		// </summary>
+		/**
+		 * Message displayed below the description(Requires URL, Under 70 Characters).
+		 */
 		public String getCaption() {
 			return caption;
 		}
-		// <summary>
-		//	Message displayed below the description(Requires URL, Under 70 Characters).
-		// </summary>
+		/**
+		 * Message displayed below the description(Requires URL, Under 70 Characters).
+		 */
 		public void setCaption(String caption) {
 			this.caption = caption;
 		}
-		// <summary>
-		//	Description of the displayed URL and Image
-		// </summary>
+		/**
+		 * Description of the displayed URL and Image
+		 */
 		public String getDescription() {
 			return description;
 		}
-		// <summary>
-		//	Description of the displayed URL and Image
-		// </summary>
+		/**
+		 * Description of the displayed URL and Image
+		 */
 		public void setDescription(String description) {
 			this.description = description;
 		}
-		// <summary>
-		//	image URL should be absolute and has HTTPS domain
-		// </summary>
+		/**
+		 * image URL should be absolute and has HTTPS domain
+		 */
 		public String getImageurl() {
 			return imageurl;
 		}
-		// <summary>
-		//	image URL should be absolute and has HTTPS domain
-		// </summary>
+		/**
+		 * image URL should be absolute and has HTTPS domain
+		 */
 		public void setImageurl(String imageurl) {
 			this.imageurl = imageurl;
 		}
-		// <summary>
-		//	short url
-		// </summary>
+		/**
+		 * short url
+		 */
 		public String getShorturl() {
 			return shorturl;
 		}
-		// <summary>
-		//	short url
-		// </summary>
+		/**
+		 * short url
+		 */
 		public void setShorturl(String shorturl) {
 			this.shorturl = shorturl;
 		}
-		// <summary>
-		//	Main body of the Status update.
-		// </summary>
+		/**
+		 * Main body of the Status update.
+		 */
 		public String getStatus() {
 			return status;
 		}
-		// <summary>
-		//	Main body of the Status update.
-		// </summary>
+		/**
+		 * Main body of the Status update.
+		 */
 		public void setStatus(String status) {
 			this.status = status;
 		}
-		// <summary>
-		//	Title of Linked URL
-		// </summary>
+		/**
+		 * Title of Linked URL
+		 */
 		public String getTitle() {
 			return title;
 		}
-		// <summary>
-		//	Title of Linked URL
-		// </summary>
+		/**
+		 * Title of Linked URL
+		 */
 		public void setTitle(String title) {
 			this.title = title;
 		}
-		// <summary>
-		//	String represents website url
-		// </summary>
+		/**
+		 * String represents website url
+		 */
 		public String getUrl() {
 			return url;
 		}
-		// <summary>
-		//	String represents website url
-		// </summary>
+		/**
+		 * String represents website url
+		 */
 		public void setUrl(String url) {
 			this.url = url;
 		}

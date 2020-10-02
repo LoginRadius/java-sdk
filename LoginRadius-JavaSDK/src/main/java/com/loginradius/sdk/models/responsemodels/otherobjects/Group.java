@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete group data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete group data
+	 */
 	public class Group {
 	
 		
@@ -46,123 +46,123 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Country of the user
-		// </summary>
+		/**
+		 * Country of the user
+		 */
 		public String getCountry() {
 			return country;
 		}
-		// <summary>
-		//	Country of the user
-		// </summary>
+		/**
+		 * Country of the user
+		 */
 		public void setCountry(String country) {
 			this.country = country;
 		}
-		// <summary>
-		//	detailed information
-		// </summary>
+		/**
+		 * detailed information
+		 */
 		public String getDescription() {
 			return description;
 		}
-		// <summary>
-		//	detailed information
-		// </summary>
+		/**
+		 * detailed information
+		 */
 		public void setDescription(String description) {
 			this.description = description;
 		}
-		// <summary>
-		//	user's email
-		// </summary>
+		/**
+		 * user's email
+		 */
 		public String getEmail() {
 			return email;
 		}
-		// <summary>
-		//	user's email
-		// </summary>
+		/**
+		 * user's email
+		 */
 		public void setEmail(String email) {
 			this.email = email;
 		}
-		// <summary>
-		//	Identity providers
-		// </summary>
+		/**
+		 * Identity providers
+		 */
 		public String getID() {
 			return iD;
 		}
-		// <summary>
-		//	Identity providers
-		// </summary>
+		/**
+		 * Identity providers
+		 */
 		public void setID(String iD) {
 			this.iD = iD;
 		}
-		// <summary>
-		//	Images
-		// </summary>
+		/**
+		 * Images
+		 */
 		public String getImage() {
 			return image;
 		}
-		// <summary>
-		//	Images
-		// </summary>
+		/**
+		 * Images
+		 */
 		public void setImage(String image) {
 			this.image = image;
 		}
-		// <summary>
-		//	logo
-		// </summary>
+		/**
+		 * logo
+		 */
 		public String getLogo() {
 			return logo;
 		}
-		// <summary>
-		//	logo
-		// </summary>
+		/**
+		 * logo
+		 */
 		public void setLogo(String logo) {
 			this.logo = logo;
 		}
-		// <summary>
-		//	Number of members
-		// </summary>
+		/**
+		 * Number of members
+		 */
 		public String getMemberCount() {
 			return memberCount;
 		}
-		// <summary>
-		//	Number of members
-		// </summary>
+		/**
+		 * Number of members
+		 */
 		public void setMemberCount(String memberCount) {
 			this.memberCount = memberCount;
 		}
-		// <summary>
-		//	Name of the customer
-		// </summary>
+		/**
+		 * Name of the customer
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Name of the customer
-		// </summary>
+		/**
+		 * Name of the customer
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
-		// <summary>
-		//	Postal code value that need to be updated
-		// </summary>
+		/**
+		 * Postal code value that need to be updated
+		 */
 		public String getPostalCode() {
 			return postalCode;
 		}
-		// <summary>
-		//	Postal code value that need to be updated
-		// </summary>
+		/**
+		 * Postal code value that need to be updated
+		 */
 		public void setPostalCode(String postalCode) {
 			this.postalCode = postalCode;
 		}
-		// <summary>
-		//	String to identify the type of parameter
-		// </summary>
+		/**
+		 * String to identify the type of parameter
+		 */
 		public String getType() {
 			return type;
 		}
-		// <summary>
-		//	String to identify the type of parameter
-		// </summary>
+		/**
+		 * String to identify the type of parameter
+		 */
 		public void setType(String type) {
 			this.type = type;
 		}

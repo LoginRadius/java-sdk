@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Skills data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Skills data
+	 */
 	public class Skills {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	id of skill
-		// </summary>
+		/**
+		 * id of skill
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	id of skill
-		// </summary>
+		/**
+		 * id of skill
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	name of skills
-		// </summary>
+		/**
+		 * name of skills
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	name of skills
-		// </summary>
+		/**
+		 * name of skills
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}

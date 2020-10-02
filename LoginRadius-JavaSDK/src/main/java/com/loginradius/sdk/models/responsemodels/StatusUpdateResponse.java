@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete status data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete status data
+	 */
 	public class StatusUpdateResponse {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Status id
-		// </summary>
+		/**
+		 * Status id
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Status id
-		// </summary>
+		/**
+		 * Status id
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	String represents website url
-		// </summary>
+		/**
+		 * String represents website url
+		 */
 		public ShortUrlResponse getUrl() {
 			return url;
 		}
-		// <summary>
-		//	String represents website url
-		// </summary>
+		/**
+		 * String represents website url
+		 */
 		public void setUrl(ShortUrlResponse url) {
 			this.url = url;
 		}

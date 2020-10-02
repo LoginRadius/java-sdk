@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for JobBookmarkPosition Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for JobBookmarkPosition Property
+	 */
 	public class JobBookmarkPosition {
 	
 		
@@ -19,15 +19,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Position title
-		// </summary>
+		/**
+		 * Position title
+		 */
 		public String getTitle() {
 			return title;
 		}
-		// <summary>
-		//	Position title
-		// </summary>
+		/**
+		 * Position title
+		 */
 		public void setTitle(String title) {
 			this.title = title;
 		}

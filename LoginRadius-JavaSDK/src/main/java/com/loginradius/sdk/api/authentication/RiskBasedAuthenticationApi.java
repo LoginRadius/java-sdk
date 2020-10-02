@@ -35,29 +35,29 @@ public class RiskBasedAuthenticationApi {
 
    
    
-   // <summary>
-   // This API retrieves a copy of the user data based on the Email
-   // </summary>
-   // <param name="emailAuthenticationModel">Model Class containing Definition of payload for Email Authentication API</param>
-   // <param name="emailTemplate">Email template name</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="loginUrl">Url where the user is logging from</param>
-   // <param name="passwordDelegation">Password Delegation Allows you to use a third-party service to store your passwords rather than LoginRadius Cloud storage.</param>
-   // <param name="passwordDelegationApp">RiskBased Authentication Password Delegation App</param>
-   // <param name="rbaBrowserEmailTemplate">Risk Based Authentication Browser EmailTemplate</param>
-   // <param name="rbaBrowserSmsTemplate">Risk Based Authentication Browser Sms Template</param>
-   // <param name="rbaCityEmailTemplate">Risk Based Authentication City Email Template</param>
-   // <param name="rbaCitySmsTemplate">Risk Based Authentication City SmsTemplate</param>
-   // <param name="rbaCountryEmailTemplate">Risk Based Authentication Country EmailTemplate</param>
-   // <param name="rbaCountrySmsTemplate">Risk Based Authentication Country SmsTemplate</param>
-   // <param name="rbaIpEmailTemplate">Risk Based Authentication Ip EmailTemplate</param>
-   // <param name="rbaIpSmsTemplate">Risk Based Authentication Ip SmsTemplate</param>
-   // <param name="rbaOneclickEmailTemplate">Risk Based Authentication Oneclick EmailTemplate</param>
-   // <param name="rbaOTPSmsTemplate">Risk Based Authentication Oneclick EmailTemplate</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <param name="verificationUrl">Email verification url</param>
-   // <returns>Response containing User Profile Data and access token</returns>
-   // 9.2.4	    
+   /**
+    * This API retrieves a copy of the user data based on the Email
+    * @param emailAuthenticationModel Model Class containing Definition of payload for Email Authentication API
+    * @param emailTemplate Email template name
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param loginUrl Url where the user is logging from
+    * @param passwordDelegation Password Delegation Allows you to use a third-party service to store your passwords rather than LoginRadius Cloud storage.
+    * @param passwordDelegationApp RiskBased Authentication Password Delegation App
+    * @param rbaBrowserEmailTemplate Risk Based Authentication Browser EmailTemplate
+    * @param rbaBrowserSmsTemplate Risk Based Authentication Browser Sms Template
+    * @param rbaCityEmailTemplate Risk Based Authentication City Email Template
+    * @param rbaCitySmsTemplate Risk Based Authentication City SmsTemplate
+    * @param rbaCountryEmailTemplate Risk Based Authentication Country EmailTemplate
+    * @param rbaCountrySmsTemplate Risk Based Authentication Country SmsTemplate
+    * @param rbaIpEmailTemplate Risk Based Authentication Ip EmailTemplate
+    * @param rbaIpSmsTemplate Risk Based Authentication Ip SmsTemplate
+    * @param rbaOneclickEmailTemplate Risk Based Authentication Oneclick EmailTemplate
+    * @param rbaOTPSmsTemplate Risk Based Authentication Oneclick EmailTemplate
+    * @param smsTemplate SMS Template name
+    * @param verificationUrl Email verification url
+    * @return Response containing User Profile Data and access token
+    * @since 9.2.4
+    */
 		
 		
    public void rbaLoginByEmail(EmailAuthenticationModel emailAuthenticationModel, String emailTemplate,
@@ -159,29 +159,29 @@ public class RiskBasedAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API retrieves a copy of the user data based on the Username
-   // </summary>
-   // <param name="userNameAuthenticationModel">Model Class containing Definition of payload for Username Authentication API</param>
-   // <param name="emailTemplate">Email template name</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="loginUrl">Url where the user is logging from</param>
-   // <param name="passwordDelegation">Password Delegation Allows you to use a third-party service to store your passwords rather than LoginRadius Cloud storage.</param>
-   // <param name="passwordDelegationApp">RiskBased Authentication Password Delegation App</param>
-   // <param name="rbaBrowserEmailTemplate">Risk Based Authentication Browser EmailTemplate</param>
-   // <param name="rbaBrowserSmsTemplate">Risk Based Authentication Browser Sms Template</param>
-   // <param name="rbaCityEmailTemplate">Risk Based Authentication City Email Template</param>
-   // <param name="rbaCitySmsTemplate">Risk Based Authentication City SmsTemplate</param>
-   // <param name="rbaCountryEmailTemplate">Risk Based Authentication Country EmailTemplate</param>
-   // <param name="rbaCountrySmsTemplate">Risk Based Authentication Country SmsTemplate</param>
-   // <param name="rbaIpEmailTemplate">Risk Based Authentication Ip EmailTemplate</param>
-   // <param name="rbaIpSmsTemplate">Risk Based Authentication Ip SmsTemplate</param>
-   // <param name="rbaOneclickEmailTemplate">Risk Based Authentication Oneclick EmailTemplate</param>
-   // <param name="rbaOTPSmsTemplate">Risk Based Authentication OTPSmsTemplate</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <param name="verificationUrl">Email verification url</param>
-   // <returns>Response containing User Profile Data and access token</returns>
-   // 9.2.5	    
+   /**
+    * This API retrieves a copy of the user data based on the Username
+    * @param userNameAuthenticationModel Model Class containing Definition of payload for Username Authentication API
+    * @param emailTemplate Email template name
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param loginUrl Url where the user is logging from
+    * @param passwordDelegation Password Delegation Allows you to use a third-party service to store your passwords rather than LoginRadius Cloud storage.
+    * @param passwordDelegationApp RiskBased Authentication Password Delegation App
+    * @param rbaBrowserEmailTemplate Risk Based Authentication Browser EmailTemplate
+    * @param rbaBrowserSmsTemplate Risk Based Authentication Browser Sms Template
+    * @param rbaCityEmailTemplate Risk Based Authentication City Email Template
+    * @param rbaCitySmsTemplate Risk Based Authentication City SmsTemplate
+    * @param rbaCountryEmailTemplate Risk Based Authentication Country EmailTemplate
+    * @param rbaCountrySmsTemplate Risk Based Authentication Country SmsTemplate
+    * @param rbaIpEmailTemplate Risk Based Authentication Ip EmailTemplate
+    * @param rbaIpSmsTemplate Risk Based Authentication Ip SmsTemplate
+    * @param rbaOneclickEmailTemplate Risk Based Authentication Oneclick EmailTemplate
+    * @param rbaOTPSmsTemplate Risk Based Authentication OTPSmsTemplate
+    * @param smsTemplate SMS Template name
+    * @param verificationUrl Email verification url
+    * @return Response containing User Profile Data and access token
+    * @since 9.2.5
+    */
 		
 		
    public void rbaLoginByUserName(UserNameAuthenticationModel userNameAuthenticationModel, String emailTemplate,
@@ -283,29 +283,29 @@ public class RiskBasedAuthenticationApi {
       });
    }
    
-   // <summary>
-   // This API retrieves a copy of the user data based on the Phone
-   // </summary>
-   // <param name="phoneAuthenticationModel">Model Class containing Definition of payload for PhoneAuthenticationModel API</param>
-   // <param name="emailTemplate">Email template name</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="loginUrl">Url where the user is logging from</param>
-   // <param name="passwordDelegation">Password Delegation Allows you to use a third-party service to store your passwords rather than LoginRadius Cloud storage.</param>
-   // <param name="passwordDelegationApp">RiskBased Authentication Password Delegation App</param>
-   // <param name="rbaBrowserEmailTemplate">Risk Based Authentication Browser EmailTemplate</param>
-   // <param name="rbaBrowserSmsTemplate">Risk Based Authentication Browser Sms Template</param>
-   // <param name="rbaCityEmailTemplate">Risk Based Authentication City Email Template</param>
-   // <param name="rbaCitySmsTemplate">Risk Based Authentication City SmsTemplate</param>
-   // <param name="rbaCountryEmailTemplate">Risk Based Authentication Country EmailTemplate</param>
-   // <param name="rbaCountrySmsTemplate">Risk Based Authentication Country SmsTemplate</param>
-   // <param name="rbaIpEmailTemplate">Risk Based Authentication Ip EmailTemplate</param>
-   // <param name="rbaIpSmsTemplate">Risk Based Authentication Ip SmsTemplate</param>
-   // <param name="rbaOneclickEmailTemplate">Risk Based Authentication Oneclick EmailTemplate</param>
-   // <param name="rbaOTPSmsTemplate">Risk Based Authentication OTPSmsTemplate</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <param name="verificationUrl">Email verification url</param>
-   // <returns>Response containing User Profile Data and access token</returns>
-   // 9.2.6	    
+   /**
+    * This API retrieves a copy of the user data based on the Phone
+    * @param phoneAuthenticationModel Model Class containing Definition of payload for PhoneAuthenticationModel API
+    * @param emailTemplate Email template name
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param loginUrl Url where the user is logging from
+    * @param passwordDelegation Password Delegation Allows you to use a third-party service to store your passwords rather than LoginRadius Cloud storage.
+    * @param passwordDelegationApp RiskBased Authentication Password Delegation App
+    * @param rbaBrowserEmailTemplate Risk Based Authentication Browser EmailTemplate
+    * @param rbaBrowserSmsTemplate Risk Based Authentication Browser Sms Template
+    * @param rbaCityEmailTemplate Risk Based Authentication City Email Template
+    * @param rbaCitySmsTemplate Risk Based Authentication City SmsTemplate
+    * @param rbaCountryEmailTemplate Risk Based Authentication Country EmailTemplate
+    * @param rbaCountrySmsTemplate Risk Based Authentication Country SmsTemplate
+    * @param rbaIpEmailTemplate Risk Based Authentication Ip EmailTemplate
+    * @param rbaIpSmsTemplate Risk Based Authentication Ip SmsTemplate
+    * @param rbaOneclickEmailTemplate Risk Based Authentication Oneclick EmailTemplate
+    * @param rbaOTPSmsTemplate Risk Based Authentication OTPSmsTemplate
+    * @param smsTemplate SMS Template name
+    * @param verificationUrl Email verification url
+    * @return Response containing User Profile Data and access token
+    * @since 9.2.6
+    */
 		
 		
    public void rbaLoginByPhone(PhoneAuthenticationModel phoneAuthenticationModel, String emailTemplate,

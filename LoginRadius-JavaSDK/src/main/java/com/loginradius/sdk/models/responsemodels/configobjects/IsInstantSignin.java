@@ -13,30 +13,30 @@ public class IsInstantSignin {
 	@Expose
 	private Boolean smsOtp;
 
-	/// <summary>
-	/// user's email link
-	/// </summary>
+	/**
+	 * user's email link
+	 */
 	public Boolean getEmailLink() {
 		return emailLink;
 	}
 
-	/// <summary>
-	/// user's email link
-	/// </summary>
+	/**
+	 * user's email link
+	 */
 	public void setEmailLink(Boolean emailLink) {
 		this.emailLink = emailLink;
 	}
 
-	/// <summary>
-	/// user's sms/otp
-	/// </summary>
+	/**
+	 * user's sms/otp
+	 */
 	public Boolean getSmsOtp() {
 		return smsOtp;
 	}
 
-	/// <summary>
-	/// user's sms/otp
-	/// </summary>
+	/**
+	 * user's sms/otp
+	 */
 	public void setSmsOtp(Boolean smsOtp) {
 		this.smsOtp = smsOtp;
 	}

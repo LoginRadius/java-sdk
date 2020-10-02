@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of RoleContext payload
-	// </summary>
+	/**
+	 * Model Class containing Definition of RoleContext payload
+	 */
 	public class AccountRoleContextModel {
 	
 		
@@ -21,15 +21,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Array of RoleContext object, see body tab for structure
-		// </summary>
+		/**
+		 * Array of RoleContext object, see body tab for structure
+		 */
 		public List<RoleContextRoleModel> getRoleContext() {
 			return roleContext;
 		}
-		// <summary>
-		//	Array of RoleContext object, see body tab for structure
-		// </summary>
+		/**
+		 * Array of RoleContext object, see body tab for structure
+		 */
 		public void setRoleContext(List<RoleContextRoleModel> roleContext) {
 			this.roleContext = roleContext;
 		}

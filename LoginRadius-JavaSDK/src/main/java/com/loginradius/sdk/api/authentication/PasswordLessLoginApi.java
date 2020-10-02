@@ -36,14 +36,14 @@ public class PasswordLessLoginApi {
 
    
    
-   // <summary>
-   // This API verifies an account by OTP and allows the customer to login.
-   // </summary>
-   // <param name="passwordLessLoginOtpModel">Model Class containing Definition of payload for PasswordLessLoginOtpModel API</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <returns>Response containing User Profile Data and access token</returns>
-   // 9.6	    
+   /**
+    * This API verifies an account by OTP and allows the customer to login.
+    * @param passwordLessLoginOtpModel Model Class containing Definition of payload for PasswordLessLoginOtpModel API
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param smsTemplate SMS Template name
+    * @return Response containing User Profile Data and access token
+    * @since 9.6
+    */
 		
 		
    public void passwordlessLoginPhoneVerification(PasswordLessLoginOtpModel passwordLessLoginOtpModel, String fields,
@@ -82,13 +82,13 @@ public class PasswordLessLoginApi {
       });
    }
    
-   // <summary>
-   // API can be used to send a One-time Passcode (OTP) provided that the account has a verified PhoneID
-   // </summary>
-   // <param name="phone">The Registered Phone Number</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <returns>Response Containing Definition of SMS Data</returns>
-   // 9.15	    
+   /**
+    * API can be used to send a One-time Passcode (OTP) provided that the account has a verified PhoneID
+    * @param phone The Registered Phone Number
+    * @param smsTemplate SMS Template name
+    * @return Response Containing Definition of SMS Data
+    * @since 9.15
+    */
 		
 		
    public void passwordlessLoginByPhone(String phone, String smsTemplate, final AsyncHandler<GetResponse<SMSResponseData>> handler) {      
@@ -123,14 +123,14 @@ public class PasswordLessLoginApi {
       });
    }
    
-   // <summary>
-   // This API is used to send a Passwordless Login verification link to the provided Email ID
-   // </summary>
-   // <param name="email">Email of the user</param>
-   // <param name="passwordLessLoginTemplate">Passwordless Login Template Name</param>
-   // <param name="verificationUrl">Email verification url</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 9.18.1	    
+   /**
+    * This API is used to send a Passwordless Login verification link to the provided Email ID
+    * @param email Email of the user
+    * @param passwordLessLoginTemplate Passwordless Login Template Name
+    * @param verificationUrl Email verification url
+    * @return Response containing Definition of Complete Validation data
+    * @since 9.18.1
+    */
 		
 		
    public void passwordlessLoginByEmail(String email, String passwordLessLoginTemplate,
@@ -170,14 +170,14 @@ public class PasswordLessLoginApi {
       });
    }
    
-   // <summary>
-   // This API is used to send a Passwordless Login Verification Link to a customer by providing their UserName
-   // </summary>
-   // <param name="username">UserName of the user</param>
-   // <param name="passwordLessLoginTemplate">Passwordless Login Template Name</param>
-   // <param name="verificationUrl">Email verification url</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 9.18.2	    
+   /**
+    * This API is used to send a Passwordless Login Verification Link to a customer by providing their UserName
+    * @param username UserName of the user
+    * @param passwordLessLoginTemplate Passwordless Login Template Name
+    * @param verificationUrl Email verification url
+    * @return Response containing Definition of Complete Validation data
+    * @since 9.18.2
+    */
 		
 		
    public void passwordlessLoginByUserName(String username, String passwordLessLoginTemplate,
@@ -217,14 +217,14 @@ public class PasswordLessLoginApi {
       });
    }
    
-   // <summary>
-   // This API is used to verify the Passwordless Login verification link. Note: If you are using Passwordless Login by Phone you will need to use the Passwordless Login Phone Verification API
-   // </summary>
-   // <param name="verificationToken">Verification token received in the email</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="welcomeEmailTemplate">Name of the welcome email template</param>
-   // <returns>Response containing User Profile Data and access token</returns>
-   // 9.19	    
+   /**
+    * This API is used to verify the Passwordless Login verification link. Note: If you are using Passwordless Login by Phone you will need to use the Passwordless Login Phone Verification API
+    * @param verificationToken Verification token received in the email
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @param welcomeEmailTemplate Name of the welcome email template
+    * @return Response containing User Profile Data and access token
+    * @since 9.19
+    */
 		
 		
    public void passwordlessLoginVerification(String verificationToken, String fields,

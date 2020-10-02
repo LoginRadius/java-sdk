@@ -43,17 +43,15 @@ public class AccountApi {
    }
 
    
-   // <summary>
-   // This API is used to update the information of existing accounts in your Cloud Storage. See our Advanced API Usage section
-   // <a href='/api/v2/user-registration/advanced-api-usage'>Here</a> for more capabilities.
-   // </summary>
-   // <param name="payload">Json data for update account</param>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="nullSupport">Boolean, pass true if you wish to update any user
-   // profile field with a NULL value.
-   // <returns>Response containing Definition for Complete profile data</returns>
-   // 18.15
+   /**
+    * This API is used to update the information of existing accounts in your Cloud Storage. See our Advanced API Usage section
+    * <a href='/api/v2/user-registration/advanced-api-usage'>Here</a> for more capabilities.
+    * @param payload Json data for update account
+    * @param uid UID, the unified identifier for each user account
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @return Response containing Definition for Complete profile data
+    * @since 18.15
+    */
 
 	public void UpdateAccountByUid(JsonObject payload, String uid,
 		String fields, Boolean nullSupport, final AsyncHandler<Identity> handler) {
@@ -100,12 +98,12 @@ public class AccountApi {
   
   
    
-   // <summary>
-   // This API is used to retrieve all of the accepted Policies by the user, associated with their UID.
-   // </summary>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <returns>Complete Policy History data</returns>
-   // 15.1.1	    
+   /**
+    * This API is used to retrieve all of the accepted Policies by the user, associated with their UID.
+    * @param uid UID, the unified identifier for each user account
+    * @return Complete Policy History data
+    * @since 15.1.1
+    */
 		
 		
    public void getPrivacyPolicyHistoryByUid(String uid, final AsyncHandler<PrivacyPolicyHistoryResponse> handler) {      
@@ -136,13 +134,13 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // This API is used to create an account in Cloud Storage. This API bypass the normal email verification process and manually creates the user. <br><br>In order to use this API, you need to format a JSON request body with all of the mandatory fields
-   // </summary>
-   // <param name="accountCreateModel">Model Class containing Definition of payload for Account Create API</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <returns>Response containing Definition for Complete profile data</returns>
-   // 18.1	    
+   /**
+    * This API is used to create an account in Cloud Storage. This API bypass the normal email verification process and manually creates the user. <br><br>In order to use this API, you need to format a JSON request body with all of the mandatory fields
+    * @param accountCreateModel Model Class containing Definition of payload for Account Create API
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @return Response containing Definition for Complete profile data
+    * @since 18.1
+    */
 		
 		
    public void createAccount(AccountCreateModel accountCreateModel, String fields, final AsyncHandler<Identity> handler) {
@@ -177,13 +175,13 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // This API is used to retrieve all of the profile data, associated with the specified account by email in Cloud Storage.
-   // </summary>
-   // <param name="email">Email of the user</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <returns>Response containing Definition for Complete profile data</returns>
-   // 18.2	    
+   /**
+    * This API is used to retrieve all of the profile data, associated with the specified account by email in Cloud Storage.
+    * @param email Email of the user
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @return Response containing Definition for Complete profile data
+    * @since 18.2
+    */
 		
 		
    public void getAccountProfileByEmail(String email, String fields, final AsyncHandler<Identity> handler) {      
@@ -219,13 +217,13 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // This API is used to retrieve all of the profile data associated with the specified account by user name in Cloud Storage.
-   // </summary>
-   // <param name="userName">UserName of the user</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <returns>Response containing Definition for Complete profile data</returns>
-   // 18.3	    
+   /**
+    * This API is used to retrieve all of the profile data associated with the specified account by user name in Cloud Storage.
+    * @param userName UserName of the user
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @return Response containing Definition for Complete profile data
+    * @since 18.3
+    */
 		
 		
    public void getAccountProfileByUserName(String userName, String fields, final AsyncHandler<Identity> handler) {      
@@ -261,13 +259,13 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // This API is used to retrieve all of the profile data, associated with the account by phone number in Cloud Storage.
-   // </summary>
-   // <param name="phone">The Registered Phone Number</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <returns>Response containing Definition for Complete profile data</returns>
-   // 18.4	    
+   /**
+    * This API is used to retrieve all of the profile data, associated with the account by phone number in Cloud Storage.
+    * @param phone The Registered Phone Number
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @return Response containing Definition for Complete profile data
+    * @since 18.4
+    */
 		
 		
    public void getAccountProfileByPhone(String phone, String fields, final AsyncHandler<Identity> handler) {      
@@ -303,13 +301,13 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // This API is used to retrieve all of the profile data, associated with the account by uid in Cloud Storage.
-   // </summary>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <returns>Response containing Definition for Complete profile data</returns>
-   // 18.5	    
+   /**
+    * This API is used to retrieve all of the profile data, associated with the account by uid in Cloud Storage.
+    * @param uid UID, the unified identifier for each user account
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @return Response containing Definition for Complete profile data
+    * @since 18.5
+    */
 		
 		
    public void getAccountProfileByUid(String uid, String fields, final AsyncHandler<Identity> handler) {      
@@ -344,14 +342,14 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // This API is used to update the information of existing accounts in your Cloud Storage. See our Advanced API Usage section <a href='https://www.loginradius.com/docs/api/v2/customer-identity-api/advanced-api-usage/'>Here</a> for more capabilities.
-   // </summary>
-   // <param name="accountUserProfileUpdateModel">Model Class containing Definition of payload for Account Update API</param>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <returns>Response containing Definition for Complete profile data</returns>
-   // 18.15	    
+   /**
+    * This API is used to update the information of existing accounts in your Cloud Storage. See our Advanced API Usage section <a href='https:www.loginradius.com/docs/api/v2/customer-identity-api/advanced-api-usage/'>Here</a> for more capabilities.
+    * @param accountUserProfileUpdateModel Model Class containing Definition of payload for Account Update API
+    * @param uid UID, the unified identifier for each user account
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @return Response containing Definition for Complete profile data
+    * @since 18.15
+    */
 		
 		
    public void updateAccountByUid(AccountUserProfileUpdateModel accountUserProfileUpdateModel, String uid,
@@ -391,14 +389,14 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // This API is used to update the PhoneId by using the Uid's. Admin can update the PhoneId's for both the verified and unverified profiles. It will directly replace the PhoneId and bypass the OTP verification process.
-   // </summary>
-   // <param name="phone">Phone number</param>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <returns>Response containing Definition for Complete profile data</returns>
-   // 18.16	    
+   /**
+    * This API is used to update the PhoneId by using the Uid's. Admin can update the PhoneId's for both the verified and unverified profiles. It will directly replace the PhoneId and bypass the OTP verification process.
+    * @param phone Phone number
+    * @param uid UID, the unified identifier for each user account
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @return Response containing Definition for Complete profile data
+    * @since 18.16
+    */
 		
 		
    public void updatePhoneIDByUid(String phone, String uid,
@@ -441,12 +439,12 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // This API use to retrive the hashed password of a specified account in Cloud Storage.
-   // </summary>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <returns>Response containing Definition for Complete PasswordHash data</returns>
-   // 18.17	    
+   /**
+    * This API use to retrive the hashed password of a specified account in Cloud Storage.
+    * @param uid UID, the unified identifier for each user account
+    * @return Response containing Definition for Complete PasswordHash data
+    * @since 18.17
+    */
 		
 		
    public void getAccountPasswordHashByUid(String uid, final AsyncHandler<UserPasswordHash> handler) {      
@@ -477,13 +475,13 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // This API is used to set the password of an account in Cloud Storage.
-   // </summary>
-   // <param name="password">New password</param>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <returns>Response containing Definition for Complete PasswordHash data</returns>
-   // 18.18	    
+   /**
+    * This API is used to set the password of an account in Cloud Storage.
+    * @param password New password
+    * @param uid UID, the unified identifier for each user account
+    * @return Response containing Definition for Complete PasswordHash data
+    * @since 18.18
+    */
 		
 		
    public void setAccountPasswordByUid(String password, String uid, final AsyncHandler<UserPasswordHash> handler) {      
@@ -521,12 +519,12 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // This API deletes the Users account and allows them to re-register for a new account.
-   // </summary>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <returns>Response containing Definition of Delete Request</returns>
-   // 18.19	    
+   /**
+    * This API deletes the Users account and allows them to re-register for a new account.
+    * @param uid UID, the unified identifier for each user account
+    * @return Response containing Definition of Delete Request
+    * @since 18.19
+    */
 		
 		
    public void deleteAccountByUid(String uid, final AsyncHandler<DeleteResponse> handler) {      
@@ -557,14 +555,14 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // This API is used to invalidate the Email Verification status on an account.
-   // </summary>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <param name="emailTemplate">Email template name</param>
-   // <param name="verificationUrl">Email verification url</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 18.20	    
+   /**
+    * This API is used to invalidate the Email Verification status on an account.
+    * @param uid UID, the unified identifier for each user account
+    * @param emailTemplate Email template name
+    * @param verificationUrl Email verification url
+    * @return Response containing Definition of Complete Validation data
+    * @since 18.20
+    */
 		
 		
    public void invalidateAccountEmailVerification(String uid, String emailTemplate,
@@ -604,15 +602,15 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // This API Returns a Forgot Password Token it can also be used to send a Forgot Password email to the customer. Note: If you have the UserName workflow enabled, you may replace the 'email' parameter with 'username' in the body.
-   // </summary>
-   // <param name="email">user's email</param>
-   // <param name="emailTemplate">Email template name</param>
-   // <param name="resetPasswordUrl">Url to which user should get re-directed to for resetting the password</param>
-   // <param name="sendEmail">If set to true, the API will also send a Forgot Password email to the customer, bypassing any Bot Protection challenges that they are faced with.</param>
-   // <returns>Response containing Definition of Complete Forgot Password data</returns>
-   // 18.22	    
+   /**
+    * This API Returns a Forgot Password Token it can also be used to send a Forgot Password email to the customer. Note: If you have the UserName workflow enabled, you may replace the 'email' parameter with 'username' in the body.
+    * @param email user's email
+    * @param emailTemplate Email template name
+    * @param resetPasswordUrl Url to which user should get re-directed to for resetting the password
+    * @param sendEmail If set to true, the API will also send a Forgot Password email to the customer, bypassing any Bot Protection challenges that they are faced with.
+    * @return Response containing Definition of Complete Forgot Password data
+    * @since 18.22
+    */
 		
 		
    public void getForgotPasswordToken(String email, String emailTemplate,
@@ -659,12 +657,12 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // This API Returns an Email Verification token.
-   // </summary>
-   // <param name="email">user's email</param>
-   // <returns>Response containing Definition of Complete Verification data</returns>
-   // 18.23	    
+   /**
+    * This API Returns an Email Verification token.
+    * @param email user's email
+    * @return Response containing Definition of Complete Verification data
+    * @since 18.23
+    */
 		
 		
    public void getEmailVerificationToken(String email, final AsyncHandler<EmailVerificationTokenResponse> handler) {      
@@ -698,12 +696,12 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // The API is used to get LoginRadius access token based on UID.
-   // </summary>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <returns>Response containing Definition of Complete Token data</returns>
-   // 18.24	    
+   /**
+    * The API is used to get LoginRadius access token based on UID.
+    * @param uid UID, the unified identifier for each user account
+    * @return Response containing Definition of Complete Token data
+    * @since 18.24
+    */
 		
 		
    public void getAccessTokenByUid(String uid, final AsyncHandler<AccessTokenBase> handler) {      
@@ -735,13 +733,13 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // This API Allows you to reset the phone no verification of an end user’s account.
-   // </summary>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 18.27	    
+   /**
+    * This API Allows you to reset the phone no verification of an end user’s account.
+    * @param uid UID, the unified identifier for each user account
+    * @param smsTemplate SMS Template name
+    * @return Response containing Definition of Complete Validation data
+    * @since 18.27
+    */
 		
 		
    public void resetPhoneIDVerificationByUid(String uid, String smsTemplate, final AsyncHandler<PostResponse> handler) {      
@@ -776,14 +774,14 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // This API is used to add/upsert another emails in account profile by different-different email types. If the email type is same then it will simply update the existing email, otherwise it will add a new email in Email array.
-   // </summary>
-   // <param name="upsertEmailModel">Model Class containing Definition of payload for UpsertEmail Property</param>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <returns>Response containing Definition for Complete profile data</returns>
-   // 18.29	    
+   /**
+    * This API is used to add/upsert another emails in account profile by different-different email types. If the email type is same then it will simply update the existing email, otherwise it will add a new email in Email array.
+    * @param upsertEmailModel Model Class containing Definition of payload for UpsertEmail Property
+    * @param uid UID, the unified identifier for each user account
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @return Response containing Definition for Complete profile data
+    * @since 18.29
+    */
 		
 		
    public void upsertEmail(UpsertEmailModel upsertEmailModel, String uid,
@@ -823,14 +821,14 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // Use this API to Remove emails from a user Account
-   // </summary>
-   // <param name="email">user's email</param>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <returns>Response containing Definition for Complete profile data</returns>
-   // 18.30	    
+   /**
+    * Use this API to Remove emails from a user Account
+    * @param email user's email
+    * @param uid UID, the unified identifier for each user account
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @return Response containing Definition for Complete profile data
+    * @since 18.30
+    */
 		
 		
    public void removeEmail(String email, String uid,
@@ -873,12 +871,12 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // This API is used to refresh an access token via it's associated refresh token.
-   // </summary>
-   // <param name="refreshToken">LoginRadius refresh token</param>
-   // <returns>Response containing Definition of Complete Token data</returns>
-   // 18.31	    
+   /**
+    * This API is used to refresh an access token via it's associated refresh token.
+    * @param refreshToken LoginRadius refresh token
+    * @return Response containing Definition of Complete Token data
+    * @since 18.31
+    */
 		
 		
    public void refreshAccessTokenByRefreshToken(String refreshToken, final AsyncHandler<AccessTokenBase> handler) {      
@@ -910,12 +908,12 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // The Revoke Refresh Access Token API is used to revoke a refresh token or the Provider Access Token, revoking an existing refresh token will invalidate the refresh token but the associated access token will work until the expiry.
-   // </summary>
-   // <param name="refreshToken">LoginRadius refresh token</param>
-   // <returns>Response containing Definition of Delete Request</returns>
-   // 18.32	    
+   /**
+    * The Revoke Refresh Access Token API is used to revoke a refresh token or the Provider Access Token, revoking an existing refresh token will invalidate the refresh token but the associated access token will work until the expiry.
+    * @param refreshToken LoginRadius refresh token
+    * @return Response containing Definition of Delete Request
+    * @since 18.32
+    */
 		
 		
    public void revokeRefreshToken(String refreshToken, final AsyncHandler<DeleteResponse> handler) {      
@@ -947,13 +945,13 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // Note: This is intended for specific workflows where an email may be associated to multiple UIDs. This API is used to retrieve all of the identities (UID and Profiles), associated with a specified email in Cloud Storage.
-   // </summary>
-   // <param name="email">Email of the user</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <returns>Complete user Identity data</returns>
-   // 18.35	    
+   /**
+    * Note: This is intended for specific workflows where an email may be associated to multiple UIDs. This API is used to retrieve all of the identities (UID and Profiles), associated with a specified email in Cloud Storage.
+    * @param email Email of the user
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @return Complete user Identity data
+    * @since 18.35
+    */
 		
 		
    public void getAccountIdentitiesByEmail(String email, String fields, final AsyncHandler<ListReturn<Identity>> handler) {      
@@ -989,12 +987,12 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // This API is used to delete all user profiles associated with an Email.
-   // </summary>
-   // <param name="email">Email of the user</param>
-   // <returns>Response containing Definition of Delete Request</returns>
-   // 18.36	    
+   /**
+    * This API is used to delete all user profiles associated with an Email.
+    * @param email Email of the user
+    * @return Response containing Definition of Delete Request
+    * @since 18.36
+    */
 		
 		
    public void accountDeleteByEmail(String email, final AsyncHandler<DeleteResponse> handler) {      
@@ -1026,13 +1024,13 @@ public class AccountApi {
       });
    }
    
-   // <summary>
-   // This API is used to update a user's Uid. It will update all profiles, custom objects and consent management logs associated with the Uid.
-   // </summary>
-   // <param name="updateUidModel">Payload containing Update UID</param>
-   // <param name="uid">UID, the unified identifier for each user account</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 18.41	    
+   /**
+    * This API is used to update a user's Uid. It will update all profiles, custom objects and consent management logs associated with the Uid.
+    * @param updateUidModel Payload containing Update UID
+    * @param uid UID, the unified identifier for each user account
+    * @return Response containing Definition of Complete Validation data
+    * @since 18.41
+    */
 		
 		
    public void accountUpdateUid(UpdateUidModel updateUidModel, String uid, final AsyncHandler<PostResponse> handler) {

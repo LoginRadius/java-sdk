@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for Books Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for Books Property
+	 */
 	public class Books {
 	
 		
@@ -28,51 +28,51 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Book category
-		// </summary>
+		/**
+		 * Book category
+		 */
 		public String getCategory() {
 			return category;
 		}
-		// <summary>
-		//	Book category
-		// </summary>
+		/**
+		 * Book category
+		 */
 		public void setCategory(String category) {
 			this.category = category;
 		}
-		// <summary>
-		//	Date of Creation of Profile
-		// </summary>
+		/**
+		 * Date of Creation of Profile
+		 */
 		public String getCreatedDate() {
 			return createdDate;
 		}
-		// <summary>
-		//	Date of Creation of Profile
-		// </summary>
+		/**
+		 * Date of Creation of Profile
+		 */
 		public void setCreatedDate(String createdDate) {
 			this.createdDate = createdDate;
 		}
-		// <summary>
-		//	Id of book
-		// </summary>
+		/**
+		 * Id of book
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Id of book
-		// </summary>
+		/**
+		 * Id of book
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	book name
-		// </summary>
+		/**
+		 * book name
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	book name
-		// </summary>
+		/**
+		 * book name
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}

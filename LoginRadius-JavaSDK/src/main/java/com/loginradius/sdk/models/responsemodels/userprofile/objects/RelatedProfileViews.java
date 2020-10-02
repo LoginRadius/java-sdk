@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Related profileviews data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Related profileviews data
+	 */
 	public class RelatedProfileViews {
 	
 		
@@ -25,39 +25,39 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	user's first name
-		// </summary>
+		/**
+		 * user's first name
+		 */
 		public String getFirstName() {
 			return firstName;
 		}
-		// <summary>
-		//	user's first name
-		// </summary>
+		/**
+		 * user's first name
+		 */
 		public void setFirstName(String firstName) {
 			this.firstName = firstName;
 		}
-		// <summary>
-		//	Id of profile view
-		// </summary>
+		/**
+		 * Id of profile view
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Id of profile view
-		// </summary>
+		/**
+		 * Id of profile view
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	user's last name
-		// </summary>
+		/**
+		 * user's last name
+		 */
 		public String getLastName() {
 			return lastName;
 		}
-		// <summary>
-		//	user's last name
-		// </summary>
+		/**
+		 * user's last name
+		 */
 		public void setLastName(String lastName) {
 			this.lastName = lastName;
 		}

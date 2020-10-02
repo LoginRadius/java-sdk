@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for Age Range Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for Age Range Property
+	 */
 	public class AgeRange {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Maximum Value Range
-		// </summary>
+		/**
+		 * Maximum Value Range
+		 */
 		public Integer getMax() {
 			return max;
 		}
-		// <summary>
-		//	Maximum Value Range
-		// </summary>
+		/**
+		 * Maximum Value Range
+		 */
 		public void setMax(Integer max) {
 			this.max = max;
 		}
-		// <summary>
-		//	Minimum Value Range
-		// </summary>
+		/**
+		 * Minimum Value Range
+		 */
 		public Integer getMin() {
 			return min;
 		}
-		// <summary>
-		//	Minimum Value Range
-		// </summary>
+		/**
+		 * Minimum Value Range
+		 */
 		public void setMin(Integer min) {
 			this.min = min;
 		}

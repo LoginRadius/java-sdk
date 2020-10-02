@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for ResetPasswordByOTP API
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for ResetPasswordByOTP API
+	 */
 	public class ResetPasswordByOTPModel extends LockoutModel {
 	
 		
@@ -31,63 +31,63 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	The Verification Code
-		// </summary>
+		/**
+		 * The Verification Code
+		 */
 		public String getOtp() {
 			return otp;
 		}
-		// <summary>
-		//	The Verification Code
-		// </summary>
+		/**
+		 * The Verification Code
+		 */
 		public void setOtp(String otp) {
 			this.otp = otp;
 		}
-		// <summary>
-		//	Password for the email
-		// </summary>
+		/**
+		 * Password for the email
+		 */
 		public String getPassword() {
 			return password;
 		}
-		// <summary>
-		//	Password for the email
-		// </summary>
+		/**
+		 * Password for the email
+		 */
 		public void setPassword(String password) {
 			this.password = password;
 		}
-		// <summary>
-		//	New Phone Number
-		// </summary>
+		/**
+		 * New Phone Number
+		 */
 		public String getPhone() {
 			return phone;
 		}
-		// <summary>
-		//	New Phone Number
-		// </summary>
+		/**
+		 * New Phone Number
+		 */
 		public void setPhone(String phone) {
 			this.phone = phone;
 		}
-		// <summary>
-		//	If you are sending an sms via the sendsms parameter, this parameter allows you to specify which reset password sms  template you would like to use.
-		// </summary>
+		/**
+		 * If you are sending an sms via the sendsms parameter, this parameter allows you to specify which reset password sms  template you would like to use.
+		 */
 		public String getResetPasswordSmsTemplate() {
 			return resetPasswordSmsTemplate;
 		}
-		// <summary>
-		//	If you are sending an sms via the sendsms parameter, this parameter allows you to specify which reset password sms  template you would like to use.
-		// </summary>
+		/**
+		 * If you are sending an sms via the sendsms parameter, this parameter allows you to specify which reset password sms  template you would like to use.
+		 */
 		public void setResetPasswordSmsTemplate(String resetPasswordSmsTemplate) {
 			this.resetPasswordSmsTemplate = resetPasswordSmsTemplate;
 		}
-		// <summary>
-		//	SMS template name
-		// </summary>
+		/**
+		 * SMS template name
+		 */
 		public String getSmsTemplate() {
 			return smsTemplate;
 		}
-		// <summary>
-		//	SMS template name
-		// </summary>
+		/**
+		 * SMS template name
+		 */
 		public void setSmsTemplate(String smsTemplate) {
 			this.smsTemplate = smsTemplate;
 		}

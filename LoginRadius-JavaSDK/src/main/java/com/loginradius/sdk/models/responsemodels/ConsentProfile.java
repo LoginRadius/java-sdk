@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing consent profile
-	// </summary>
+	/**
+	 * Response containing consent profile
+	 */
 	public class ConsentProfile {
 	
 		
@@ -24,27 +24,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	List of consent version
-		// </summary>
+		/**
+		 * List of consent version
+		 */
 		public List<ConsentVersions> getAcceptedConsentVersions() {
 			return acceptedConsentVersions;
 		}
-		// <summary>
-		//	List of consent version
-		// </summary>
+		/**
+		 * List of consent version
+		 */
 		public void setAcceptedConsentVersions(List<ConsentVersions> acceptedConsentVersions) {
 			this.acceptedConsentVersions = acceptedConsentVersions;
 		}
-		// <summary>
-		//	List of Consents
-		// </summary>
+		/**
+		 * List of Consents
+		 */
 		public List<ConsentOption> getConsents() {
 			return consents;
 		}
-		// <summary>
-		//	List of Consents
-		// </summary>
+		/**
+		 * List of Consents
+		 */
 		public void setConsents(List<ConsentOption> consents) {
 			this.consents = consents;
 		}

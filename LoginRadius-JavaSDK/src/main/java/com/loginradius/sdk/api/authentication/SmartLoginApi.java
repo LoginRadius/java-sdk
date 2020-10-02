@@ -34,13 +34,13 @@ public class SmartLoginApi {
 
    
    
-   // <summary>
-   // This API verifies the provided token for Smart Login
-   // </summary>
-   // <param name="verificationToken">Verification token received in the email</param>
-   // <param name="welcomeEmailTemplate">Name of the welcome email template</param>
-   // <returns>Complete verified response data</returns>
-   // 8.4.1	    
+   /**
+    * This API verifies the provided token for Smart Login
+    * @param verificationToken Verification token received in the email
+    * @param welcomeEmailTemplate Name of the welcome email template
+    * @return Complete verified response data
+    * @since 8.4.1
+    */
 		
 		
    public void smartLoginTokenVerification(String verificationToken, String welcomeEmailTemplate, final AsyncHandler<VerifiedResponse> handler) {      
@@ -75,16 +75,16 @@ public class SmartLoginApi {
       });
    }
    
-   // <summary>
-   // This API sends a Smart Login link to the user's Email Id.
-   // </summary>
-   // <param name="clientGuid">Unique string used in the Smart Login request</param>
-   // <param name="email">Email of the user</param>
-   // <param name="redirectUrl">Url where the user will redirect after success authentication</param>
-   // <param name="smartLoginEmailTemplate">Email template for Smart Login link</param>
-   // <param name="welcomeEmailTemplate">Name of the welcome email template</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 9.17.1	    
+   /**
+    * This API sends a Smart Login link to the user's Email Id.
+    * @param clientGuid Unique string used in the Smart Login request
+    * @param email Email of the user
+    * @param redirectUrl Url where the user will redirect after success authentication
+    * @param smartLoginEmailTemplate Email template for Smart Login link
+    * @param welcomeEmailTemplate Name of the welcome email template
+    * @return Response containing Definition of Complete Validation data
+    * @since 9.17.1
+    */
 		
 		
    public void smartLoginByEmail(String clientGuid, String email,
@@ -133,16 +133,16 @@ public class SmartLoginApi {
       });
    }
    
-   // <summary>
-   // This API sends a Smart Login link to the user's Email Id.
-   // </summary>
-   // <param name="clientGuid">Unique string used in the Smart Login request</param>
-   // <param name="username">UserName of the user</param>
-   // <param name="redirectUrl">Url where the user will redirect after success authentication</param>
-   // <param name="smartLoginEmailTemplate">Email template for Smart Login link</param>
-   // <param name="welcomeEmailTemplate">Name of the welcome email template</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
-   // 9.17.2	    
+   /**
+    * This API sends a Smart Login link to the user's Email Id.
+    * @param clientGuid Unique string used in the Smart Login request
+    * @param username UserName of the user
+    * @param redirectUrl Url where the user will redirect after success authentication
+    * @param smartLoginEmailTemplate Email template for Smart Login link
+    * @param welcomeEmailTemplate Name of the welcome email template
+    * @return Response containing Definition of Complete Validation data
+    * @since 9.17.2
+    */
 		
 		
    public void smartLoginByUserName(String clientGuid, String username,
@@ -191,13 +191,13 @@ public class SmartLoginApi {
       });
    }
    
-   // <summary>
-   // This API is used to check if the Smart Login link has been clicked or not
-   // </summary>
-   // <param name="clientGuid">Unique string used in the Smart Login request</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <returns>Response containing User Profile Data and access token</returns>
-   // 9.21.1	    
+   /**
+    * This API is used to check if the Smart Login link has been clicked or not
+    * @param clientGuid Unique string used in the Smart Login request
+    * @param fields The fields parameter filters the API response so that the response only includes a specific set of fields
+    * @return Response containing User Profile Data and access token
+    * @since 9.21.1
+    */
 		
 		
    public void smartLoginPing(String clientGuid, String fields, final AsyncHandler<AccessToken<Identity>> handler) {      

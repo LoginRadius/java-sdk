@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete List data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete List data
+	 */
 	public class ListData<T> {
 	
 		
@@ -24,27 +24,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	count
-		// </summary>
+		/**
+		 * count
+		 */
 		public int getCount() {
 			return count;
 		}
-		// <summary>
-		//	count
-		// </summary>
+		/**
+		 * count
+		 */
 		public void setCount(int count) {
 			this.count = count;
 		}
-		// <summary>
-		//	Data
-		// </summary>
+		/**
+		 * Data
+		 */
 		public List<T> getData() {
 			return data;
 		}
-		// <summary>
-		//	Data
-		// </summary>
+		/**
+		 * Data
+		 */
 		public void setData(List<T> data) {
 			this.data = data;
 		}

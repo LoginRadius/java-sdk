@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete SMS data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete SMS data
+	 */
 	public class SMSResponseData {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Account Sid
-		// </summary>
+		/**
+		 * Account Sid
+		 */
 		public String getAccountSid() {
 			return accountSid;
 		}
-		// <summary>
-		//	Account Sid
-		// </summary>
+		/**
+		 * Account Sid
+		 */
 		public void setAccountSid(String accountSid) {
 			this.accountSid = accountSid;
 		}
-		// <summary>
-		//	Sid
-		// </summary>
+		/**
+		 * Sid
+		 */
 		public String getSid() {
 			return sid;
 		}
-		// <summary>
-		//	Sid
-		// </summary>
+		/**
+		 * Sid
+		 */
 		public void setSid(String sid) {
 			this.sid = sid;
 		}

@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Speciality data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Speciality data
+	 */
 	public class Speciality {
 	
 		
@@ -24,27 +24,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	User's speciality names
-		// </summary>
+		/**
+		 * User's speciality names
+		 */
 		public List<String> getSpecialityNames() {
 			return specialityNames;
 		}
-		// <summary>
-		//	User's speciality names
-		// </summary>
+		/**
+		 * User's speciality names
+		 */
 		public void setSpecialityNames(List<String> specialityNames) {
 			this.specialityNames = specialityNames;
 		}
-		// <summary>
-		//	Total User's speciality
-		// </summary>
+		/**
+		 * Total User's speciality
+		 */
 		public int getTotal() {
 			return total;
 		}
-		// <summary>
-		//	Total User's speciality
-		// </summary>
+		/**
+		 * Total User's speciality
+		 */
 		public void setTotal(int total) {
 			this.total = total;
 		}

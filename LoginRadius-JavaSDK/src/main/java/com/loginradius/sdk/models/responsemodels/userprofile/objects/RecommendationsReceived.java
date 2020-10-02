@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Recommendations Received data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Recommendations Received data
+	 */
 	public class RecommendationsReceived {
 	
 		
@@ -28,51 +28,51 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Recommendation id
-		// </summary>
+		/**
+		 * Recommendation id
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Recommendation id
-		// </summary>
+		/**
+		 * Recommendation id
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	Recommendation text
-		// </summary>
+		/**
+		 * Recommendation text
+		 */
 		public String getRecommendationText() {
 			return recommendationText;
 		}
-		// <summary>
-		//	Recommendation text
-		// </summary>
+		/**
+		 * Recommendation text
+		 */
 		public void setRecommendationText(String recommendationText) {
 			this.recommendationText = recommendationText;
 		}
-		// <summary>
-		//	Recommendation type
-		// </summary>
+		/**
+		 * Recommendation type
+		 */
 		public String getRecommendationType() {
 			return recommendationType;
 		}
-		// <summary>
-		//	Recommendation type
-		// </summary>
+		/**
+		 * Recommendation type
+		 */
 		public void setRecommendationType(String recommendationType) {
 			this.recommendationType = recommendationType;
 		}
-		// <summary>
-		//	Recommender
-		// </summary>
+		/**
+		 * Recommender
+		 */
 		public String getRecommender() {
 			return recommender;
 		}
-		// <summary>
-		//	Recommender
-		// </summary>
+		/**
+		 * Recommender
+		 */
 		public void setRecommender(String recommender) {
 			this.recommender = recommender;
 		}

@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete like data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete like data
+	 */
 	public class Like {
 	
 		
@@ -34,75 +34,75 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Like category
-		// </summary>
+		/**
+		 * Like category
+		 */
 		public String getCategory() {
 			return category;
 		}
-		// <summary>
-		//	Like category
-		// </summary>
+		/**
+		 * Like category
+		 */
 		public void setCategory(String category) {
 			this.category = category;
 		}
-		// <summary>
-		//	Date of Creation of Profile
-		// </summary>
+		/**
+		 * Date of Creation of Profile
+		 */
 		public String getCreatedDate() {
 			return createdDate;
 		}
-		// <summary>
-		//	Date of Creation of Profile
-		// </summary>
+		/**
+		 * Date of Creation of Profile
+		 */
 		public void setCreatedDate(String createdDate) {
 			this.createdDate = createdDate;
 		}
-		// <summary>
-		//	detailed information
-		// </summary>
+		/**
+		 * detailed information
+		 */
 		public String getDescription() {
 			return description;
 		}
-		// <summary>
-		//	detailed information
-		// </summary>
+		/**
+		 * detailed information
+		 */
 		public void setDescription(String description) {
 			this.description = description;
 		}
-		// <summary>
-		//	ID of the User
-		// </summary>
+		/**
+		 * ID of the User
+		 */
 		public String getID() {
 			return iD;
 		}
-		// <summary>
-		//	ID of the User
-		// </summary>
+		/**
+		 * ID of the User
+		 */
 		public void setID(String iD) {
 			this.iD = iD;
 		}
-		// <summary>
-		//	Name of the customer
-		// </summary>
+		/**
+		 * Name of the customer
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Name of the customer
-		// </summary>
+		/**
+		 * Name of the customer
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
-		// <summary>
-		//	Personal Website a User has
-		// </summary>
+		/**
+		 * Personal Website a User has
+		 */
 		public String getWebsite() {
 			return website;
 		}
-		// <summary>
-		//	Personal Website a User has
-		// </summary>
+		/**
+		 * Personal Website a User has
+		 */
 		public void setWebsite(String website) {
 			this.website = website;
 		}

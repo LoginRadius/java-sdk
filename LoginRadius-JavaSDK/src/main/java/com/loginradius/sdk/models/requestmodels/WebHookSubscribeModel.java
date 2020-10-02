@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for Webhook Subscribe API
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for Webhook Subscribe API
+	 */
 	public class WebHookSubscribeModel {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Allowed events: Login, Register, UpdateProfile, ResetPassword, ChangePassword, emailVerification, AddEmail, RemoveEmail, BlockAccount, DeleteAccount, SetUsername, AssignRoles, UnassignRoles, SetPassword, LinkAccount, UnlinkAccount, UpdatePhoneId, VerifyPhoneNumber, CreateCustomObject, UpdateCustomobject, DeleteCustomObject
-		// </summary>
+		/**
+		 * Allowed events: Login, Register, UpdateProfile, ResetPassword, ChangePassword, emailVerification, AddEmail, RemoveEmail, BlockAccount, DeleteAccount, SetUsername, AssignRoles, UnassignRoles, SetPassword, LinkAccount, UnlinkAccount, UpdatePhoneId, VerifyPhoneNumber, CreateCustomObject, UpdateCustomobject, DeleteCustomObject
+		 */
 		public String getEvent() {
 			return event;
 		}
-		// <summary>
-		//	Allowed events: Login, Register, UpdateProfile, ResetPassword, ChangePassword, emailVerification, AddEmail, RemoveEmail, BlockAccount, DeleteAccount, SetUsername, AssignRoles, UnassignRoles, SetPassword, LinkAccount, UnlinkAccount, UpdatePhoneId, VerifyPhoneNumber, CreateCustomObject, UpdateCustomobject, DeleteCustomObject
-		// </summary>
+		/**
+		 * Allowed events: Login, Register, UpdateProfile, ResetPassword, ChangePassword, emailVerification, AddEmail, RemoveEmail, BlockAccount, DeleteAccount, SetUsername, AssignRoles, UnassignRoles, SetPassword, LinkAccount, UnlinkAccount, UpdatePhoneId, VerifyPhoneNumber, CreateCustomObject, UpdateCustomobject, DeleteCustomObject
+		 */
 		public void setEvent(String event) {
 			this.event = event;
 		}
-		// <summary>
-		//	URL where trigger will send data when it invoke
-		// </summary>
+		/**
+		 * URL where trigger will send data when it invoke
+		 */
 		public String getTargetUrl() {
 			return targetUrl;
 		}
-		// <summary>
-		//	URL where trigger will send data when it invoke
-		// </summary>
+		/**
+		 * URL where trigger will send data when it invoke
+		 */
 		public void setTargetUrl(String targetUrl) {
 			this.targetUrl = targetUrl;
 		}

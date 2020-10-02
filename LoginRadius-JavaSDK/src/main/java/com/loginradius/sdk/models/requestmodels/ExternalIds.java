@@ -9,9 +9,9 @@ package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 import com.loginradius.sdk.models.enums.OperationType;
 
-	// <summary>
-	//	Model Class containing Definition for Externallds Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for Externallds Property
+	 */
 	public class ExternalIds {
 	
 		
@@ -26,39 +26,39 @@ import com.loginradius.sdk.models.enums.OperationType;
 
 
 
-		// <summary>
-		//	Languages operation Type
-		// </summary>
+		/**
+		 * Languages operation Type
+		 */
 		public OperationType getOp() {
 			return op;
 		}
-		// <summary>
-		//	Languages operation Type
-		// </summary>
+		/**
+		 * Languages operation Type
+		 */
 		public void setOp(OperationType op) {
 			this.op = op;
 		}
-		// <summary>
-		//	ExternalId source
-		// </summary>
+		/**
+		 * ExternalId source
+		 */
 		public String getSource() {
 			return source;
 		}
-		// <summary>
-		//	ExternalId source
-		// </summary>
+		/**
+		 * ExternalId source
+		 */
 		public void setSource(String source) {
 			this.source = source;
 		}
-		// <summary>
-		//	External source id
-		// </summary>
+		/**
+		 * External source id
+		 */
 		public String getSourceId() {
 			return sourceId;
 		}
-		// <summary>
-		//	External source id
-		// </summary>
+		/**
+		 * External source id
+		 */
 		public void setSourceId(String sourceId) {
 			this.sourceId = sourceId;
 		}

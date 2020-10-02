@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for PublicationsAuthors Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for PublicationsAuthors Property
+	 */
 	public class PublicationsAuthors {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Author id of the publication
-		// </summary>
+		/**
+		 * Author id of the publication
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Author id of the publication
-		// </summary>
+		/**
+		 * Author id of the publication
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	Author name
-		// </summary>
+		/**
+		 * Author name
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Author name
-		// </summary>
+		/**
+		 * Author name
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}

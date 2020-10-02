@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition for PermissionsModel Property
-	// </summary>
+	/**
+	 * Model Class containing Definition for PermissionsModel Property
+	 */
 	public class PermissionsModel {
 	
 		
@@ -21,15 +21,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Any Permission name for the role
-		// </summary>
+		/**
+		 * Any Permission name for the role
+		 */
 		public List<String> getPermissions() {
 			return permissions;
 		}
-		// <summary>
-		//	Any Permission name for the role
-		// </summary>
+		/**
+		 * Any Permission name for the role
+		 */
 		public void setPermissions(List<String> permissions) {
 			this.permissions = permissions;
 		}

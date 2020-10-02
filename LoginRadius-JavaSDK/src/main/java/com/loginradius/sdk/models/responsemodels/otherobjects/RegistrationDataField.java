@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Custom registration data object
-	// </summary>
+	/**
+	 * Response containing Definition of Custom registration data object
+	 */
 	public class RegistrationDataField extends RegistrationDataFieldBasic {
 	
 		
@@ -19,15 +19,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Validation Code/Secret Code,Code Parameter, given when Login Dialog is performed
-		// </summary>
+		/**
+		 * Validation Code/Secret Code,Code Parameter, given when Login Dialog is performed
+		 */
 		public String getCode() {
 			return code;
 		}
-		// <summary>
-		//	Validation Code/Secret Code,Code Parameter, given when Login Dialog is performed
-		// </summary>
+		/**
+		 * Validation Code/Secret Code,Code Parameter, given when Login Dialog is performed
+		 */
 		public void setCode(String code) {
 			this.code = code;
 		}

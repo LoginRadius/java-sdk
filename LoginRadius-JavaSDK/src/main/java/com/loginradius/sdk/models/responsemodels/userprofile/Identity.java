@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete profile data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete profile data
+	 */
 	public class Identity extends UserProfile {
 	
 		
@@ -21,15 +21,15 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	User Identities list
-		// </summary>
+		/**
+		 * User Identities list
+		 */
 		public List<SocialUserProfile> getIdentities() {
 			return identities;
 		}
-		// <summary>
-		//	User Identities list
-		// </summary>
+		/**
+		 * User Identities list
+		 */
 		public void setIdentities(List<SocialUserProfile> identities) {
 			this.identities = identities;
 		}

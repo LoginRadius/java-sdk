@@ -10,9 +10,9 @@ import java.util.Map;
 
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete role data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete role data
+	 */
 	public class RoleModel {
 	
 		
@@ -24,27 +24,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Array of String, which represents the role name
-		// </summary>
+		/**
+		 * Array of String, which represents the role name
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Array of String, which represents the role name
-		// </summary>
+		/**
+		 * Array of String, which represents the role name
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
-		// <summary>
-		//	Any Permission name for the role
-		// </summary>
+		/**
+		 * Any Permission name for the role
+		 */
 		public Map<String,Boolean> getPermissions() {
 			return permissions;
 		}
-		// <summary>
-		//	Any Permission name for the role
-		// </summary>
+		/**
+		 * Any Permission name for the role
+		 */
 		public void setPermissions(Map<String,Boolean> permissions) {
 			this.permissions = permissions;
 		}

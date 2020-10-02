@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Sott data
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Sott data
+	 */
 	public class ServiceSottInfo {
 	
 		
@@ -31,63 +31,63 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	EndTime
-		// </summary>
+		/**
+		 * EndTime
+		 */
 		public String getEndTime() {
 			return endTime;
 		}
-		// <summary>
-		//	EndTime
-		// </summary>
+		/**
+		 * EndTime
+		 */
 		public void setEndTime(String endTime) {
 			this.endTime = endTime;
 		}
-		// <summary>
-		//	Forwarded IP
-		// </summary>
+		/**
+		 * Forwarded IP
+		 */
 		public String getForWardedIP() {
 			return forWardedIP;
 		}
-		// <summary>
-		//	Forwarded IP
-		// </summary>
+		/**
+		 * Forwarded IP
+		 */
 		public void setForWardedIP(String forWardedIP) {
 			this.forWardedIP = forWardedIP;
 		}
-		// <summary>
-		//	users ip address
-		// </summary>
+		/**
+		 * users ip address
+		 */
 		public String getIP() {
 			return iP;
 		}
-		// <summary>
-		//	users ip address
-		// </summary>
+		/**
+		 * users ip address
+		 */
 		public void setIP(String iP) {
 			this.iP = iP;
 		}
-		// <summary>
-		//	Start time
-		// </summary>
+		/**
+		 * Start time
+		 */
 		public String getStartTime() {
 			return startTime;
 		}
-		// <summary>
-		//	Start time
-		// </summary>
+		/**
+		 * Start time
+		 */
 		public void setStartTime(String startTime) {
 			this.startTime = startTime;
 		}
-		// <summary>
-		//	Difference between start time and end time
-		// </summary>
+		/**
+		 * Difference between start time and end time
+		 */
 		public String getTimeDifference() {
 			return timeDifference;
 		}
-		// <summary>
-		//	Difference between start time and end time
-		// </summary>
+		/**
+		 * Difference between start time and end time
+		 */
 		public void setTimeDifference(String timeDifference) {
 			this.timeDifference = timeDifference;
 		}

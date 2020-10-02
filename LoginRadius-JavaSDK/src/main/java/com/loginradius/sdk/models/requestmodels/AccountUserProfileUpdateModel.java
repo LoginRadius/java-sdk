@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.requestmodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Model Class containing Definition of payload for Account Update API
-	// </summary>
+	/**
+	 * Model Class containing Definition of payload for Account Update API
+	 */
 	public class AccountUserProfileUpdateModel extends UserProfileUpdateModel {
 	
 		
@@ -40,99 +40,99 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	To disable traditional login for user
-		// </summary>
+		/**
+		 * To disable traditional login for user
+		 */
 		public Boolean getDisableLogin() {
 			return disableLogin;
 		}
-		// <summary>
-		//	To disable traditional login for user
-		// </summary>
+		/**
+		 * To disable traditional login for user
+		 */
 		public void setDisableLogin(Boolean disableLogin) {
 			this.disableLogin = disableLogin;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public Boolean getEmailVerified() {
 			return emailVerified;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public void setEmailVerified(Boolean emailVerified) {
 			this.emailVerified = emailVerified;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public Boolean getIsActive() {
 			return isActive;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public void setIsActive(Boolean isActive) {
 			this.isActive = isActive;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public Boolean getIsDeleted() {
 			return isDeleted;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public void setIsDeleted(Boolean isDeleted) {
 			this.isDeleted = isDeleted;
 		}
-		// <summary>
-		//	Pass true if wants to lock the user's Login field else false.
-		// </summary>
+		/**
+		 * Pass true if wants to lock the user's Login field else false.
+		 */
 		public Boolean getIsLoginLocked() {
 			return isLoginLocked;
 		}
-		// <summary>
-		//	Pass true if wants to lock the user's Login field else false.
-		// </summary>
+		/**
+		 * Pass true if wants to lock the user's Login field else false.
+		 */
 		public void setIsLoginLocked(Boolean isLoginLocked) {
 			this.isLoginLocked = isLoginLocked;
 		}
-		// <summary>
-		//	boolean type value, default is false
-		// </summary>
+		/**
+		 * boolean type value, default is false
+		 */
 		public Boolean getPhoneIdVerified() {
 			return phoneIdVerified;
 		}
-		// <summary>
-		//	boolean type value, default is false
-		// </summary>
+		/**
+		 * boolean type value, default is false
+		 */
 		public void setPhoneIdVerified(Boolean phoneIdVerified) {
 			this.phoneIdVerified = phoneIdVerified;
 		}
-		// <summary>
-		//	Object type by default false, string represents Version, AcceptSource and datetime represents AcceptDateTime
-		// </summary>
+		/**
+		 * Object type by default false, string represents Version, AcceptSource and datetime represents AcceptDateTime
+		 */
 		public PrivacyPolicy getPrivacyPolicy() {
 			return privacyPolicy;
 		}
-		// <summary>
-		//	Object type by default false, string represents Version, AcceptSource and datetime represents AcceptDateTime
-		// </summary>
+		/**
+		 * Object type by default false, string represents Version, AcceptSource and datetime represents AcceptDateTime
+		 */
 		public void setPrivacyPolicy(PrivacyPolicy privacyPolicy) {
 			this.privacyPolicy = privacyPolicy;
 		}
-		// <summary>
-		//	URL of the webproperty from where the user is registered.
-		// </summary>
+		/**
+		 * URL of the webproperty from where the user is registered.
+		 */
 		public String getRegistrationSource() {
 			return registrationSource;
 		}
-		// <summary>
-		//	URL of the webproperty from where the user is registered.
-		// </summary>
+		/**
+		 * URL of the webproperty from where the user is registered.
+		 */
 		public void setRegistrationSource(String registrationSource) {
 			this.registrationSource = registrationSource;
 		}

@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition of Complete Registration Data Basic Field
-	// </summary>
+	/**
+	 * Response containing Definition of Complete Registration Data Basic Field
+	 */
 	public class RegistrationDataFieldBasic {
 	
 		
@@ -43,111 +43,111 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Creation data
-		// </summary>
+		/**
+		 * Creation data
+		 */
 		public String getDateCreated() {
 			return dateCreated;
 		}
-		// <summary>
-		//	Creation data
-		// </summary>
+		/**
+		 * Creation data
+		 */
 		public void setDateCreated(String dateCreated) {
 			this.dateCreated = dateCreated;
 		}
-		// <summary>
-		//	Any modification date
-		// </summary>
+		/**
+		 * Any modification date
+		 */
 		public String getDateModified() {
 			return dateModified;
 		}
-		// <summary>
-		//	Any modification date
-		// </summary>
+		/**
+		 * Any modification date
+		 */
 		public void setDateModified(String dateModified) {
 			this.dateModified = dateModified;
 		}
-		// <summary>
-		//	ID of the User
-		// </summary>
+		/**
+		 * ID of the User
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	ID of the User
-		// </summary>
+		/**
+		 * ID of the User
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public Boolean getIsActive() {
 			return isActive;
 		}
-		// <summary>
-		//	boolean type value, default is true
-		// </summary>
+		/**
+		 * boolean type value, default is true
+		 */
 		public void setIsActive(Boolean isActive) {
 			this.isActive = isActive;
 		}
-		// <summary>
-		//	Text to display for the dropdown member
-		// </summary>
+		/**
+		 * Text to display for the dropdown member
+		 */
 		public String getKey() {
 			return key;
 		}
-		// <summary>
-		//	Text to display for the dropdown member
-		// </summary>
+		/**
+		 * Text to display for the dropdown member
+		 */
 		public void setKey(String key) {
 			this.key = key;
 		}
-		// <summary>
-		//	Id of parent dropdown member
-		// </summary>
+		/**
+		 * Id of parent dropdown member
+		 */
 		public String getParentId() {
 			return parentId;
 		}
-		// <summary>
-		//	Id of parent dropdown member
-		// </summary>
+		/**
+		 * Id of parent dropdown member
+		 */
 		public void setParentId(String parentId) {
 			this.parentId = parentId;
 		}
-		// <summary>
-		//	Parent type
-		// </summary>
+		/**
+		 * Parent type
+		 */
 		public String getParentType() {
 			return parentType;
 		}
-		// <summary>
-		//	Parent type
-		// </summary>
+		/**
+		 * Parent type
+		 */
 		public void setParentType(String parentType) {
 			this.parentType = parentType;
 		}
-		// <summary>
-		//	String to identify the type of parameter
-		// </summary>
+		/**
+		 * String to identify the type of parameter
+		 */
 		public String getType() {
 			return type;
 		}
-		// <summary>
-		//	String to identify the type of parameter
-		// </summary>
+		/**
+		 * String to identify the type of parameter
+		 */
 		public void setType(String type) {
 			this.type = type;
 		}
-		// <summary>
-		//	Value of the dropdown member
-		// </summary>
+		/**
+		 * Value of the dropdown member
+		 */
 		public String getValue() {
 			return value;
 		}
-		// <summary>
-		//	Value of the dropdown member
-		// </summary>
+		/**
+		 * Value of the dropdown member
+		 */
 		public void setValue(String value) {
 			this.value = value;
 		}

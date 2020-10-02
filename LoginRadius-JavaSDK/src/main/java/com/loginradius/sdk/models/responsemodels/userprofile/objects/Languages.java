@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.userprofile.objects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing Definition for Complete Languages data
-	// </summary>
+	/**
+	 * Response containing Definition for Complete Languages data
+	 */
 	public class Languages {
 	
 		
@@ -25,39 +25,39 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Language id
-		// </summary>
+		/**
+		 * Language id
+		 */
 		public String getId() {
 			return id;
 		}
-		// <summary>
-		//	Language id
-		// </summary>
+		/**
+		 * Language id
+		 */
 		public void setId(String id) {
 			this.id = id;
 		}
-		// <summary>
-		//	Name of language
-		// </summary>
+		/**
+		 * Name of language
+		 */
 		public String getName() {
 			return name;
 		}
-		// <summary>
-		//	Name of language
-		// </summary>
+		/**
+		 * Name of language
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
-		// <summary>
-		//	Proficiency in language
-		// </summary>
+		/**
+		 * Proficiency in language
+		 */
 		public String getProficiency() {
 			return proficiency;
 		}
-		// <summary>
-		//	Proficiency in language
-		// </summary>
+		/**
+		 * Proficiency in language
+		 */
 		public void setProficiency(String proficiency) {
 			this.proficiency = proficiency;
 		}

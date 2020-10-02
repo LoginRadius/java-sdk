@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response containing consent profile
-	// </summary>
+	/**
+	 * Response containing consent profile
+	 */
 	public class ConsentProfileValidResponse {
 	
 		
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Consent Profile
-		// </summary>
+		/**
+		 * Consent Profile
+		 */
 		public ConsentProfile getConsentProfile() {
 			return consentProfile;
 		}
-		// <summary>
-		//	Consent Profile
-		// </summary>
+		/**
+		 * Consent Profile
+		 */
 		public void setConsentProfile(ConsentProfile consentProfile) {
 			this.consentProfile = consentProfile;
 		}
-		// <summary>
-		//	check data is validate
-		// </summary>
+		/**
+		 * check data is validate
+		 */
 		public Boolean getIsValid() {
 			return isValid;
 		}
-		// <summary>
-		//	check data is validate
-		// </summary>
+		/**
+		 * check data is validate
+		 */
 		public void setIsValid(Boolean isValid) {
 			this.isValid = isValid;
 		}

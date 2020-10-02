@@ -37,142 +37,142 @@ public class RegistrationFormSchema {
 	@Expose
 	private Object parentDataSource;
 
-	/// <summary>
-	/// Checked
-	/// </summary>
+	/**
+	 * Checked
+	 */
 	public Boolean getChecked() {
 		return checked;
 	}
 
-	/// <summary>
-	/// Checked
-	/// </summary>
+	/**
+	 * Checked
+	 */
 	public void setChecked(Boolean checked) {
 		this.checked = checked;
 	}
 
-	/// <summary>
-	/// Type
-	/// </summary>
+	/**
+	 * Type
+	 */
 	public String getType() {
 		return type;
 	}
 
-	/// <summary>
-	/// Type
-	/// </summary>
+	/**
+	 * Type
+	 */
 	public void setType(String type) {
 		this.type = type;
 	}
 
-	/// <summary>
-	/// Name
-	/// </summary>
+	/**
+	 * Name
+	 */
 	public String getName() {
 		return name;
 	}
 
-	/// <summary>
-	/// Name
-	/// </summary>
+	/**
+	 * Name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	/// <summary>
-	/// Display
-	/// </summary>
+	/**
+	 * Display
+	 */
 	public String getDisplay() {
 		return display;
 	}
 
-	/// <summary>
-	/// Display
-	/// </summary>
+	/**
+	 * Display
+	 */
 	public void setDisplay(String display) {
 		this.display = display;
 	}
 
-	/// <summary>
-	/// Rules
-	/// </summary>
+	/**
+	 * Rules
+	 */
 	public String getRules() {
 		return rules;
 	}
 
-	/// <summary>
-	/// Rules
-	/// </summary>
+	/**
+	 * Rules
+	 */
 	public void setRules(String rules) {
 		this.rules = rules;
 	}
 
-	/// <summary>
-	/// Options
-	/// </summary>
+	/**
+	 * Options
+	 */
 	public Object getOptions() {
 		return options;
 	}
 
-	/// <summary>
-	/// Options
-	/// </summary>
+	/**
+	 * Options
+	 */
 	public void setOptions(Object options) {
 		this.options = options;
 	}
 
-	/// <summary>
-	/// User's permissions
-	/// </summary>
+	/**
+	 * User's permissions
+	 */
 	public String getPermission() {
 		return permission;
 	}
 
-	/// <summary>
-	/// User's permissions
-	/// </summary>
+	/**
+	 * User's permissions
+	 */
 	public void setPermission(String permission) {
 		this.permission = permission;
 	}
 
-	/// <summary>
-	/// Data Source
-	/// </summary>
+	/**
+	 * Data Source
+	 */
 	public Object getDataSource() {
 		return dataSource;
 	}
 
-	/// <summary>
-	/// Data Source
-	/// </summary>
+	/**
+	 * Data Source
+	 */
 	public void setDataSource(Object dataSource) {
 		this.dataSource = dataSource;
 	}
 
-	/// <summary>
-	/// Parent data
-	/// </summary>
+	/**
+	 * Parent data
+	 */
 	public String getParent() {
 		return parent;
 	}
 
-	/// <summary>
-	/// Parent data
-	/// </summary>
+	/**
+	 * Parent data
+	 */
 	public void setParent(String parent) {
 		this.parent = parent;
 	}
 
-	/// <summary>
-	/// Partent data source
-	/// </summary>
+	/**
+	 * Partent data source
+	 */
 	public Object getParentDataSource() {
 		return parentDataSource;
 	}
 
-	/// <summary>
-	/// Parent data source
-	/// </summary>
+	/**
+	 * Parent data source
+	 */
 	public void setParentDataSource(Object parentDataSource) {
 		this.parentDataSource = parentDataSource;
 	}

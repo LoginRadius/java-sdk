@@ -8,9 +8,9 @@
 package com.loginradius.sdk.models.responsemodels.otherobjects;
 import com.google.gson.annotations.SerializedName;
 
-	// <summary>
-	//	Response Model Class containing Definition of PIN Information
-	// </summary>
+	/**
+	 * Response Model Class containing Definition of PIN Information
+	 */
 	public class PINInformation {
 	
 		
@@ -31,63 +31,63 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-		// <summary>
-		//	Last PIN Change Date
-		// </summary>
+		/**
+		 * Last PIN Change Date
+		 */
 		public String getLastPINChangeDate() {
 			return lastPINChangeDate;
 		}
-		// <summary>
-		//	Last PIN Change Date
-		// </summary>
+		/**
+		 * Last PIN Change Date
+		 */
 		public void setLastPINChangeDate(String lastPINChangeDate) {
 			this.lastPINChangeDate = lastPINChangeDate;
 		}
-		// <summary>
-		//	Last PIN Change Token
-		// </summary>
+		/**
+		 * Last PIN Change Token
+		 */
 		public String getLastPINChangeToken() {
 			return lastPINChangeToken;
 		}
-		// <summary>
-		//	Last PIN Change Token
-		// </summary>
+		/**
+		 * Last PIN Change Token
+		 */
 		public void setLastPINChangeToken(String lastPINChangeToken) {
 			this.lastPINChangeToken = lastPINChangeToken;
 		}
-		// <summary>
-		//	PIN of user
-		// </summary>
+		/**
+		 * PIN of user
+		 */
 		public String getPIN() {
 			return pin;
 		}
-		// <summary>
-		//	PIN of user
-		// </summary>
+		/**
+		 * PIN of user
+		 */
 		public void setPIN(String pin) {
 			this.pin = pin;
 		}
-		// <summary>
-		//	possible values are true/false/null
-		// </summary>
+		/**
+		 * possible values are true/false/null
+		 */
 		public Boolean getSkipped() {
 			return skipped;
 		}
-		// <summary>
-		//	possible values are true/false/null
-		// </summary>
+		/**
+		 * possible values are true/false/null
+		 */
 		public void setSkipped(Boolean skipped) {
 			this.skipped = skipped;
 		}
-		// <summary>
-		//	Skipped Date
-		// </summary>
+		/**
+		 * Skipped Date
+		 */
 		public String getSkippedDate() {
 			return skippedDate;
 		}
-		// <summary>
-		//	Skipped Date
-		// </summary>
+		/**
+		 * Skipped Date
+		 */
 		public void setSkippedDate(String skippedDate) {
 			this.skippedDate = skippedDate;
 		}

@@ -12,16 +12,16 @@ public class SocialSchema {
 	@Expose
 	private List<Provider> providers = null;
 
-	/// <summary>
-	/// Social Providers
-	/// </summary>
+	/**
+	 * Social Providers
+	 */
 	public List<Provider> getProviders() {
 		return providers;
 	}
 
-	/// <summary>
-	/// Social Providers
-	/// </summary>
+	/**
+	 * Social Providers
+	 */
 	public void setProviders(List<Provider> providers) {
 		this.providers = providers;
 	}

@@ -7,9 +7,9 @@
 
 package com.loginradius.sdk.models.requestmodels;
 
-// <summary>
-	//	Payload containing Unlock Profile API
-	// </summary>
+	/**
+	 * Payload containing Unlock Profile API
+	 */
 	public class UnlockProfileModel extends LockoutModel {
 	
 
