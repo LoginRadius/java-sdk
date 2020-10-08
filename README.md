@@ -59,7 +59,7 @@ You can also compile the source by running the following commands. This will gen
 
 `$ git clone https://github.com/LoginRadius/java-sdk.git`<br>
 `$ cd java-sdk`<br>
-`$ mvn install  `     # Requires maven, download from http://maven.apache.org/download.html
+`$ mvn install `     # Requires maven, download from http://maven.apache.org/download.html<br>
 `$ mvn dependency:copy-dependencies`   # This will generate all dependencies here: java-sdk/target/dependency
 The jars are also available at [Maven](https://mvnrepository.com/artifact/com.loginradius.sdk/java-sdk).
 
