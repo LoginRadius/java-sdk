@@ -28,7 +28,7 @@ Use the following dependency in your project:
 <dependency>
   <groupId>com.loginradius.sdk</groupId>
   <artifactId>java-sdk</artifactId>
-  <version>11.0.0</version>
+  <version>11.0.1</version>
 </dependency>
 
 ```
@@ -73,6 +73,12 @@ API Key and secret of your LoginRadius site. You can get one from [here](https:/
 LoginRadiusSDK.Initialize init = new LoginRadiusSDK.Initialize();
 init.setApiKey("<your-loginradius-api-key>");
 init.setApiSecret("<your-loginradius-api-secret>");
+```
+
+LoginRadius allows you add X-Origin-IP  in your headers and it determines the IP address of the client's request,this can also be useful to overcome analytics discrepancies where the analytics depend on header data. 
+
+```
+init.setOriginIp("<Client-Ip-Address>");
 ```
 
 ### Custom Domain

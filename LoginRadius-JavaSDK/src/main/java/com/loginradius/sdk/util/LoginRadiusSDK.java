@@ -3,6 +3,7 @@ package com.loginradius.sdk.util;
 import java.util.Map;
 import java.util.TreeMap;
 
+
 public class LoginRadiusSDK {
 	private LoginRadiusSDK() {
 	}
@@ -16,7 +17,7 @@ public class LoginRadiusSDK {
 		private static String apiSecret;
 		private static Boolean apiRequestSigning = false;
 		private static String apiRegion;
-
+		private static String originIp;
 		public static void setApiKey(final String apiKey) {
 			Initialize.apiKey = apiKey;
 		}
@@ -35,6 +36,9 @@ public class LoginRadiusSDK {
 
 		public static void setApiRegion(final String apiRegion) {
 			Initialize.apiRegion = apiRegion;
+		}
+		public static void setOriginIp(final String originIp) {
+			Initialize.originIp = originIp;
 		}
 	}
 
@@ -61,7 +65,10 @@ public class LoginRadiusSDK {
 	public static String getApiRegion() {
 		return Initialize.apiRegion;
 	}
-
+	public static String getOriginIp() {
+		return Initialize.originIp;
+	}
+	
 	public static boolean validate() {
 		return Initialize.apiKey == null || Initialize.apiKey.length() == 0 || Initialize.apiSecret == null
 				|| Initialize.apiSecret.length() == 0 ? false : true;

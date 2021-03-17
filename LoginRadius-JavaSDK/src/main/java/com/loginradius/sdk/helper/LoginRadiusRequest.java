@@ -97,6 +97,10 @@ public class LoginRadiusRequest {
 				con.setRequestProperty("Authorization", "Bearer " + authorization);
 				authorization = "";
 			}
+			if(LoginRadiusSDK.getOriginIp()!=null && LoginRadiusSDK.getOriginIp()!="") {
+				con.setRequestProperty("X-Origin-IP", LoginRadiusSDK.getOriginIp());
+				
+			}
 			if (!apiSecret.equals("") && LoginRadiusSDK.getRequestSigning()) {
 				String time = getTime();
 				con.setRequestProperty("X-Request-Expires", time);
@@ -124,7 +128,10 @@ public class LoginRadiusRequest {
 			if (responseCode == HttpURLConnection.HTTP_OK) {
 				code = responseCode;
 				return readStream(con.getInputStream(), con.getContentEncoding());
-			} else {
+			} else if(responseCode == 429){
+				code = 106;
+				return "Too Many Request in a particular time frame";
+			}else {
 				code = responseCode;
 				return readStream(con.getErrorStream(), con.getContentEncoding());
 			}
@@ -230,6 +237,11 @@ public class LoginRadiusRequest {
 			obj.setDescription(error);
 			obj.setErrorCode(105);
 			obj.setMessage("IOException");
+			break;
+		case 106:
+			obj.setDescription(error);
+			obj.setErrorCode(106);
+			obj.setMessage("TOO_MANY_REQUESTS");
 			break;
 		default:
 			TypeToken<ErrorResponse> typeToken = new TypeToken<ErrorResponse>() {
