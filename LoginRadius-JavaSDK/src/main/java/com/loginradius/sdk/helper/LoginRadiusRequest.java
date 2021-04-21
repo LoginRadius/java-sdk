@@ -249,10 +249,11 @@ public class LoginRadiusRequest {
      * 
      * Method used to add proxy settings with authentication
      *
-     * @param host
-     * @param port
-     * @param username
-     * @param password
+     * @param host The host
+     * @param port The port
+     * @param username The username
+     * @param password The password
+	 * @return The Proxy
      */
     private static Proxy  setProxy(String host, int port, final String username, final String password) {
 	
@@ -272,8 +273,9 @@ public class LoginRadiusRequest {
      * 
      * Method used to add proxy settings without Authentication
      *
-     * @param host       
-     * @param port 
+	 * @param host The host
+	 * @param port The port
+	 * @return The Proxy
      */
     public static Proxy setProxyWithoutAuthentication(String host, int port) {
 		

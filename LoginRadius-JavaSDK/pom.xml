@@ -1,134 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.loginradius.sdk</groupId>
-	<artifactId>java-sdk</artifactId>
-	<version>11.1.0</version>
-	<description>LoginRadius java SDK contains registration and social APIs</description>
-	<url>https://github.com/LoginRadius/java-sdk</url>
+    <groupId>com.loginradius.sdk</groupId>
+    <artifactId>java-sdk</artifactId>
+    <version>11.1.0</version>
+    <name>LoginRadius-CustomerIdentity-JavaSDK</name>
+    <description>LoginRadius Java SDK</description>
+    <url>https://github.com/LoginRadius/java-sdk</url>
 
-	<licenses>
-		<license>
-			<name>MIT License</name>
-			<url>http://www.opensource.org/licenses/mit-license.php</url>
-		</license>
-	</licenses>
+     <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
 
-	<developers>
-		<developer>
-			<id>support</id>
-			<name>LoginRadius Support</name>
-			<email>support@loginradius.com</email>
-			<organization>LoginRadius</organization>
-			<organizationUrl>https://www.loginradius.com</organizationUrl>
-		</developer>
-	</developers>
+    <developers>
+        <developer>
+            <id>support</id>
+            <name>LoginRadius Support</name>
+            <email>support@loginradius.com</email>
+            <organization>LoginRadius</organization>
+            <organizationUrl>https://www.loginradius.com</organizationUrl>
+        </developer>
+    </developers>
 
-	<scm>
-		<connection>scm:git:git@github.com:LoginRadius/java-sdk.git.git</connection>
-		<developerConnection>scm:git:git@github.com:LoginRadius/java-sdk.git.git</developerConnection>
-		<url>git@github.com:LoginRadius/java-sdk.git.git</url>
-	</scm>
+    <scm>
+        <connection>scm:git:git@github.com:LoginRadius/java-sdk.git.git</connection>
+        <developerConnection>scm:git:git@github.com:LoginRadius/java-sdk.git.git</developerConnection>
+        <url>git@github.com:LoginRadius/java-sdk.git.git</url>
+    </scm>
 
-	<dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.2.4</version>
+        </dependency>
 
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>2.2.4</version>
-		</dependency>
+       
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+        </dependency>
+ 
+ <dependency>
+   <groupId>commons-codec</groupId>
+    <artifactId>commons-codec</artifactId>
+     <version>1.9</version>
+   </dependency>
+</dependencies>
 
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-		</dependency>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
-		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
-		<dependency>
-			<groupId>commons-codec</groupId>
-			<artifactId>commons-codec</artifactId>
-			<version>1.9</version>
-		</dependency>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.3</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
-	</dependencies>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+				<source>8</source>
+                    <show>public</show>
+                    <nohelp>true</nohelp>
+                    <author>true</author>
+                    <version>true</version>
+                    <use>true</use>
+                    <windowtitle>LoginRadius Java</windowtitle>
+                    <doctitle><![CDATA[<h1>LoginRadius Java</h1>]]></doctitle>
+                    <bottom><![CDATA[<i>Copyright &#169; 2015 LoginRadius, Inc. All Rights Reserved.</i>]]></bottom>
+                    <additionalparam>-Xdoclint:none</additionalparam>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
 
-	<distributionManagement>
-		<snapshotRepository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
+            </plugin>
+        </plugins>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-gpg-plugin</artifactId>
-				<version>1.5</version>
-				<executions>
-					<execution>
-						<id>sign-artifacts</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>sign</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+    </build>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<configuration>
-					<show>public</show>
-					<nohelp>true</nohelp>
-					<author>true</author>
-					<version>true</version>
-					<use>true</use>
-					<windowtitle>LoginRadius Java</windowtitle>
-					<doctitle><![CDATA[<h1>LoginRadius Java</h1>]]></doctitle>
-					<bottom><![CDATA[<i>Copyright &#169; 2015 LoginRadius, Inc. All Rights Reserved.</i>]]></bottom>
-					<additionalparam>-Xdoclint:none</additionalparam>
-				</configuration>
-				<executions>
-					<execution>
-						<id>attach-javadocs</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-
-			</plugin>
-		</plugins>
-
-	</build>
 
 
 </project>
