@@ -6,23 +6,19 @@
 
 package com.loginradius.sdk.api.authentication;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import com.loginradius.sdk.helper.*;
+import com.loginradius.sdk.util.*;
 import com.google.gson.Gson;
+import java.util.Iterator;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
-import com.loginradius.sdk.helper.JsonDeserializer;
-import com.loginradius.sdk.helper.LoginRadiusRequest;
-import com.loginradius.sdk.helper.LoginRadiusValidator;
-import com.loginradius.sdk.models.requestmodels.PasswordLessLoginOtpModel;
-import com.loginradius.sdk.models.responsemodels.AccessToken;
-import com.loginradius.sdk.models.responsemodels.SMSResponseData;
-import com.loginradius.sdk.models.responsemodels.otherobjects.GetResponse;
-import com.loginradius.sdk.models.responsemodels.otherobjects.PostResponse;
-import com.loginradius.sdk.models.responsemodels.userprofile.Identity;
-import com.loginradius.sdk.util.AsyncHandler;
-import com.loginradius.sdk.util.ErrorResponse;
-import com.loginradius.sdk.util.LoginRadiusSDK;
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Map;
+import com.loginradius.sdk.models.responsemodels.*;
+import com.loginradius.sdk.models.responsemodels.userprofile.*;
+import com.loginradius.sdk.models.requestmodels.*;
+import com.loginradius.sdk.models.responsemodels.otherobjects.*;
 
 
 public class PasswordLessLoginApi {
@@ -249,6 +245,86 @@ public class PasswordLessLoginApi {
       String resourcePath = "identity/v2/auth/login/passwordlesslogin/email/verify";
             
       LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<AccessToken<Identity>> typeToken = new TypeToken<AccessToken<Identity>>() {};
+          AccessToken<Identity> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // 
+   // </summary>
+   // <param name="passwordLessLoginByEmailAndOtpModel"></param>
+   // <param name="fields"></param>
+   // <returns>Response containing User Profile Data and access token</returns>
+   // 9.23	    
+		
+		
+   public void passwordlessLoginVerificationByEmailAndOTP(PasswordLessLoginByEmailAndOtpModel passwordLessLoginByEmailAndOtpModel, String fields, final AsyncHandler<AccessToken<Identity>> handler) {
+
+      if (passwordLessLoginByEmailAndOtpModel == null) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("passwordLessLoginByEmailAndOtpModel"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
+        queryParameters.put("fields", fields);
+      }
+
+      String resourcePath = "identity/v2/auth/login/passwordlesslogin/email/verifyotp";
+            
+      LoginRadiusRequest.execute("POST", resourcePath, queryParameters, gson.toJson(passwordLessLoginByEmailAndOtpModel), new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<AccessToken<Identity>> typeToken = new TypeToken<AccessToken<Identity>>() {};
+          AccessToken<Identity> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // 
+   // </summary>
+   // <param name="passwordLessLoginByUserNameAndOtpModel"></param>
+   // <param name="fields"></param>
+   // <returns>Response containing User Profile Data and access token</returns>
+   // 9.24	    
+		
+		
+   public void passwordlessLoginVerificationByUserNameAndOTP(PasswordLessLoginByUserNameAndOtpModel passwordLessLoginByUserNameAndOtpModel, String fields, final AsyncHandler<AccessToken<Identity>> handler) {
+
+      if (passwordLessLoginByUserNameAndOtpModel == null) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("passwordLessLoginByUserNameAndOtpModel"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
+        queryParameters.put("fields", fields);
+      }
+
+      String resourcePath = "identity/v2/auth/login/passwordlesslogin/username/verifyotp";
+            
+      LoginRadiusRequest.execute("POST", resourcePath, queryParameters, gson.toJson(passwordLessLoginByUserNameAndOtpModel), new AsyncHandler<String>() {
 			
         @Override
         public void onSuccess(String response) {

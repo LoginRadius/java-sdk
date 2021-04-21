@@ -1,4 +1,3 @@
-
 # LoginRadius Java SDK
 LoginRadius Customer Identity and Access Management SDK for Java
 
@@ -28,7 +27,7 @@ Use the following dependency in your project:
 <dependency>
   <groupId>com.loginradius.sdk</groupId>
   <artifactId>java-sdk</artifactId>
-  <version>11.0.1</version>
+  <version>11.1.0</version>
 </dependency>
 
 ```
@@ -74,7 +73,6 @@ LoginRadiusSDK.Initialize init = new LoginRadiusSDK.Initialize();
 init.setApiKey("<your-loginradius-api-key>");
 init.setApiSecret("<your-loginradius-api-secret>");
 ```
-
 LoginRadius allows you add X-Origin-IP  in your headers and it determines the IP address of the client's request,this can also be useful to overcome analytics discrepancies where the analytics depend on header data. 
 
 ```
@@ -88,11 +86,33 @@ When initializing the SDK, optionally specify a custom domain.
 init.setCustomDomain("<CUSTOM-DOMAIN>");
 ```
 
+
+
 ### API Request Signing
 When initializing the SDK, you can optionally specify enabling this feature. Enabling this feature means the customer does not need to pass an API secret in an API request. Instead, they can pass a dynamically generated hash value. This feature will also make sure that the message is not tampered during transit when someone calls our APIs.
 
 ```
 init.setRequestSigning(true);
+```
+### Connection Time out
+You can optionally specify custom connections timeouts 
+```
+init.setConnectionTimeout(15000); //set connection timeout in millisecond 
+```
+### Read Time out
+You can optionally specify custom Read timeouts 
+```
+init.setReadTimeout(15000); //set read timeout in millisecond 
+```
+
+### Proxy
+When making requests to the LoginRadius API, you may also o set the proxy for your web requests so that requests made to api.loginradius.com will be processed by your proxy.
+
+```
+init.setProxyHost("");
+init.setProxyPort("");
+init.setProxyUserName("");
+init.setProxyPassword("");
 ```
 
 ## Quickstart Guide
@@ -223,6 +243,7 @@ List of APIs in this Section:<br>
 * GET : [Auth Read all Profiles by Token](#GetProfileByAccessToken-get-)<br>
 * GET : [Auth Send Welcome Email](#SendWelcomeEmail-get-)<br>
 * GET : [Auth Delete Account](#DeleteAccountByDeleteToken-get-)<br>
+* GET : [Get Profile By Ping](#GetProfileByPing-get-)<br>
 * GET : [Auth Check Email Availability](#CheckEmailAvailability-get-)<br>
 * GET : [Auth Verify Email](#VerifyEmail-get-)<br>
 * GET : [Auth Check UserName Availability](#CheckUserNameAvailability-get-)<br>
@@ -1137,7 +1158,31 @@ authenticationApi.deleteAccountByDeleteToken(deletetoken ,  new AsyncHandler<Pos
 
 ```
 
-  
+<h6 id="GetProfileByPing-get-">Get Profile By Ping  (GET)</h6>
+This API is used to get a user's profile using the clientGuid parameter if no callback feature enabled. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/social-login/social-login-by-ping/)
+
+```
+
+String clientGuid = "<clientGuid>"; //Required
+String emailTemplate = "<emailTemplate>"; //Optional
+String fields = null; //Optional
+String verificationUrl = "<verificationUrl>"; //Optional
+String welcomeEmailTemplate = "<welcomeEmailTemplate>"; //Optional
+
+AuthenticationApi authenticationApi = new AuthenticationApi();
+authenticationApi.getProfileByPing(clientGuid, emailTemplate, fields, verificationUrl, welcomeEmailTemplate ,  new AsyncHandler<AccessToken<Identity>> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(AccessToken<Identity> response) {
+  System.out.println(response.getAccess_Token());
+ }
+});
+
+```  
 
 
 
@@ -1270,7 +1315,7 @@ authenticationApi.getPrivacyPolicyHistoryByAccessToken(accessToken ,  new AsyncH
  }
  @Override
  public void onSuccess(PrivacyPolicyHistoryResponse response) {
-  System.out.println(response.getCurrent().getVersion());
+  System.out.println(response.getCurrent());
  }
 });
 
@@ -1381,6 +1426,7 @@ List of APIs in this Section:<br>
 * PUT : [Account Invalidate Verification Email](#InvalidateAccountEmailVerification-put-)<br>
 * PUT : [Reset phone ID verification](#ResetPhoneIDVerificationByUid-put-)<br>
 * PUT : [Upsert Email](#UpsertEmail-put-)<br>
+* PUT : [Update UID](#AccountUpdateUid-put-)<br>
 * POST : [Account Create](#CreateAccount-post-)<br>
 * POST : [Forgot Password token](#GetForgotPasswordToken-post-)<br>
 * POST : [Email Verification token](#GetEmailVerificationToken-post-)<br>
@@ -1581,6 +1627,36 @@ accountApi.upsertEmail( upsertEmailModel, uid, fields ,  new AsyncHandler<Identi
 
 
 
+
+<h6 id="AccountUpdateUid-put-">Update UID (PUT)</h6>
+ This API is used to update a user's Uid. It will update all profiles, custom objects and consent management logs associated with the Uid. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/account/account-update/)
+
+```
+
+UpdateUidModel updateUidModel = new UpdateUidModel(); //Required
+updateUidModel.setNewUid("newUid"); 
+String uid = "<uid>"; //Required
+
+AccountApi accountApi = new AccountApi();
+accountApi.accountUpdateUid( updateUidModel, uid ,  new AsyncHandler<PostResponse> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(PostResponse response) {
+  System.out.println(response.getIsPosted());
+ }
+});
+
+```
+
+  
+
+
+
+
 <h6 id="CreateAccount-post-">Account Create (POST)</h6>
  This API is used to create an account in Cloud Storage. This API bypass the normal email verification process and manually creates the user. <br><br>In order to use this API, you need to format a JSON request body with all of the mandatory fields [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/account/account-create)
 
@@ -1691,7 +1767,7 @@ accountApi.getPrivacyPolicyHistoryByUid(uid ,  new AsyncHandler<PrivacyPolicyHis
  }
  @Override
  public void onSuccess(PrivacyPolicyHistoryResponse response) {
-  System.out.println(response.getCurrent().getVersion());
+  System.out.println(response.getCurrent());
  }
 });
 
@@ -5091,7 +5167,7 @@ consentManagementApi.updateConsentProfileByAccessToken(accessToken,  consentUpda
  }
  @Override
  public void onSuccess(ConsentProfile response) {
-  System.out.println(response.getAcceptedConsentVersions().get(0).getVersion());
+  System.out.println(response.getAcceptedConsentVersions());
  }
 });
 
@@ -5198,7 +5274,7 @@ consentManagementApi.getConsentLogsByUid(uid ,  new AsyncHandler<ConsentLogsResp
  }
  @Override
  public void onSuccess(ConsentLogsResponseModel response) {
-  System.out.println(response.getConsentLogs().get(0).getId());
+  System.out.println(response.getConsentLogs());
  }
 });
 
@@ -5225,7 +5301,7 @@ consentManagementApi.getConsentLogs(accessToken ,  new AsyncHandler<ConsentLogsR
  }
  @Override
  public void onSuccess(ConsentLogsResponseModel response) {
-  System.out.println(response.getConsentLogs().get(0).getId());
+  System.out.println(response.getConsentLogs());
  }
 });
 
@@ -5254,7 +5330,7 @@ consentManagementApi.verifyConsentByAccessToken(accessToken, event, isCustom ,  
  }
  @Override
  public void onSuccess(ConsentProfileValidResponse response) {
-  System.out.println(response.getConsentProfile().getConsents().get(0).getConsentOptionId());
+  System.out.println(response.getConsentProfile());
  }
 });
 
@@ -5574,6 +5650,8 @@ oneTouchLoginApi.oneTouchLoginPing(clientGuid, fields ,  new AsyncHandler<Access
 List of APIs in this Section:<br>
 
 * PUT : [Passwordless Login Phone Verification](#PasswordlessLoginPhoneVerification-put-)<br>
+* POST : [Passwordless Login Verification By Email And OTP](#PasswordlessLoginVerificationByEmailAndOTP-post-)<br>
+* POST : [Passwordless Login Verification By User Name And OTP](#PasswordlessLoginVerificationByUserNameAndOTP-post-)<br>
 * GET : [Passwordless Login by Phone](#PasswordlessLoginByPhone-get-)<br>
 * GET : [Passwordless Login By Email](#PasswordlessLoginByEmail-get-)<br>
 * GET : [Passwordless Login By UserName](#PasswordlessLoginByUserName-get-)<br>
@@ -5608,7 +5686,66 @@ passwordLessLoginApi.passwordlessLoginPhoneVerification( passwordLessLoginOtpMod
 
 ```
 
+
+
+
+<h6 id="PasswordlessLoginVerificationByEmailAndOTP-post-">Passwordless Login Verification By Email And OTP (POST)</h6>
+This API is used to verify the otp sent to the email when doing a passwordless login.  [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/passwordless-login/passwordless-login-verify-by-email-and-otp/)
+
+```
+
+PasswordLessLoginByEmailAndOtpModel passwordLessLoginByEmailAndOtpModel = new PasswordLessLoginByEmailAndOtpModel(); //Required
+passwordLessLoginByEmailAndOtpModel.setEmail("email");
+passwordLessLoginByEmailAndOtpModel.setOtp("otp");
+passwordLessLoginByEmailAndOtpModel.setWelcomeEmailTemplate("welcomeEmailTemplate");
+String fields = null; //Optional
+
+PasswordLessLoginApi passwordLessLoginApi = new PasswordLessLoginApi();
+passwordLessLoginApi.passwordlessLoginVerificationByEmailAndOTP( passwordLessLoginByEmailAndOtpModel, fields ,  new AsyncHandler<AccessToken<Identity>> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(AccessToken<Identity> response) {
+  System.out.println(response.getAccess_Token());
+ }
+});
+
+```
+
   
+
+
+
+
+<h6 id="PasswordlessLoginVerificationByUserNameAndOTP-post-">Passwordless Login Verification By User Name And OTP (POST)</h6>
+This API is used to verify the otp sent to the email when doing a passwordless login. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/passwordless-login/passwordless-login-verify-by-username-and-otp/)
+
+```
+
+PasswordLessLoginByUserNameAndOtpModel passwordLessLoginByUserNameAndOtpModel = new PasswordLessLoginByUserNameAndOtpModel(); //Required
+passwordLessLoginByUserNameAndOtpModel.setOtp("otp");
+passwordLessLoginByUserNameAndOtpModel.setUserName("userName");
+passwordLessLoginByUserNameAndOtpModel.setWelcomeEmailTemplate("welcomeEmailTemplate");
+String fields = null; //Optional
+
+PasswordLessLoginApi passwordLessLoginApi = new PasswordLessLoginApi();
+passwordLessLoginApi.passwordlessLoginVerificationByUserNameAndOTP( passwordLessLoginByUserNameAndOtpModel, fields ,  new AsyncHandler<AccessToken<Identity>> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(AccessToken<Identity> response) {
+  System.out.println(response.getAccess_Token());
+ }
+});
+
+```
+
 
 
 

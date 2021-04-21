@@ -18,6 +18,12 @@ public class LoginRadiusSDK {
 		private static Boolean apiRequestSigning = false;
 		private static String apiRegion;
 		private static String originIp;
+		private static String proxyHost;
+		private static String proxyPort;
+		private static String proxyUserName;
+		private static String proxyPassword;
+		private static Integer connectionTimeout;
+		private static Integer readTimeout;
 		public static void setApiKey(final String apiKey) {
 			Initialize.apiKey = apiKey;
 		}
@@ -39,6 +45,24 @@ public class LoginRadiusSDK {
 		}
 		public static void setOriginIp(final String originIp) {
 			Initialize.originIp = originIp;
+		}
+		public static void setProxyHost(final String proxyHost) {
+			Initialize.proxyHost = proxyHost;
+		}
+		public static void setProxyPort(final String proxyPort) {
+			Initialize.proxyPort = proxyPort;
+		}
+		public static void setProxyUserName(final String proxyUserName) {
+			Initialize.proxyUserName = proxyUserName;
+		}
+		public static void setProxyPassword(final String proxyPassword) {
+			Initialize.proxyPassword = proxyPassword;
+		}
+		public static void setConnectionTimeout(final Integer connectionTimeout) {
+			Initialize.connectionTimeout = connectionTimeout;
+		}
+		public static void setReadTimeout(final Integer readTimeout) {
+			Initialize.readTimeout = readTimeout;
 		}
 	}
 
@@ -68,6 +92,25 @@ public class LoginRadiusSDK {
 	public static String getOriginIp() {
 		return Initialize.originIp;
 	}
+	public static String getProxyHost() {
+		return Initialize.proxyHost;
+	}
+	public static String getProxyPort() {
+		return Initialize.proxyPort;
+	}
+	public static String getProxyUserName() {
+		return Initialize.proxyUserName;
+	}
+	public static String getProxyPassword() {
+		return Initialize.proxyPassword;
+	}
+	public static Integer getConnectionTimeout() {
+		return Initialize.connectionTimeout;
+	}
+	public static Integer getReadTimeout() {
+		return Initialize.readTimeout;
+	}
+
 	
 	public static boolean validate() {
 		return Initialize.apiKey == null || Initialize.apiKey.length() == 0 || Initialize.apiSecret == null

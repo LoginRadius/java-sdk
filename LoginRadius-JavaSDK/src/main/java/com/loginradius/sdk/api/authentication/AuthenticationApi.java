@@ -45,6 +45,7 @@ import com.loginradius.sdk.util.ErrorResponse;
 import com.loginradius.sdk.util.LoginRadiusSDK;
 
 
+
 public class AuthenticationApi {
    private static Gson gson =new Gson();
 
@@ -644,6 +645,63 @@ public class AuthenticationApi {
         public void onSuccess(String response) {
           TypeToken<PostResponse> typeToken = new TypeToken<PostResponse>() {};
           PostResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // 
+   // </summary>
+   // <param name="clientGuid"></param>
+   // <param name="emailTemplate"></param>
+   // <param name="fields"></param>
+   // <param name="verificationUrl"></param>
+   // <param name="welcomeEmailTemplate"></param>
+   // <returns>Response containing User Profile Data and access token</returns>
+   // 5.16	    
+		
+		
+   public void getProfileByPing(String clientGuid, String emailTemplate,
+      String fields, String verificationUrl, String welcomeEmailTemplate, final AsyncHandler<AccessToken<Identity>> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(clientGuid)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("clientGuid"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+      queryParameters.put("clientGuid", clientGuid);
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(emailTemplate)) {
+        queryParameters.put("emailTemplate", emailTemplate);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
+        queryParameters.put("fields", fields);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(verificationUrl)) {
+        queryParameters.put("verificationUrl", verificationUrl);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(welcomeEmailTemplate)) {
+        queryParameters.put("welcomeEmailTemplate", welcomeEmailTemplate);
+      }
+
+      String resourcePath = "identity/v2/auth/account/ping";
+            
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<AccessToken<Identity>> typeToken = new TypeToken<AccessToken<Identity>>() {};
+          AccessToken<Identity> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 

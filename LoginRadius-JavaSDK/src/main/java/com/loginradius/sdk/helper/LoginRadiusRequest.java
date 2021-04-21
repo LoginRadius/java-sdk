@@ -1,3 +1,4 @@
+
 package com.loginradius.sdk.helper;
 
 import java.io.BufferedReader;
@@ -22,6 +23,10 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 import java.util.zip.GZIPInputStream;
+import java.net.Proxy;
+import java.net.Authenticator;
+import java.net.InetSocketAddress;
+import java.net.PasswordAuthentication;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -82,10 +87,41 @@ public class LoginRadiusRequest {
 	private static String LoginRadiusRequestRunner(String method, String url, String payload) {
 
 		try {
-			HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
-			con.setRequestMethod(method);
-			con.setConnectTimeout(15000); // set timeout to 15 seconds
-			con.setReadTimeout(15000);
+         Proxy proxy=null;
+       
+         if(!LoginRadiusValidator.isNullOrWhiteSpace(LoginRadiusSDK.getProxyHost()) && !LoginRadiusValidator.isNullOrWhiteSpace(LoginRadiusSDK.getProxyPort()) && !LoginRadiusValidator.isNullOrWhiteSpace(LoginRadiusSDK.getProxyUserName()) && !LoginRadiusValidator.isNullOrWhiteSpace(LoginRadiusSDK.getProxyPassword())) {
+				 
+				 proxy=setProxy(LoginRadiusSDK.getProxyHost(), Integer.parseInt(LoginRadiusSDK.getProxyPort()), LoginRadiusSDK.getProxyUserName(), LoginRadiusSDK.getProxyPassword());
+			
+			 } else if(!LoginRadiusValidator.isNullOrWhiteSpace(LoginRadiusSDK.getProxyHost()) && !LoginRadiusValidator.isNullOrWhiteSpace(LoginRadiusSDK.getProxyPort())) {
+				
+				 proxy=setProxyWithoutAuthentication(LoginRadiusSDK.getProxyHost(),Integer.parseInt(LoginRadiusSDK.getProxyPort()));		            	
+			
+			 }
+
+			URL connectionUrl = new URL(url);
+			HttpURLConnection con = null;
+			
+			if (proxy != null) {
+				con = (HttpURLConnection) connectionUrl.openConnection(proxy);
+			}else {				
+				con = (HttpURLConnection) connectionUrl.openConnection();
+			}			 
+			con.setRequestMethod(method);			
+			
+			if(LoginRadiusSDK.getConnectionTimeout() != null && LoginRadiusSDK.getReadTimeout() != null) {
+				con.setConnectTimeout(LoginRadiusSDK.getConnectionTimeout()); 
+				con.setReadTimeout(LoginRadiusSDK.getReadTimeout());
+			}else if(LoginRadiusSDK.getConnectionTimeout() != null ) {	
+		         con.setConnectTimeout(LoginRadiusSDK.getConnectionTimeout()); 
+                 con.setReadTimeout(15000);
+			}else {
+				con.setConnectTimeout(15000); // set timeout to 15 seconds
+				con.setReadTimeout(15000);
+			}
+			
+				
+			
 			con.setRequestProperty("Content-Type", "application/json");
 			con.setRequestProperty("charset", encoding);
 			con.setRequestProperty("Accept-Encoding", "gzip");
@@ -208,7 +244,42 @@ public class LoginRadiusRequest {
 		calendar.add(Calendar.MINUTE, 60);
 		return dateFormat.format(calendar.getTime());
 	}
+	
+    /**
+     * 
+     * Method used to add proxy settings with authentication
+     *
+     * @param host
+     * @param port
+     * @param username
+     * @param password
+     */
+    private static Proxy  setProxy(String host, int port, final String username, final String password) {
+	
+	    Authenticator authenticator = new Authenticator() {
+	
+		    public PasswordAuthentication getPasswordAuthentication() {
+		    	
+			return (new PasswordAuthentication(username, password.toCharArray()));
+		    }
+		};
+		Authenticator.setDefault(authenticator);
+	 
+	return new Proxy(Proxy.Type.HTTP, new InetSocketAddress(host, port));
+    }
+    
+    /**
+     * 
+     * Method used to add proxy settings without Authentication
+     *
+     * @param host       
+     * @param port 
+     */
+    public static Proxy setProxyWithoutAuthentication(String host, int port) {
+		
+		return new Proxy(Proxy.Type.HTTP, new InetSocketAddress(host, port));
 
+    }
 	private static ErrorResponse exception(String error) {
 		ErrorResponse obj = new ErrorResponse();
 		switch (code) {

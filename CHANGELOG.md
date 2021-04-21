@@ -1,5 +1,18 @@
 > **LoginRadius Java SDK Change Log** provides information regarding what has changed, more specifically what changes, improvements and bug fix has been made to the SDK. For more details please refer to the [LoginRadius API Documention(https://www.loginradius.com/docs/api/v2/deployment/sdk-libraries/java-library/)
 
+# Version 11.1.0
+Release on April 21, 2021
+
+## Enhancements
+
+ - Added Proxy Server Feature. 
+
+## Added new multiple APIs for better user experience
+
+- Get Profile By Ping.
+- Passwordless Login Verification By Email And OTP.
+- Passwordless Login Verification By User Name And OTP.
+
 # Version 11.0.1
 Release on March 17, 2021
 
@@ -10,7 +23,7 @@ Release on March 17, 2021
 
 
 # Version 11.0.0
-Released on **Aug 21, 2020**
+Release on July 28, 2020
 
 ## Enhancements
 
