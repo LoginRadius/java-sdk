@@ -134,7 +134,7 @@ public class LoginRadiusService {
 	public String mfaLogin(HttpServletRequest request) {
 		MultiFactorAuthenticationApi mfa = new MultiFactorAuthenticationApi();
 		mfa.mfaLoginByEmail(request.getParameter("email"), request.getParameter("password"), null, null, null, null,
-				null, null, new AsyncHandler<MultiFactorAuthenticationResponse<Identity>>() {
+				null, null, null, new AsyncHandler<MultiFactorAuthenticationResponse<Identity>>() {
 
 					@Override
 					public void onSuccess(MultiFactorAuthenticationResponse<Identity> arg0) {
@@ -155,7 +155,7 @@ public class LoginRadiusService {
 	public String mfaVerify(HttpServletRequest request) {
 		MultiFactorAuthenticationApi mfa = new MultiFactorAuthenticationApi();
 		mfa.mfaValidateGoogleAuthCode(request.getParameter("code"), request.getParameter("token"), null, null,
-				new AsyncHandler<AccessToken<Identity>>() {
+				null, null, null, new AsyncHandler<AccessToken<Identity>>() {
 
 					@Override
 					public void onFailure(ErrorResponse arg0) {
@@ -279,7 +279,7 @@ public class LoginRadiusService {
 
 	public String getUserProfile(HttpServletRequest request) {
 		AuthenticationApi auth = new AuthenticationApi();
-		auth.getProfileByAccessToken(request.getParameter("token"), null, new AsyncHandler<Identity>() {
+		auth.getProfileByAccessToken(request.getParameter("token"), null, null, null, null, new AsyncHandler<Identity>() {
 			@Override
 			public void onSuccess(Identity arg0) {
 				// TODO Auto-generated method stub

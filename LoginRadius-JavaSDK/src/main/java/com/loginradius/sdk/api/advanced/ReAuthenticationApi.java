@@ -18,10 +18,13 @@ import com.loginradius.sdk.models.requestmodels.EventBasedMultiFactorToken;
 import com.loginradius.sdk.models.requestmodels.PINAuthEventBasedAuthModelWithLockout;
 import com.loginradius.sdk.models.requestmodels.PasswordEventBasedAuthModelWithLockout;
 import com.loginradius.sdk.models.requestmodels.ReauthByBackupCodeModel;
+import com.loginradius.sdk.models.requestmodels.ReauthByEmailOtpModel;
 import com.loginradius.sdk.models.requestmodels.ReauthByGoogleAuthenticatorCodeModel;
 import com.loginradius.sdk.models.requestmodels.ReauthByOtpModel;
+import com.loginradius.sdk.models.requestmodels.SecurityQuestionAnswerUpdateModel;
 import com.loginradius.sdk.models.responsemodels.EventBasedMultiFactorAuthenticationToken;
 import com.loginradius.sdk.models.responsemodels.MultiFactorAuthenticationSettingsResponse;
+import com.loginradius.sdk.models.responsemodels.otherobjects.PostResponse;
 import com.loginradius.sdk.models.responsemodels.otherobjects.PostValidationResponse;
 import com.loginradius.sdk.util.AsyncHandler;
 import com.loginradius.sdk.util.ErrorResponse;
@@ -405,6 +408,136 @@ public class ReAuthenticationApi {
       String resourcePath = "identity/v2/auth/account/reauth/pin";
             
       LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(pINAuthEventBasedAuthModelWithLockout), new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<EventBasedMultiFactorAuthenticationToken> typeToken = new TypeToken<EventBasedMultiFactorAuthenticationToken>() {};
+          EventBasedMultiFactorAuthenticationToken successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to validate the triggered MFA authentication flow with an Email OTP.
+   // </summary>
+   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
+   // <param name="reauthByEmailOtpModel">payload</param>
+   // <returns>Response containing Definition response of MFA reauthentication</returns>
+   // 42.14	    
+		
+		
+   public void reAuthValidateEmailOtp(String accessToken, ReauthByEmailOtpModel reauthByEmailOtpModel, final AsyncHandler<EventBasedMultiFactorAuthenticationToken> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
+      }
+
+      if (reauthByEmailOtpModel == null) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("reauthByEmailOtpModel"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("access_token", accessToken);
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+
+      String resourcePath = "identity/v2/auth/account/reauth/2fa/otp/email/verify";
+            
+      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(reauthByEmailOtpModel), new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<EventBasedMultiFactorAuthenticationToken> typeToken = new TypeToken<EventBasedMultiFactorAuthenticationToken>() {};
+          EventBasedMultiFactorAuthenticationToken successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to send the MFA Email OTP to the email for Re-authentication
+   // </summary>
+   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
+   // <param name="emailId">EmailId</param>
+   // <param name="emailTemplate2FA">EmailTemplate2FA</param>
+   // <returns>Response containing Definition of Complete Validation data</returns>
+   // 42.15	    
+		
+		
+   public void reAuthSendEmailOtp(String accessToken, String emailId,
+      String emailTemplate2FA, final AsyncHandler<PostResponse> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(emailId)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("emailId"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("access_token", accessToken);
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+      queryParameters.put("emailId", emailId);
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(emailTemplate2FA)) {
+        queryParameters.put("emailTemplate2FA", emailTemplate2FA);
+      }
+
+      String resourcePath = "identity/v2/auth/account/reauth/2fa/otp/email";
+            
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<PostResponse> typeToken = new TypeToken<PostResponse>() {};
+          PostResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to validate the triggered MFA re-authentication flow with security questions answers.
+   // </summary>
+   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
+   // <param name="securityQuestionAnswerUpdateModel">payload</param>
+   // <returns>Response containing Definition response of MFA reauthentication</returns>
+   // 42.16	    
+		
+		
+   public void reAuthBySecurityQuestion(String accessToken, SecurityQuestionAnswerUpdateModel securityQuestionAnswerUpdateModel, final AsyncHandler<EventBasedMultiFactorAuthenticationToken> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
+      }
+
+      if (securityQuestionAnswerUpdateModel == null) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("securityQuestionAnswerUpdateModel"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("access_token", accessToken);
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+
+      String resourcePath = "identity/v2/auth/account/reauth/2fa/securityquestionanswer/verify";
+            
+      LoginRadiusRequest.execute("POST", resourcePath, queryParameters, gson.toJson(securityQuestionAnswerUpdateModel), new AsyncHandler<String>() {
 			
         @Override
         public void onSuccess(String response) {

@@ -6,6 +6,8 @@
  */
 
 package com.loginradius.sdk.models.responsemodels;
+import java.util.List;
+
 import com.google.gson.annotations.SerializedName;
 
 	// <summary>
@@ -14,11 +16,23 @@ import com.google.gson.annotations.SerializedName;
 	public class MultiFactorAuthenticationSettingsResponse {
 	
 		
+		@SerializedName("Email")
+        private List<String> email;
+		
+		@SerializedName("EmailOTPStatus")
+        private EmailOtpStatus emailOTPStatus;
+		
+		@SerializedName("IsEmailOtpAuthenticatorVerified")
+        private Boolean isEmailOtpAuthenticatorVerified;
+		
 		@SerializedName("IsGoogleAuthenticatorVerified")
         private Boolean isGoogleAuthenticatorVerified;
 		
 		@SerializedName("IsOTPAuthenticatorVerified")
         private Boolean isOTPAuthenticatorVerified;
+		
+		@SerializedName("IsSecurityQuestionAuthenticatorVerified")
+        private Boolean isSecurityQuestionAuthenticatorVerified;
 		
 		@SerializedName("ManualEntryCode")
         private String manualEntryCode;
@@ -31,9 +45,48 @@ import com.google.gson.annotations.SerializedName;
 		
 		@SerializedName("QRCode")
         private String qRCode;
+		
+		@SerializedName("SecurityQuestions")
+        private List<SecurityQuestions> securityQuestions;
 
 
 
+		// <summary>
+		//	
+		// </summary>
+		public List<String> getEmail() {
+			return email;
+		}
+		// <summary>
+		//	
+		// </summary>
+		public void setEmail(List<String> email) {
+			this.email = email;
+		}
+		// <summary>
+		//	
+		// </summary>
+		public EmailOtpStatus getEmailOTPStatus() {
+			return emailOTPStatus;
+		}
+		// <summary>
+		//	
+		// </summary>
+		public void setEmailOTPStatus(EmailOtpStatus emailOTPStatus) {
+			this.emailOTPStatus = emailOTPStatus;
+		}
+		// <summary>
+		//	
+		// </summary>
+		public Boolean getIsEmailOtpAuthenticatorVerified() {
+			return isEmailOtpAuthenticatorVerified;
+		}
+		// <summary>
+		//	
+		// </summary>
+		public void setIsEmailOtpAuthenticatorVerified(Boolean isEmailOtpAuthenticatorVerified) {
+			this.isEmailOtpAuthenticatorVerified = isEmailOtpAuthenticatorVerified;
+		}
 		// <summary>
 		//	google authenticator verified or not
 		// </summary>
@@ -57,6 +110,18 @@ import com.google.gson.annotations.SerializedName;
 		// </summary>
 		public void setIsOTPAuthenticatorVerified(Boolean isOTPAuthenticatorVerified) {
 			this.isOTPAuthenticatorVerified = isOTPAuthenticatorVerified;
+		}
+		// <summary>
+		//	
+		// </summary>
+		public Boolean getIsSecurityQuestionAuthenticatorVerified() {
+			return isSecurityQuestionAuthenticatorVerified;
+		}
+		// <summary>
+		//	
+		// </summary>
+		public void setIsSecurityQuestionAuthenticatorVerified(Boolean isSecurityQuestionAuthenticatorVerified) {
+			this.isSecurityQuestionAuthenticatorVerified = isSecurityQuestionAuthenticatorVerified;
 		}
 		// <summary>
 		//	Manual entry code
@@ -105,5 +170,17 @@ import com.google.gson.annotations.SerializedName;
 		// </summary>
 		public void setQRCode(String qRCode) {
 			this.qRCode = qRCode;
+		}
+		// <summary>
+		//	Response containing Definition for Complete SecurityQuestions data
+		// </summary>
+		public List<SecurityQuestions> getSecurityQuestions() {
+			return securityQuestions;
+		}
+		// <summary>
+		//	Response containing Definition for Complete SecurityQuestions data
+		// </summary>
+		public void setSecurityQuestions(List<SecurityQuestions> securityQuestions) {
+			this.securityQuestions = securityQuestions;
 		}
     }

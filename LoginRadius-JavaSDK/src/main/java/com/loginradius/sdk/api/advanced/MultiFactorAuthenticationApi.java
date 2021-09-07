@@ -15,16 +15,23 @@ import com.google.gson.reflect.TypeToken;
 import com.loginradius.sdk.helper.JsonDeserializer;
 import com.loginradius.sdk.helper.LoginRadiusRequest;
 import com.loginradius.sdk.helper.LoginRadiusValidator;
+import com.loginradius.sdk.models.requestmodels.EmailIdModel;
 import com.loginradius.sdk.models.requestmodels.MultiFactorAuthModelByBackupCode;
+import com.loginradius.sdk.models.requestmodels.MultiFactorAuthModelByEmailOtp;
+import com.loginradius.sdk.models.requestmodels.MultiFactorAuthModelByEmailOtpWithLockout;
 import com.loginradius.sdk.models.requestmodels.MultiFactorAuthModelByGoogleAuthenticatorCode;
 import com.loginradius.sdk.models.requestmodels.MultiFactorAuthModelWithLockout;
+import com.loginradius.sdk.models.requestmodels.SecurityQuestionAnswerModelByAccessToken;
+import com.loginradius.sdk.models.requestmodels.SecurityQuestionAnswerUpdateModel;
 import com.loginradius.sdk.models.responsemodels.AccessToken;
 import com.loginradius.sdk.models.responsemodels.MultiFactorAuthenticationResponse;
 import com.loginradius.sdk.models.responsemodels.MultiFactorAuthenticationSettingsResponse;
 import com.loginradius.sdk.models.responsemodels.SMSResponseData;
 import com.loginradius.sdk.models.responsemodels.otherobjects.BackupCodeResponse;
 import com.loginradius.sdk.models.responsemodels.otherobjects.DeleteResponse;
+import com.loginradius.sdk.models.responsemodels.otherobjects.PostResponse;
 import com.loginradius.sdk.models.responsemodels.userprofile.Identity;
+import com.loginradius.sdk.models.responsemodels.userprofile.UserProfile;
 import com.loginradius.sdk.util.AsyncHandler;
 import com.loginradius.sdk.util.ErrorResponse;
 import com.loginradius.sdk.util.LoginRadiusSDK;
@@ -384,6 +391,208 @@ public class MultiFactorAuthenticationApi {
    }
    
    // <summary>
+   // This API is created to send the OTP to the email if email OTP authenticator is enabled in app's MFA configuration.
+   // </summary>
+   // <param name="accessToken">access_token</param>
+   // <param name="emailId">EmailId</param>
+   // <param name="emailTemplate2FA">EmailTemplate2FA</param>
+   // <returns>Response containing Definition of Complete Validation data</returns>
+   // 5.17	    
+		
+		
+   public void mfaEmailOtpByAccessToken(String accessToken, String emailId,
+      String emailTemplate2FA, final AsyncHandler<PostResponse> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(emailId)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("emailId"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("access_token", accessToken);
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+      queryParameters.put("emailId", emailId);
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(emailTemplate2FA)) {
+        queryParameters.put("emailTemplate2FA", emailTemplate2FA);
+      }
+
+      String resourcePath = "identity/v2/auth/account/2fa/otp/email";
+            
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<PostResponse> typeToken = new TypeToken<PostResponse>() {};
+          PostResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to set up MFA Email OTP authenticator on profile after login.
+   // </summary>
+   // <param name="accessToken">access_token</param>
+   // <param name="multiFactorAuthModelByEmailOtpWithLockout">payload</param>
+   // <returns>Response containing Definition for Complete profile data</returns>
+   // 5.18	    
+		
+		
+   public void mfaValidateEmailOtpByAccessToken(String accessToken, MultiFactorAuthModelByEmailOtpWithLockout multiFactorAuthModelByEmailOtpWithLockout, final AsyncHandler<Identity> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
+      }
+
+      if (multiFactorAuthModelByEmailOtpWithLockout == null) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("multiFactorAuthModelByEmailOtpWithLockout"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("access_token", accessToken);
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+
+      String resourcePath = "identity/v2/auth/account/2fa/verification/otp/email";
+            
+      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(multiFactorAuthModelByEmailOtpWithLockout), new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<Identity> typeToken = new TypeToken<Identity>() {};
+          Identity successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to reset the Email OTP Authenticator settings for an MFA-enabled user
+   // </summary>
+   // <param name="accessToken">access_token</param>
+   // <returns>Response containing Definition of Delete Request</returns>
+   // 5.19	    
+		
+		
+   public void mfaResetEmailOtpAuthenticatorByAccessToken(String accessToken, final AsyncHandler<DeleteResponse> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("access_token", accessToken);
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+
+      String resourcePath = "identity/v2/auth/account/2fa/authenticator/otp/email";
+            
+      LoginRadiusRequest.execute("DELETE", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<DeleteResponse> typeToken = new TypeToken<DeleteResponse>() {};
+          DeleteResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to set up MFA Security Question authenticator on profile after login.
+   // </summary>
+   // <param name="accessToken">access_token</param>
+   // <param name="securityQuestionAnswerModelByAccessToken">payload</param>
+   // <returns>Response containing Definition of Complete Validation data</returns>
+   // 5.20	    
+		
+		
+   public void mfaSecurityQuestionAnswerByAccessToken(String accessToken, SecurityQuestionAnswerModelByAccessToken securityQuestionAnswerModelByAccessToken, final AsyncHandler<PostResponse> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
+      }
+
+      if (securityQuestionAnswerModelByAccessToken == null) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("securityQuestionAnswerModelByAccessToken"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("access_token", accessToken);
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+
+      String resourcePath = "identity/v2/auth/account/2fa/securityquestionanswer";
+            
+      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(securityQuestionAnswerModelByAccessToken), new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<PostResponse> typeToken = new TypeToken<PostResponse>() {};
+          PostResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to Reset MFA Security Question Authenticator By Access Token
+   // </summary>
+   // <param name="accessToken">access_token</param>
+   // <returns>Response containing Definition of Delete Request</returns>
+   // 5.21	    
+		
+		
+   public void mfaResetSecurityQuestionAuthenticatorByAccessToken(String accessToken, final AsyncHandler<DeleteResponse> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("access_token", accessToken);
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+
+      String resourcePath = "identity/v2/auth/account/2fa/authenticator/securityquestionanswer";
+            
+      LoginRadiusRequest.execute("DELETE", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<DeleteResponse> typeToken = new TypeToken<DeleteResponse>() {};
+          DeleteResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
    // This API can be used to login by emailid on a Multi-factor authentication enabled LoginRadius site.
    // </summary>
    // <param name="email">user's email</param>
@@ -394,13 +603,14 @@ public class MultiFactorAuthenticationApi {
    // <param name="smsTemplate">SMS Template name</param>
    // <param name="smsTemplate2FA">SMS Template Name</param>
    // <param name="verificationUrl">Email verification url</param>
+   // <param name="emailTemplate2FA">2FA Email template name</param>
    // <returns>Complete user UserProfile data</returns>
    // 9.8.1	    
 		
 		
    public void mfaLoginByEmail(String email, String password,
-      String emailTemplate, String fields, String loginUrl, String smsTemplate, String smsTemplate2FA,
-      String verificationUrl, final AsyncHandler<MultiFactorAuthenticationResponse<Identity>> handler) {      
+      String emailTemplate, String fields, String loginUrl, String smsTemplate,
+      String smsTemplate2FA, String verificationUrl, String emailTemplate2FA,final AsyncHandler<MultiFactorAuthenticationResponse<Identity>> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(email)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("email"));
@@ -416,7 +626,6 @@ public class MultiFactorAuthenticationApi {
       if (!LoginRadiusValidator.isNullOrWhiteSpace(emailTemplate)) {
         queryParameters.put("emailTemplate", emailTemplate);
       }
-
       if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
         queryParameters.put("fields", fields);
       }
@@ -437,6 +646,9 @@ public class MultiFactorAuthenticationApi {
         queryParameters.put("verificationUrl", verificationUrl);
       }
 
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(emailTemplate2FA)) {
+        queryParameters.put("emailTemplate2FA", emailTemplate2FA);
+      }
       JsonObject bodyParameters = new JsonObject();
       bodyParameters.addProperty("email", email);
       bodyParameters.addProperty("password", password);
@@ -470,13 +682,14 @@ public class MultiFactorAuthenticationApi {
    // <param name="smsTemplate">SMS Template name</param>
    // <param name="smsTemplate2FA">SMS Template Name</param>
    // <param name="verificationUrl">Email verification url</param>
+   // <param name="emailTemplate2FA">2FA Email template name</param>
    // <returns>Complete user UserProfile data</returns>
    // 9.8.2	    
 		
 		
    public void mfaLoginByUserName(String password, String username,
-      String emailTemplate, String fields, String loginUrl, String smsTemplate, String smsTemplate2FA,
-      String verificationUrl, final AsyncHandler<MultiFactorAuthenticationResponse<Identity>> handler) {      
+      String emailTemplate,  String fields, String loginUrl, String smsTemplate,
+      String smsTemplate2FA, String verificationUrl,String emailTemplate2FA, final AsyncHandler<MultiFactorAuthenticationResponse<Identity>> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(password)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("password"));
@@ -513,6 +726,10 @@ public class MultiFactorAuthenticationApi {
         queryParameters.put("verificationUrl", verificationUrl);
       }
 
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(emailTemplate2FA)) {
+        queryParameters.put("emailTemplate2FA", emailTemplate2FA);
+      }
+
       JsonObject bodyParameters = new JsonObject();
       bodyParameters.addProperty("password", password);
       bodyParameters.addProperty("username", username);
@@ -546,13 +763,14 @@ public class MultiFactorAuthenticationApi {
    // <param name="smsTemplate">SMS Template name</param>
    // <param name="smsTemplate2FA">SMS Template Name</param>
    // <param name="verificationUrl">Email verification url</param>
+   // <param name="emailTemplate2FA">2FA Email template name</param>
    // <returns>Complete user UserProfile data</returns>
    // 9.8.3	    
 		
 		
    public void mfaLoginByPhone(String password, String phone,
-      String emailTemplate, String fields, String loginUrl, String smsTemplate, String smsTemplate2FA,
-      String verificationUrl, final AsyncHandler<MultiFactorAuthenticationResponse<Identity>> handler) {      
+      String emailTemplate, String fields, String loginUrl, String smsTemplate,
+      String smsTemplate2FA, String verificationUrl,String emailTemplate2FA, final AsyncHandler<MultiFactorAuthenticationResponse<Identity>> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(password)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("password"));
@@ -589,6 +807,9 @@ public class MultiFactorAuthenticationApi {
         queryParameters.put("verificationUrl", verificationUrl);
       }
 
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(emailTemplate2FA)) {
+        queryParameters.put("emailTemplate2FA", emailTemplate2FA);
+      }
       JsonObject bodyParameters = new JsonObject();
       bodyParameters.addProperty("password", password);
       bodyParameters.addProperty("phone", phone);
@@ -618,12 +839,16 @@ public class MultiFactorAuthenticationApi {
    // <param name="secondFactorAuthenticationToken">A Uniquely generated MFA identifier token after successful authentication</param>
    // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
    // <param name="smsTemplate2FA">SMS Template Name</param>
+   // <param name="rbaBrowserEmailTemplate"></param>
+   // <param name="rbaCityEmailTemplate"></param>
+   // <param name="rbaCountryEmailTemplate"></param>
+   // <param name="rbaIpEmailTemplate"></param>
    // <returns>Complete user UserProfile data</returns>
    // 9.12	    
 		
 		
    public void mfaValidateOTPByPhone(MultiFactorAuthModelWithLockout multiFactorAuthModelWithLockout, String secondFactorAuthenticationToken,
-      String fields, String smsTemplate2FA, final AsyncHandler<AccessToken<Identity>> handler) {
+      String fields,String smsTemplate2FA, String rbaBrowserEmailTemplate, String rbaCityEmailTemplate, String rbaCountryEmailTemplate, String rbaIpEmailTemplate, final AsyncHandler<AccessToken<Identity>> handler) {
 
       if (multiFactorAuthModelWithLockout == null) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("multiFactorAuthModelWithLockout"));
@@ -643,6 +868,22 @@ public class MultiFactorAuthenticationApi {
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(smsTemplate2FA)) {
         queryParameters.put("smsTemplate2FA", smsTemplate2FA);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaBrowserEmailTemplate)) {
+        queryParameters.put("rbaBrowserEmailTemplate", rbaBrowserEmailTemplate);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaCityEmailTemplate)) {
+        queryParameters.put("rbaCityEmailTemplate", rbaCityEmailTemplate);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaCountryEmailTemplate)) {
+        queryParameters.put("rbaCountryEmailTemplate", rbaCountryEmailTemplate);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaIpEmailTemplate)) {
+        queryParameters.put("rbaIpEmailTemplate", rbaIpEmailTemplate);
       }
 
       String resourcePath = "identity/v2/auth/login/2fa/verification/otp";
@@ -667,15 +908,18 @@ public class MultiFactorAuthenticationApi {
    // This API is used to login via Multi-factor-authentication by passing the google authenticator code.
    // </summary>
    // <param name="googleAuthenticatorCode">The code generated by google authenticator app after scanning QR code</param>
-   // <param name="secondFactorAuthenticationToken">A Uniquely generated MFA identifier token after successful authentication</param>
+   // <param name="secondFactorAuthenticationToken">SecondFactorAuthenticationToken</param>
    // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="smsTemplate2FA">SMS Template Name</param>
+   // <param name="rbaBrowserEmailTemplate">RbaBrowserEmailTemplate</param>
+   // <param name="rbaCityEmailTemplate">RbaCityEmailTemplate</param>
+   // <param name="rbaCountryEmailTemplate">RbaCountryEmailTemplate</param>
+   // <param name="rbaIpEmailTemplate">RbaIpEmailTemplate</param>
    // <returns>Complete user UserProfile data</returns>
    // 9.13	    
 		
 		
    public void mfaValidateGoogleAuthCode(String googleAuthenticatorCode, String secondFactorAuthenticationToken,
-      String fields, String smsTemplate2FA, final AsyncHandler<AccessToken<Identity>> handler) {      
+      String fields, String rbaBrowserEmailTemplate, String rbaCityEmailTemplate, String rbaCountryEmailTemplate, String rbaIpEmailTemplate, final AsyncHandler<AccessToken<Identity>> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(googleAuthenticatorCode)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("googleAuthenticatorCode"));
@@ -693,8 +937,20 @@ public class MultiFactorAuthenticationApi {
         queryParameters.put("fields", fields);
       }
 
-      if (!LoginRadiusValidator.isNullOrWhiteSpace(smsTemplate2FA)) {
-        queryParameters.put("smsTemplate2FA", smsTemplate2FA);
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaBrowserEmailTemplate)) {
+        queryParameters.put("rbaBrowserEmailTemplate", rbaBrowserEmailTemplate);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaCityEmailTemplate)) {
+        queryParameters.put("rbaCityEmailTemplate", rbaCityEmailTemplate);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaCountryEmailTemplate)) {
+        queryParameters.put("rbaCountryEmailTemplate", rbaCountryEmailTemplate);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaIpEmailTemplate)) {
+        queryParameters.put("rbaIpEmailTemplate", rbaIpEmailTemplate);
       }
 
       JsonObject bodyParameters = new JsonObject();
@@ -724,12 +980,16 @@ public class MultiFactorAuthenticationApi {
    // <param name="multiFactorAuthModelByBackupCode">Model Class containing Definition of payload for MultiFactorAuth By BackupCode API</param>
    // <param name="secondFactorAuthenticationToken">A Uniquely generated MFA identifier token after successful authentication</param>
    // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
+   // <param name="rbaBrowserEmailTemplate"></param>
+   // <param name="rbaCityEmailTemplate"></param>
+   // <param name="rbaCountryEmailTemplate"></param>
+   // <param name="rbaIpEmailTemplate"></param>
    // <returns>Complete user UserProfile data</returns>
    // 9.14	    
 		
 		
    public void mfaValidateBackupCode(MultiFactorAuthModelByBackupCode multiFactorAuthModelByBackupCode, String secondFactorAuthenticationToken,
-      String fields, final AsyncHandler<AccessToken<Identity>> handler) {
+      String fields, String rbaBrowserEmailTemplate, String rbaCityEmailTemplate, String rbaCountryEmailTemplate, String rbaIpEmailTemplate, final AsyncHandler<AccessToken<Identity>> handler) {
 
       if (multiFactorAuthModelByBackupCode == null) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("multiFactorAuthModelByBackupCode"));
@@ -745,6 +1005,22 @@ public class MultiFactorAuthenticationApi {
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
         queryParameters.put("fields", fields);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaBrowserEmailTemplate)) {
+        queryParameters.put("rbaBrowserEmailTemplate", rbaBrowserEmailTemplate);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaCityEmailTemplate)) {
+        queryParameters.put("rbaCityEmailTemplate", rbaCityEmailTemplate);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaCountryEmailTemplate)) {
+        queryParameters.put("rbaCountryEmailTemplate", rbaCountryEmailTemplate);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaIpEmailTemplate)) {
+        queryParameters.put("rbaIpEmailTemplate", rbaIpEmailTemplate);
       }
 
       String resourcePath = "identity/v2/auth/login/2fa/verification/backupcode";
@@ -846,6 +1122,218 @@ public class MultiFactorAuthenticationApi {
         public void onSuccess(String response) {
           TypeToken<SMSResponseData> typeToken = new TypeToken<SMSResponseData>() {};
           SMSResponseData successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // An API designed to send the MFA Email OTP to the email.
+   // </summary>
+   // <param name="emailIdModel">payload</param>
+   // <param name="secondFactorAuthenticationToken">SecondFactorAuthenticationToken</param>
+   // <param name="emailTemplate2FA">EmailTemplate2FA</param>
+   // <returns>Response containing Definition of Complete Validation data</returns>
+   // 9.18	    
+		
+		
+   public void mfaEmailOTP(EmailIdModel emailIdModel, String secondFactorAuthenticationToken,
+      String emailTemplate2FA, final AsyncHandler<PostResponse> handler) {
+
+      if (emailIdModel == null) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("emailIdModel"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(secondFactorAuthenticationToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("secondFactorAuthenticationToken"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+      queryParameters.put("secondFactorAuthenticationToken", secondFactorAuthenticationToken);
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(emailTemplate2FA)) {
+        queryParameters.put("emailTemplate2FA", emailTemplate2FA);
+      }
+
+      String resourcePath = "identity/v2/auth/login/2fa/otp/email";
+            
+      LoginRadiusRequest.execute("POST", resourcePath, queryParameters, gson.toJson(emailIdModel), new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<PostResponse> typeToken = new TypeToken<PostResponse>() {};
+          PostResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to Verify MFA Email OTP by MFA Token
+   // </summary>
+   // <param name="multiFactorAuthModelByEmailOtp">payload</param>
+   // <param name="secondFactorAuthenticationToken">SecondFactorAuthenticationToken</param>
+   // <param name="rbaBrowserEmailTemplate">RbaBrowserEmailTemplate</param>
+   // <param name="rbaCityEmailTemplate">RbaCityEmailTemplate</param>
+   // <param name="rbaCountryEmailTemplate">RbaCountryEmailTemplate</param>
+   // <param name="rbaIpEmailTemplate">RbaIpEmailTemplate</param>
+   // <returns>Response Containing Access Token and Complete Profile Data</returns>
+   // 9.25	    
+		
+		
+   public void mfaValidateEmailOtp(MultiFactorAuthModelByEmailOtp multiFactorAuthModelByEmailOtp, String secondFactorAuthenticationToken,
+      String rbaBrowserEmailTemplate, String rbaCityEmailTemplate, String rbaCountryEmailTemplate, String rbaIpEmailTemplate, final AsyncHandler<AccessToken<UserProfile>> handler) {
+
+      if (multiFactorAuthModelByEmailOtp == null) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("multiFactorAuthModelByEmailOtp"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(secondFactorAuthenticationToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("secondFactorAuthenticationToken"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+      queryParameters.put("secondFactorAuthenticationToken", secondFactorAuthenticationToken);
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaBrowserEmailTemplate)) {
+        queryParameters.put("rbaBrowserEmailTemplate", rbaBrowserEmailTemplate);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaCityEmailTemplate)) {
+        queryParameters.put("rbaCityEmailTemplate", rbaCityEmailTemplate);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaCountryEmailTemplate)) {
+        queryParameters.put("rbaCountryEmailTemplate", rbaCountryEmailTemplate);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaIpEmailTemplate)) {
+        queryParameters.put("rbaIpEmailTemplate", rbaIpEmailTemplate);
+      }
+
+      String resourcePath = "identity/v2/auth/login/2fa/verification/otp/email";
+            
+      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(multiFactorAuthModelByEmailOtp), new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<AccessToken<UserProfile>> typeToken = new TypeToken<AccessToken<UserProfile>>() {};
+          AccessToken<UserProfile> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to set the security questions on the profile with the MFA token when MFA flow is required.
+   // </summary>
+   // <param name="securityQuestionAnswerUpdateModel">payload</param>
+   // <param name="secondFactorAuthenticationToken">SecondFactorAuthenticationToken</param>
+   // <returns>Response Containing Access Token and Complete Profile Data</returns>
+   // 9.26	    
+		
+		
+   public void mfaSecurityQuestionAnswer(SecurityQuestionAnswerUpdateModel securityQuestionAnswerUpdateModel, String secondFactorAuthenticationToken, final AsyncHandler<AccessToken<UserProfile>> handler) {
+
+      if (securityQuestionAnswerUpdateModel == null) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("securityQuestionAnswerUpdateModel"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(secondFactorAuthenticationToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("secondFactorAuthenticationToken"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+      queryParameters.put("secondFactorAuthenticationToken", secondFactorAuthenticationToken);
+
+      String resourcePath = "identity/v2/auth/login/2fa/securityquestionanswer";
+            
+      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(securityQuestionAnswerUpdateModel), new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<AccessToken<UserProfile>> typeToken = new TypeToken<AccessToken<UserProfile>>() {};
+          AccessToken<UserProfile> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to resending the verification OTP to the provided phone number
+   // </summary>
+   // <param name="securityQuestionAnswerUpdateModel">payload</param>
+   // <param name="secondFactorAuthenticationToken">SecondFactorAuthenticationToken</param>
+   // <param name="rbaBrowserEmailTemplate">RbaBrowserEmailTemplate</param>
+   // <param name="rbaCityEmailTemplate">RbaCityEmailTemplate</param>
+   // <param name="rbaCountryEmailTemplate">RbaCountryEmailTemplate</param>
+   // <param name="rbaIpEmailTemplate">RbaIpEmailTemplate</param>
+   // <returns>Response Containing Access Token and Complete Profile Data</returns>
+   // 9.27	    
+		
+		
+   public void mfaSecurityQuestionAnswerVerification(SecurityQuestionAnswerUpdateModel securityQuestionAnswerUpdateModel, String secondFactorAuthenticationToken,
+      String rbaBrowserEmailTemplate, String rbaCityEmailTemplate, String rbaCountryEmailTemplate, String rbaIpEmailTemplate, final AsyncHandler<AccessToken<UserProfile>> handler) {
+
+      if (securityQuestionAnswerUpdateModel == null) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("securityQuestionAnswerUpdateModel"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(secondFactorAuthenticationToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("secondFactorAuthenticationToken"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+      queryParameters.put("secondFactorAuthenticationToken", secondFactorAuthenticationToken);
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaBrowserEmailTemplate)) {
+        queryParameters.put("rbaBrowserEmailTemplate", rbaBrowserEmailTemplate);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaCityEmailTemplate)) {
+        queryParameters.put("rbaCityEmailTemplate", rbaCityEmailTemplate);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaCountryEmailTemplate)) {
+        queryParameters.put("rbaCountryEmailTemplate", rbaCountryEmailTemplate);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaIpEmailTemplate)) {
+        queryParameters.put("rbaIpEmailTemplate", rbaIpEmailTemplate);
+      }
+
+      String resourcePath = "identity/v2/auth/login/2fa/verification/securityquestionanswer";
+            
+      LoginRadiusRequest.execute("POST", resourcePath, queryParameters, gson.toJson(securityQuestionAnswerUpdateModel), new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<AccessToken<UserProfile>> typeToken = new TypeToken<AccessToken<UserProfile>>() {};
+          AccessToken<UserProfile> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -1002,6 +1490,80 @@ public class MultiFactorAuthenticationApi {
         public void onSuccess(String response) {
           TypeToken<BackupCodeResponse> typeToken = new TypeToken<BackupCodeResponse>() {};
           BackupCodeResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to reset the Email OTP Authenticator settings for an MFA-enabled user.
+   // </summary>
+   // <param name="uid">UID, the unified identifier for each user account</param>
+   // <returns>Response containing Definition of Delete Request</returns>
+   // 18.42	    
+		
+		
+   public void mfaResetEmailOtpAuthenticatorByUid(String uid, final AsyncHandler<DeleteResponse> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(uid)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("uid"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      queryParameters.put("uid", uid);
+
+      String resourcePath = "identity/v2/manage/account/2fa/authenticator/otp/email";
+            
+      LoginRadiusRequest.execute("DELETE", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<DeleteResponse> typeToken = new TypeToken<DeleteResponse>() {};
+          DeleteResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to reset the Security Question Authenticator settings for an MFA-enabled user.
+   // </summary>
+   // <param name="uid">UID, the unified identifier for each user account</param>
+   // <returns>Response containing Definition of Delete Request</returns>
+   // 18.43	    
+		
+		
+   public void mfaResetSecurityQuestionAuthenticatorByUid(String uid, final AsyncHandler<DeleteResponse> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(uid)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("uid"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+      queryParameters.put("uid", uid);
+
+      String resourcePath = "identity/v2/manage/account/2fa/authenticator/securityquestionanswer";
+            
+      LoginRadiusRequest.execute("DELETE", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<DeleteResponse> typeToken = new TypeToken<DeleteResponse>() {};
+          DeleteResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 

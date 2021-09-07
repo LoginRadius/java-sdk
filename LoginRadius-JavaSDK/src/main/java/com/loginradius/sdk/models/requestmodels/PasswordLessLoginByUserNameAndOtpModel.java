@@ -6,11 +6,6 @@
  */
 
 package com.loginradius.sdk.models.requestmodels;
-import java.util.Map;
-import java.util.List;
-import java.util.UUID;
-import com.google.gson.JsonObject;
-import com.loginradius.sdk.models.responsemodels.userprofile.objects.*;
 import com.google.gson.annotations.SerializedName;
 
 	// <summary>

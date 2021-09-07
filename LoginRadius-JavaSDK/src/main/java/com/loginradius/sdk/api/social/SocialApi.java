@@ -1325,46 +1325,6 @@ public class SocialApi {
    }
    
    // <summary>
-   // The User Profile API is used to get social profile data from the user's social account after authentication.<br><br><b>Supported Providers:</b>  All
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <returns>Response containing Definition for Complete UserProfile data</returns>
-   // 38.1	    
-		
-		
-   public void getSocialUserProfile(String accessToken, String fields, final AsyncHandler<UserProfile> handler) {      
-
-      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
-        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
-      }
-			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("access_token", accessToken);
-
-      if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
-        queryParameters.put("fields", fields);
-      }
-
-      String resourcePath = "api/v2/userprofile";
-            
-      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
-			
-        @Override
-        public void onSuccess(String response) {
-          TypeToken<UserProfile> typeToken = new TypeToken<UserProfile>() {};
-          UserProfile successResponse = JsonDeserializer.deserializeJson(response,typeToken);
-          handler.onSuccess(successResponse);
-        }
-
-        @Override
-        public void onFailure(ErrorResponse errorResponse) {
-          handler.onFailure(errorResponse);
-        }
-      });
-   }
-   
-   // <summary>
    // The User Profile API is used to get the latest updated social profile data from the user's social account after authentication. The social profile will be retrieved via oAuth and OpenID protocols. The data is normalized into LoginRadius' standard data format. This API should be called using the access token retrieved from the refresh access token API.
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>

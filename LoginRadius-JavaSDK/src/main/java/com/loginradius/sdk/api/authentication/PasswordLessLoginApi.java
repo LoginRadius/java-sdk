@@ -261,10 +261,10 @@ public class PasswordLessLoginApi {
    }
    
    // <summary>
-   // 
+   // This API is used to verify the otp sent to the email when doing a passwordless login. 
    // </summary>
-   // <param name="passwordLessLoginByEmailAndOtpModel"></param>
-   // <param name="fields"></param>
+   // <param name="passwordLessLoginByEmailAndOtpModel">payload</param>
+   // <param name="fields">Fields</param>
    // <returns>Response containing User Profile Data and access token</returns>
    // 9.23	    
 		
@@ -301,10 +301,10 @@ public class PasswordLessLoginApi {
    }
    
    // <summary>
-   // 
+   // This API is used to verify the otp sent to the email when doing a passwordless login.
    // </summary>
-   // <param name="passwordLessLoginByUserNameAndOtpModel"></param>
-   // <param name="fields"></param>
+   // <param name="passwordLessLoginByUserNameAndOtpModel">payload</param>
+   // <param name="fields">Fields</param>
    // <returns>Response containing User Profile Data and access token</returns>
    // 9.24	    
 		

@@ -45,7 +45,6 @@ import com.loginradius.sdk.util.ErrorResponse;
 import com.loginradius.sdk.util.LoginRadiusSDK;
 
 
-
 public class AuthenticationApi {
    private static Gson gson =new Gson();
 
@@ -392,11 +391,14 @@ public class AuthenticationApi {
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
+   // <param name="emailTemplate"></param>
+   // <param name="verificationUrl"></param>
+   // <param name="welcomeEmailTemplate"></param>
    // <returns>Response containing Definition for Complete profile data</returns>
    // 5.2	    
 		
 		
-   public void getProfileByAccessToken(String accessToken, String fields, final AsyncHandler<Identity> handler) {      
+   public void getProfileByAccessToken(String accessToken, String fields, String emailTemplate,String verificationUrl, String welcomeEmailTemplate, final AsyncHandler<Identity> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
@@ -408,6 +410,18 @@ public class AuthenticationApi {
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
         queryParameters.put("fields", fields);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(emailTemplate)) {
+        queryParameters.put("emailTemplate", emailTemplate);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(verificationUrl)) {
+        queryParameters.put("verificationUrl", verificationUrl);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(welcomeEmailTemplate)) {
+        queryParameters.put("welcomeEmailTemplate", welcomeEmailTemplate);
       }
 
       String resourcePath = "identity/v2/auth/account";
@@ -656,13 +670,13 @@ public class AuthenticationApi {
    }
    
    // <summary>
-   // 
+   // This API is used to get a user's profile using the clientGuid parameter if no callback feature enabled
    // </summary>
-   // <param name="clientGuid"></param>
-   // <param name="emailTemplate"></param>
-   // <param name="fields"></param>
-   // <param name="verificationUrl"></param>
-   // <param name="welcomeEmailTemplate"></param>
+   // <param name="clientGuid">ClientGuid</param>
+   // <param name="emailTemplate">EmailTemplate</param>
+   // <param name="fields">Fields</param>
+   // <param name="verificationUrl">VerificationUrl</param>
+   // <param name="welcomeEmailTemplate">WelcomeEmailTemplate</param>
    // <returns>Response containing User Profile Data and access token</returns>
    // 5.16	    
 		

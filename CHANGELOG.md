@@ -1,5 +1,47 @@
 > **LoginRadius Java SDK Change Log** provides information regarding what has changed, more specifically what changes, improvements and bug fix has been made to the SDK. For more details please refer to the [LoginRadius API Documention(https://www.loginradius.com/docs/api/v2/deployment/sdk-libraries/java-library/)
 
+# Version 11.2.0
+Release on September 7, 2021
+
+## Enhancements
+
+- Updated Jquery with latest version(3.6.0) in SDK Demo
+
+
+## Added new multiple APIs for better user experience
+
+- MFAEmailOtpByAccessToken
+- MFAValidateEmailOtpByAccessToken
+- MFAResetEmailOtpAuthenticatorByAccessToken
+- MFASecurityQuestionAnswerByAccessToken
+- MFAResetSecurityQuestionAuthenticatorByAccessToken
+- MFAEmailOTP
+- MFAValidateEmailOtp
+- MFASecurityQuestionAnswer
+- MFASecurityQuestionAnswerVerification
+- MFAResetEmailOtpAuthenticatorByUid
+- MFAResetSecurityQuestionAuthenticatorByUid
+- ReAuthValidateEmailOtp
+- ReAuthSendEmailOtp
+- ReAuthBySecurityQuestion
+
+#### Added `EmailTemplate2FA` parameter in the following API 
+- MFALoginByEmail
+- MFALoginByUserName
+- MFALoginByPhone
+
+#### Added 	`RbaBrowserEmailTemplate`, `RbaCityEmailTemplate` ,`RbaCountryEmailTemplate` , `RbaIpEmailTemplate` parameter in the following API 
+- MFAValidateOTPByPhone
+- MFAValidateGoogleAuthCode
+- MFAValidateBackupCode
+
+#### Added 	`emailTemplate`, `verificationUrl` ,`welcomeEmailTemplate`  parameter in the following API 
+
+- GetProfileByAccessToken
+
+#### Removed `smsTemplate2FA ` parameter from the following API 
+- mfaValidateGoogleAuthCode
+
 # Version 11.1.0
 Release on April 21, 2021
 
