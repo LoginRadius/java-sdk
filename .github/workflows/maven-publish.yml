@@ -1,5 +1,8 @@
 name: release-to-maven-central
 on:
+  push:
+    branches: [ master ]
+    
   workflow_dispatch:
     inputs:
       releaseversion:
