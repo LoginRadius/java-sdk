@@ -6,7 +6,7 @@ LoginRadius Customer Identity and Access Management SDK for Java
 
 ## Introduction ##
 
-LoginRadius Java Customer Registration wrapper provides access to LoginRadius Identity Management Platform API.
+LoginRadius Java Customer Registration wrapper provides access to LoginRadius Identity Management Platform API. 
 
 LoginRadius is an Identity Management Platform that simplifies user registration while securing data. LoginRadius Platform simplifies and secures your user registration process, increases conversion with Social Login that combines 30 major social platforms, and offers a full solution with Traditional User Registration. You can gather a wealth of user profile data from Social Login or Traditional User Registration. 
 
