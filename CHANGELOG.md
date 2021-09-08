@@ -7,6 +7,7 @@ Release on September 7, 2021
 
 - Updated Jquery with latest version(3.6.0) in SDK Demo
 
+
 ## Added new multiple APIs for better user experience
 
 - MFAEmailOtpByAccessToken
