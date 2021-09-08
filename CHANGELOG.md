@@ -3,6 +3,7 @@
 # Version 11.2.0
 Release on September 7, 2021
 
+
 ## Enhancements
 
 - Updated Jquery with latest version(3.6.0) in SDK Demo
