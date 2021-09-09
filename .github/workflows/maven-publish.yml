@@ -40,7 +40,7 @@ jobs:
 
 
     - name: Publish to Apache Maven Central
-      run: mvn deploy
+      run: mvn deploy --file LoginRadius-JavaSDK/pom.xml
       env:
         MAVEN_USERNAME: ${{secrets.MAVEN_USERNAME}}
         MAVEN_CENTRAL_TOKEN: ${{secrets.MAVEN_PASSWORD}}
