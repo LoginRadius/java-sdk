@@ -20,16 +20,16 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-       
-    - name: Build with Maven
-      run: mvn -B verify --file LoginRadius-JavaSDK/pom.xml
-      
     - name: Import GPG key
       id: import_gpg
       uses: crazy-max/ghaction-import-gpg@v4
       with:
           gpg_private_key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+    - name: Build with Maven
+      run: mvn -B verify --file LoginRadius-JavaSDK/pom.xml
+      
+   
     - name: Set up Apache Maven Central
       uses: actions/setup-java@v1
       with: # running setup-java again overwrites the settings.xml
