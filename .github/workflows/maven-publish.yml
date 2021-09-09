@@ -37,8 +37,6 @@ jobs:
         server-id: maven # Value of the distributionManagement/repository/id field of the pom.xml
         server-username:  ${{secrets.MAVEN_USERNAME}} # env variable for username in deploy
         server-password:  ${{secrets.MAVEN_PASSWORD}} # env variable for token in deploy
-        gpg-private-key:  ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
-        gpg-passphrase:    ${{ secrets.MAVEN_GPG_PASSPHRASE }} # env variable for GPG private key passphrase
 
 
     - name: Publish to Apache Maven Central
