@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,7 @@ import com.loginradius.sdk.api.advanced.CustomObjectApi;
 import com.loginradius.sdk.api.advanced.MultiFactorAuthenticationApi;
 import com.loginradius.sdk.api.authentication.AuthenticationApi;
 import com.loginradius.sdk.api.authentication.PasswordLessLoginApi;
+import com.loginradius.sdk.api.cloud.SsoJwtApi;
 import com.loginradius.sdk.models.enums.CustomObjectUpdateOperationType;
 import com.loginradius.sdk.models.requestmodels.AccountUserProfileUpdateModel;
 import com.loginradius.sdk.models.requestmodels.AuthUserRegistrationModel;
@@ -29,10 +31,12 @@ import com.loginradius.sdk.models.requestmodels.EmailAuthenticationModel;
 import com.loginradius.sdk.models.requestmodels.EmailModel;
 import com.loginradius.sdk.models.requestmodels.ResetPasswordByResetTokenModel;
 import com.loginradius.sdk.models.requestmodels.RolesModel;
+import com.loginradius.sdk.models.requestmodels.SsoAuthenticationModel;
 import com.loginradius.sdk.models.responsemodels.AccessToken;
 import com.loginradius.sdk.models.responsemodels.AccessTokenBase;
 import com.loginradius.sdk.models.responsemodels.ListData;
 import com.loginradius.sdk.models.responsemodels.MultiFactorAuthenticationResponse;
+import com.loginradius.sdk.models.responsemodels.SsoJwtResponseData;
 import com.loginradius.sdk.models.responsemodels.UserCustomObjectData;
 import com.loginradius.sdk.models.responsemodels.UserPasswordHash;
 import com.loginradius.sdk.models.responsemodels.configobjects.EmailVerificationData;
@@ -59,6 +63,11 @@ public class LoginRadiusService {
 	private String apisecret;
 	@Value("${server.port}")
 	private String server_port;
+	@Value("${app.jwtFlow}")
+	private Boolean jwtFlow;
+	@Value("${app.jwtAppName}")
+	private String jwtAppName;
+	
 	Gson gson = new Gson();
 	private LoginRadiusSDK.Initialize init = new LoginRadiusSDK.Initialize();
 
@@ -70,33 +79,60 @@ public class LoginRadiusService {
 	public void init() {
 		init.setApiKey(apikey);
 		init.setApiSecret(apisecret);
-
 		emailverification = "http://localhost:" + server_port + "/emailverification";
 		resetpassword = "http://localhost:" + server_port + "/resetpassword";
 	}
 
 	public String login(HttpServletRequest request) {
 
-		AuthenticationApi auth = new AuthenticationApi();
-		EmailAuthenticationModel payload = new EmailAuthenticationModel();
-		payload.setEmail(request.getParameter("email"));
-		payload.setPassword(request.getParameter("password"));
+		
+		if(jwtFlow && jwtAppName!=null && !jwtAppName.isEmpty()) {
+			//JWT Flow
+			SsoJwtApi ssoJwtApi=new SsoJwtApi() ;
+			SsoAuthenticationModel ssoAuthenticationModel=new SsoAuthenticationModel();
+			ssoAuthenticationModel.setEmail(request.getParameter("email"));
+			ssoAuthenticationModel.setPassword(request.getParameter("password"));
+			String emailTemplate = ""; //Optional
+			String loginUrl = ""; //Optional
+			String verificationUrl = ""; //Optional
+			
+			ssoJwtApi.jwtTokenByEmail(ssoAuthenticationModel,jwtAppName, emailTemplate, loginUrl,verificationUrl, new AsyncHandler<SsoJwtResponseData>() {
+				
+				@Override
+				public void onSuccess(SsoJwtResponseData response) {
+					 resp=decodeJWTBody(response.getSignature());
+				}
 
-		auth.loginByEmail(payload, null, null, null, null, new AsyncHandler<AccessToken<Identity>>() {
+				@Override
+				public void onFailure(ErrorResponse error) {
+					resp = error.getDescription();
+				}
+			} );
+		
+		}else {
+			//Email login flow
+			AuthenticationApi auth = new AuthenticationApi();
+			EmailAuthenticationModel payload = new EmailAuthenticationModel();
+			payload.setEmail(request.getParameter("email"));
+			payload.setPassword(request.getParameter("password"));
 
-			@Override
-			public void onSuccess(AccessToken<Identity> profile) {
-				// TODO Auto-generated method stub
-				resp = gson.toJson(profile);
-			}
+			auth.loginByEmail(payload, null, null, null, null, new AsyncHandler<AccessToken<Identity>>() {
 
-			@Override
-			public void onFailure(ErrorResponse error) {
-				// TODO Auto-generated method stub
-				resp = error.getDescription();
-			}
+				@Override
+				public void onSuccess(AccessToken<Identity> profile) {
+					// TODO Auto-generated method stub
+					resp = gson.toJson(profile);
+				}
 
-		});
+				@Override
+				public void onFailure(ErrorResponse error) {
+					// TODO Auto-generated method stub
+					resp = error.getDescription();
+				}
+
+			});
+			
+		}
 
 		return resp;
 
@@ -598,7 +634,8 @@ public class LoginRadiusService {
 		});
 		return resp;
 	}
-
+	
+	
 	private JsonObject getRequestBody(HttpServletRequest request) {
 		String line;
 		StringBuffer buffer = new StringBuffer();
@@ -613,7 +650,18 @@ public class LoginRadiusService {
 			return null;
 		}
 	}
+	
+	
+    private  String decodeJWTBody(String jwtToken)
 
+    {
+
+        String[] splitToken = jwtToken.split("\\.");
+        String encodedBody= splitToken[1];
+        Base64 base64Url = new Base64(true);
+        String body = new String(base64Url.decode(encodedBody));
+        return body;
+    }
 	private String getSott() {
 		try {
 			return Sott.getSott(null);

@@ -1,5 +1,20 @@
 > **LoginRadius Java SDK Change Log** provides information regarding what has changed, more specifically what changes, improvements and bug fix has been made to the SDK. For more details please refer to the [LoginRadius API Documention(https://www.loginradius.com/docs/api/v2/deployment/sdk-libraries/java-library/)
 
+
+# Version 11.3.0
+Release on October 10, 2021
+
+
+## Enhancements
+
+- Added JWT Login feature in SDK demo
+
+## Added new multiple APIs for better user experience
+- JWT token by Access Token
+- JWT token by Email and Password
+- JWT token by Username and Password
+- JWT token by Phone and Password
+
 # Version 11.2.0
 Release on September 7, 2021
 

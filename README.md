@@ -6,7 +6,7 @@ LoginRadius Customer Identity and Access Management SDK for Java
 
 ## Introduction ##
 
-LoginRadius Java Customer Registration wrapper provides access to LoginRadius Identity Management Platform API. 
+LoginRadius Java Customer Registration wrapper provides access to LoginRadius Identity Management Platform API.
 
 LoginRadius is an Identity Management Platform that simplifies user registration while securing data. LoginRadius Platform simplifies and secures your user registration process, increases conversion with Social Login that combines 30 major social platforms, and offers a full solution with Traditional User Registration. You can gather a wealth of user profile data from Social Login or Traditional User Registration. 
 
@@ -27,7 +27,7 @@ Use the following dependency in your project:
 <dependency>
   <groupId>com.loginradius.sdk</groupId>
   <artifactId>java-sdk</artifactId>
-  <version>11.2.0</version>
+  <version>11.3.0</version>
 </dependency>
 
 ```
@@ -7646,9 +7646,132 @@ webHookApi.webHookUnsubscribe( webHookSubscribeModel ,  new AsyncHandler<DeleteR
 ```
 
   
+### SSO JWT API
+
+
+List of APIs in this Section:<br>
+
+* GET : [JWT token by Access Token](#JWTtokenbyAccessToken-post-)<br>
+* POST : [JWT token by Email and Password](#JWTtokenbyEmailandPassword-post-)<br>
+* POST : [JWT token by Username and Password](#JWTtokenbyUsernameandPassword-post-)<br>
+* POST : [JWT token by Phone and Password](#JWTtokenbyPhoneandPassword-post-)<br>
+
+
+<h6 id="JWTtokenbyAccessToken-get-">JWT token by Access Token (POST)</h6>
+This API is used to get the JWT token by access token. [More info](https://www.loginradius.com/docs/api/v2/single-sign-on/federated-sso/jwt-login/jwt-token/)
+
+```
+SsoJwtApi ssoJwtApi=new SsoJwtApi() ;
+String accessToken="<AccessToken>";
+String jwtAppName="<JwtAppName>";
+ssoJwtApi.jwtTokenByAccessToken(accessToken, jwtAppName, new AsyncHandler<SsoJwtResponseData>() {
+@Override
+public void onSuccess(SsoJwtResponseData response) {
+System.out.println(response.getSignature());
+}
+
+@Override
+public void onFailure(ErrorResponse error) {
+System.out.println(error.getDescription());
+}
+} );	
+
+
+```
+
+<h6 id="JWTtokenbyEmailandPassword-post-">JWT token by Email and Password (POST)</h6>
+This API is used to get a JWT token by Email and Password. [More info](https://www.loginradius.com/docs/api/v2/single-sign-on/federated-sso/jwt-login/jwt-token-by-email)
+
+```
+
+SsoJwtApi ssoJwtApi=new SsoJwtApi() ;
+SsoAuthenticationModel ssoAuthenticationModel=new SsoAuthenticationModel();
+ssoAuthenticationModel.setEmail("<email>");
+ssoAuthenticationModel.setPassword("<Password>");
+
+String emailTemplate = "<emailTemplate>"; //Optional
+String loginUrl = "<loginUrl>"; //Optional
+String verificationUrl = "<verificationUrl>"; //Optional
+String jwtAppName="<JwtAppName>";
+
+ssoJwtApi.jwtTokenByEmail(ssoAuthenticationModel,jwtAppName, emailTemplate, loginUrl,verificationUrl, new AsyncHandler<SsoJwtResponseData>() {
+
+@Override
+public void onSuccess(SsoJwtResponseData response) {
+System.out.println(response.getSignature());
+}
+
+@Override
+public void onFailure(ErrorResponse error) {
+System.out.println(error.getDescription());
+}
+} );
+
+```
+
+<h6 id="JWTtokenbyUsernameandPassword-post-">JWT token by Username and Password (POST)</h6>
+ This API is used to get JWT token by Username and password  [More info](https://www.loginradius.com/docs/api/v2/single-sign-on/federated-sso/jwt-login/jwt-token-by-username/)
+
+```
+SsoJwtApi ssoJwtApi=new SsoJwtApi() ;
+SsoAuthenticationModel ssoAuthenticationModel=new SsoAuthenticationModel();
+ssoAuthenticationModel.setUserName("<username>");
+ssoAuthenticationModel.setPassword("<Password>");
+
+String emailTemplate = "<emailTemplate>"; //Optional
+String loginUrl = "<loginUrl>"; //Optional
+String verificationUrl = "<verificationUrl>"; //Optional
+String jwtAppName="<JwtAppName>";
+
+ssoJwtApi.jwtTokenByUserName(ssoAuthenticationModel,jwtAppName, emailTemplate, loginUrl,verificationUrl, new AsyncHandler<SsoJwtResponseData>() {
+
+@Override
+public void onSuccess(SsoJwtResponseData response) {
+System.out.println(response.getSignature());
+}
+
+@Override
+public void onFailure(ErrorResponse error) {
+System.out.println(error.getDescription());
+}
+} );
+
+		
+
+
+```
+
+
+<h6 id="JWTtokenbyPhoneandPassword-post-">JWT token by Phone and Password (POST)</h6>
+This API is used to get JWT token by phone and password [More info](https://www.loginradius.com/docs/api/v2/single-sign-on/federated-sso/jwt-login/jwt-token-by-phone)
+
+```
+SsoJwtApi ssoJwtApi=new SsoJwtApi() ;
+SsoAuthenticationModel ssoAuthenticationModel=new SsoAuthenticationModel();
+ssoAuthenticationModel.setPhone("<phone>");
+ssoAuthenticationModel.setPassword("<Password>");
+
+String emailTemplate = "<emailTemplate>"; //Optional
+String loginUrl = "<loginUrl>"; //Optional
+String verificationUrl = "<verificationUrl>"; //Optional
+String jwtAppName="<JwtAppName>";
+
+ssoJwtApi.jwtTokenByPhone(ssoAuthenticationModel,jwtAppName, emailTemplate, loginUrl,verificationUrl, new AsyncHandler<SsoJwtResponseData>() {
+
+@Override
+public void onSuccess(SsoJwtResponseData response) {
+System.out.println(response.getSignature());
+}
+
+@Override
+public void onFailure(ErrorResponse error) {
+System.out.println(error.getDescription());
+}
+} );
 
 
 
+```
 
 
 
@@ -7688,6 +7811,14 @@ Terminal/Command Line:
 	* Server side (note: do not set credentials as strings i.e. with quotes): `src/main/resources/application.properties`
 4. Navigate to the demo directory, and run: `mvn spring-boot:run`
 5. Demo will appear on `http://localhost:8080`
+
+#### Steps to enable JWT login in the demo
+
+ - JWT login can be enabled in the demo by setting ``app.jwtFlow`` to true under  `src/main/resources/static/js/options.js`.
+ - Configure JWT App from [LoginRadius Admin console](https://adminconsole.loginradius.com/platform-configuration/access-configuration/federated-sso/jwt), to know more about how to configure JWT App you can refer [JWT Documentation](https://www.loginradius.com/docs/single-sign-on/tutorial/federated-sso/jwt-login/jwt-login-overview/#jwt-login-overview).
+ - Add JWT app name ``app.jwtAppName`` under  `src/main/resources/static/js/options.js`.
+
+
 
 IDE:
 

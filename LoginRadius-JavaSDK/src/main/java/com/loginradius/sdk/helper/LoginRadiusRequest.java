@@ -62,6 +62,9 @@ public class LoginRadiusRequest {
 		if (resourcePath.equals("ciam/appinfo")) {
 			serviceUrl = LoginRadiusSDK.getConfigDomain() + "/" + resourcePath;
 		}
+		if (resourcePath.contains("sso/")) {
+			serviceUrl = LoginRadiusSDK.getCloudDomain() + "/" + resourcePath;
+		}
 		if (params.containsKey("sott")) {
 			sott = params.get("sott");
 			params.remove("sott");

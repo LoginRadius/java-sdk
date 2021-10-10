@@ -10,6 +10,7 @@ public class LoginRadiusSDK {
 
 	private static String LOGINRADIUS_API_ROOT = "https://api.loginradius.com";
 	private static String LOGINRADIUS_API_CONFIG_ROOT = "https://config.lrcontent.com";
+	private static String LOGINRADIUS_API_CLOUD_ROOT = "https://cloud-api.loginradius.com";
 
 	public static class Initialize {
 
@@ -64,6 +65,7 @@ public class LoginRadiusSDK {
 		public static void setReadTimeout(final Integer readTimeout) {
 			Initialize.readTimeout = readTimeout;
 		}
+
 	}
 
 	public static String getApiKey() {
@@ -81,7 +83,9 @@ public class LoginRadiusSDK {
 	public static String getDomain() {
 		return LOGINRADIUS_API_ROOT;
 	}
-
+	public static String getCloudDomain() {
+		return LOGINRADIUS_API_CLOUD_ROOT;
+	}
 	public static String getConfigDomain() {
 		return LOGINRADIUS_API_CONFIG_ROOT;
 	}
@@ -110,6 +114,7 @@ public class LoginRadiusSDK {
 	public static Integer getReadTimeout() {
 		return Initialize.readTimeout;
 	}
+
 
 	
 	public static boolean validate() {

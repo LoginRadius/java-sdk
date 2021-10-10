@@ -6,7 +6,7 @@
 
     <groupId>com.loginradius.sdk</groupId>
     <artifactId>java-sdk</artifactId>
-    <version>11.2.0</version>
+    <version>11.3.0</version>
     <name>LoginRadius-CustomerIdentity-JavaSDK</name>
     <description>LoginRadius Java SDK</description>
     <url>https://github.com/LoginRadius/java-sdk</url>
@@ -54,6 +54,7 @@
      <version>1.9</version>
    </dependency>
 </dependencies>
+
 
     <distributionManagement>
         <snapshotRepository>

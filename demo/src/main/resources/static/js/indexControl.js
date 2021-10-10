@@ -18,8 +18,14 @@ function login_traditional() {
                 password: $("#minimal-login-password").val()
             }),
             success: function(res) {
+            if(res.hasOwnProperty("sub")){
+                console.log("Jwt Login success::", res);
+                alert("Jwt Login Successful, Following is the decoded JWT payload\n\n"+JSON.stringify(res)+"\n ");
+            }else{
                 console.log("Login success::", res);
                 getProfile(res.access_token, res.Profile.Uid);
+            }
+
             },
             error: function(xhr, status, error) {
                 console.log("Login err::", xhr.responseText);
