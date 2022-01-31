@@ -39,3 +39,4 @@ jobs:
       env:
         MAVEN_USERNAME: ${{secrets.MAVEN_USERNAME}}
         MAVEN_CENTRAL_TOKEN: ${{secrets.MAVEN_PASSWORD}}
+        MAVEN_OPTS: ${{secrets.MAVEN_OPTS}}
