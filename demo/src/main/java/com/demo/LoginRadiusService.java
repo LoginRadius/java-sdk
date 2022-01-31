@@ -44,6 +44,8 @@ import com.loginradius.sdk.models.responsemodels.otherobjects.AccountRolesModel;
 import com.loginradius.sdk.models.responsemodels.otherobjects.DeleteResponse;
 import com.loginradius.sdk.models.responsemodels.otherobjects.PostResponse;
 import com.loginradius.sdk.models.responsemodels.otherobjects.RoleModel;
+import com.loginradius.sdk.models.responsemodels.otherobjects.ServiceInfoModel;
+import com.loginradius.sdk.models.responsemodels.otherobjects.ServiceSottInfo;
 import com.loginradius.sdk.models.responsemodels.otherobjects.UserProfilePostResponse;
 import com.loginradius.sdk.models.responsemodels.userprofile.Identity;
 import com.loginradius.sdk.util.AsyncHandler;
@@ -663,8 +665,30 @@ public class LoginRadiusService {
         return body;
     }
 	private String getSott() {
+		ServiceSottInfo serviceSottInfo=new ServiceSottInfo();
+		
+		// You can pass the start and end time interval and the SOTT will be valid for this time duration. 
+
+		serviceSottInfo.setStartTime("");  // Valid Start Date with Date and time
+
+		serviceSottInfo.setEndTime(""); // Valid End Date with Date and time
+										
+		// Or you can pass the time difference in minutes for setting up the validity of SOTT, if you do not pass the time difference then the default value is 10 minutes
+										
+		serviceSottInfo.setTimeDifference("20");  // (Optional) The time difference will be used to set the expiration time of SOTT, If you do not pass time difference then the default expiration time of SOTT is 10 minutes.
+										
+						
+		ServiceInfoModel service=new ServiceInfoModel();
+						
+		service.setSott(serviceSottInfo);
+
+		
+		//The LoginRadius API key and primary API secret can be passed additionally, If the credentials will not be passed then this SOTT function will pick the API credentials from the SDK configuration. 				
+		String apiKey="";//(Optional) LoginRadius Api Key.
+		String apiSecret="";//(Optional) LoginRadius Api Secret (Only Primary Api Secret is used to generate the SOTT manually).
+		
 		try {
-			return Sott.getSott(null);
+			return Sott.getSott(service,apiKey,apiSecret);
 		} catch (Exception e) {
 			return "";
 		}

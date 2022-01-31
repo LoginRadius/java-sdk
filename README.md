@@ -27,7 +27,7 @@ Use the following dependency in your project:
 <dependency>
   <groupId>com.loginradius.sdk</groupId>
   <artifactId>java-sdk</artifactId>
-  <version>11.3.0</version>
+  <version>11.3.1</version>
 </dependency>
 
 ```
@@ -7777,6 +7777,45 @@ System.out.println(error.getDescription());
 
 <br>
 
+### Generate SOTT Manually
+
+SOTT is a secure one-time token that can be created using the API key, API secret, and a timestamp ( start time and end time ). You can manually create a SOTT using the following util function.
+
+```
+ServiceSottInfo serviceSottInfo=new ServiceSottInfo();
+		
+// You can pass the start and end time interval and the SOTT will be valid for this time duration. 
+
+serviceSottInfo.setStartTime("2021-01-10 07:10:42");  // Valid Start Date with Date and time
+
+serviceSottInfo.setEndTime("2023-01-15 07:20:42"); // Valid End Date with Date and time
+								
+// Or you can pass the time difference in minutes for setting up the validity of SOTT, if you do not pass the time difference then the default value is 10 minutes
+								
+serviceSottInfo.setTimeDifference("20");  // (Optional) The time difference will be used to set the expiration time of SOTT, If you do not pass time difference then the default expiration time of SOTT is 10 minutes.
+								
+				
+ServiceInfoModel service=new ServiceInfoModel();
+				
+service.setSott(serviceSottInfo);
+				
+				
+//The LoginRadius API key and primary API secret can be passed additionally, If the credentials will not be passed then this SOTT function will pick the API credentials from the SDK configuration. 				
+		
+String apiKey="";//(Optional) LoginRadius Api Key.
+		
+String apiSecret="";//(Optional) LoginRadius Api Secret (Only Primary Api Secret is used to generate the SOTT manually).	
+
+try {
+	String sottResponse = Sott.getSott(service,apiKey,apiSecret);
+	System.out.println("sott = " + sottResponse);     
+	          
+} catch (Exception e) {
+	e.printStackTrace();
+				  
+}
+
+```
 
 ### Demo
 We have a demo web application using the Java SDK, which includes the following features:

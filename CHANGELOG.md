@@ -1,6 +1,20 @@
 > **LoginRadius Java SDK Change Log** provides information regarding what has changed, more specifically what changes, improvements and bug fix has been made to the SDK. For more details please refer to the [LoginRadius API Documention(https://www.loginradius.com/docs/api/v2/deployment/sdk-libraries/java-library/)
 
 
+# Version 11.3.1
+Release on January 28, 2022
+
+
+## Enhancements
+
+- Added a feature to add ApiKey and ApiSecret directly in LoginRadius manual SOTT generation method.
+- Code optimization for better performance.
+- Added Licence and Contribution Guideline files.
+
+## Breaking Changes
+
+For developers migrating from v11.3.0, there will be 1 minor breaking change in terms of SDK implementation. In this version, we have added a feature to add ApiKey & ApiSecret directly into the manual SOTT generation method `getSott()`.
+
 # Version 11.3.0
 Release on October 10, 2021
 

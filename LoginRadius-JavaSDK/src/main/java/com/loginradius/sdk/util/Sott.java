@@ -31,41 +31,43 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
+import com.loginradius.sdk.helper.LoginRadiusValidator;
 import com.loginradius.sdk.models.responsemodels.otherobjects.ServiceInfoModel;
 
 public class Sott {
 
 	private static String initVector = "tu89geji340t89u2";
 
-	public static String getSott(ServiceInfoModel service) throws java.lang.Exception {
-		String secret = LoginRadiusSDK.getApiSecret();
-		String key = LoginRadiusSDK.getApiKey();
+	// <summary>
+	// Generate SOTT Manually.
+	// </summary>
+	// <param name="service">ServiceInfoModel Model Class containing Definition of payload for SOTT</param>
+	// <param name="apiKey">LoginRadius Api Key.</param>
+	// <param name="apiSecret">LoginRadius Api Secret.</param>
+	// <returns>Sott data</returns> 
+	   
+	public static String getSott(ServiceInfoModel service,String apiKey,String apiSecret) throws java.lang.Exception {
+		String secret = !LoginRadiusValidator.isNullOrWhiteSpace(apiSecret)? apiSecret:LoginRadiusSDK.getApiSecret();
+		String key =  !LoginRadiusValidator.isNullOrWhiteSpace(apiKey)? apiKey:LoginRadiusSDK.getApiKey();
 		String token = null;
-		if (service != null && service.getSott().getStartTime() != null && service.getSott().getEndTime() != null) {
+		
+		if (service != null && !LoginRadiusValidator.isNullOrWhiteSpace(service.getSott().getStartTime()) && !LoginRadiusValidator.isNullOrWhiteSpace(service.getSott().getEndTime()) ) {
 			String plaintext = service.getSott().getStartTime() + "#" + key + "#" + service.getSott().getEndTime();
-			token = encrypt(plaintext, secret);
-		} else if (service != null && service.getSott().getTimeDifference() != null
-				&& !service.getSott().getTimeDifference().equals("")) {
-			TimeZone timeZone = TimeZone.getTimeZone("UTC");
-			Calendar calendar = Calendar.getInstance(timeZone);
-			DateFormat dateFormat = new SimpleDateFormat("yyyy/M/d H:m:s", Locale.US);
-			dateFormat.setTimeZone(timeZone);
-			String plaintext = dateFormat.format(calendar.getTime()) + "#" + key + "#";
-			int time = Integer.parseInt(service.getSott().getTimeDifference());
-			calendar.add(Calendar.MINUTE, time);
-			plaintext += dateFormat.format(calendar.getTime());
-			token = encrypt(plaintext, secret);
+			token = encrypt(plaintext, secret);	
 		} else {
+			
+			String timeDifference =(service!=null && !LoginRadiusValidator.isNullOrWhiteSpace(service.getSott().getTimeDifference())) ?service.getSott().getTimeDifference():"10";
 			TimeZone timeZone = TimeZone.getTimeZone("UTC");
 			Calendar calendar = Calendar.getInstance(timeZone);
 			DateFormat dateFormat = new SimpleDateFormat("yyyy/M/d H:m:s", Locale.US);
 			dateFormat.setTimeZone(timeZone);
 			String plaintext = dateFormat.format(calendar.getTime()) + "#" + key + "#";
-			calendar.add(Calendar.MINUTE, 10);
+			calendar.add(Calendar.MINUTE, Integer.parseInt(timeDifference));
 			plaintext += dateFormat.format(calendar.getTime());
 			token = encrypt(plaintext, secret);
+			
 		}
-
+		
 		String finalToken = token + "*" + createMd5(token);
 		return finalToken;
 	}
