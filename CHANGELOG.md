@@ -1,6 +1,16 @@
 > **LoginRadius Java SDK Change Log** provides information regarding what has changed, more specifically what changes, improvements and bug fix has been made to the SDK. For more details please refer to the [LoginRadius API Documention(https://www.loginradius.com/docs/api/v2/deployment/sdk-libraries/java-library/)
 
 
+# Version 11.4.0
+Release on June 1, 2022
+
+
+## Enhancements
+
+- We are introducing an additional param `getLrServerTime` in the manual SOTT generation function `getSott()`, we recomend using this method to generate SOTT manually, the old function `getSott()` will also exist but it is deprecated and will be removed in a future version of SDK.
+- Enhancement in `README.md` file.
+
+
 # Version 11.3.1
 Release on January 28, 2022
 
