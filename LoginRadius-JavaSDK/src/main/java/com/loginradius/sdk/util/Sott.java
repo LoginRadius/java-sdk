@@ -31,47 +31,102 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
+import com.loginradius.sdk.api.advanced.ConfigurationApi;
 import com.loginradius.sdk.helper.LoginRadiusValidator;
 import com.loginradius.sdk.models.responsemodels.otherobjects.ServiceInfoModel;
 
 public class Sott {
 
 	private static String initVector = "tu89geji340t89u2";
-
+	private static String plaintext="";
 	// <summary>
 	// Generate SOTT Manually.
 	// </summary>
 	// <param name="service">ServiceInfoModel Model Class containing Definition of payload for SOTT</param>
 	// <param name="apiKey">LoginRadius Api Key.</param>
 	// <param name="apiSecret">LoginRadius Api Secret.</param>
+	// <param name="getLrServerTime">If true it will call LoginRadius Get Server Time Api and fetch basic server information and server time information which is useful when generating an SOTT token..</param>
 	// <returns>Sott data</returns> 
 	   
-	public static String getSott(ServiceInfoModel service,String apiKey,String apiSecret) throws java.lang.Exception {
+	public static String getSott(ServiceInfoModel service,String apiKey,String apiSecret,boolean getLrServerTime) throws java.lang.Exception {
 		String secret = !LoginRadiusValidator.isNullOrWhiteSpace(apiSecret)? apiSecret:LoginRadiusSDK.getApiSecret();
 		String key =  !LoginRadiusValidator.isNullOrWhiteSpace(apiKey)? apiKey:LoginRadiusSDK.getApiKey();
 		String token = null;
-		
+		String timeDifference =(service!=null && !LoginRadiusValidator.isNullOrWhiteSpace(service.getSott().getTimeDifference())) ?service.getSott().getTimeDifference():"10";
+
 		if (service != null && !LoginRadiusValidator.isNullOrWhiteSpace(service.getSott().getStartTime()) && !LoginRadiusValidator.isNullOrWhiteSpace(service.getSott().getEndTime()) ) {
-			String plaintext = service.getSott().getStartTime() + "#" + key + "#" + service.getSott().getEndTime();
-			token = encrypt(plaintext, secret);	
-		} else {
-			
-			String timeDifference =(service!=null && !LoginRadiusValidator.isNullOrWhiteSpace(service.getSott().getTimeDifference())) ?service.getSott().getTimeDifference():"10";
+			plaintext = service.getSott().getStartTime() + "#" + key + "#" + service.getSott().getEndTime();
+		}
+		
+		if(getLrServerTime) {
+			ConfigurationApi config = new ConfigurationApi();
+			config.getServerInfo(Integer.parseInt(timeDifference), new AsyncHandler < ServiceInfoModel > () {
+				
+			  @Override
+			  public void onFailure(ErrorResponse errorResponse) {}
+
+			  @Override
+			  public void onSuccess(ServiceInfoModel service) {
+			      
+				  if(service!=null && !LoginRadiusValidator.isNullOrWhiteSpace( service.getSott().getStartTime()) && !LoginRadiusValidator.isNullOrWhiteSpace( service.getSott().getEndTime()) ) {
+					  plaintext = service.getSott().getStartTime() + "#" + key + "#" + service.getSott().getEndTime();
+				  }
+				  
+			  }
+
+			});
+		}
+		
+		if(plaintext.isEmpty()) {
 			TimeZone timeZone = TimeZone.getTimeZone("UTC");
 			Calendar calendar = Calendar.getInstance(timeZone);
 			DateFormat dateFormat = new SimpleDateFormat("yyyy/M/d H:m:s", Locale.US);
 			dateFormat.setTimeZone(timeZone);
-			String plaintext = dateFormat.format(calendar.getTime()) + "#" + key + "#";
+			plaintext = dateFormat.format(calendar.getTime()) + "#" + key + "#";
 			calendar.add(Calendar.MINUTE, Integer.parseInt(timeDifference));
 			plaintext += dateFormat.format(calendar.getTime());
-			token = encrypt(plaintext, secret);
-			
 		}
-		
+		token = encrypt(plaintext, secret);
+
 		String finalToken = token + "*" + createMd5(token);
 		return finalToken;
 	}
 
+	
+	// <summary>
+		// Generate SOTT Manually.
+		// </summary>
+		// <param name="service">ServiceInfoModel Model Class containing Definition of payload for SOTT</param>
+		// <param name="apiKey">LoginRadius Api Key.</param>
+		// <param name="apiSecret">LoginRadius Api Secret.</param>
+		// <returns>Sott data</returns> 
+		@Deprecated
+		public static String getSott(ServiceInfoModel service,String apiKey,String apiSecret) throws java.lang.Exception {
+			String secret = !LoginRadiusValidator.isNullOrWhiteSpace(apiSecret)? apiSecret:LoginRadiusSDK.getApiSecret();
+			String key =  !LoginRadiusValidator.isNullOrWhiteSpace(apiKey)? apiKey:LoginRadiusSDK.getApiKey();
+			String token = null;
+			
+			if (service != null && !LoginRadiusValidator.isNullOrWhiteSpace(service.getSott().getStartTime()) && !LoginRadiusValidator.isNullOrWhiteSpace(service.getSott().getEndTime()) ) {
+				String plaintext = service.getSott().getStartTime() + "#" + key + "#" + service.getSott().getEndTime();
+				token = encrypt(plaintext, secret);	
+			} else {
+				
+				String timeDifference =(service!=null && !LoginRadiusValidator.isNullOrWhiteSpace(service.getSott().getTimeDifference())) ?service.getSott().getTimeDifference():"10";
+				TimeZone timeZone = TimeZone.getTimeZone("UTC");
+				Calendar calendar = Calendar.getInstance(timeZone);
+				DateFormat dateFormat = new SimpleDateFormat("yyyy/M/d H:m:s", Locale.US);
+				dateFormat.setTimeZone(timeZone);
+				String plaintext = dateFormat.format(calendar.getTime()) + "#" + key + "#";
+				calendar.add(Calendar.MINUTE, Integer.parseInt(timeDifference));
+				plaintext += dateFormat.format(calendar.getTime());
+				token = encrypt(plaintext, secret);
+				
+			}
+			
+			String finalToken = token + "*" + createMd5(token);
+			return finalToken;
+		}
+	
 	private static String encrypt(final String plaintext, final String passPhrase) throws NoSuchAlgorithmException,
 			InvalidKeySpecException, UnsupportedEncodingException, NoSuchPaddingException, InvalidKeyException,
 			InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {

@@ -664,31 +664,32 @@ public class LoginRadiusService {
         String body = new String(base64Url.decode(encodedBody));
         return body;
     }
+	
 	private String getSott() {
 		ServiceSottInfo serviceSottInfo=new ServiceSottInfo();
 		
 		// You can pass the start and end time interval and the SOTT will be valid for this time duration. 
 
-		serviceSottInfo.setStartTime("");  // Valid Start Date with Date and time
+		serviceSottInfo.setStartTime("2022-05-19 07:10:42");  // Valid Start Date with Date and time
 
-		serviceSottInfo.setEndTime(""); // Valid End Date with Date and time
+		serviceSottInfo.setEndTime("2022-05-20 07:10:42"); // Valid End Date with Date and time
 										
-		// Or you can pass the time difference in minutes for setting up the validity of SOTT, if you do not pass the time difference then the default value is 10 minutes
-										
-		serviceSottInfo.setTimeDifference("20");  // (Optional) The time difference will be used to set the expiration time of SOTT, If you do not pass time difference then the default expiration time of SOTT is 10 minutes.
-										
-						
-		ServiceInfoModel service=new ServiceInfoModel();
-						
+		//do not pass the time difference if you are passing startTime & endTime.						
+		serviceSottInfo.setTimeDifference("");  // (Optional) The time difference will be used to set the expiration time of SOTT, If you do not pass time difference then the default expiration time of SOTT is 10 minutes.
+														
+		ServiceInfoModel service=new ServiceInfoModel();				
 		service.setSott(serviceSottInfo);
-
+		
 		
 		//The LoginRadius API key and primary API secret can be passed additionally, If the credentials will not be passed then this SOTT function will pick the API credentials from the SDK configuration. 				
 		String apiKey="";//(Optional) LoginRadius Api Key.
 		String apiSecret="";//(Optional) LoginRadius Api Secret (Only Primary Api Secret is used to generate the SOTT manually).
 		
+		
+		boolean getLrServerTime=false;//(Optional) If true it will call LoginRadius Get Server Time Api and fetch basic server information and server time information which is useful when generating an SOTT token.
+
 		try {
-			return Sott.getSott(service,apiKey,apiSecret);
+			return Sott.getSott(service,apiKey,apiSecret,getLrServerTime);
 		} catch (Exception e) {
 			return "";
 		}
