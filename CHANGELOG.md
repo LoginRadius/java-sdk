@@ -1,5 +1,52 @@
 > **LoginRadius Java SDK Change Log** provides information regarding what has changed, more specifically what changes, improvements and bug fix has been made to the SDK. For more details please refer to the [LoginRadius API Documention(https://www.loginradius.com/docs/api/v2/deployment/sdk-libraries/java-library/)
 
+# Version 11.5.0
+Release on January 20, 2023
+
+## Enhancements
+
+- We have updated some of the dependencies to the latest Version.
+
+## Removed (Deprecated) APIs:
+- `AuthGetRegistrationData`
+- `ValidateRegistrationDataCode`
+- `GetRegistrationData`
+- `AddRegistrationData`
+- `UpdateRegistrationData`
+- `DeleteRegistrationData`
+- `DeleteAllRecordsByDataSource`
+- `GetAccessTokenByVkontakteAccessToken`
+- `GetAlbum`
+- `GetAlbumsWithCursor`
+- `GetAudios`
+- `GetAudiosWithCursor`
+- `GetCheckIns`
+- `GetCheckInsWithCursor`
+- `GetContacts`
+- `GetEvents`
+- `GetEventsWithCursor`
+- `GetFollowings`
+- `GetFollowingsWithCursor`
+- `GetGroups`
+- `GetGroupsWithCursor`
+- `GetLikes`
+- `GetLikesWithCursor`
+- `GetMentions`
+- `PostMessage`
+- `GetPage`
+- `GetPhotos`
+- `GetPosts`
+- `StatusPosting`
+- `TrackableStatusPosting`
+- `GetTrackableStatusStats`
+- `TrackableStatusFetching`
+- `GetVideos`
+- `GetRefreshedSocialUserProfile`
+
+## Breaking Changes
+
+For developers migrating to v11.5.0, there will be  minor breaking change in terms of SDK implementation. In this version, we have added `emailTemplate` parameter in `userRegistrationByPhone` Api.
+
 
 # Version 11.4.0
 Release on June 1, 2022

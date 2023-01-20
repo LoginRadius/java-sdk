@@ -15,6 +15,7 @@ import com.loginradius.sdk.models.responsemodels.otherobjects.PINInformation;
 import com.loginradius.sdk.models.responsemodels.userprofile.objects.AcceptedPrivacyPolicy;
 import com.loginradius.sdk.models.responsemodels.userprofile.objects.Email;
 import com.loginradius.sdk.models.responsemodels.userprofile.objects.ExternalIds;
+import com.loginradius.sdk.models.responsemodels.userprofile.objects.OrganizationResponseInProfile;
 import com.loginradius.sdk.models.responsemodels.userprofile.objects.RegistrationData;
 
 	// <summary>
@@ -73,6 +74,9 @@ import com.loginradius.sdk.models.responsemodels.userprofile.objects.Registratio
 		
 		@SerializedName("NoOfLogins")
         private Integer noOfLogins;
+		
+		@SerializedName("Organizations")
+        private List<OrganizationResponseInProfile> organizations;
 		
 		@SerializedName("Password")
         private String password;
@@ -318,6 +322,18 @@ import com.loginradius.sdk.models.responsemodels.userprofile.objects.Registratio
 		// </summary>
 		public void setNoOfLogins(Integer noOfLogins) {
 			this.noOfLogins = noOfLogins;
+		}
+		// <summary>
+		//	
+		// </summary>
+		public List<OrganizationResponseInProfile> getOrganizations() {
+			return organizations;
+		}
+		// <summary>
+		//	
+		// </summary>
+		public void setOrganizations(List<OrganizationResponseInProfile> organizations) {
+			this.organizations = organizations;
 		}
 		// <summary>
 		//	Password for the email

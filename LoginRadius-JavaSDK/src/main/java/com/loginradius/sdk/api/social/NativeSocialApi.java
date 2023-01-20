@@ -363,42 +363,6 @@ public class NativeSocialApi {
    }
    
    // <summary>
-   // The API is used to get LoginRadius access token by sending Vkontakte's access token. It will be valid for the specific duration of time specified in the response.
-   // </summary>
-   // <param name="vkAccessToken">Vkontakte Access Token</param>
-   // <returns>Response containing Definition of Complete Token data</returns>
-   // 20.15	    
-		
-		
-   public void getAccessTokenByVkontakteAccessToken(String vkAccessToken, final AsyncHandler<AccessTokenBase> handler) {      
-
-      if (LoginRadiusValidator.isNullOrWhiteSpace(vkAccessToken)) {
-        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("vkAccessToken"));
-      }
-			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("key", LoginRadiusSDK.getApiKey());
-      queryParameters.put("vk_access_token", vkAccessToken);
-
-      String resourcePath = "api/v2/access_token/vkontakte";
-            
-      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
-			
-        @Override
-        public void onSuccess(String response) {
-          TypeToken<AccessTokenBase> typeToken = new TypeToken<AccessTokenBase>() {};
-          AccessTokenBase successResponse = JsonDeserializer.deserializeJson(response,typeToken);
-          handler.onSuccess(successResponse);
-        }
-
-        @Override
-        public void onFailure(ErrorResponse errorResponse) {
-          handler.onFailure(errorResponse);
-        }
-      });
-   }
-   
-   // <summary>
    // The API is used to get LoginRadius access token by sending Google's AuthCode. It will be valid for the specific duration of time specified in the response.
    // </summary>
    // <param name="googleAuthcode">Google AuthCode</param>

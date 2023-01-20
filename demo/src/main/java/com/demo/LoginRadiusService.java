@@ -670,9 +670,9 @@ public class LoginRadiusService {
 		
 		// You can pass the start and end time interval and the SOTT will be valid for this time duration. 
 
-		serviceSottInfo.setStartTime("2022-05-19 07:10:42");  // Valid Start Date with Date and time
+		serviceSottInfo.setStartTime("2023-01-18 07:10:42");  // Valid Start Date with Date and time
 
-		serviceSottInfo.setEndTime("2022-05-20 07:10:42"); // Valid End Date with Date and time
+		serviceSottInfo.setEndTime("2024-01-18 07:10:42"); // Valid End Date with Date and time
 										
 		//do not pass the time difference if you are passing startTime & endTime.						
 		serviceSottInfo.setTimeDifference("");  // (Optional) The time difference will be used to set the expiration time of SOTT, If you do not pass time difference then the default expiration time of SOTT is 10 minutes.

@@ -1,5 +1,5 @@
 var commonOptions = {};
-commonOptions.apiKey = "<API-KEY"; // Fill in
+commonOptions.apiKey = "<API-KEY>"; // Fill in
 commonOptions.appName = "<APP-NAME>"; // Fill in
 commonOptions.sott = "<SOTT>"; // Fill in
 commonOptions.hashTemplate = true;

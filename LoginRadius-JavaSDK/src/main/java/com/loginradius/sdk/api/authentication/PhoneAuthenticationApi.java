@@ -498,12 +498,13 @@ public class PhoneAuthenticationApi {
    // <param name="smsTemplate">SMS Template name</param>
    // <param name="verificationUrl">Email verification url</param>
    // <param name="welcomeEmailTemplate">Name of the welcome email template</param>
+   // <param name="emailTemplate">Name of the email template</param>
    // <returns>Response containing Definition of Complete Validation, UserProfile data and Access Token</returns>
    // 17.1.2	    
 		
 		
    public void userRegistrationByPhone(AuthUserRegistrationModel authUserRegistrationModel, String sott,
-      String fields, String options, String smsTemplate, String verificationUrl, String welcomeEmailTemplate, final AsyncHandler<UserProfilePostResponse<AccessToken<Identity>>> handler) {
+      String fields, String options, String smsTemplate, String verificationUrl, String welcomeEmailTemplate, String emailTemplate, final AsyncHandler<UserProfilePostResponse<AccessToken<Identity>>> handler) {
 
       if (authUserRegistrationModel == null) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("authUserRegistrationModel"));
@@ -535,6 +536,10 @@ public class PhoneAuthenticationApi {
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(welcomeEmailTemplate)) {
         queryParameters.put("welcomeEmailTemplate", welcomeEmailTemplate);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(emailTemplate)) {
+        queryParameters.put("emailTemplate", emailTemplate);
       }
 
       String resourcePath = "identity/v2/auth/register";
