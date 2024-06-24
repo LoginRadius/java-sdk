@@ -175,7 +175,7 @@ public class NativeSocialApi {
    // <summary>
    // This API is used to Get LoginRadius Access Token using google jwt id token for google native mobile login/registration.
    // </summary>
-   // <param name="idToken">Google JWT id_token</param>
+   // <param name="idToken">Custom JWT Token</param>
    // <returns>Response containing Definition of Complete Token data</returns>
    // 20.6	    
 		

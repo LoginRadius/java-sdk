@@ -16,17 +16,18 @@ import com.loginradius.sdk.helper.JsonDeserializer;
 import com.loginradius.sdk.helper.LoginRadiusRequest;
 import com.loginradius.sdk.helper.LoginRadiusValidator;
 import com.loginradius.sdk.models.requestmodels.EmailIdModel;
+import com.loginradius.sdk.models.requestmodels.MultiFactorAuthModelByAuthenticatorCode;
+import com.loginradius.sdk.models.requestmodels.MultiFactorAuthModelByAuthenticatorCodeSecurityAnswer;
 import com.loginradius.sdk.models.requestmodels.MultiFactorAuthModelByBackupCode;
 import com.loginradius.sdk.models.requestmodels.MultiFactorAuthModelByEmailOtp;
 import com.loginradius.sdk.models.requestmodels.MultiFactorAuthModelByEmailOtpWithLockout;
-import com.loginradius.sdk.models.requestmodels.MultiFactorAuthModelByGoogleAuthenticatorCode;
 import com.loginradius.sdk.models.requestmodels.MultiFactorAuthModelWithLockout;
 import com.loginradius.sdk.models.requestmodels.SecurityQuestionAnswerModelByAccessToken;
 import com.loginradius.sdk.models.requestmodels.SecurityQuestionAnswerUpdateModel;
 import com.loginradius.sdk.models.responsemodels.AccessToken;
 import com.loginradius.sdk.models.responsemodels.MultiFactorAuthenticationResponse;
 import com.loginradius.sdk.models.responsemodels.MultiFactorAuthenticationSettingsResponse;
-import com.loginradius.sdk.models.responsemodels.SMSResponseData;
+import com.loginradius.sdk.models.responsemodels.SmsResponseData;
 import com.loginradius.sdk.models.responsemodels.otherobjects.BackupCodeResponse;
 import com.loginradius.sdk.models.responsemodels.otherobjects.DeleteResponse;
 import com.loginradius.sdk.models.responsemodels.otherobjects.PostResponse;
@@ -52,12 +53,12 @@ public class MultiFactorAuthenticationApi {
    // This API is used to configure the Multi-factor authentication after login by using the access token when MFA is set as optional on the LoginRadius site.
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="smsTemplate2FA">SMS Template Name</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
    // <returns>Response containing Definition of Complete Multi-Factor Authentication Settings data</returns>
    // 5.7	    
 		
 		
-   public void mfaConfigureByAccessToken(String accessToken, String smsTemplate2FA, final AsyncHandler<MultiFactorAuthenticationSettingsResponse> handler) {      
+   public void mfaConfigureByAccessToken(String accessToken, Boolean isVoiceOtp, final AsyncHandler<MultiFactorAuthenticationSettingsResponse> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
@@ -67,8 +68,8 @@ public class MultiFactorAuthenticationApi {
       queryParameters.put("access_token", accessToken);
       queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
 
-      if (!LoginRadiusValidator.isNullOrWhiteSpace(smsTemplate2FA)) {
-        queryParameters.put("smsTemplate2FA", smsTemplate2FA);
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
       }
 
       String resourcePath = "identity/v2/auth/account/2fa";
@@ -137,69 +138,19 @@ public class MultiFactorAuthenticationApi {
    }
    
    // <summary>
-   // This API is used to Enable Multi-factor authentication by access token on user login
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="multiFactorAuthModelByGoogleAuthenticatorCode">Model Class containing Definition of payload for MultiFactorAuthModel By GoogleAuthenticator Code API</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="smsTemplate">SMS Template name</param>
-   // <returns>Response containing Definition for Complete profile data</returns>
-   // 5.10	    
-		
-		
-   public void mfaUpdateByAccessToken(String accessToken, MultiFactorAuthModelByGoogleAuthenticatorCode multiFactorAuthModelByGoogleAuthenticatorCode,
-      String fields, String smsTemplate, final AsyncHandler<Identity> handler) {      
-
-      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
-        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
-      }
-
-      if (multiFactorAuthModelByGoogleAuthenticatorCode == null) {
-        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("multiFactorAuthModelByGoogleAuthenticatorCode"));
-      }
-			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("access_token", accessToken);
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-
-      if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
-        queryParameters.put("fields", fields);
-      }
-
-      if (!LoginRadiusValidator.isNullOrWhiteSpace(smsTemplate)) {
-        queryParameters.put("smsTemplate", smsTemplate);
-      }
-
-      String resourcePath = "identity/v2/auth/account/2fa/verification/googleauthenticatorcode";
-            
-      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(multiFactorAuthModelByGoogleAuthenticatorCode), new AsyncHandler<String>() {
-			
-        @Override
-        public void onSuccess(String response) {
-          TypeToken<Identity> typeToken = new TypeToken<Identity>() {};
-          Identity successResponse = JsonDeserializer.deserializeJson(response,typeToken);
-          handler.onSuccess(successResponse);
-        }
-
-        @Override
-        public void onFailure(ErrorResponse errorResponse) {
-          handler.onFailure(errorResponse);
-        }
-      });
-   }
-   
-   // <summary>
    // This API is used to update the Multi-factor authentication phone number by sending the verification OTP to the provided phone number
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="phoneNo2FA">Phone Number For 2FA</param>
    // <param name="smsTemplate2FA">SMS Template Name</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
+   // <param name="options">PreventVerificationEmail (Specifying this value prevents the verification email from being sent. Only applicable if you have the optional email verification flow)</param>
    // <returns>Response containing Definition for Complete SMS data</returns>
    // 5.11	    
 		
 		
    public void mfaUpdatePhoneNumberByToken(String accessToken, String phoneNo2FA,
-      String smsTemplate2FA, final AsyncHandler<SMSResponseData> handler) {      
+      String smsTemplate2FA, Boolean isVoiceOtp, String options, final AsyncHandler<SmsResponseData> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
@@ -217,6 +168,14 @@ public class MultiFactorAuthenticationApi {
         queryParameters.put("smsTemplate2FA", smsTemplate2FA);
       }
 
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(options)) {
+        queryParameters.put("options", options);
+      }
+
       JsonObject bodyParameters = new JsonObject();
       bodyParameters.addProperty("phoneNo2FA", phoneNo2FA);
 
@@ -226,8 +185,8 @@ public class MultiFactorAuthenticationApi {
 			
         @Override
         public void onSuccess(String response) {
-          TypeToken<SMSResponseData> typeToken = new TypeToken<SMSResponseData>() {};
-          SMSResponseData successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<SmsResponseData> typeToken = new TypeToken<SmsResponseData>() {};
+          SmsResponseData successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -239,15 +198,15 @@ public class MultiFactorAuthenticationApi {
    }
    
    // <summary>
-   // This API Resets the Google Authenticator configurations on a given account via the access token
+   // This API Resets the Authenticator configurations on a given account via the access_token.
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="googleauthenticator">boolean type value,Enable google Authenticator Code.</param>
+   // <param name="authenticator">Pass true to remove Authenticator.</param>
    // <returns>Response containing Definition of Delete Request</returns>
    // 5.12.1	    
 		
 		
-   public void mfaResetGoogleAuthByToken(String accessToken, Boolean googleauthenticator, final AsyncHandler<DeleteResponse> handler) {      
+   public void mfaResetAuthenticatorByToken(String accessToken, Boolean authenticator, final AsyncHandler<DeleteResponse> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
@@ -258,7 +217,7 @@ public class MultiFactorAuthenticationApi {
       queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
 
       JsonObject bodyParameters = new JsonObject();
-      bodyParameters.addProperty("googleauthenticator", googleauthenticator);
+      bodyParameters.addProperty("authenticator", authenticator);
 
       String resourcePath = "identity/v2/auth/account/2fa/authenticator";
             
@@ -604,13 +563,15 @@ public class MultiFactorAuthenticationApi {
    // <param name="smsTemplate2FA">SMS Template Name</param>
    // <param name="verificationUrl">Email verification url</param>
    // <param name="emailTemplate2FA">2FA Email template name</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
+   // <param name="options">PreventVerificationEmail (Specifying this value prevents the verification email from being sent. Only applicable if you have the optional email verification flow)</param>
    // <returns>Complete user UserProfile data</returns>
    // 9.8.1	    
 		
 		
    public void mfaLoginByEmail(String email, String password,
       String emailTemplate, String fields, String loginUrl, String smsTemplate,
-      String smsTemplate2FA, String verificationUrl, String emailTemplate2FA,final AsyncHandler<MultiFactorAuthenticationResponse<Identity>> handler) {      
+      String smsTemplate2FA, String verificationUrl, String emailTemplate2FA, Boolean isVoiceOtp, String options, final AsyncHandler<MultiFactorAuthenticationResponse<Identity>> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(email)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("email"));
@@ -649,6 +610,15 @@ public class MultiFactorAuthenticationApi {
       if (!LoginRadiusValidator.isNullOrWhiteSpace(emailTemplate2FA)) {
         queryParameters.put("emailTemplate2FA", emailTemplate2FA);
       }
+
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(options)) {
+        queryParameters.put("options", options);
+      }
+
       JsonObject bodyParameters = new JsonObject();
       bodyParameters.addProperty("email", email);
       bodyParameters.addProperty("password", password);
@@ -683,13 +653,14 @@ public class MultiFactorAuthenticationApi {
    // <param name="smsTemplate2FA">SMS Template Name</param>
    // <param name="verificationUrl">Email verification url</param>
    // <param name="emailTemplate2FA">2FA Email template name</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
    // <returns>Complete user UserProfile data</returns>
    // 9.8.2	    
 		
 		
    public void mfaLoginByUserName(String password, String username,
       String emailTemplate,  String fields, String loginUrl, String smsTemplate,
-      String smsTemplate2FA, String verificationUrl,String emailTemplate2FA, final AsyncHandler<MultiFactorAuthenticationResponse<Identity>> handler) {      
+      String smsTemplate2FA, String verificationUrl,String emailTemplate2FA, Boolean isVoiceOtp, final AsyncHandler<MultiFactorAuthenticationResponse<Identity>> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(password)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("password"));
@@ -730,6 +701,10 @@ public class MultiFactorAuthenticationApi {
         queryParameters.put("emailTemplate2FA", emailTemplate2FA);
       }
 
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
+      }
+
       JsonObject bodyParameters = new JsonObject();
       bodyParameters.addProperty("password", password);
       bodyParameters.addProperty("username", username);
@@ -764,13 +739,15 @@ public class MultiFactorAuthenticationApi {
    // <param name="smsTemplate2FA">SMS Template Name</param>
    // <param name="verificationUrl">Email verification url</param>
    // <param name="emailTemplate2FA">2FA Email template name</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
+   // <param name="options">PreventVerificationEmail (Specifying this value prevents the verification email from being sent. Only applicable if you have the optional email verification flow)</param>
    // <returns>Complete user UserProfile data</returns>
    // 9.8.3	    
 		
 		
    public void mfaLoginByPhone(String password, String phone,
       String emailTemplate, String fields, String loginUrl, String smsTemplate,
-      String smsTemplate2FA, String verificationUrl,String emailTemplate2FA, final AsyncHandler<MultiFactorAuthenticationResponse<Identity>> handler) {      
+      String smsTemplate2FA, String verificationUrl,String emailTemplate2FA, Boolean isVoiceOtp, String options, final AsyncHandler<MultiFactorAuthenticationResponse<Identity>> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(password)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("password"));
@@ -807,9 +784,17 @@ public class MultiFactorAuthenticationApi {
         queryParameters.put("verificationUrl", verificationUrl);
       }
 
+     
       if (!LoginRadiusValidator.isNullOrWhiteSpace(emailTemplate2FA)) {
         queryParameters.put("emailTemplate2FA", emailTemplate2FA);
       }
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
+      }
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(options)) {
+        queryParameters.put("options", options);
+      }
+
       JsonObject bodyParameters = new JsonObject();
       bodyParameters.addProperty("password", password);
       bodyParameters.addProperty("phone", phone);
@@ -905,76 +890,6 @@ public class MultiFactorAuthenticationApi {
    }
    
    // <summary>
-   // This API is used to login via Multi-factor-authentication by passing the google authenticator code.
-   // </summary>
-   // <param name="googleAuthenticatorCode">The code generated by google authenticator app after scanning QR code</param>
-   // <param name="secondFactorAuthenticationToken">SecondFactorAuthenticationToken</param>
-   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
-   // <param name="rbaBrowserEmailTemplate">RbaBrowserEmailTemplate</param>
-   // <param name="rbaCityEmailTemplate">RbaCityEmailTemplate</param>
-   // <param name="rbaCountryEmailTemplate">RbaCountryEmailTemplate</param>
-   // <param name="rbaIpEmailTemplate">RbaIpEmailTemplate</param>
-   // <returns>Complete user UserProfile data</returns>
-   // 9.13	    
-		
-		
-   public void mfaValidateGoogleAuthCode(String googleAuthenticatorCode, String secondFactorAuthenticationToken,
-      String fields, String rbaBrowserEmailTemplate, String rbaCityEmailTemplate, String rbaCountryEmailTemplate, String rbaIpEmailTemplate, final AsyncHandler<AccessToken<Identity>> handler) {      
-
-      if (LoginRadiusValidator.isNullOrWhiteSpace(googleAuthenticatorCode)) {
-        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("googleAuthenticatorCode"));
-      }      
-
-      if (LoginRadiusValidator.isNullOrWhiteSpace(secondFactorAuthenticationToken)) {
-        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("secondFactorAuthenticationToken"));
-      }
-			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("secondFactorAuthenticationToken", secondFactorAuthenticationToken);
-
-      if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
-        queryParameters.put("fields", fields);
-      }
-
-      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaBrowserEmailTemplate)) {
-        queryParameters.put("rbaBrowserEmailTemplate", rbaBrowserEmailTemplate);
-      }
-
-      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaCityEmailTemplate)) {
-        queryParameters.put("rbaCityEmailTemplate", rbaCityEmailTemplate);
-      }
-
-      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaCountryEmailTemplate)) {
-        queryParameters.put("rbaCountryEmailTemplate", rbaCountryEmailTemplate);
-      }
-
-      if (!LoginRadiusValidator.isNullOrWhiteSpace(rbaIpEmailTemplate)) {
-        queryParameters.put("rbaIpEmailTemplate", rbaIpEmailTemplate);
-      }
-
-      JsonObject bodyParameters = new JsonObject();
-      bodyParameters.addProperty("googleAuthenticatorCode", googleAuthenticatorCode);
-
-      String resourcePath = "identity/v2/auth/login/2fa/verification/googleauthenticatorcode";
-            
-      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(bodyParameters), new AsyncHandler<String>() {
-			
-        @Override
-        public void onSuccess(String response) {
-          TypeToken<AccessToken<Identity>> typeToken = new TypeToken<AccessToken<Identity>>() {};
-          AccessToken<Identity> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
-          handler.onSuccess(successResponse);
-        }
-
-        @Override
-        public void onFailure(ErrorResponse errorResponse) {
-          handler.onFailure(errorResponse);
-        }
-      });
-   }
-   
-   // <summary>
    // This API is used to validate the backup code provided by the user and if valid, we return an access token allowing the user to login incases where Multi-factor authentication (MFA) is enabled and the secondary factor is unavailable. When a user initially downloads the Backup codes, We generate 10 codes, each code can only be consumed once. if any user attempts to go over the number of invalid login attempts configured in the Dashboard then the account gets blocked automatically
    // </summary>
    // <param name="multiFactorAuthModelByBackupCode">Model Class containing Definition of payload for MultiFactorAuth By BackupCode API</param>
@@ -1047,12 +962,14 @@ public class MultiFactorAuthenticationApi {
    // <param name="phoneNo2FA">Phone Number For 2FA</param>
    // <param name="secondFactorAuthenticationToken">A Uniquely generated MFA identifier token after successful authentication</param>
    // <param name="smsTemplate2FA">SMS Template Name</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
+   // <param name="options">PreventVerificationEmail (Specifying this value prevents the verification email from being sent. Only applicable if you have the optional email verification flow)</param>
    // <returns>Response containing Definition for Complete SMS data</returns>
    // 9.16	    
 		
 		
    public void mfaUpdatePhoneNumber(String phoneNo2FA, String secondFactorAuthenticationToken,
-      String smsTemplate2FA, final AsyncHandler<SMSResponseData> handler) {      
+      String smsTemplate2FA, Boolean isVoiceOtp,String options, final AsyncHandler<SmsResponseData> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(phoneNo2FA)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("phoneNo2FA"));
@@ -1070,6 +987,14 @@ public class MultiFactorAuthenticationApi {
         queryParameters.put("smsTemplate2FA", smsTemplate2FA);
       }
 
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
+      }
+      
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(options)) {
+        queryParameters.put("options", options);
+      }
+
       JsonObject bodyParameters = new JsonObject();
       bodyParameters.addProperty("phoneNo2FA", phoneNo2FA);
 
@@ -1079,8 +1004,8 @@ public class MultiFactorAuthenticationApi {
 			
         @Override
         public void onSuccess(String response) {
-          TypeToken<SMSResponseData> typeToken = new TypeToken<SMSResponseData>() {};
-          SMSResponseData successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<SmsResponseData> typeToken = new TypeToken<SmsResponseData>() {};
+          SmsResponseData successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -1096,11 +1021,13 @@ public class MultiFactorAuthenticationApi {
    // </summary>
    // <param name="secondFactorAuthenticationToken">A Uniquely generated MFA identifier token after successful authentication</param>
    // <param name="smsTemplate2FA">SMS Template Name</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
    // <returns>Response containing Definition for Complete SMS data</returns>
    // 9.17	    
 		
 		
-   public void mfaResendOTP(String secondFactorAuthenticationToken, String smsTemplate2FA, final AsyncHandler<SMSResponseData> handler) {      
+   public void mfaResendOTP(String secondFactorAuthenticationToken, String smsTemplate2FA,
+      Boolean isVoiceOtp, final AsyncHandler<SmsResponseData> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(secondFactorAuthenticationToken)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("secondFactorAuthenticationToken"));
@@ -1114,14 +1041,18 @@ public class MultiFactorAuthenticationApi {
         queryParameters.put("smsTemplate2FA", smsTemplate2FA);
       }
 
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
+      }
+
       String resourcePath = "identity/v2/auth/login/2fa/resend";
             
       LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
 			
         @Override
         public void onSuccess(String response) {
-          TypeToken<SMSResponseData> typeToken = new TypeToken<SMSResponseData>() {};
-          SMSResponseData successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<SmsResponseData> typeToken = new TypeToken<SmsResponseData>() {};
+          SmsResponseData successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -1386,15 +1317,15 @@ public class MultiFactorAuthenticationApi {
    }
    
    // <summary>
-   // This API resets the Google Authenticator configurations on a given account via the UID.
+   // This API resets the Authenticator configurations on a given account via the UID.
    // </summary>
-   // <param name="googleauthenticator">boolean type value,Enable google Authenticator Code.</param>
+   // <param name="authenticator">Pass true to remove Authenticator.</param>
    // <param name="uid">UID, the unified identifier for each user account</param>
    // <returns>Response containing Definition of Delete Request</returns>
    // 18.21.2	    
 		
 		
-   public void mfaResetGoogleAuthenticatorByUid(Boolean googleauthenticator, String uid, final AsyncHandler<DeleteResponse> handler) {      
+   public void mfaResetAuthenticatorByUid(Boolean authenticator, String uid, final AsyncHandler<DeleteResponse> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(uid)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("uid"));
@@ -1406,7 +1337,7 @@ public class MultiFactorAuthenticationApi {
       queryParameters.put("uid", uid);
 
       JsonObject bodyParameters = new JsonObject();
-      bodyParameters.addProperty("googleauthenticator", googleauthenticator);
+      bodyParameters.addProperty("authenticator", authenticator);
 
       String resourcePath = "identity/v2/manage/account/2fa/authenticator";
             
@@ -1564,6 +1495,100 @@ public class MultiFactorAuthenticationApi {
         public void onSuccess(String response) {
           TypeToken<DeleteResponse> typeToken = new TypeToken<DeleteResponse>() {};
           DeleteResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to login to a user's account during the second MFA step with an Authenticator Code.
+   // </summary>
+   // <param name="multiFactorAuthModelByAuthenticatorCode">Model Class containing Definition of payload for MultiFactorAuthModel By Authenticator Code API</param>
+   // <param name="secondfactorauthenticationtoken">A Uniquely generated MFA identifier token after successful authentication</param>
+   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
+   // <returns>Complete user UserProfile data</returns>
+   // 44.7	    
+		
+		
+   public void mfaValidateAuthenticatorCode(MultiFactorAuthModelByAuthenticatorCode multiFactorAuthModelByAuthenticatorCode, String secondfactorauthenticationtoken,
+      String fields, final AsyncHandler<MultiFactorAuthenticationResponse<Identity>> handler) {
+
+      if (multiFactorAuthModelByAuthenticatorCode == null) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("multiFactorAuthModelByAuthenticatorCode"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(secondfactorauthenticationtoken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("secondfactorauthenticationtoken"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+      queryParameters.put("secondfactorauthenticationtoken", secondfactorauthenticationtoken);
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
+        queryParameters.put("fields", fields);
+      }
+
+      String resourcePath = "identity/v2/auth/login/2fa/verification/authenticatorcode";
+            
+      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(multiFactorAuthModelByAuthenticatorCode), new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<MultiFactorAuthenticationResponse<Identity>> typeToken = new TypeToken<MultiFactorAuthenticationResponse<Identity>>() {};
+          MultiFactorAuthenticationResponse<Identity> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to validate an Authenticator Code as part of the MFA process.
+   // </summary>
+   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
+   // <param name="multiFactorAuthModelByAuthenticatorCodeSecurityAnswer">Model Class containing Definition of payload for MultiFactorAuthModel By Authenticator Code API with security answer</param>
+   // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
+   // <returns>Complete user UserProfile data</returns>
+   // 44.8	    
+		
+		
+   public void mfaVerifyAuthenticatorCode(String accessToken, MultiFactorAuthModelByAuthenticatorCodeSecurityAnswer multiFactorAuthModelByAuthenticatorCodeSecurityAnswer,
+      String fields, final AsyncHandler<MultiFactorAuthenticationResponse<Identity>> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
+      }
+
+      if (multiFactorAuthModelByAuthenticatorCodeSecurityAnswer == null) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("multiFactorAuthModelByAuthenticatorCodeSecurityAnswer"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("access_token", accessToken);
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(fields)) {
+        queryParameters.put("fields", fields);
+      }
+
+      String resourcePath = "identity/v2/auth/account/2fa/verification/authenticatorcode";
+            
+      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(multiFactorAuthModelByAuthenticatorCodeSecurityAnswer), new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<MultiFactorAuthenticationResponse<Identity>> typeToken = new TypeToken<MultiFactorAuthenticationResponse<Identity>>() {};
+          MultiFactorAuthenticationResponse<Identity> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 

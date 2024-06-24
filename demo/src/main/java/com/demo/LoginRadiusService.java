@@ -192,8 +192,7 @@ public class LoginRadiusService {
 
 	public String mfaVerify(HttpServletRequest request) {
 		MultiFactorAuthenticationApi mfa = new MultiFactorAuthenticationApi();
-		mfa.mfaValidateGoogleAuthCode(request.getParameter("code"), request.getParameter("token"), null, null,
-				null, null, null, new AsyncHandler<AccessToken<Identity>>() {
+		mfa.mfaValidateAuthenticatorCode(request.getParameter("code"), request.getParameter("token"), null new AsyncHandler<AccessToken<Identity>>() {
 
 					@Override
 					public void onFailure(ErrorResponse arg0) {
@@ -485,7 +484,7 @@ public class LoginRadiusService {
 
 	public String mfaReset(HttpServletRequest request) {
 		MultiFactorAuthenticationApi api = new MultiFactorAuthenticationApi();
-		api.mfaResetGoogleAuthenticatorByUid(true, request.getParameter("uid"), new AsyncHandler<DeleteResponse>() {
+		api.mfaResetAuthenticatorByUid(true, request.getParameter("uid"), new AsyncHandler<DeleteResponse>() {
 
 			@Override
 			public void onFailure(ErrorResponse arg0) {

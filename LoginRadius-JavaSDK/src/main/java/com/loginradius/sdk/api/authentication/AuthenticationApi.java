@@ -31,11 +31,11 @@ import com.loginradius.sdk.models.requestmodels.UserProfileUpdateModel;
 import com.loginradius.sdk.models.responsemodels.AccessToken;
 import com.loginradius.sdk.models.responsemodels.AccessTokenBase;
 import com.loginradius.sdk.models.responsemodels.SecurityQuestions;
-import com.loginradius.sdk.models.responsemodels.configobjects.EmailVerificationData;
 import com.loginradius.sdk.models.responsemodels.otherobjects.DeleteRequestAcceptResponse;
 import com.loginradius.sdk.models.responsemodels.otherobjects.DeleteResponse;
 import com.loginradius.sdk.models.responsemodels.otherobjects.ExistResponse;
 import com.loginradius.sdk.models.responsemodels.otherobjects.PostResponse;
+import com.loginradius.sdk.models.responsemodels.otherobjects.PostResponseResendEmailVerification;
 import com.loginradius.sdk.models.responsemodels.otherobjects.PrivacyPolicyHistoryResponse;
 import com.loginradius.sdk.models.responsemodels.otherobjects.TokenInfoResponseModel;
 import com.loginradius.sdk.models.responsemodels.otherobjects.UserProfilePostResponse;
@@ -492,12 +492,14 @@ public class AuthenticationApi {
    // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
    // <param name="smsTemplate">SMS Template name</param>
    // <param name="verificationUrl">Email verification url</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
+   // <param name="options">PreventVerificationEmail (Specifying this value prevents the verification email from being sent. Only applicable if you have the optional email verification flow)</param>
    // <returns>Response containing Definition of Complete Validation and UserProfile data</returns>
    // 5.4	    
 		
 		
    public void updateProfileByAccessToken(String accessToken, UserProfileUpdateModel userProfileUpdateModel,
-      String emailTemplate, String fields, String smsTemplate, String verificationUrl, final AsyncHandler<UserProfilePostResponse<Identity>> handler) {      
+      String emailTemplate, String fields, String smsTemplate, String verificationUrl, Boolean isVoiceOtp, String options, final AsyncHandler<UserProfilePostResponse<Identity>> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
@@ -525,6 +527,14 @@ public class AuthenticationApi {
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(verificationUrl)) {
         queryParameters.put("verificationUrl", verificationUrl);
+      }
+
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(options)) {
+        queryParameters.put("options", options);
       }
 
       String resourcePath = "identity/v2/auth/account";
@@ -769,12 +779,13 @@ public class AuthenticationApi {
    // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
    // <param name="url">Mention URL to log the main URL(Domain name) in Database.</param>
    // <param name="welcomeEmailTemplate">Name of the welcome email template</param>
+   // <param name="uuid">The uuid received in the response</param>
    // <returns>Response containing Definition of Complete Validation, UserProfile data and Access Token</returns>
    // 8.2	    
 		
 		
    public void verifyEmail(String verificationToken, String fields,
-      String url, String welcomeEmailTemplate, final AsyncHandler<UserProfilePostResponse<EmailVerificationData<Identity>>> handler) {      
+      String url, String welcomeEmailTemplate, String uuid, final AsyncHandler<UserProfilePostResponse<EmailVerificationData<Identity>>> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(verificationToken)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("verificationToken"));
@@ -794,6 +805,10 @@ public class AuthenticationApi {
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(welcomeEmailTemplate)) {
         queryParameters.put("welcomeEmailTemplate", welcomeEmailTemplate);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(uuid)) {
+        queryParameters.put("uuid", uuid);
       }
 
       String resourcePath = "identity/v2/auth/email";
@@ -1699,12 +1714,14 @@ public class AuthenticationApi {
    // <param name="options">PreventVerificationEmail (Specifying this value prevents the verification email from being sent. Only applicable if you have the optional email verification flow)</param>
    // <param name="verificationUrl">Email verification url</param>
    // <param name="welcomeEmailTemplate">Name of the welcome email template</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
    // <returns>Response containing Definition of Complete Validation, UserProfile data and Access Token</returns>
    // 17.1.1	    
 		
 		
    public void userRegistrationByEmail(AuthUserRegistrationModel authUserRegistrationModel, String sott,
-      String emailTemplate, String fields, String options, String verificationUrl, String welcomeEmailTemplate, final AsyncHandler<UserProfilePostResponse<AccessToken<Identity>>> handler) {
+      String emailTemplate, String fields, String options, String verificationUrl, String welcomeEmailTemplate,
+      Boolean isVoiceOtp, final AsyncHandler<UserProfilePostResponse<AccessToken<Identity>>> handler) {
 
       if (authUserRegistrationModel == null) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("authUserRegistrationModel"));
@@ -1738,6 +1755,10 @@ public class AuthenticationApi {
         queryParameters.put("welcomeEmailTemplate", welcomeEmailTemplate);
       }
 
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
+      }
+
       String resourcePath = "identity/v2/auth/register";
             
       LoginRadiusRequest.execute("POST", resourcePath, queryParameters, gson.toJson(authUserRegistrationModel), new AsyncHandler<String>() {
@@ -1766,12 +1787,14 @@ public class AuthenticationApi {
    // <param name="smsTemplate">SMS Template name</param>
    // <param name="verificationUrl">Email verification url</param>
    // <param name="welcomeEmailTemplate">Name of the welcome email template</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
    // <returns>Response containing Definition of Complete Validation, UserProfile data and Access Token</returns>
    // 17.2	    
 		
 		
    public void userRegistrationByCaptcha(AuthUserRegistrationModelWithCaptcha authUserRegistrationModelWithCaptcha, String emailTemplate,
-      String fields, String options, String smsTemplate, String verificationUrl, String welcomeEmailTemplate, final AsyncHandler<UserProfilePostResponse<AccessToken<Identity>>> handler) {
+      String fields, String options, String smsTemplate, String verificationUrl, String welcomeEmailTemplate,
+      Boolean isVoiceOtp, final AsyncHandler<UserProfilePostResponse<AccessToken<Identity>>> handler) {
 
       if (authUserRegistrationModelWithCaptcha == null) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("authUserRegistrationModelWithCaptcha"));
@@ -1802,6 +1825,10 @@ public class AuthenticationApi {
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(welcomeEmailTemplate)) {
         queryParameters.put("welcomeEmailTemplate", welcomeEmailTemplate);
+      }
+
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
       }
 
       String resourcePath = "identity/v2/auth/register/captcha";
@@ -1861,6 +1888,48 @@ public class AuthenticationApi {
         public void onSuccess(String response) {
           TypeToken<PostResponse> typeToken = new TypeToken<PostResponse>() {};
           PostResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to Send verification email to the unverified email of the social profile. This API can be used only incase of optional verification workflow.
+   // </summary>
+   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
+   // <param name="clientguid">Unique string used in the Smart Login request</param>
+   // <returns>Response containing Definition for Complete AuthSendVerificationEmailForLinkingSocialProfiles API Response</returns>
+   // 44.9	    
+		
+		
+   public void authSendVerificationEmailForLinkingSocialProfiles(String accessToken, String clientguid, final AsyncHandler<PostResponseResendEmailVerification> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(clientguid)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("clientguid"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("access_token", accessToken);
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+      queryParameters.put("clientguid", clientguid);
+
+      String resourcePath = "identity/v2/auth/email/sendverificationemail";
+            
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<PostResponseResendEmailVerification> typeToken = new TypeToken<PostResponseResendEmailVerification>() {};
+          PostResponseResendEmailVerification successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 

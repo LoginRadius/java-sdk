@@ -11,7 +11,7 @@ import com.google.gson.annotations.SerializedName;
 	// <summary>
 	//	Response Model Class containing Definition of PIN Information
 	// </summary>
-	public class PINInformation {
+	public class PinInformation {
 	
 		
 		@SerializedName("LastPINChangeDate")

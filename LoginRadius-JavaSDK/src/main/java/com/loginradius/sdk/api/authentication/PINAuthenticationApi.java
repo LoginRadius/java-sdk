@@ -28,7 +28,7 @@ import com.loginradius.sdk.models.requestmodels.ResetPINBySecurityQuestionAnswer
 import com.loginradius.sdk.models.requestmodels.ResetPINBySecurityQuestionAnswerAndUsernameModel;
 import com.loginradius.sdk.models.requestmodels.ResetPINByUsernameAndOtpModel;
 import com.loginradius.sdk.models.responsemodels.AccessToken;
-import com.loginradius.sdk.models.responsemodels.SMSResponseData;
+import com.loginradius.sdk.models.responsemodels.SmsResponseData;
 import com.loginradius.sdk.models.responsemodels.otherobjects.PostResponse;
 import com.loginradius.sdk.models.responsemodels.otherobjects.UserProfilePostResponse;
 import com.loginradius.sdk.models.responsemodels.userprofile.Identity;
@@ -326,11 +326,13 @@ public class PINAuthenticationApi {
    // </summary>
    // <param name="forgotPINOtpByPhoneModel">Model Class containing Definition for Forgot Pin Otp By Phone API</param>
    // <param name="smsTemplate"></param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
    // <returns>Response Containing Validation Data and SMS Data</returns>
    // 42.7	    
 		
 		
-   public void sendForgotPINSMSByPhone(ForgotPINOtpByPhoneModel forgotPINOtpByPhoneModel, String smsTemplate, final AsyncHandler<UserProfilePostResponse<SMSResponseData>> handler) {
+   public void sendForgotPINSMSByPhone(ForgotPINOtpByPhoneModel forgotPINOtpByPhoneModel, String smsTemplate,
+      Boolean isVoiceOtp, final AsyncHandler<UserProfilePostResponse<SmsResponseData>> handler) {
 
       if (forgotPINOtpByPhoneModel == null) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("forgotPINOtpByPhoneModel"));
@@ -343,14 +345,18 @@ public class PINAuthenticationApi {
         queryParameters.put("smsTemplate", smsTemplate);
       }
 
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
+      }
+
       String resourcePath = "identity/v2/auth/pin/forgot/otp";
             
       LoginRadiusRequest.execute("POST", resourcePath, queryParameters, gson.toJson(forgotPINOtpByPhoneModel), new AsyncHandler<String>() {
 			
         @Override
         public void onSuccess(String response) {
-          TypeToken<UserProfilePostResponse<SMSResponseData>> typeToken = new TypeToken<UserProfilePostResponse<SMSResponseData>>() {};
-          UserProfilePostResponse<SMSResponseData> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<UserProfilePostResponse<SmsResponseData>> typeToken = new TypeToken<UserProfilePostResponse<SmsResponseData>>() {};
+          UserProfilePostResponse<SmsResponseData> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 

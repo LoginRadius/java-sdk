@@ -6,16 +6,24 @@
  */
 
 package com.loginradius.sdk.models.requestmodels;
+import java.util.Map;
+import java.util.List;
+import java.util.UUID;
+import com.google.gson.JsonObject;
+import com.loginradius.sdk.models.responsemodels.userprofile.objects.*;
 import com.google.gson.annotations.SerializedName;
 
 	// <summary>
-	//	Model Class containing Definition for CaptchaModel
+	//	Model Class containing Definition for ReCaptchaBodyModel Property
 	// </summary>
 	public class CaptchaModel {
 	
 		
 		@SerializedName("g-recaptcha-response")
         private String g_recaptcha_response;
+		
+		@SerializedName("h-captcha-response")
+        private String h_captcha_response;
 		
 		@SerializedName("qq_captcha_randstr")
         private String qq_captcha_randstr;
@@ -36,6 +44,18 @@ import com.google.gson.annotations.SerializedName;
 		// </summary>
 		public void setG_Recaptcha_Response(String g_recaptcha_response) {
 			this.g_recaptcha_response = g_recaptcha_response;
+		}
+		// <summary>
+		//	The acknowledgement received by Google in Google recaptcha authorisation process.
+		// </summary>
+		public String getH_captcha_response() {
+			return h_captcha_response;
+		}
+		// <summary>
+		//	The acknowledgement received by Google in Google recaptcha authorisation process.
+		// </summary>
+		public void setH_captcha_response(String h-captcha-response) {
+			this.h_captcha_response = h_captcha_response;
 		}
 		// <summary>
 		//	the value of the user's random string retrieved from the QQ captcha

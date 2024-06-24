@@ -11,7 +11,7 @@ import com.google.gson.annotations.SerializedName;
 	// <summary>
 	//	Response containing Definition for Complete SMS data
 	// </summary>
-	public class SMSResponseData {
+	public class SmsResponseData {
 	
 		
 		@SerializedName("AccountSid")

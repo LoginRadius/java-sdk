@@ -41,7 +41,7 @@ import com.google.gson.annotations.SerializedName;
         private String oTPPhoneNo;
 		
 		@SerializedName("OTPStatus")
-        private SMSResponseData oTPStatus;
+        private SmsResponseData oTPStatus;
 		
 		@SerializedName("QRCode")
         private String qRCode;
@@ -150,13 +150,13 @@ import com.google.gson.annotations.SerializedName;
 		// <summary>
 		//	OTP status
 		// </summary>
-		public SMSResponseData getOTPStatus() {
+		public SmsResponseData getOTPStatus() {
 			return oTPStatus;
 		}
 		// <summary>
 		//	OTP status
 		// </summary>
-		public void setOTPStatus(SMSResponseData oTPStatus) {
+		public void setOTPStatus(SmsResponseData oTPStatus) {
 			this.oTPStatus = oTPStatus;
 		}
 		// <summary>

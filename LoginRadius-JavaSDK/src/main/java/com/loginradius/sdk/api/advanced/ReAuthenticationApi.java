@@ -15,11 +15,11 @@ import com.loginradius.sdk.helper.JsonDeserializer;
 import com.loginradius.sdk.helper.LoginRadiusRequest;
 import com.loginradius.sdk.helper.LoginRadiusValidator;
 import com.loginradius.sdk.models.requestmodels.EventBasedMultiFactorToken;
+import com.loginradius.sdk.models.requestmodels.MultiFactorAuthModelByAuthenticatorCode;
 import com.loginradius.sdk.models.requestmodels.PINAuthEventBasedAuthModelWithLockout;
 import com.loginradius.sdk.models.requestmodels.PasswordEventBasedAuthModelWithLockout;
 import com.loginradius.sdk.models.requestmodels.ReauthByBackupCodeModel;
 import com.loginradius.sdk.models.requestmodels.ReauthByEmailOtpModel;
-import com.loginradius.sdk.models.requestmodels.ReauthByGoogleAuthenticatorCodeModel;
 import com.loginradius.sdk.models.requestmodels.ReauthByOtpModel;
 import com.loginradius.sdk.models.requestmodels.SecurityQuestionAnswerUpdateModel;
 import com.loginradius.sdk.models.responsemodels.EventBasedMultiFactorAuthenticationToken;
@@ -47,11 +47,12 @@ public class ReAuthenticationApi {
    // </summary>
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="smsTemplate2FA">SMS Template Name</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
    // <returns>Response containing Definition of Complete Multi-Factor Authentication Settings data</returns>
    // 14.3	    
 		
 		
-   public void mfaReAuthenticate(String accessToken, String smsTemplate2FA, final AsyncHandler<MultiFactorAuthenticationSettingsResponse> handler) {      
+   public void mfaReAuthenticate(String accessToken, String smsTemplate2FA, Boolean isVoiceOtp, final AsyncHandler<MultiFactorAuthenticationSettingsResponse> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
@@ -63,6 +64,10 @@ public class ReAuthenticationApi {
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(smsTemplate2FA)) {
         queryParameters.put("smsTemplate2FA", smsTemplate2FA);
+      }
+
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
       }
 
       String resourcePath = "identity/v2/auth/account/reauth/2fa";
@@ -150,47 +155,6 @@ public class ReAuthenticationApi {
       String resourcePath = "identity/v2/auth/account/reauth/2fa/backupcode";
             
       LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(reauthByBackupCodeModel), new AsyncHandler<String>() {
-			
-        @Override
-        public void onSuccess(String response) {
-          TypeToken<EventBasedMultiFactorAuthenticationToken> typeToken = new TypeToken<EventBasedMultiFactorAuthenticationToken>() {};
-          EventBasedMultiFactorAuthenticationToken successResponse = JsonDeserializer.deserializeJson(response,typeToken);
-          handler.onSuccess(successResponse);
-        }
-
-        @Override
-        public void onFailure(ErrorResponse errorResponse) {
-          handler.onFailure(errorResponse);
-        }
-      });
-   }
-   
-   // <summary>
-   // This API is used to re-authenticate via Multi-factor-authentication by passing the google authenticator code
-   // </summary>
-   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
-   // <param name="reauthByGoogleAuthenticatorCodeModel">Model Class containing Definition for MFA Reauthentication by Google Authenticator</param>
-   // <returns>Complete user Multi-Factor Authentication Token data</returns>
-   // 14.6	    
-		
-		
-   public void mfaReAuthenticateByGoogleAuth(String accessToken, ReauthByGoogleAuthenticatorCodeModel reauthByGoogleAuthenticatorCodeModel, final AsyncHandler<EventBasedMultiFactorAuthenticationToken> handler) {      
-
-      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
-        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
-      }
-
-      if (reauthByGoogleAuthenticatorCodeModel == null) {
-        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("reauthByGoogleAuthenticatorCodeModel"));
-      }
-			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("access_token", accessToken);
-      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
-
-      String resourcePath = "identity/v2/auth/account/reauth/2fa/googleauthenticatorcode";
-            
-      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(reauthByGoogleAuthenticatorCodeModel), new AsyncHandler<String>() {
 			
         @Override
         public void onSuccess(String response) {
@@ -538,6 +502,47 @@ public class ReAuthenticationApi {
       String resourcePath = "identity/v2/auth/account/reauth/2fa/securityquestionanswer/verify";
             
       LoginRadiusRequest.execute("POST", resourcePath, queryParameters, gson.toJson(securityQuestionAnswerUpdateModel), new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<EventBasedMultiFactorAuthenticationToken> typeToken = new TypeToken<EventBasedMultiFactorAuthenticationToken>() {};
+          EventBasedMultiFactorAuthenticationToken successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to validate the triggered MFA authentication flow with the Authenticator Code.
+   // </summary>
+   // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
+   // <param name="multiFactorAuthModelByAuthenticatorCode">Model Class containing Definition of payload for MultiFactorAuthModel By Authenticator Code API</param>
+   // <returns>Complete user Multi-Factor Authentication Token data</returns>
+   // 44.6	    
+		
+		
+   public void mfaReAuthenticateByAuthenticatorCode(String accessToken, MultiFactorAuthModelByAuthenticatorCode multiFactorAuthModelByAuthenticatorCode, final AsyncHandler<EventBasedMultiFactorAuthenticationToken> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
+      }
+
+      if (multiFactorAuthModelByAuthenticatorCode == null) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("multiFactorAuthModelByAuthenticatorCode"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("access_token", accessToken);
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+
+      String resourcePath = "identity/v2/auth/account/reauth/2fa/authenticatorcode";
+            
+      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(multiFactorAuthModelByAuthenticatorCode), new AsyncHandler<String>() {
 			
         @Override
         public void onSuccess(String response) {

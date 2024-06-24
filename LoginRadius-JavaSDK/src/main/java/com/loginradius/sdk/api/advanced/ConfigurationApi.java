@@ -13,7 +13,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.loginradius.sdk.helper.JsonDeserializer;
 import com.loginradius.sdk.helper.LoginRadiusRequest;
-import com.loginradius.sdk.models.responsemodels.configobjects.ConfigResponseModel;
 import com.loginradius.sdk.models.responsemodels.otherobjects.ServiceInfoModel;
 import com.loginradius.sdk.util.AsyncHandler;
 import com.loginradius.sdk.util.ErrorResponse;

@@ -19,8 +19,8 @@ import com.google.gson.annotations.SerializedName;
 		@SerializedName("data")
         private List<ActiveSessionDetail> data;
 		
-		@SerializedName("nextcursor")
-        private int nextcursor;
+		@SerializedName("nextCursor")
+        private int nextCursor;
 
 
 
@@ -39,13 +39,13 @@ import com.google.gson.annotations.SerializedName;
 		// <summary>
 		//	Cursor value if not all contacts can be retrieved once.
 		// </summary>
-		public int getNextcursor() {
-			return nextcursor;
+		public int getNextCursor() {
+			return nextCursor;
 		}
 		// <summary>
 		//	Cursor value if not all contacts can be retrieved once.
 		// </summary>
-		public void setNextcursor(int nextcursor) {
-			this.nextcursor = nextcursor;
+		public void setNextCursor(int nextCursor) {
+			this.nextCursor = nextCursor;
 		}
     }

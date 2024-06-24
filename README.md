@@ -250,6 +250,7 @@ List of APIs in this Section:<br>
 * GET : [Auth Check UserName Availability](#CheckUserNameAvailability-get-)<br>
 * GET : [Auth Privacy Policy Accept](#AcceptPrivacyPolicy-get-)<br>
 * GET : [Auth Privacy Policy History By Access Token](#GetPrivacyPolicyHistoryByAccessToken-get-)<br>
+* GET : [Auth send verification Email for linking social profiles](#AuthSendVerificationEmailForLinkingSocialProfiles-get-)<br>
 * DELETE : [Auth Delete Account with Email Confirmation](#DeleteAccountWithEmailConfirmation-delete-)<br>
 * DELETE : [Auth Remove Email](#RemoveEmail-delete-)<br>
 * DELETE : [Auth Unlink Social Identities](#UnlinkSocialIdentities-delete-)<br>
@@ -261,7 +262,7 @@ List of APIs in this Section:<br>
 
  This API is used to update the user's profile by passing the access token. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/auth-update-profile-by-token/)
 
-```java
+```Java
 
 String accessToken = "<accessToken>"; //Required
 UserProfileUpdateModel userProfileUpdateModel = new UserProfileUpdateModel(); //Required
@@ -272,9 +273,11 @@ String fields = null; //Optional
 
 String smsTemplate = "<smsTemplate>"; //Optional
 String verificationUrl = "<verificationUrl>"; //Optional
+Boolean isVoiceOtp = true; //Optional
+String options = "<options>"; //Optional
 
 AuthenticationApi authenticationApi = new AuthenticationApi();
-authenticationApi.updateProfileByAccessToken(accessToken,  userProfileUpdateModel, emailTemplate, fields, smsTemplate, verificationUrl ,  new AsyncHandler<UserProfilePostResponse<Identity>> (){
+authenticationApi.updateProfileByAccessToken(accessToken,  userProfileUpdateModel, emailTemplate, fields, smsTemplate, verificationUrl, isVoiceOtp , options ,  new AsyncHandler<UserProfilePostResponse<Identity>> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -824,7 +827,7 @@ authenticationApi.linkSocialIdentitiesByPing(accessToken, clientGuid ,  new Asyn
 
  This API creates a user in the database as well as sends a verification email to the user. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/auth-user-registration-by-email)
 
-```java
+```Java
 
 AuthUserRegistrationModel authUserRegistrationModel = new AuthUserRegistrationModel(); //Required
 List<EmailModel> email = new ArrayList < EmailModel >();
@@ -842,9 +845,10 @@ String fields = null; //Optional
 String options = "<options>"; //Optional
 String verificationUrl = "<verificationUrl>"; //Optional
 String welcomeEmailTemplate = "<welcomeEmailTemplate>"; //Optional
+Boolean isVoiceOtp = true; //Optional
 
 AuthenticationApi authenticationApi = new AuthenticationApi();
-authenticationApi.userRegistrationByEmail( authUserRegistrationModel, sott, emailTemplate, fields, options, verificationUrl, welcomeEmailTemplate ,  new AsyncHandler<UserProfilePostResponse<AccessToken<Identity>>> (){
+authenticationApi.userRegistrationByEmail( authUserRegistrationModel, sott, emailTemplate, fields, options, verificationUrl, welcomeEmailTemplate, isVoiceOtp ,  new AsyncHandler<UserProfilePostResponse<AccessToken<Identity>>> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -867,7 +871,7 @@ authenticationApi.userRegistrationByEmail( authUserRegistrationModel, sott, emai
 
  This API creates a user in the database as well as sends a verification email to the user. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/auth-user-registration-by-recaptcha)
 
-```java
+```Java
 
 AuthUserRegistrationModelWithCaptcha authUserRegistrationModelWithCaptcha = new AuthUserRegistrationModelWithCaptcha(); //Required
 List<EmailModel> email = new ArrayList < EmailModel >();
@@ -886,9 +890,10 @@ String options = "<options>"; //Optional
 String smsTemplate = "<smsTemplate>"; //Optional
 String verificationUrl = "<verificationUrl>"; //Optional
 String welcomeEmailTemplate = "<welcomeEmailTemplate>"; //Optional
+Boolean isVoiceOtp = true; //Optional
 
 AuthenticationApi authenticationApi = new AuthenticationApi();
-authenticationApi.userRegistrationByCaptcha( authUserRegistrationModelWithCaptcha, emailTemplate, fields, options, smsTemplate, verificationUrl, welcomeEmailTemplate ,  new AsyncHandler<UserProfilePostResponse<AccessToken<Identity>>> (){
+authenticationApi.userRegistrationByCaptcha( authUserRegistrationModelWithCaptcha, emailTemplate, fields, options, smsTemplate, verificationUrl, welcomeEmailTemplate, isVoiceOtp ,  new AsyncHandler<UserProfilePostResponse<AccessToken<Identity>>> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -1250,15 +1255,16 @@ authenticationApi.checkEmailAvailability(email ,  new AsyncHandler<ExistResponse
 
  This API is used to verify the email of user. Note: This API will only return the full profile if you have 'Enable auto login after email verification' set in your LoginRadius Admin Console's Email Workflow settings under 'Verification Email'. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/auth-verify-email/)
 
-```java
+```Java
 
 String verificationToken = "<verificationToken>"; //Required
 String fields = null; //Optional
 String url = "<url>"; //Optional
 String welcomeEmailTemplate = "<welcomeEmailTemplate>"; //Optional
+String uuid = "<uuid>"; //Optional
 
 AuthenticationApi authenticationApi = new AuthenticationApi();
-authenticationApi.verifyEmail(verificationToken, fields, url, welcomeEmailTemplate ,  new AsyncHandler<UserProfilePostResponse<EmailVerificationData<Identity>>> (){
+authenticationApi.verifyEmail(verificationToken, fields, url, welcomeEmailTemplate , uuid,  new AsyncHandler<UserProfilePostResponse<EmailVerificationData<Identity>>> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -1358,7 +1364,29 @@ authenticationApi.getPrivacyPolicyHistoryByAccessToken(accessToken ,  new AsyncH
 ```
 
   
+<h6 id="AuthSendVerificationEmailForLinkingSocialProfiles-get-">Auth send verification Email for linking social profiles (GET)</h6>
 
+ This API is used to Send verification email to the unverified email of the social profile. This API can be used only incase of optional verification workflow. [More info](/api/v2/customer-identity-api/authentication/auth-send-verification-for-social-email/)
+
+```Java
+
+String accessToken = "<accessToken>"; //Required
+String clientguid = "<clientguid>"; //Required
+
+AuthenticationApi authenticationApi = new AuthenticationApi();
+authenticationApi.authSendVerificationEmailForLinkingSocialProfiles(accessToken, clientguid ,  new AsyncHandler<PostResponseResendEmailVerification> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(PostResponseResendEmailVerification response) {
+  System.out.println(response.getIsPosted());
+ }
+});
+
+```
 
 
 
@@ -1469,6 +1497,8 @@ List of APIs in this Section:<br>
 * POST : [Account Create](#CreateAccount-post-)<br>
 * POST : [Forgot Password token](#GetForgotPasswordToken-post-)<br>
 * POST : [Email Verification token](#GetEmailVerificationToken-post-)<br>
+* POST : [Multipurpose Email Token Generation API](#MultipurposeEmailTokenGeneration-post-)<br>
+* POST : [Multipurpose SMS OTP Generation API](#MultipurposeSMSOTPGeneration-post-)<br>
 * GET : [Get Privacy Policy History By Uid](#GetPrivacyPolicyHistoryByUid-get-)<br>
 * GET : [Account Profiles by Email](#GetAccountProfileByEmail-get-)<br>
 * GET : [Account Profiles by Username](#GetAccountProfileByUserName-get-)<br>
@@ -1481,6 +1511,7 @@ List of APIs in this Section:<br>
 * GET : [Account Identities by Email](#GetAccountIdentitiesByEmail-get-)<br>
 * DELETE : [Account Delete](#DeleteAccountByUid-delete-)<br>
 * DELETE : [Account Remove Email](#RemoveEmail-delete-)<br>
+* DELETE : [Revoke All Refresh Token](#RevokeAllRefreshToken-delete-)<br>
 * DELETE : [Delete User Profiles By Email](#AccountDeleteByEmail-delete-)<br>
 
 
@@ -1612,13 +1643,14 @@ accountApi.invalidateAccountEmailVerification(uid, emailTemplate, verificationUr
 
  This API Allows you to reset the phone no verification of an end user’s account. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/phone-authentication/reset-phone-id-verification)
 
-```java
+```Java
 
 String uid = "<uid>"; //Required
 String smsTemplate = "<smsTemplate>"; //Optional
+Boolean isVoiceOtp = true; //Optional
 
 AccountApi accountApi = new AccountApi();
-accountApi.resetPhoneIDVerificationByUid(uid, smsTemplate ,  new AsyncHandler<PostResponse> (){
+accountApi.resetPhoneIDVerificationByUid(uid, smsTemplate, isVoiceOtp ,  new AsyncHandler<PostResponse> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -1790,6 +1822,69 @@ accountApi.getEmailVerificationToken(email ,  new AsyncHandler<EmailVerification
  @Override
  public void onSuccess(EmailVerificationTokenResponse response) {
   System.out.println(response.getVerificationToken());
+ }
+});
+
+```
+
+
+<h6 id="MultipurposeEmailTokenGeneration-post-">Multipurpose Email Token Generation API (POST)</h6>
+
+ This API generate Email tokens and Email OTPs for Email verification, Add email, Forgot password, Delete user, Passwordless login, Forgot pin, One-touch login and Auto login. [More info](/api/v2/customer-identity-api/multipurpose-token-and-sms-otp-generation-api/multipurpose-email-token-generation/)
+
+```Java
+
+MultiEmailToken multiEmailToken = new MultiEmailToken(); //Required
+multiEmailToken.setClientguid("clientguid"); 
+multiEmailToken.setEmail("email"); 
+multiEmailToken.setName("name"); 
+multiEmailToken.setType("type"); 
+multiEmailToken.setUid("uid"); 
+multiEmailToken.setUserName("userName"); 
+String tokentype = "<tokentype>"; //Required
+
+AccountApi accountApi = new AccountApi();
+accountApi.multipurposeEmailTokenGeneration( multiEmailToken, tokentype ,  new AsyncHandler<MultiToken> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(MultiToken response) {
+  System.out.println(response.getExpiresIn());
+ }
+});
+
+```
+
+  
+
+
+
+
+<h6 id="MultipurposeSMSOTPGeneration-post-">Multipurpose SMS OTP Generation API (POST)</h6>
+
+ This API generates SMS OTP for Add phone, Phone Id verification, Forgot password, Forgot pin, One-touch login, smart login and Passwordless login. [More info](/api/v2/customer-identity-api/multipurpose-token-and-sms-otp-generation-api/multipurpose-sms-otp-generation/)
+
+```Ja
+
+MultiSmsOtp multiSmsOtp = new MultiSmsOtp(); //Required
+multiSmsOtp.setName("name"); 
+multiSmsOtp.setPhone("phone"); 
+multiSmsOtp.setUid("uid"); 
+String smsotptype = "<smsotptype>"; //Required
+
+AccountApi accountApi = new AccountApi();
+accountApi.multipurposeSMSOTPGeneration( multiSmsOtp, smsotptype ,  new AsyncHandler<MultiToken> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(MultiToken response) {
+  System.out.println(response.getExpiresIn());
  }
 });
 
@@ -2138,7 +2233,28 @@ accountApi.removeEmail(email, uid, fields ,  new AsyncHandler<Identity> (){
 
 ```
 
-  
+<h6 id="RevokeAllRefreshToken-delete-">Revoke All Refresh Token (DELETE)</h6>
+
+ The Revoke All Refresh Access Token API is used to revoke all refresh tokens for a specific user. [More info](/api/v2/customer-identity-api/refresh-token/revoke-all-refresh-token/)
+
+```Java
+
+String uid = "<uid>"; //Required
+
+AccountApi accountApi = new AccountApi();
+accountApi.revokeAllRefreshToken(uid ,  new AsyncHandler<DeleteResponse> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(DeleteResponse response) {
+  System.out.println(response.getIsDeleted());
+ }
+});
+
+```
 
 
 
@@ -2768,15 +2884,16 @@ phoneAuthenticationApi.resetPasswordByPhoneOTP( resetPasswordByOTPModel ,  new A
 
  This API is used to validate the verification code sent to verify a user's phone number [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/phone-authentication/phone-verify-otp)
 
-```java
+```Java
 
 String otp = "<otp>"; //Required
 String phone = "<phone>"; //Required
 String fields = null; //Optional
 String smsTemplate = "<smsTemplate>"; //Optional
+Boolean isVoiceOtp = true; //Optional
 
 PhoneAuthenticationApi phoneAuthenticationApi = new PhoneAuthenticationApi();
-phoneAuthenticationApi.phoneVerificationByOTP(otp, phone, fields, smsTemplate ,  new AsyncHandler<AccessToken<Identity>> (){
+phoneAuthenticationApi.phoneVerificationByOTP(otp, phone, fields, smsTemplate, isVoiceOtp ,  new AsyncHandler<AccessToken<Identity>> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -2799,14 +2916,15 @@ phoneAuthenticationApi.phoneVerificationByOTP(otp, phone, fields, smsTemplate , 
 
  This API is used to consume the verification code sent to verify a user's phone number. Use this call for front-end purposes in cases where the user is already logged in by passing the user's access token. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/phone-authentication/phone-verify-otp-by-token)
 
-```java
+```Java
 
 String accessToken = "<accessToken>"; //Required
 String otp = "<otp>"; //Required
 String smsTemplate = "<smsTemplate>"; //Optional
+Boolean isVoiceOtp = true; //Optional
 
 PhoneAuthenticationApi phoneAuthenticationApi = new PhoneAuthenticationApi();
-phoneAuthenticationApi.phoneVerificationOTPByAccessToken(accessToken, otp, smsTemplate ,  new AsyncHandler<PostResponse> (){
+phoneAuthenticationApi.phoneVerificationOTPByAccessToken(accessToken, otp, smsTemplate, isVoiceOtp ,  new AsyncHandler<PostResponse> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -2892,20 +3010,21 @@ phoneAuthenticationApi.loginByPhone( phoneAuthenticationModel, fields, loginUrl,
 
  This API is used to send the OTP to reset the account password. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/phone-authentication/phone-forgot-password-by-otp)
 
-```java
+```Java
 
 String phone = "<phone>"; //Required
 String smsTemplate = "<smsTemplate>"; //Optional
+Boolean isVoiceOtp = true; //Optional
 
 PhoneAuthenticationApi phoneAuthenticationApi = new PhoneAuthenticationApi();
-phoneAuthenticationApi.forgotPasswordByPhoneOTP(phone, smsTemplate ,  new AsyncHandler<UserProfilePostResponse<SMSResponseData>> (){
+phoneAuthenticationApi.forgotPasswordByPhoneOTP(phone, smsTemplate, isVoiceOtp ,  new AsyncHandler<UserProfilePostResponse<SmsResponseData>> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
  System.out.println(errorResponse.getDescription());
  }
  @Override
- public void onSuccess(UserProfilePostResponse<SMSResponseData> response) {
+ public void onSuccess(UserProfilePostResponse<SmsResponseData> response) {
   System.out.println(response.getIsPosted());
  }
 });
@@ -2921,20 +3040,21 @@ phoneAuthenticationApi.forgotPasswordByPhoneOTP(phone, smsTemplate ,  new AsyncH
 
  This API is used to resend a verification OTP to verify a user's Phone Number. The user will receive a verification code that they will need to input [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/phone-authentication/phone-resend-otp)
 
-```java
+```Java
 
 String phone = "<phone>"; //Required
 String smsTemplate = "<smsTemplate>"; //Optional
+Boolean isVoiceOtp = true; //Optional
 
 PhoneAuthenticationApi phoneAuthenticationApi = new PhoneAuthenticationApi();
-phoneAuthenticationApi.phoneResendVerificationOTP(phone, smsTemplate ,  new AsyncHandler<UserProfilePostResponse<SMSResponseData>> (){
+phoneAuthenticationApi.phoneResendVerificationOTP(phone, smsTemplate, isVoiceOtp ,  new AsyncHandler<UserProfilePostResponse<SmsResponseData>> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
  System.out.println(errorResponse.getDescription());
  }
  @Override
- public void onSuccess(UserProfilePostResponse<SMSResponseData> response) {
+ public void onSuccess(UserProfilePostResponse<SmsResponseData> response) {
   System.out.println(response.getIsPosted());
  }
 });
@@ -2980,7 +3100,7 @@ phoneAuthenticationApi.phoneResendVerificationOTPByToken(accessToken, phone, sms
 
  This API registers the new users into your Cloud Storage and triggers the phone verification process. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/phone-authentication/phone-user-registration-by-sms)
 
-```java
+```Java
 
 AuthUserRegistrationModel authUserRegistrationModel = new AuthUserRegistrationModel(); //Required
 List<EmailModel> email = new ArrayList < EmailModel >();
@@ -3000,9 +3120,10 @@ String smsTemplate = "<smsTemplate>"; //Optional
 String verificationUrl = "<verificationUrl>"; //Optional
 String welcomeEmailTemplate = "<welcomeEmailTemplate>"; //Optional
 String emailTemplate = "<emailTemplate>"; //Optional
+Boolean isVoiceOtp = true; //Optional
 
 PhoneAuthenticationApi phoneAuthenticationApi = new PhoneAuthenticationApi();
-phoneAuthenticationApi.userRegistrationByPhone( authUserRegistrationModel, sott, fields, options, smsTemplate, verificationUrl, welcomeEmailTemplate , emailTemplate ,  new AsyncHandler<UserProfilePostResponse<AccessToken<Identity>>> (){
+phoneAuthenticationApi.userRegistrationByPhone( authUserRegistrationModel, sott, fields, options, smsTemplate, verificationUrl, welcomeEmailTemplate , emailTemplate , isVoiceOtp,  new AsyncHandler<UserProfilePostResponse<AccessToken<Identity>>> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -3091,11 +3212,12 @@ List of APIs in this Section:<br>
 * PUT : [Verify MFA Email OTP by Access Token](#MFAValidateEmailOtpByAccessToken-put-)<br>
 * PUT : [Update MFA Security Question by Access Token](#MFASecurityQuestionAnswerByAccessToken-put-)<br>
 * PUT : [MFA Validate OTP](#MFAValidateOTPByPhone-put-)<br>
-* PUT : [MFA Validate Google Auth Code](#MFAValidateGoogleAuthCode-put-)<br>
 * PUT : [MFA Validate Backup code](#MFAValidateBackupCode-put-)<br>
 * PUT : [MFA Update Phone Number](#MFAUpdatePhoneNumber-put-)<br>
 * PUT : [Verify MFA Email OTP by MFA Token](#MFAValidateEmailOtp-put-)<br>
 * PUT : [Update MFA Security Question by MFA Token](#MFASecurityQuestionAnswer-put-)<br>
+* PUT : [MFA Validate Authenticator Code](#MFAValidateAuthenticatorCode-put-)<br>
+* PUT : [MFA Verify Authenticator Code](#MFAVerifyAuthenticatorCode-put-)<br>
 * POST : [MFA Email Login](#MFALoginByEmail-post-)<br>
 * POST : [MFA UserName Login](#MFALoginByUserName-post-)<br>
 * POST : [MFA Phone Login](#MFALoginByPhone-post-)<br>
@@ -3108,12 +3230,12 @@ List of APIs in this Section:<br>
 * GET : [MFA Resend Otp](#MFAResendOTP-get-)<br>
 * GET : [MFA Backup Code by UID](#MFABackupCodeByUid-get-)<br>
 * GET : [MFA Reset Backup Code by UID](#MFAResetBackupCodeByUid-get-)<br>
-* DELETE : [MFA Reset Google Authenticator by Token](#MFAResetGoogleAuthByToken-delete-)<br>
+* DELETE : [MFA Reset Authenticator by Token](#MFAResetAuthenticatorByToken-delete-)<br>
 * DELETE : [MFA Reset SMS Authenticator by Token](#MFAResetSMSAuthByToken-delete-)<br>
 * DELETE : [Reset MFA Email OTP Authenticator By Access Token](#MFAResetEmailOtpAuthenticatorByAccessToken-delete-)<br>
 * DELETE : [MFA Reset Security Question Authenticator By Access Token](#MFAResetSecurityQuestionAuthenticatorByAccessToken-delete-)<br>
 * DELETE : [MFA Reset SMS Authenticator By UID](#MFAResetSMSAuthenticatorByUid-delete-)<br>
-* DELETE : [MFA Reset Google Authenticator By UID](#MFAResetGoogleAuthenticatorByUid-delete-)<br>
+* DELETE : [MFA Reset Authenticator By UID](#MFAResetAuthenticatorByUid-delete-)<br>
 * DELETE : [Reset MFA Email OTP Authenticator Settings by Uid](#MFAResetEmailOtpAuthenticatorByUid-delete-)<br>
 * DELETE : [Reset MFA Security Question Authenticator Settings by Uid](#MFAResetSecurityQuestionAuthenticatorByUid-delete-)<br>
 
@@ -3187,21 +3309,23 @@ multiFactorAuthenticationApi.mfaUpdateByAccessToken(accessToken,  multiFactorAut
 
  This API is used to update the Multi-factor authentication phone number by sending the verification OTP to the provided phone number [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/sms-authenticator/mfa-update-phone-number-by-token/)
 
-```java
+```Java
 
 String accessToken = "<accessToken>"; //Required
 String phoneNo2FA = "<phoneNo2FA>"; //Required
 String smsTemplate2FA = "<smsTemplate2FA>"; //Optional
+Boolean isVoiceOtp = true; //Optional
+String options = "<options>"; //Optional
 
 MultiFactorAuthenticationApi multiFactorAuthenticationApi = new MultiFactorAuthenticationApi();
-multiFactorAuthenticationApi.mfaUpdatePhoneNumberByToken(accessToken, phoneNo2FA, smsTemplate2FA ,  new AsyncHandler<SMSResponseData> (){
+multiFactorAuthenticationApi.mfaUpdatePhoneNumberByToken(accessToken, phoneNo2FA, smsTemplate2FA, isVoiceOtp ,options,  new AsyncHandler<SmsResponseData> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
  System.out.println(errorResponse.getDescription());
  }
  @Override
- public void onSuccess(SMSResponseData response) {
+ public void onSuccess(SmsResponseData response) {
   System.out.println(response.getAccountSid());
  }
 });
@@ -3315,44 +3439,6 @@ multiFactorAuthenticationApi.mfaValidateOTPByPhone( multiFactorAuthModelWithLock
 
 ```
 
-  
-
-
-
-
-<h6 id="MFAValidateGoogleAuthCode-put-">MFA Validate Google Auth Code (PUT)</h6>
-
- This API is used to login via Multi-factor-authentication by passing the google authenticator code. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/google-authenticator/mfa-validate-google-auth-code/)
-
-```java
-
-String googleAuthenticatorCode = "<googleAuthenticatorCode>"; //Required
-String secondFactorAuthenticationToken = "<secondFactorAuthenticationToken>"; //Required
-String fields = null; //Optional
-String rbaBrowserEmailTemplate = "<rbaBrowserEmailTemplate>"; //Optional
-String rbaCityEmailTemplate = "<rbaCityEmailTemplate>"; //Optional
-String rbaCountryEmailTemplate = "<rbaCountryEmailTemplate>"; //Optional
-String rbaIpEmailTemplate = "<rbaIpEmailTemplate>"; //Optional
-
-MultiFactorAuthenticationApi multiFactorAuthenticationApi = new MultiFactorAuthenticationApi();
-multiFactorAuthenticationApi.mfaValidateGoogleAuthCode(googleAuthenticatorCode, secondFactorAuthenticationToken, fields, rbaBrowserEmailTemplate, rbaCityEmailTemplate, rbaCountryEmailTemplate, rbaIpEmailTemplate ,  new AsyncHandler<AccessToken<Identity>> (){
-
-@Override
- public void onFailure(ErrorResponse errorResponse) {
- System.out.println(errorResponse.getDescription());
- }
- @Override
- public void onSuccess(AccessToken<Identity> response) {
-  System.out.println(response.getAccess_Token());
- }
-});
-
-```
-
-  
-
-
-
 
 <h6 id="MFAValidateBackupCode-put-">MFA Validate Backup code (PUT)</h6>
 
@@ -3393,21 +3479,23 @@ multiFactorAuthenticationApi.mfaValidateBackupCode( multiFactorAuthModelByBackup
 
  This API is used to update (if configured) the phone number used for Multi-factor authentication by sending the verification OTP to the provided phone number [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/sms-authenticator/mfa-update-phone-number/)
 
-```java
+```Java
 
 String phoneNo2FA = "<phoneNo2FA>"; //Required
 String secondFactorAuthenticationToken = "<secondFactorAuthenticationToken>"; //Required
 String smsTemplate2FA = "<smsTemplate2FA>"; //Optional
+Boolean isVoiceOtp = true; //Optional
+String options = "<options>"; //Optional
 
 MultiFactorAuthenticationApi multiFactorAuthenticationApi = new MultiFactorAuthenticationApi();
-multiFactorAuthenticationApi.mfaUpdatePhoneNumber(phoneNo2FA, secondFactorAuthenticationToken, smsTemplate2FA ,  new AsyncHandler<SMSResponseData> (){
+multiFactorAuthenticationApi.mfaUpdatePhoneNumber(phoneNo2FA, secondFactorAuthenticationToken, smsTemplate2FA , isVoiceOtp , options,  new AsyncHandler<SmsResponseData> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
  System.out.println(errorResponse.getDescription());
  }
  @Override
- public void onSuccess(SMSResponseData response) {
+ public void onSuccess(SmsResponseData response) {
   System.out.println(response.getAccountSid());
  }
 });
@@ -3486,7 +3574,56 @@ multiFactorAuthenticationApi.mfaSecurityQuestionAnswer( securityQuestionAnswerUp
 ```
 
   
+<h6 id="MFAValidateAuthenticatorCode-put-">MFA Validate Authenticator Code (PUT)</h6>
 
+ This API is used to login to a user's account during the second MFA step with an Authenticator Code. [More info](/api/v2/customer-identity-api/multi-factor-authentication/sms-authenticator/mfa-validate-authenticator-code/)
+
+```Java
+
+MultiFactorAuthModelByAuthenticatorCode multiFactorAuthModelByAuthenticatorCode = new MultiFactorAuthModelByAuthenticatorCode(); //Required
+String secondfactorauthenticationtoken = "<secondfactorauthenticationtoken>"; //Required
+String fields = null; //Optional
+
+MultiFactorAuthenticationApi multiFactorAuthenticationApi = new MultiFactorAuthenticationApi();
+multiFactorAuthenticationApi.mfaValidateAuthenticatorCode( multiFactorAuthModelByAuthenticatorCode, secondfactorauthenticationtoken, fields ,  new AsyncHandler<MultiFactorAuthenticationResponse<Identity>> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(MultiFactorAuthenticationResponse<Identity> response) {
+  System.out.println(response.getAccess_Token());
+ }
+});
+
+```
+
+<h6 id="MFAVerifyAuthenticatorCode-put-">MFA Verify Authenticator Code (PUT)</h6>
+
+ This API is used to validate an Authenticator Code as part of the MFA process. [More info](/api/v2/customer-identity-api/multi-factor-authentication/sms-authenticator/mfa-verify-authenticator-code/)
+
+```Java
+
+String accessToken = "<accessToken>"; //Required
+MultiFactorAuthModelByAuthenticatorCodeSecurityAnswer multiFactorAuthModelByAuthenticatorCodeSecurityAnswer = new MultiFactorAuthModelByAuthenticatorCodeSecurityAnswer(); //Required
+multiFactorAuthModelByAuthenticatorCodeSecurityAnswer.setAuthenticatorCode("authenticatorCode"); 
+String fields = null; //Optional
+
+MultiFactorAuthenticationApi multiFactorAuthenticationApi = new MultiFactorAuthenticationApi();
+multiFactorAuthenticationApi.mfaVerifyAuthenticatorCode(accessToken,  multiFactorAuthModelByAuthenticatorCodeSecurityAnswer, fields ,  new AsyncHandler<MultiFactorAuthenticationResponse<Identity>> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(MultiFactorAuthenticationResponse<Identity> response) {
+  System.out.println(response.getAccess_Token());
+ }
+});
+
+```
 
 
 
@@ -3494,7 +3631,7 @@ multiFactorAuthenticationApi.mfaSecurityQuestionAnswer( securityQuestionAnswerUp
 
  This API can be used to login by emailid on a Multi-factor authentication enabled LoginRadius site. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/mfa-email-login)
 
-```java
+```Java
 
 String email = "<email>"; //Required
 String password = "<password>"; //Required
@@ -3505,9 +3642,11 @@ String smsTemplate = "<smsTemplate>"; //Optional
 String smsTemplate2FA = "<smsTemplate2FA>"; //Optional
 String verificationUrl = "<verificationUrl>"; //Optional
 String emailTemplate2FA = "<emailTemplate2FA>"; //Optional
+Boolean isVoiceOtp = true; //Optional
+String options = "<options>"; //Optional
 
 MultiFactorAuthenticationApi multiFactorAuthenticationApi = new MultiFactorAuthenticationApi();
-multiFactorAuthenticationApi.mfaLoginByEmail(email, password, emailTemplate, fields, loginUrl, smsTemplate, smsTemplate2FA, verificationUrl ,emailTemplate2FA,  new AsyncHandler<MultiFactorAuthenticationResponse<Identity>> (){
+multiFactorAuthenticationApi.mfaLoginByEmail(email, password, emailTemplate, fields, loginUrl, smsTemplate, smsTemplate2FA, verificationUrl ,emailTemplate2FA, isVoiceOtp, option,  new AsyncHandler<MultiFactorAuthenticationResponse<Identity>> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -3530,7 +3669,7 @@ multiFactorAuthenticationApi.mfaLoginByEmail(email, password, emailTemplate, fie
 
  This API can be used to login by username on a Multi-factor authentication enabled LoginRadius site. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/mfa-user-name-login)
 
-```java
+```Java
 
 String password = "<password>"; //Required
 String username = "<username>"; //Required
@@ -3542,9 +3681,10 @@ String smsTemplate2FA = "<smsTemplate2FA>"; //Optional
 String verificationUrl = "<verificationUrl>"; //Optional
 String emailTemplate2FA = "<emailTemplate2FA>"; //Optional
 
+Boolean isVoiceOtp = true; //Optional
 
 MultiFactorAuthenticationApi multiFactorAuthenticationApi = new MultiFactorAuthenticationApi();
-multiFactorAuthenticationApi.mfaLoginByUserName(password, username, emailTemplate, fields, loginUrl, smsTemplate, smsTemplate2FA, verificationUrl ,emailTemplate2FA,  new AsyncHandler<MultiFactorAuthenticationResponse<Identity>> (){
+multiFactorAuthenticationApi.mfaLoginByUserName(password, username, emailTemplate, fields, loginUrl, smsTemplate, smsTemplate2FA, verificationUrl ,emailTemplate2FA, isVoiceOtp,  new AsyncHandler<MultiFactorAuthenticationResponse<Identity>> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -3567,7 +3707,7 @@ multiFactorAuthenticationApi.mfaLoginByUserName(password, username, emailTemplat
 
  This API can be used to login by Phone on a Multi-factor authentication enabled LoginRadius site. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/mfa-phone-login)
 
-```java
+```Java
 
 String password = "<password>"; //Required
 String phone = "<phone>"; //Required
@@ -3578,10 +3718,11 @@ String smsTemplate = "<smsTemplate>"; //Optional
 String smsTemplate2FA = "<smsTemplate2FA>"; //Optional
 String verificationUrl = "<verificationUrl>"; //Optional
 String emailTemplate2FA = "<emailTemplate2FA>"; //Optional
-
+Boolean isVoiceOtp = true; //Optional
+String options = "<options>"; //Optional
 
 MultiFactorAuthenticationApi multiFactorAuthenticationApi = new MultiFactorAuthenticationApi();
-multiFactorAuthenticationApi.mfaLoginByPhone(password, phone, emailTemplate, fields, loginUrl, smsTemplate, smsTemplate2FA, verificationUrl ,emailTemplate2FA,  new AsyncHandler<MultiFactorAuthenticationResponse<Identity>> (){
+multiFactorAuthenticationApi.mfaLoginByPhone(password, phone, emailTemplate, fields, loginUrl, smsTemplate, smsTemplate2FA, verificationUrl ,emailTemplate2FA, isVoiceOtp ,options,  new AsyncHandler<MultiFactorAuthenticationResponse<Identity>> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -3676,13 +3817,13 @@ multiFactorAuthenticationApi.mfaSecurityQuestionAnswerVerification( securityQues
 
  This API is used to configure the Multi-factor authentication after login by using the access token when MFA is set as optional on the LoginRadius site. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/mfa-validate-access-token/)
 
-```java
+```Java
 
 String accessToken = "<accessToken>"; //Required
-String smsTemplate2FA = "<smsTemplate2FA>"; //Optional
+Boolean isVoiceOtp = true; //Optional
 
 MultiFactorAuthenticationApi multiFactorAuthenticationApi = new MultiFactorAuthenticationApi();
-multiFactorAuthenticationApi.mfaConfigureByAccessToken(accessToken, smsTemplate2FA ,  new AsyncHandler<MultiFactorAuthenticationSettingsResponse> (){
+multiFactorAuthenticationApi.mfaConfigureByAccessToken(accessToken, isVoiceOtp ,  new AsyncHandler<MultiFactorAuthenticationSettingsResponse> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -3690,12 +3831,35 @@ multiFactorAuthenticationApi.mfaConfigureByAccessToken(accessToken, smsTemplate2
  }
  @Override
  public void onSuccess(MultiFactorAuthenticationSettingsResponse response) {
-  System.out.println(response.getIsGoogleAuthenticatorVerified());
+  System.out.println(response.getEmail());
  }
 });
 
 ```
 
+<h6 id="MFAResetAuthenticatorByToken-delete-">MFA Reset Authenticator by Token (DELETE)</h6>
+
+ This API Resets the Authenticator configurations on a given account via the access_token. [More info](/api/v2/customer-identity-api/multi-factor-authentication/google-authenticator/mfa-reset-authenticator-by-token/)
+
+```Java
+
+String accessToken = "<accessToken>"; //Required
+Boolean authenticator = true; //Required
+
+MultiFactorAuthenticationApi multiFactorAuthenticationApi = new MultiFactorAuthenticationApi();
+multiFactorAuthenticationApi.mfaResetAuthenticatorByToken(accessToken, authenticator ,  new AsyncHandler<DeleteResponse> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(DeleteResponse response) {
+  System.out.println(response.getIsDeleted());
+ }
+});
+
+```
   
 
 
@@ -3791,20 +3955,21 @@ multiFactorAuthenticationApi.mfaEmailOtpByAccessToken(accessToken, emailId, emai
 
  This API is used to resending the verification OTP to the provided phone number [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/resend-twofactorauthentication-otp/)
 
-```java
+```Java
 
 String secondFactorAuthenticationToken = "<secondFactorAuthenticationToken>"; //Required
 String smsTemplate2FA = "<smsTemplate2FA>"; //Optional
+Boolean isVoiceOtp = true; //Optional
 
 MultiFactorAuthenticationApi multiFactorAuthenticationApi = new MultiFactorAuthenticationApi();
-multiFactorAuthenticationApi.mfaResendOTP(secondFactorAuthenticationToken, smsTemplate2FA ,  new AsyncHandler<SMSResponseData> (){
+multiFactorAuthenticationApi.mfaResendOTP(secondFactorAuthenticationToken, smsTemplate2FA, isVoiceOtp ,  new AsyncHandler<SmsResponseData> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
  System.out.println(errorResponse.getDescription());
  }
  @Override
- public void onSuccess(SMSResponseData response) {
+ public void onSuccess(SmsResponseData response) {
   System.out.println(response.getAccountSid());
  }
 });
@@ -3862,35 +4027,6 @@ multiFactorAuthenticationApi.mfaResetBackupCodeByUid(uid ,  new AsyncHandler<Bac
  @Override
  public void onSuccess(BackupCodeResponse response) {
   System.out.println(response.getBackUpCodes());
- }
-});
-
-```
-
-  
-
-
-
-
-<h6 id="MFAResetGoogleAuthByToken-delete-">MFA Reset Google Authenticator by Token (DELETE)</h6>
-
- This API Resets the Google Authenticator configurations on a given account via the access token [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/google-authenticator/mfa-reset-google-authenticator-by-token/)
-
-```java
-
-String accessToken = "<accessToken>"; //Required
-Boolean googleauthenticator = true; //Required
-
-MultiFactorAuthenticationApi multiFactorAuthenticationApi = new MultiFactorAuthenticationApi();
-multiFactorAuthenticationApi.mfaResetGoogleAuthByToken(accessToken, googleauthenticator ,  new AsyncHandler<DeleteResponse> (){
-
-@Override
- public void onFailure(ErrorResponse errorResponse) {
- System.out.println(errorResponse.getDescription());
- }
- @Override
- public void onSuccess(DeleteResponse response) {
-  System.out.println(response.getIsDeleted());
  }
 });
 
@@ -4012,20 +4148,16 @@ multiFactorAuthenticationApi.mfaResetSMSAuthenticatorByUid(otpauthenticator, uid
 
   
 
+<h6 id="MFAResetAuthenticatorByUid-delete-">MFA Reset Authenticator By UID (DELETE)</h6>
+ This API resets the Authenticator configurations on a given account via the UID. [More info](/api/v2/customer-identity-api/multi-factor-authentication/authenticator/mfa-reset-authenticator-by-uid/)
 
+```Java
 
-
-<h6 id="MFAResetGoogleAuthenticatorByUid-delete-">MFA Reset Google Authenticator By UID (DELETE)</h6>
-
- This API resets the Google Authenticator configurations on a given account via the UID. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/google-authenticator/mfa-reset-google-authenticator-by-uid/)
-
-```java
-
-Boolean googleauthenticator = true; //Required
+Boolean authenticator = true; //Required
 String uid = "<uid>"; //Required
 
 MultiFactorAuthenticationApi multiFactorAuthenticationApi = new MultiFactorAuthenticationApi();
-multiFactorAuthenticationApi.mfaResetGoogleAuthenticatorByUid(googleauthenticator, uid ,  new AsyncHandler<DeleteResponse> (){
+multiFactorAuthenticationApi.mfaResetAuthenticatorByUid(authenticator, uid ,  new AsyncHandler<DeleteResponse> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -4467,21 +4599,22 @@ pinAuthenticationApi.sendForgotPINEmailByUsername( forgotPINLinkByUserNameModel,
 
  This API sends the OTP to specified phone number [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/authentication/pin-authentication/forgot-pin-by-phone/)
 
-```java
+```Java
 
 ForgotPINOtpByPhoneModel forgotPINOtpByPhoneModel = new ForgotPINOtpByPhoneModel(); //Required
 forgotPINOtpByPhoneModel.setPhone("phone"); 
 String smsTemplate = "<smsTemplate>"; //Optional
+Boolean isVoiceOtp = true; //Optional
 
 PINAuthenticationApi pinAuthenticationApi = new PINAuthenticationApi();
-pinAuthenticationApi.sendForgotPINSMSByPhone( forgotPINOtpByPhoneModel, smsTemplate ,  new AsyncHandler<UserProfilePostResponse<SMSResponseData>> (){
+pinAuthenticationApi.sendForgotPINSMSByPhone( forgotPINOtpByPhoneModel, smsTemplate, isVoiceOtp ,  new AsyncHandler<UserProfilePostResponse<SmsResponseData>> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
  System.out.println(errorResponse.getDescription());
  }
  @Override
- public void onSuccess(UserProfilePostResponse<SMSResponseData> response) {
+ public void onSuccess(UserProfilePostResponse<SmsResponseData> response) {
   System.out.println(response.getIsPosted());
  }
 });
@@ -4561,10 +4694,10 @@ List of APIs in this Section:<br>
 
 * PUT : [Validate MFA by OTP](#MFAReAuthenticateByOTP-put-)<br>
 * PUT : [Validate MFA by Backup Code](#MFAReAuthenticateByBackupCode-put-)<br>
-* PUT : [Validate MFA by Google Authenticator Code](#MFAReAuthenticateByGoogleAuth-put-)<br>
 * PUT : [Validate MFA by Password](#MFAReAuthenticateByPassword-put-)<br>
 * PUT : [MFA Re-authentication by PIN](#VerifyPINAuthentication-put-)<br>
 * PUT : [MFA Re-authentication by Email OTP](#ReAuthValidateEmailOtp-put-)<br>
+* PUT : [MFA Step-Up Authentication by Authenticator Code](#MFAReAuthenticateByAuthenticatorCode-put-)<br>
 * POST : [Verify Multifactor OTP Authentication](#VerifyMultiFactorOtpReauthentication-post-)<br>
 * POST : [Verify Multifactor Password Authentication](#VerifyMultiFactorPasswordReauthentication-post-)<br>
 * POST : [Verify Multifactor PIN Authentication](#VerifyMultiFactorPINReauthentication-post-)<br>
@@ -4617,36 +4750,6 @@ reauthByBackupCodeModel.setBackupCode("backupCode");
 
 ReAuthenticationApi reAuthenticationApi = new ReAuthenticationApi();
 reAuthenticationApi.mfaReAuthenticateByBackupCode(accessToken,  reauthByBackupCodeModel ,  new AsyncHandler<EventBasedMultiFactorAuthenticationToken> (){
-
-@Override
- public void onFailure(ErrorResponse errorResponse) {
- System.out.println(errorResponse.getDescription());
- }
- @Override
- public void onSuccess(EventBasedMultiFactorAuthenticationToken response) {
-  System.out.println(response.getExpireIn());
- }
-});
-
-```
-
-  
-
-
-
-
-<h6 id="MFAReAuthenticateByGoogleAuth-put-">Validate MFA by Google Authenticator Code (PUT)</h6>
-
- This API is used to re-authenticate via Multi-factor-authentication by passing the google authenticator code [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/re-authentication/re-auth-by-google-authenticator-code)
-
-```java
-
-String accessToken = "<accessToken>"; //Required
-ReauthByGoogleAuthenticatorCodeModel reauthByGoogleAuthenticatorCodeModel = new ReauthByGoogleAuthenticatorCodeModel(); //Required
-reauthByGoogleAuthenticatorCodeModel.setGoogleAuthenticatorCode("googleAuthenticatorCode"); 
-
-ReAuthenticationApi reAuthenticationApi = new ReAuthenticationApi();
-reAuthenticationApi.mfaReAuthenticateByGoogleAuth(accessToken,  reauthByGoogleAuthenticatorCodeModel ,  new AsyncHandler<EventBasedMultiFactorAuthenticationToken> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -4754,7 +4857,29 @@ reAuthenticationApi.verifyPINAuthentication(accessToken,  pinAuthEventBasedAuthM
 
   
 
+<h6 id="MFAReAuthenticateByAuthenticatorCode-put-">MFA Step-Up Authentication by Authenticator Code (PUT)</h6>
 
+ This API is used to validate the triggered MFA authentication flow with the Authenticator Code. [More info](/api/v2/customer-identity-api/re-authentication/mfa/re-auth-by-otp/)
+
+```Java
+
+String accessToken = "<accessToken>"; //Required
+MultiFactorAuthModelByAuthenticatorCode multiFactorAuthModelByAuthenticatorCode = new MultiFactorAuthModelByAuthenticatorCode(); //Required
+
+ReAuthenticationApi reAuthenticationApi = new ReAuthenticationApi();
+reAuthenticationApi.mfaReAuthenticateByAuthenticatorCode(accessToken,  multiFactorAuthModelByAuthenticatorCode ,  new AsyncHandler<EventBasedMultiFactorAuthenticationToken> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(EventBasedMultiFactorAuthenticationToken response) {
+  System.out.println(response.getExpireIn());
+ }
+});
+
+```
 
 
 <h6 id="VerifyMultiFactorOtpReauthentication-post-">Verify Multifactor OTP Authentication (POST)</h6>
@@ -4888,13 +5013,14 @@ String accessToken = "<accessToken>"; //Required
 
  This API is used to trigger the Multi-Factor Autentication workflow for the provided access token [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multi-factor-authentication/re-authentication/re-auth-trigger/)
 
-```java
+```Java
 
 String accessToken = "<accessToken>"; //Required
 String smsTemplate2FA = "<smsTemplate2FA>"; //Optional
+Boolean isVoiceOtp = true; //Optional
 
 ReAuthenticationApi reAuthenticationApi = new ReAuthenticationApi();
-reAuthenticationApi.mfaReAuthenticate(accessToken, smsTemplate2FA ,  new AsyncHandler<MultiFactorAuthenticationSettingsResponse> (){
+reAuthenticationApi.mfaReAuthenticate(accessToken, smsTemplate2FA, isVoiceOtp ,  new AsyncHandler<MultiFactorAuthenticationSettingsResponse> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -4902,7 +5028,7 @@ reAuthenticationApi.mfaReAuthenticate(accessToken, smsTemplate2FA ,  new AsyncHa
  }
  @Override
  public void onSuccess(MultiFactorAuthenticationSettingsResponse response) {
-  System.out.println(response.getIsGoogleAuthenticatorVerified());
+  System.out.println(response.getEmail());
  }
 });
 
@@ -5377,15 +5503,16 @@ oneTouchLoginApi.oneTouchLoginByEmail( oneTouchLoginByEmailModel, oneTouchLoginE
 
  This API is used to send one time password to a given phone number for a frictionless login/registration. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/one-touch-login/one-touch-login-by-phone-captcha/)
 
-```java
+```Java
 
 OneTouchLoginByPhoneModel oneTouchLoginByPhoneModel = new OneTouchLoginByPhoneModel(); //Required
 oneTouchLoginByPhoneModel.setG_Recaptcha_Response("g-recaptcha-response"); 
 oneTouchLoginByPhoneModel.setPhone("phone"); 
 String smsTemplate = "<smsTemplate>"; //Optional
+Boolean isVoiceOtp = true; //Optional
 
 OneTouchLoginApi oneTouchLoginApi = new OneTouchLoginApi();
-oneTouchLoginApi.oneTouchLoginByPhone( oneTouchLoginByPhoneModel, smsTemplate ,  new AsyncHandler<PostResponse> (){
+oneTouchLoginApi.oneTouchLoginByPhone( oneTouchLoginByPhoneModel, smsTemplate, isVoiceOtp ,  new AsyncHandler<PostResponse> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -5481,16 +5608,17 @@ List of APIs in this Section:<br>
 
  This API verifies an account by OTP and allows the customer to login. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/passwordless-login/passwordless-login-phone-verification)
 
-```java
+```Java
 
 PasswordLessLoginOtpModel passwordLessLoginOtpModel = new PasswordLessLoginOtpModel(); //Required
 passwordLessLoginOtpModel.setOtp("otp"); 
 passwordLessLoginOtpModel.setPhone("phone"); 
 String fields = null; //Optional
 String smsTemplate = "<smsTemplate>"; //Optional
+Boolean isVoiceOtp = true; //Optional
 
 PasswordLessLoginApi passwordLessLoginApi = new PasswordLessLoginApi();
-passwordLessLoginApi.passwordlessLoginPhoneVerification( passwordLessLoginOtpModel, fields, smsTemplate ,  new AsyncHandler<AccessToken<Identity>> (){
+passwordLessLoginApi.passwordlessLoginPhoneVerification( passwordLessLoginOtpModel, fields, smsTemplate, isVoiceOtp ,  new AsyncHandler<AccessToken<Identity>> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -5574,20 +5702,21 @@ passwordLessLoginApi.passwordlessLoginVerificationByUserNameAndOTP( passwordLess
 
  API can be used to send a One-time Passcode (OTP) provided that the account has a verified PhoneID [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/passwordless-login/passwordless-login-by-phone)
 
-```java
+```Java
 
 String phone = "<phone>"; //Required
 String smsTemplate = "<smsTemplate>"; //Optional
+Boolean isVoiceOtp = true; //Optional
 
 PasswordLessLoginApi passwordLessLoginApi = new PasswordLessLoginApi();
-passwordLessLoginApi.passwordlessLoginByPhone(phone, smsTemplate ,  new AsyncHandler<GetResponse<SMSResponseData>> (){
+passwordLessLoginApi.passwordlessLoginByPhone(phone, smsTemplate, isVoiceOtp ,  new AsyncHandler<GetResponse<SmsResponseData>> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
  System.out.println(errorResponse.getDescription());
  }
  @Override
- public void onSuccess(GetResponse<SMSResponseData> response) {
+ public void onSuccess(GetResponse<SmsResponseData> response) {
   System.out.println(response.getData().getSid());
  }
 });
@@ -6424,6 +6553,7 @@ List of APIs in this Section:<br>
 * GET : [Access Token via Apple Id Code](#GetAccessTokenByAppleIdCode-get-)<br>
 * GET : [Access Token via WeChat Code](#GetAccessTokenByWeChatCode-get-)<br>
 * GET : [Access Token via Google AuthCode](#GetAccessTokenByGoogleAuthCode-get-)<br>
+* GET : [Get Access Token via Custom JWT Token](#AccessTokenViaCustomJWTToken-get-)<br>
 
 
 
@@ -6682,7 +6812,29 @@ nativeSocialApi.getAccessTokenByGoogleAuthCode(googleAuthcode, socialAppName ,  
 
   
 
+<h6 id="AccessTokenViaCustomJWTToken-get-">Get Access Token via Custom JWT Token (GET)</h6>
 
+ This API is used to retrieve a LoginRadius access token by passing in a valid custom JWT token. [More info](/api/v2/customer-identity-api/social-login/native-social-login-api/access-token-by-custom-jwt-token/)
+
+```Java
+
+String idToken = "<idToken>"; //Required
+String providername = "<providername>"; //Required
+
+NativeSocialApi nativeSocialApi = new NativeSocialApi();
+nativeSocialApi.accessTokenViaCustomJWTToken(idToken, providername ,  new AsyncHandler<AccessTokenBase> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(AccessTokenBase response) {
+  System.out.println(response.getAccess_Token());
+ }
+});
+
+```
 
 
 
@@ -6983,6 +7135,37 @@ try {
 	e.printStackTrace();
 				  
 }
+
+```
+
+### SlidingToken API
+
+
+List of APIs in this Section:<br>
+
+* GET : [Get Sliding Access Token](#SlidingAccessToken-get-)<br>
+
+
+<h6 id="SlidingAccessToken-get-"> (GET)</h6>
+
+This API is used to get access token and refresh token with the expired/nonexpired access token. [More Info](/api/v2/customer-identity-api/refresh-token/sliding-access-token)
+
+```Java
+
+String accessToken = "<accessToken>"; //Required
+
+SlidingTokenApi slidingTokenApi = new SlidingTokenApi();
+slidingTokenApi.slidingAccessToken(accessToken ,  new AsyncHandler<AccessTokenBase> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(AccessTokenBase response) {
+  System.out.println(response.getAccess_Token());
+ }
+});
 
 ```
 

@@ -213,7 +213,7 @@ import com.google.gson.annotations.SerializedName;
         private List<Phone> phoneNumbers;
 		
 		@SerializedName("PINInfo")
-        private PINModel pinInfo;
+        private PinModel pinInfo;
 		
 		@SerializedName("PlacesLived")
         private List<PlacesLived> placesLived;
@@ -1123,13 +1123,13 @@ import com.google.gson.annotations.SerializedName;
 		// <summary>
 		//	PIN Info
 		// </summary>
-		public PINModel getPINInfo() {
+		public PinModel getPINInfo() {
 			return pinInfo;
 		}
 		// <summary>
 		//	PIN Info
 		// </summary>
-		public void setPINInfo(PINModel pinInfo) {
+		public void setPINInfo(PinModel pinInfo) {
 			this.pinInfo = pinInfo;
 		}
 		// <summary>

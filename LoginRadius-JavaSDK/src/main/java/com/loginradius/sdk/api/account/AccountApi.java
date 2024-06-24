@@ -17,10 +17,12 @@ import com.loginradius.sdk.helper.LoginRadiusRequest;
 import com.loginradius.sdk.helper.LoginRadiusValidator;
 import com.loginradius.sdk.models.requestmodels.AccountCreateModel;
 import com.loginradius.sdk.models.requestmodels.AccountUserProfileUpdateModel;
-import com.loginradius.sdk.models.requestmodels.UpdateUidModel;
+import com.loginradius.sdk.models.requestmodels.MultiEmailToken;
+import com.loginradius.sdk.models.requestmodels.MultiSmsOtp;
 import com.loginradius.sdk.models.requestmodels.UpsertEmailModel;
 import com.loginradius.sdk.models.responsemodels.AccessTokenBase;
 import com.loginradius.sdk.models.responsemodels.ListReturn;
+import com.loginradius.sdk.models.responsemodels.MultiToken;
 import com.loginradius.sdk.models.responsemodels.UserPasswordHash;
 import com.loginradius.sdk.models.responsemodels.otherobjects.DeleteResponse;
 import com.loginradius.sdk.models.responsemodels.otherobjects.EmailVerificationTokenResponse;
@@ -740,11 +742,13 @@ public class AccountApi {
    // </summary>
    // <param name="uid">UID, the unified identifier for each user account</param>
    // <param name="smsTemplate">SMS Template name</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
    // <returns>Response containing Definition of Complete Validation data</returns>
    // 18.27	    
 		
 		
-   public void resetPhoneIDVerificationByUid(String uid, String smsTemplate, final AsyncHandler<PostResponse> handler) {      
+   public void resetPhoneIDVerificationByUid(String uid, String smsTemplate,
+      Boolean isVoiceOtp, final AsyncHandler<PostResponse> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(uid)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("uid"));
@@ -756,6 +760,10 @@ public class AccountApi {
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(smsTemplate)) {
         queryParameters.put("smsTemplate", smsTemplate);
+      }
+
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
       }
 
       String resourcePath = "identity/v2/manage/account/" + uid + "/invalidatephone";
@@ -948,6 +956,83 @@ public class AccountApi {
    }
    
    // <summary>
+   // The Revoke All Refresh Access Token API is used to revoke all refresh tokens for a specific user.
+   // </summary>
+   // <param name="uid">UID, the unified identifier for each user account</param>
+   // <returns>Response containing Definition of Delete Request</returns>
+   // 18.33	    
+		
+		
+   public void revokeAllRefreshToken(String uid, final AsyncHandler<DeleteResponse> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(uid)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("uid"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+
+      String resourcePath = "identity/v2/manage/account/" + uid + "/access_token/refresh/revoke";
+            
+      LoginRadiusRequest.execute("DELETE", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<DeleteResponse> typeToken = new TypeToken<DeleteResponse>() {};
+          DeleteResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API generate Email tokens and Email OTPs for Email verification, Add email, Forgot password, Delete user, Passwordless login, Forgot pin, One-touch login and Auto login.
+   // </summary>
+   // <param name="multiEmailToken">Model Class containing Definition of payload for Multipurpose Email Token Generation API</param>
+   // <param name="tokentype">The identifier type for the token that we need to generate</param>
+   // <returns>Response containing Definition for Complete MultiToken</returns>
+   // 18.34	    
+		
+		
+   public void multipurposeEmailTokenGeneration(MultiEmailToken multiEmailToken, String tokentype, final AsyncHandler<MultiToken> handler) {
+
+      if (multiEmailToken == null) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("multiEmailToken"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(tokentype)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("tokentype"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+
+      String resourcePath = "identity/v2/manage/account/emailtoken/" + tokentype;
+            
+      LoginRadiusRequest.execute("POST", resourcePath, queryParameters, gson.toJson(multiEmailToken), new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<MultiToken> typeToken = new TypeToken<MultiToken>() {};
+          MultiToken successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
    // Note: This is intended for specific workflows where an email may be associated to multiple UIDs. This API is used to retrieve all of the identities (UID and Profiles), associated with a specified email in Cloud Storage.
    // </summary>
    // <param name="email">Email of the user</param>
@@ -1058,6 +1143,89 @@ public class AccountApi {
         public void onSuccess(String response) {
           TypeToken<PostResponse> typeToken = new TypeToken<PostResponse>() {};
           PostResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+
+   // <summary>
+   // This API generates SMS OTP for Add phone, Phone Id verification, Forgot password, Forgot pin, One-touch login, smart login and Passwordless login.
+   // </summary>
+   // <param name="multiSmsOtp"></param>
+   // <param name="smsotptype">The identifier type for the OTP that we need to generate</param>
+   // <returns>Response containing Definition for Complete MultiToken</returns>
+   // 18.44	    
+		
+		
+   public void multipurposeSMSOTPGeneration(MultiSmsOtp multiSmsOtp, String smsotptype, final AsyncHandler<MultiToken> handler) {
+
+      if (multiSmsOtp == null) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("multiSmsOtp"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(smsotptype)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("smsotptype"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("apiKey", LoginRadiusSDK.getApiKey());
+      queryParameters.put("apiSecret", LoginRadiusSDK.getApiSecret());
+
+      String resourcePath = "identity/v2/manage/account/smsotp/" + smsotptype;
+            
+      LoginRadiusRequest.execute("POST", resourcePath, queryParameters, gson.toJson(multiSmsOtp), new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<MultiToken> typeToken = new TypeToken<MultiToken>() {};
+          MultiToken successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to retrieve a LoginRadius access token by passing in a valid custom JWT token.
+   // </summary>
+   // <param name="idToken">Custom JWT Token</param>
+   // <param name="providername">JWT Provider Name</param>
+   // <returns>Response containing Definition of Complete Token data</returns>
+   // 44.3	    
+		
+		
+   public void accessTokenViaCustomJWTToken(String idToken, String providername, final AsyncHandler<AccessTokenBase> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(idToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("idToken"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(providername)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("providername"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("id_Token", idToken);
+      queryParameters.put("key", LoginRadiusSDK.getApiKey());
+      queryParameters.put("providername", providername);
+
+      String resourcePath = "api/v2/access_token/jwt";
+            
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<AccessTokenBase> typeToken = new TypeToken<AccessTokenBase>() {};
+          AccessTokenBase successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 

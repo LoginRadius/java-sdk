@@ -6,19 +6,25 @@
 
 package com.loginradius.sdk.api.authentication;
 
-import com.loginradius.sdk.helper.*;
-import com.loginradius.sdk.util.*;
-import com.google.gson.Gson;
-import java.util.Iterator;
-import com.google.gson.JsonObject;
-import com.google.gson.reflect.TypeToken;
 import java.util.HashMap;
-import java.util.Map.Entry;
 import java.util.Map;
-import com.loginradius.sdk.models.responsemodels.*;
-import com.loginradius.sdk.models.responsemodels.userprofile.*;
-import com.loginradius.sdk.models.requestmodels.*;
-import com.loginradius.sdk.models.responsemodels.otherobjects.*;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.loginradius.sdk.helper.JsonDeserializer;
+import com.loginradius.sdk.helper.LoginRadiusRequest;
+import com.loginradius.sdk.helper.LoginRadiusValidator;
+import com.loginradius.sdk.models.requestmodels.PasswordLessLoginByEmailAndOtpModel;
+import com.loginradius.sdk.models.requestmodels.PasswordLessLoginByUserNameAndOtpModel;
+import com.loginradius.sdk.models.requestmodels.PasswordLessLoginOtpModel;
+import com.loginradius.sdk.models.responsemodels.AccessToken;
+import com.loginradius.sdk.models.responsemodels.SmsResponseData;
+import com.loginradius.sdk.models.responsemodels.otherobjects.GetResponse;
+import com.loginradius.sdk.models.responsemodels.otherobjects.PostResponse;
+import com.loginradius.sdk.models.responsemodels.userprofile.Identity;
+import com.loginradius.sdk.util.AsyncHandler;
+import com.loginradius.sdk.util.ErrorResponse;
+import com.loginradius.sdk.util.LoginRadiusSDK;
 
 
 public class PasswordLessLoginApi {
@@ -38,12 +44,13 @@ public class PasswordLessLoginApi {
    // <param name="passwordLessLoginOtpModel">Model Class containing Definition of payload for PasswordLessLoginOtpModel API</param>
    // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
    // <param name="smsTemplate">SMS Template name</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
    // <returns>Response containing User Profile Data and access token</returns>
    // 9.6	    
 		
 		
    public void passwordlessLoginPhoneVerification(PasswordLessLoginOtpModel passwordLessLoginOtpModel, String fields,
-      String smsTemplate, final AsyncHandler<AccessToken<Identity>> handler) {
+      String smsTemplate, Boolean isVoiceOtp, final AsyncHandler<AccessToken<Identity>> handler) {
 
       if (passwordLessLoginOtpModel == null) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("passwordLessLoginOtpModel"));
@@ -58,6 +65,10 @@ public class PasswordLessLoginApi {
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(smsTemplate)) {
         queryParameters.put("smsTemplate", smsTemplate);
+      }
+
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
       }
 
       String resourcePath = "identity/v2/auth/login/passwordlesslogin/otp/verify";
@@ -83,11 +94,13 @@ public class PasswordLessLoginApi {
    // </summary>
    // <param name="phone">The Registered Phone Number</param>
    // <param name="smsTemplate">SMS Template name</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
    // <returns>Response Containing Definition of SMS Data</returns>
    // 9.15	    
 		
 		
-   public void passwordlessLoginByPhone(String phone, String smsTemplate, final AsyncHandler<GetResponse<SMSResponseData>> handler) {      
+   public void passwordlessLoginByPhone(String phone, String smsTemplate,
+      Boolean isVoiceOtp, final AsyncHandler<GetResponse<SmsResponseData>> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(phone)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("phone"));
@@ -101,14 +114,18 @@ public class PasswordLessLoginApi {
         queryParameters.put("smsTemplate", smsTemplate);
       }
 
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
+      }
+
       String resourcePath = "identity/v2/auth/login/passwordlesslogin/otp";
             
       LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
 			
         @Override
         public void onSuccess(String response) {
-          TypeToken<GetResponse<SMSResponseData>> typeToken = new TypeToken<GetResponse<SMSResponseData>>() {};
-          GetResponse<SMSResponseData> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<GetResponse<SmsResponseData>> typeToken = new TypeToken<GetResponse<SmsResponseData>>() {};
+          GetResponse<SmsResponseData> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 
