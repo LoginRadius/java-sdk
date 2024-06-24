@@ -45,6 +45,7 @@ For developers migrating to v11.6.0, there will be minor breaking changes in ter
 - Added `isVoiceOtp` and `emailTemplate` parameter in `UserRegistrationByPhone` API
 - Added `isVoiceOtp` parameter in `SendForgotPINSMSByPhone` API
 - Added `uuid` parameter in `VerifyEmail` API
+- Added `h-captcha-response` in the Captcha Model 
 - Removed `smsTemplate2FA` parameter in `MFAConfigureByAccessToken` API
 
 
