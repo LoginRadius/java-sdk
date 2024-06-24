@@ -328,7 +328,7 @@ function reset_mfa() {
             dataType: "json",
             success: function(res) {
                 console.log("Reset success::", res);
-                $("#user-mfa-message").text("Google Authenticator settings reset.");
+                $("#user-mfa-message").text("Authenticator settings reset.");
                 $("#user-mfa-message").attr("class", "success-message");
             },
             error: function(xhr) {

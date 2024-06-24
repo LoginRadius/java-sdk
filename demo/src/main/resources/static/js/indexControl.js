@@ -55,7 +55,7 @@ function login_mfa() {
                     }
                     $("#minimal-mfalogin-next")
                         .html('<table><tbody><tr>' +
-                            '<td>Google Authenticator Code: </td><td><input type="text" id="minimal-mfalogin-googlecode"></td>' +
+                            '<td>Authenticator Code: </td><td><input type="text" id="minimal-mfalogin-googlecode"></td>' +
                             '</tr></tbody></table>' +
                             '<button id="btn-minimal-mfalogin-login">Login</button>');
                     $("#btn-minimal-mfalogin-login").on('click', function() {

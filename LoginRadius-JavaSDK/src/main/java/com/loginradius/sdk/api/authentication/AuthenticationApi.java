@@ -31,6 +31,7 @@ import com.loginradius.sdk.models.requestmodels.UserProfileUpdateModel;
 import com.loginradius.sdk.models.responsemodels.AccessToken;
 import com.loginradius.sdk.models.responsemodels.AccessTokenBase;
 import com.loginradius.sdk.models.responsemodels.SecurityQuestions;
+import com.loginradius.sdk.models.responsemodels.configobjects.EmailVerificationData;
 import com.loginradius.sdk.models.responsemodels.otherobjects.DeleteRequestAcceptResponse;
 import com.loginradius.sdk.models.responsemodels.otherobjects.DeleteResponse;
 import com.loginradius.sdk.models.responsemodels.otherobjects.ExistResponse;
@@ -785,7 +786,7 @@ public class AuthenticationApi {
 		
 		
    public void verifyEmail(String verificationToken, String fields,
-      String url, String welcomeEmailTemplate, String uuid, final AsyncHandler<UserProfilePostResponse<EmailVerificationData<Identity>>> handler) {      
+      String url, String welcomeEmailTemplate, String uuid, final AsyncHandler<UserProfilePostResponse<EmailVerificationData<Identity>>> handler) {
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(verificationToken)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("verificationToken"));
