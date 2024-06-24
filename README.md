@@ -3576,11 +3576,12 @@ multiFactorAuthenticationApi.mfaSecurityQuestionAnswer( securityQuestionAnswerUp
   
 <h6 id="MFAValidateAuthenticatorCode-put-">MFA Validate Authenticator Code (PUT)</h6>
 
- This API is used to login to a user's account during the second MFA step with an Authenticator Code. [More info](/api/v2/customer-identity-api/multi-factor-authentication/sms-authenticator/mfa-validate-authenticator-code/)
+ This API is used to login to a user's account during the second MFA step with an Authenticator Code. [More info](/api/v2/customer-identity-api/multi-factor-authentication/authenticator/mfa-validate-authenticator-code/)
 
 ```Java
 
 MultiFactorAuthModelByAuthenticatorCode multiFactorAuthModelByAuthenticatorCode = new MultiFactorAuthModelByAuthenticatorCode(); //Required
+multiFactorAuthModelByAuthenticatorCode.setAuthenticatorCode("<AuthenticatorCode>");
 String secondfactorauthenticationtoken = "<secondfactorauthenticationtoken>"; //Required
 String fields = null; //Optional
 
@@ -3601,7 +3602,7 @@ multiFactorAuthenticationApi.mfaValidateAuthenticatorCode( multiFactorAuthModelB
 
 <h6 id="MFAVerifyAuthenticatorCode-put-">MFA Verify Authenticator Code (PUT)</h6>
 
- This API is used to validate an Authenticator Code as part of the MFA process. [More info](/api/v2/customer-identity-api/multi-factor-authentication/sms-authenticator/mfa-verify-authenticator-code/)
+ This API is used to validate an Authenticator Code as part of the MFA process. [More info](/api/v2/customer-identity-api/multi-factor-authentication/authenticator/mfa-verify-authenticator-code/)
 
 ```Java
 
@@ -4865,6 +4866,7 @@ reAuthenticationApi.verifyPINAuthentication(accessToken,  pinAuthEventBasedAuthM
 
 String accessToken = "<accessToken>"; //Required
 MultiFactorAuthModelByAuthenticatorCode multiFactorAuthModelByAuthenticatorCode = new MultiFactorAuthModelByAuthenticatorCode(); //Required
+multiFactorAuthModelByAuthenticatorCode.setAuthenticatorCode("AuthenticatorCode");
 
 ReAuthenticationApi reAuthenticationApi = new ReAuthenticationApi();
 reAuthenticationApi.mfaReAuthenticateByAuthenticatorCode(accessToken,  multiFactorAuthModelByAuthenticatorCode ,  new AsyncHandler<EventBasedMultiFactorAuthenticationToken> (){

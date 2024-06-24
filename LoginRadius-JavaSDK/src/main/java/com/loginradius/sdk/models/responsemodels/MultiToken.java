@@ -7,7 +7,6 @@
 
 package com.loginradius.sdk.models.responsemodels;
 import java.util.List;
-import java.util.UUID;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -24,7 +23,7 @@ import com.google.gson.annotations.SerializedName;
         private List<String> identityProviders;
 		
 		@SerializedName("Token")
-        private UUID token;
+        private String token;
 
 
 
@@ -55,13 +54,13 @@ import com.google.gson.annotations.SerializedName;
 		// <summary>
 		//	Token
 		// </summary>
-		public UUID getToken() {
+		public String getToken() {
 			return token;
 		}
 		// <summary>
 		//	Token
 		// </summary>
-		public void setToken(UUID token) {
+		public void setToken(String token) {
 			this.token = token;
 		}
     }

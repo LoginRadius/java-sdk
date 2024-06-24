@@ -402,4 +402,46 @@ public class NativeSocialApi {
         }
       });
    }
+   
+   // <summary>
+   // This API is used to retrieve a LoginRadius access token by passing in a valid custom JWT token.
+   // </summary>
+   // <param name="idToken">Custom JWT Token</param>
+   // <param name="providername">JWT Provider Name</param>
+   // <returns>Response containing Definition of Complete Token data</returns>
+   // 44.3	    
+		
+		
+   public void accessTokenViaCustomJWTToken(String idToken, String providername, final AsyncHandler<AccessTokenBase> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(idToken)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("idToken"));
+      }      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(providername)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("providername"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("id_Token", idToken);
+      queryParameters.put("key", LoginRadiusSDK.getApiKey());
+      queryParameters.put("providername", providername);
+
+      String resourcePath = "api/v2/access_token/jwt";
+            
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<AccessTokenBase> typeToken = new TypeToken<AccessTokenBase>() {};
+          AccessTokenBase successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
 }
