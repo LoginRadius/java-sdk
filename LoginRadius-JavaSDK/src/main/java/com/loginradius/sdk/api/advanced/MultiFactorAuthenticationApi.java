@@ -30,6 +30,7 @@ import com.loginradius.sdk.models.responsemodels.MultiFactorAuthenticationSettin
 import com.loginradius.sdk.models.responsemodels.SmsResponseData;
 import com.loginradius.sdk.models.responsemodels.otherobjects.BackupCodeResponse;
 import com.loginradius.sdk.models.responsemodels.otherobjects.DeleteResponse;
+import com.loginradius.sdk.models.responsemodels.otherobjects.GetResponse;
 import com.loginradius.sdk.models.responsemodels.otherobjects.PostResponse;
 import com.loginradius.sdk.models.responsemodels.userprofile.Identity;
 import com.loginradius.sdk.models.responsemodels.userprofile.UserProfile;
@@ -1563,7 +1564,7 @@ public class MultiFactorAuthenticationApi {
 		
 		
    public void mfaVerifyAuthenticatorCode(String accessToken, MultiFactorAuthModelByAuthenticatorCodeSecurityAnswer multiFactorAuthModelByAuthenticatorCodeSecurityAnswer,
-      String fields, final AsyncHandler<MultiFactorAuthenticationResponse<Identity>> handler) {      
+      String fields, final AsyncHandler<UserProfile> handler) {
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
@@ -1587,8 +1588,8 @@ public class MultiFactorAuthenticationApi {
 			
         @Override
         public void onSuccess(String response) {
-          TypeToken<MultiFactorAuthenticationResponse<Identity>> typeToken = new TypeToken<MultiFactorAuthenticationResponse<Identity>>() {};
-          MultiFactorAuthenticationResponse<Identity> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<UserProfile> typeToken = new TypeToken<UserProfile>() {};
+          UserProfile successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 

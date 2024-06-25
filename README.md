@@ -273,7 +273,7 @@ String fields = null; //Optional
 
 String smsTemplate = "<smsTemplate>"; //Optional
 String verificationUrl = "<verificationUrl>"; //Optional
-Boolean isVoiceOtp = true; //Optional
+Boolean isVoiceOtp = false; //Optional
 String options = "<options>"; //Optional
 
 AuthenticationApi authenticationApi = new AuthenticationApi();
@@ -845,7 +845,7 @@ String fields = null; //Optional
 String options = "<options>"; //Optional
 String verificationUrl = "<verificationUrl>"; //Optional
 String welcomeEmailTemplate = "<welcomeEmailTemplate>"; //Optional
-Boolean isVoiceOtp = true; //Optional
+Boolean isVoiceOtp = false; //Optional
 
 AuthenticationApi authenticationApi = new AuthenticationApi();
 authenticationApi.userRegistrationByEmail( authUserRegistrationModel, sott, emailTemplate, fields, options, verificationUrl, welcomeEmailTemplate, isVoiceOtp ,  new AsyncHandler<UserProfilePostResponse<AccessToken<Identity>>> (){
@@ -890,7 +890,7 @@ String options = "<options>"; //Optional
 String smsTemplate = "<smsTemplate>"; //Optional
 String verificationUrl = "<verificationUrl>"; //Optional
 String welcomeEmailTemplate = "<welcomeEmailTemplate>"; //Optional
-Boolean isVoiceOtp = true; //Optional
+Boolean isVoiceOtp = false; //Optional
 
 AuthenticationApi authenticationApi = new AuthenticationApi();
 authenticationApi.userRegistrationByCaptcha( authUserRegistrationModelWithCaptcha, emailTemplate, fields, options, smsTemplate, verificationUrl, welcomeEmailTemplate, isVoiceOtp ,  new AsyncHandler<UserProfilePostResponse<AccessToken<Identity>>> (){
@@ -1647,7 +1647,7 @@ accountApi.invalidateAccountEmailVerification(uid, emailTemplate, verificationUr
 
 String uid = "<uid>"; //Required
 String smsTemplate = "<smsTemplate>"; //Optional
-Boolean isVoiceOtp = true; //Optional
+Boolean isVoiceOtp = false; //Optional
 
 AccountApi accountApi = new AccountApi();
 accountApi.resetPhoneIDVerificationByUid(uid, smsTemplate, isVoiceOtp ,  new AsyncHandler<PostResponse> (){
@@ -2890,7 +2890,7 @@ String otp = "<otp>"; //Required
 String phone = "<phone>"; //Required
 String fields = null; //Optional
 String smsTemplate = "<smsTemplate>"; //Optional
-Boolean isVoiceOtp = true; //Optional
+Boolean isVoiceOtp = false; //Optional
 
 PhoneAuthenticationApi phoneAuthenticationApi = new PhoneAuthenticationApi();
 phoneAuthenticationApi.phoneVerificationByOTP(otp, phone, fields, smsTemplate, isVoiceOtp ,  new AsyncHandler<AccessToken<Identity>> (){
@@ -2921,7 +2921,7 @@ phoneAuthenticationApi.phoneVerificationByOTP(otp, phone, fields, smsTemplate, i
 String accessToken = "<accessToken>"; //Required
 String otp = "<otp>"; //Required
 String smsTemplate = "<smsTemplate>"; //Optional
-Boolean isVoiceOtp = true; //Optional
+Boolean isVoiceOtp = false; //Optional
 
 PhoneAuthenticationApi phoneAuthenticationApi = new PhoneAuthenticationApi();
 phoneAuthenticationApi.phoneVerificationOTPByAccessToken(accessToken, otp, smsTemplate, isVoiceOtp ,  new AsyncHandler<PostResponse> (){
@@ -3014,7 +3014,7 @@ phoneAuthenticationApi.loginByPhone( phoneAuthenticationModel, fields, loginUrl,
 
 String phone = "<phone>"; //Required
 String smsTemplate = "<smsTemplate>"; //Optional
-Boolean isVoiceOtp = true; //Optional
+Boolean isVoiceOtp = false; //Optional
 
 PhoneAuthenticationApi phoneAuthenticationApi = new PhoneAuthenticationApi();
 phoneAuthenticationApi.forgotPasswordByPhoneOTP(phone, smsTemplate, isVoiceOtp ,  new AsyncHandler<UserProfilePostResponse<SmsResponseData>> (){
@@ -3044,7 +3044,7 @@ phoneAuthenticationApi.forgotPasswordByPhoneOTP(phone, smsTemplate, isVoiceOtp ,
 
 String phone = "<phone>"; //Required
 String smsTemplate = "<smsTemplate>"; //Optional
-Boolean isVoiceOtp = true; //Optional
+Boolean isVoiceOtp = false; //Optional
 
 PhoneAuthenticationApi phoneAuthenticationApi = new PhoneAuthenticationApi();
 phoneAuthenticationApi.phoneResendVerificationOTP(phone, smsTemplate, isVoiceOtp ,  new AsyncHandler<UserProfilePostResponse<SmsResponseData>> (){
@@ -3120,7 +3120,7 @@ String smsTemplate = "<smsTemplate>"; //Optional
 String verificationUrl = "<verificationUrl>"; //Optional
 String welcomeEmailTemplate = "<welcomeEmailTemplate>"; //Optional
 String emailTemplate = "<emailTemplate>"; //Optional
-Boolean isVoiceOtp = true; //Optional
+Boolean isVoiceOtp = false; //Optional
 
 PhoneAuthenticationApi phoneAuthenticationApi = new PhoneAuthenticationApi();
 phoneAuthenticationApi.userRegistrationByPhone( authUserRegistrationModel, sott, fields, options, smsTemplate, verificationUrl, welcomeEmailTemplate , emailTemplate , isVoiceOtp,  new AsyncHandler<UserProfilePostResponse<AccessToken<Identity>>> (){
@@ -3314,7 +3314,7 @@ multiFactorAuthenticationApi.mfaUpdateByAccessToken(accessToken,  multiFactorAut
 String accessToken = "<accessToken>"; //Required
 String phoneNo2FA = "<phoneNo2FA>"; //Required
 String smsTemplate2FA = "<smsTemplate2FA>"; //Optional
-Boolean isVoiceOtp = true; //Optional
+Boolean isVoiceOtp = false; //Optional
 String options = "<options>"; //Optional
 
 MultiFactorAuthenticationApi multiFactorAuthenticationApi = new MultiFactorAuthenticationApi();
@@ -3484,7 +3484,7 @@ multiFactorAuthenticationApi.mfaValidateBackupCode( multiFactorAuthModelByBackup
 String phoneNo2FA = "<phoneNo2FA>"; //Required
 String secondFactorAuthenticationToken = "<secondFactorAuthenticationToken>"; //Required
 String smsTemplate2FA = "<smsTemplate2FA>"; //Optional
-Boolean isVoiceOtp = true; //Optional
+Boolean isVoiceOtp = false; //Optional
 String options = "<options>"; //Optional
 
 MultiFactorAuthenticationApi multiFactorAuthenticationApi = new MultiFactorAuthenticationApi();
@@ -3612,16 +3612,17 @@ multiFactorAuthModelByAuthenticatorCodeSecurityAnswer.setAuthenticatorCode("auth
 String fields = null; //Optional
 
 MultiFactorAuthenticationApi multiFactorAuthenticationApi = new MultiFactorAuthenticationApi();
-multiFactorAuthenticationApi.mfaVerifyAuthenticatorCode(accessToken,  multiFactorAuthModelByAuthenticatorCodeSecurityAnswer, fields ,  new AsyncHandler<MultiFactorAuthenticationResponse<Identity>> (){
+multiFactorAuthenticationApi.mfaVerifyAuthenticatorCode(accessToken,  multiFactorAuthModelByAuthenticatorCodeSecurityAnswer, fields ,  new AsyncHandler<UserProfile> (){
 
 @Override
- public void onFailure(ErrorResponse errorResponse) {
- System.out.println(errorResponse.getDescription());
- }
- @Override
- public void onSuccess(MultiFactorAuthenticationResponse<Identity> response) {
-  System.out.println(response.getAccess_Token());
- }
+public void onFailure(ErrorResponse errorResponse) {
+	System.out.println(errorResponse.getDescription());
+}
+
+@Override
+public void onSuccess(UserProfile response) {
+	System.out.println(response.getIsActive());
+}
 });
 
 ```
@@ -3643,11 +3644,11 @@ String smsTemplate = "<smsTemplate>"; //Optional
 String smsTemplate2FA = "<smsTemplate2FA>"; //Optional
 String verificationUrl = "<verificationUrl>"; //Optional
 String emailTemplate2FA = "<emailTemplate2FA>"; //Optional
-Boolean isVoiceOtp = true; //Optional
+Boolean isVoiceOtp = false; //Optional
 String options = "<options>"; //Optional
 
 MultiFactorAuthenticationApi multiFactorAuthenticationApi = new MultiFactorAuthenticationApi();
-multiFactorAuthenticationApi.mfaLoginByEmail(email, password, emailTemplate, fields, loginUrl, smsTemplate, smsTemplate2FA, verificationUrl ,emailTemplate2FA, isVoiceOtp, option,  new AsyncHandler<MultiFactorAuthenticationResponse<Identity>> (){
+multiFactorAuthenticationApi.mfaLoginByEmail(email, password, emailTemplate, fields, loginUrl, smsTemplate, smsTemplate2FA, verificationUrl ,emailTemplate2FA, isVoiceOtp, options  ,  new AsyncHandler<MultiFactorAuthenticationResponse<Identity>> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
@@ -3682,7 +3683,7 @@ String smsTemplate2FA = "<smsTemplate2FA>"; //Optional
 String verificationUrl = "<verificationUrl>"; //Optional
 String emailTemplate2FA = "<emailTemplate2FA>"; //Optional
 
-Boolean isVoiceOtp = true; //Optional
+Boolean isVoiceOtp = false; //Optional
 
 MultiFactorAuthenticationApi multiFactorAuthenticationApi = new MultiFactorAuthenticationApi();
 multiFactorAuthenticationApi.mfaLoginByUserName(password, username, emailTemplate, fields, loginUrl, smsTemplate, smsTemplate2FA, verificationUrl ,emailTemplate2FA, isVoiceOtp,  new AsyncHandler<MultiFactorAuthenticationResponse<Identity>> (){
@@ -3719,7 +3720,7 @@ String smsTemplate = "<smsTemplate>"; //Optional
 String smsTemplate2FA = "<smsTemplate2FA>"; //Optional
 String verificationUrl = "<verificationUrl>"; //Optional
 String emailTemplate2FA = "<emailTemplate2FA>"; //Optional
-Boolean isVoiceOtp = true; //Optional
+Boolean isVoiceOtp = false; //Optional
 String options = "<options>"; //Optional
 
 MultiFactorAuthenticationApi multiFactorAuthenticationApi = new MultiFactorAuthenticationApi();
@@ -3821,7 +3822,7 @@ multiFactorAuthenticationApi.mfaSecurityQuestionAnswerVerification( securityQues
 ```Java
 
 String accessToken = "<accessToken>"; //Required
-Boolean isVoiceOtp = true; //Optional
+Boolean isVoiceOtp = false; //Optional
 
 MultiFactorAuthenticationApi multiFactorAuthenticationApi = new MultiFactorAuthenticationApi();
 multiFactorAuthenticationApi.mfaConfigureByAccessToken(accessToken, isVoiceOtp ,  new AsyncHandler<MultiFactorAuthenticationSettingsResponse> (){
@@ -3960,7 +3961,7 @@ multiFactorAuthenticationApi.mfaEmailOtpByAccessToken(accessToken, emailId, emai
 
 String secondFactorAuthenticationToken = "<secondFactorAuthenticationToken>"; //Required
 String smsTemplate2FA = "<smsTemplate2FA>"; //Optional
-Boolean isVoiceOtp = true; //Optional
+Boolean isVoiceOtp = false; //Optional
 
 MultiFactorAuthenticationApi multiFactorAuthenticationApi = new MultiFactorAuthenticationApi();
 multiFactorAuthenticationApi.mfaResendOTP(secondFactorAuthenticationToken, smsTemplate2FA, isVoiceOtp ,  new AsyncHandler<SmsResponseData> (){
@@ -4605,7 +4606,7 @@ pinAuthenticationApi.sendForgotPINEmailByUsername( forgotPINLinkByUserNameModel,
 ForgotPINOtpByPhoneModel forgotPINOtpByPhoneModel = new ForgotPINOtpByPhoneModel(); //Required
 forgotPINOtpByPhoneModel.setPhone("phone"); 
 String smsTemplate = "<smsTemplate>"; //Optional
-Boolean isVoiceOtp = true; //Optional
+Boolean isVoiceOtp = false; //Optional
 
 PINAuthenticationApi pinAuthenticationApi = new PINAuthenticationApi();
 pinAuthenticationApi.sendForgotPINSMSByPhone( forgotPINOtpByPhoneModel, smsTemplate, isVoiceOtp ,  new AsyncHandler<UserProfilePostResponse<SmsResponseData>> (){
@@ -5019,7 +5020,7 @@ String accessToken = "<accessToken>"; //Required
 
 String accessToken = "<accessToken>"; //Required
 String smsTemplate2FA = "<smsTemplate2FA>"; //Optional
-Boolean isVoiceOtp = true; //Optional
+Boolean isVoiceOtp = false; //Optional
 
 ReAuthenticationApi reAuthenticationApi = new ReAuthenticationApi();
 reAuthenticationApi.mfaReAuthenticate(accessToken, smsTemplate2FA, isVoiceOtp ,  new AsyncHandler<MultiFactorAuthenticationSettingsResponse> (){
@@ -5511,7 +5512,7 @@ OneTouchLoginByPhoneModel oneTouchLoginByPhoneModel = new OneTouchLoginByPhoneMo
 oneTouchLoginByPhoneModel.setG_Recaptcha_Response("g-recaptcha-response"); 
 oneTouchLoginByPhoneModel.setPhone("phone"); 
 String smsTemplate = "<smsTemplate>"; //Optional
-Boolean isVoiceOtp = true; //Optional
+Boolean isVoiceOtp = false; //Optional
 
 OneTouchLoginApi oneTouchLoginApi = new OneTouchLoginApi();
 oneTouchLoginApi.oneTouchLoginByPhone( oneTouchLoginByPhoneModel, smsTemplate, isVoiceOtp ,  new AsyncHandler<PostResponse> (){
@@ -5617,7 +5618,7 @@ passwordLessLoginOtpModel.setOtp("otp");
 passwordLessLoginOtpModel.setPhone("phone"); 
 String fields = null; //Optional
 String smsTemplate = "<smsTemplate>"; //Optional
-Boolean isVoiceOtp = true; //Optional
+Boolean isVoiceOtp = false; //Optional
 
 PasswordLessLoginApi passwordLessLoginApi = new PasswordLessLoginApi();
 passwordLessLoginApi.passwordlessLoginPhoneVerification( passwordLessLoginOtpModel, fields, smsTemplate, isVoiceOtp ,  new AsyncHandler<AccessToken<Identity>> (){
@@ -5708,7 +5709,7 @@ passwordLessLoginApi.passwordlessLoginVerificationByUserNameAndOTP( passwordLess
 
 String phone = "<phone>"; //Required
 String smsTemplate = "<smsTemplate>"; //Optional
-Boolean isVoiceOtp = true; //Optional
+Boolean isVoiceOtp = false; //Optional
 
 PasswordLessLoginApi passwordLessLoginApi = new PasswordLessLoginApi();
 passwordLessLoginApi.passwordlessLoginByPhone(phone, smsTemplate, isVoiceOtp ,  new AsyncHandler<GetResponse<SmsResponseData>> (){
