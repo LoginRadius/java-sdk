@@ -1830,7 +1830,7 @@ accountApi.getEmailVerificationToken(email ,  new AsyncHandler<EmailVerification
 
 <h6 id="MultipurposeEmailTokenGeneration-post-">Multipurpose Email Token Generation API (POST)</h6>
 
- This API generate Email tokens and Email OTPs for Email verification, Add email, Forgot password, Delete user, Passwordless login, Forgot pin, One-touch login and Auto login. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multipurpose-token-and-sms-otp-generation-api/multipurpose-email-token-generation/)
+ This API generate Email tokens and Email OTPs for Email verification, Add email, Forgot password, Delete user, Passwordless login, Forgot pin, One-touch login and Auto login. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/account/multipurpose-token-and-sms-otp-generation-api/multipurpose-email-token-generation/)
 
 ```Java
 
@@ -1865,9 +1865,9 @@ accountApi.multipurposeEmailTokenGeneration( multiEmailToken, tokentype ,  new A
 
 <h6 id="MultipurposeSMSOTPGeneration-post-">Multipurpose SMS OTP Generation API (POST)</h6>
 
- This API generates SMS OTP for Add phone, Phone Id verification, Forgot password, Forgot pin, One-touch login, smart login and Passwordless login. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/multipurpose-token-and-sms-otp-generation-api/multipurpose-sms-otp-generation/)
+ This API generates SMS OTP for Add phone, Phone Id verification, Forgot password, Forgot pin, One-touch login, smart login and Passwordless login. [More info](https://www.loginradius.com/docs/api/v2/customer-identity-api/account/multipurpose-token-and-sms-otp-generation-api/multipurpose-sms-otp-generation/)
 
-```Ja
+```Java
 
 MultiSmsOtp multiSmsOtp = new MultiSmsOtp(); //Required
 multiSmsOtp.setName("name"); 
