@@ -19,6 +19,9 @@ import com.google.gson.annotations.SerializedName;
 		
 		@SerializedName("Otp")
         private String otp;
+		
+		@SerializedName("uuid")
+        private String uuid;
 
 
 
@@ -45,5 +48,17 @@ import com.google.gson.annotations.SerializedName;
 		// </summary>
 		public void setOtp(String otp) {
 			this.otp = otp;
+		}
+		// <summary>
+		//	The uuid received in the response
+		// </summary>
+		public String getUuid() {
+			return uuid;
+		}
+		// <summary>
+		//	The uuid received in the response
+		// </summary>
+		public void setUuid(String uuid) {
+			this.uuid = uuid;
 		}
     }

@@ -11,7 +11,7 @@ import com.google.gson.annotations.SerializedName;
 	// <summary>
 	//	Model Class containing Definition of payload for PinInfo
 	// </summary>
-	public class PINModel {
+	public class PinModel {
 	
 		
 		@SerializedName("PIN")

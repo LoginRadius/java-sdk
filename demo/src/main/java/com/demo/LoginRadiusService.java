@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
+import com.loginradius.sdk.models.requestmodels.*;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -25,13 +26,6 @@ import com.loginradius.sdk.api.authentication.AuthenticationApi;
 import com.loginradius.sdk.api.authentication.PasswordLessLoginApi;
 import com.loginradius.sdk.api.cloud.SsoJwtApi;
 import com.loginradius.sdk.models.enums.CustomObjectUpdateOperationType;
-import com.loginradius.sdk.models.requestmodels.AccountUserProfileUpdateModel;
-import com.loginradius.sdk.models.requestmodels.AuthUserRegistrationModel;
-import com.loginradius.sdk.models.requestmodels.EmailAuthenticationModel;
-import com.loginradius.sdk.models.requestmodels.EmailModel;
-import com.loginradius.sdk.models.requestmodels.ResetPasswordByResetTokenModel;
-import com.loginradius.sdk.models.requestmodels.RolesModel;
-import com.loginradius.sdk.models.requestmodels.SsoAuthenticationModel;
 import com.loginradius.sdk.models.responsemodels.AccessToken;
 import com.loginradius.sdk.models.responsemodels.AccessTokenBase;
 import com.loginradius.sdk.models.responsemodels.ListData;
@@ -149,8 +143,7 @@ public class LoginRadiusService {
 		userprofileModel.setEmail(new ArrayList<EmailModel>(Arrays.asList(email)));
 		userprofileModel.setPassword(request.getParameter("password"));
 
-		auth.userRegistrationByEmail(userprofileModel, getSott(), null, null, null, emailverification, null,
-				new AsyncHandler<UserProfilePostResponse<AccessToken<Identity>>>() {
+		auth.userRegistrationByEmail(userprofileModel, getSott(), null, null, null, emailverification, null, null,new AsyncHandler<UserProfilePostResponse<AccessToken<Identity>>>() {
 
 					@Override
 					public void onSuccess(UserProfilePostResponse<AccessToken<Identity>> profile) {
@@ -172,7 +165,7 @@ public class LoginRadiusService {
 	public String mfaLogin(HttpServletRequest request) {
 		MultiFactorAuthenticationApi mfa = new MultiFactorAuthenticationApi();
 		mfa.mfaLoginByEmail(request.getParameter("email"), request.getParameter("password"), null, null, null, null,
-				null, null, null, new AsyncHandler<MultiFactorAuthenticationResponse<Identity>>() {
+				null, null, null,null,null, new AsyncHandler<MultiFactorAuthenticationResponse<Identity>>() {
 
 					@Override
 					public void onSuccess(MultiFactorAuthenticationResponse<Identity> arg0) {
@@ -191,22 +184,26 @@ public class LoginRadiusService {
 	}
 
 	public String mfaVerify(HttpServletRequest request) {
+
 		MultiFactorAuthenticationApi mfa = new MultiFactorAuthenticationApi();
-		mfa.mfaValidateGoogleAuthCode(request.getParameter("code"), request.getParameter("token"), null, null,
-				null, null, null, new AsyncHandler<AccessToken<Identity>>() {
+		MultiFactorAuthModelByAuthenticatorCode multiFactorAuthModelByAuthenticatorCode=new MultiFactorAuthModelByAuthenticatorCode();
+		multiFactorAuthModelByAuthenticatorCode.setAuthenticatorCode(request.getParameter("code"));
+		mfa.mfaValidateAuthenticatorCode(multiFactorAuthModelByAuthenticatorCode, request.getParameter("token"), null, new AsyncHandler<MultiFactorAuthenticationResponse<Identity>>() {
 
-					@Override
-					public void onFailure(ErrorResponse arg0) {
-						// TODO Auto-generated method stub
-						resp = arg0.getDescription();
-					}
+			@Override
+			public void onFailure(ErrorResponse arg0) {
+				// TODO Auto-generated method stub
 
-					@Override
-					public void onSuccess(AccessToken<Identity> arg0) {
-						// TODO Auto-generated method stub
-						resp = gson.toJson(arg0);
-					}
-				});
+				resp = arg0.getDescription();
+			}
+			@Override
+			public void onSuccess(MultiFactorAuthenticationResponse<Identity> arg0) {
+				// TODO Auto-generated method stub
+				resp = gson.toJson(arg0);
+			}
+		});
+
+
 
 		return resp;
 
@@ -214,7 +211,7 @@ public class LoginRadiusService {
 
 	public String emailVerify(HttpServletRequest request) {
 		AuthenticationApi auth = new AuthenticationApi();
-		auth.verifyEmail(request.getParameter("token"), null, null, null,
+		auth.verifyEmail(request.getParameter("token"), null, null,null, null,
 				new AsyncHandler<UserProfilePostResponse<EmailVerificationData<Identity>>>() {
 
 					@Override
@@ -485,7 +482,7 @@ public class LoginRadiusService {
 
 	public String mfaReset(HttpServletRequest request) {
 		MultiFactorAuthenticationApi api = new MultiFactorAuthenticationApi();
-		api.mfaResetGoogleAuthenticatorByUid(true, request.getParameter("uid"), new AsyncHandler<DeleteResponse>() {
+		api.mfaResetAuthenticatorByUid(true, request.getParameter("uid"), new AsyncHandler<DeleteResponse>() {
 
 			@Override
 			public void onFailure(ErrorResponse arg0) {
@@ -672,7 +669,7 @@ public class LoginRadiusService {
 
 		serviceSottInfo.setStartTime("2023-01-18 07:10:42");  // Valid Start Date with Date and time
 
-		serviceSottInfo.setEndTime("2024-01-18 07:10:42"); // Valid End Date with Date and time
+		serviceSottInfo.setEndTime("2030-01-18 07:10:42"); // Valid End Date with Date and time
 										
 		//do not pass the time difference if you are passing startTime & endTime.						
 		serviceSottInfo.setTimeDifference("");  // (Optional) The time difference will be used to set the expiration time of SOTT, If you do not pass time difference then the default expiration time of SOTT is 10 minutes.

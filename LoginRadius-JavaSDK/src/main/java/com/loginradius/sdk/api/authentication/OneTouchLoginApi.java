@@ -94,11 +94,13 @@ public class OneTouchLoginApi {
    // </summary>
    // <param name="oneTouchLoginByPhoneModel">Model Class containing Definition of payload for OneTouchLogin By PhoneModel API</param>
    // <param name="smsTemplate">SMS Template name</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
    // <returns>Response containing Definition of Complete Validation data</returns>
    // 1.4	    
 		
 		
-   public void oneTouchLoginByPhone(OneTouchLoginByPhoneModel oneTouchLoginByPhoneModel, String smsTemplate, final AsyncHandler<PostResponse> handler) {
+   public void oneTouchLoginByPhone(OneTouchLoginByPhoneModel oneTouchLoginByPhoneModel, String smsTemplate,
+      Boolean isVoiceOtp, final AsyncHandler<PostResponse> handler) {
 
       if (oneTouchLoginByPhoneModel == null) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("oneTouchLoginByPhoneModel"));
@@ -109,6 +111,10 @@ public class OneTouchLoginApi {
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(smsTemplate)) {
         queryParameters.put("smsTemplate", smsTemplate);
+      }
+
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
       }
 
       String resourcePath = "identity/v2/auth/onetouchlogin/phone";

@@ -11,7 +11,7 @@ import java.util.Map;
 
 import com.google.gson.annotations.SerializedName;
 import com.loginradius.sdk.models.responsemodels.ConsentProfile;
-import com.loginradius.sdk.models.responsemodels.otherobjects.PINInformation;
+import com.loginradius.sdk.models.responsemodels.otherobjects.PinInformation;
 import com.loginradius.sdk.models.responsemodels.userprofile.objects.AcceptedPrivacyPolicy;
 import com.loginradius.sdk.models.responsemodels.userprofile.objects.Email;
 import com.loginradius.sdk.models.responsemodels.userprofile.objects.ExternalIds;
@@ -91,7 +91,7 @@ import com.loginradius.sdk.models.responsemodels.userprofile.objects.Registratio
         private Boolean phoneIdVerified;
 		
 		@SerializedName("PIN")
-        private PINInformation pin;
+        private PinInformation pin;
 		
 		@SerializedName("PrivacyPolicy")
         private AcceptedPrivacyPolicy privacyPolicy;
@@ -120,13 +120,13 @@ import com.loginradius.sdk.models.responsemodels.userprofile.objects.Registratio
 
 
 		// <summary>
-		//	Response containing consent profile
+		//	List of Consents
 		// </summary>
 		public ConsentProfile getConsentProfile() {
 			return consentProfile;
 		}
 		// <summary>
-		//	Response containing consent profile
+		//	List of Consents
 		// </summary>
 		public void setConsentProfile(ConsentProfile consentProfile) {
 			this.consentProfile = consentProfile;
@@ -386,13 +386,13 @@ import com.loginradius.sdk.models.responsemodels.userprofile.objects.Registratio
 		// <summary>
 		//	PIN of user
 		// </summary>
-		public PINInformation getPIN() {
+		public PinInformation getPIN() {
 			return pin;
 		}
 		// <summary>
 		//	PIN of user
 		// </summary>
-		public void setPIN(PINInformation pin) {
+		public void setPIN(PinInformation pin) {
 			this.pin = pin;
 		}
 		// <summary>

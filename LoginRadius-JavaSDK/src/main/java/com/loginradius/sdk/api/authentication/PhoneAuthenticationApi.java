@@ -19,7 +19,7 @@ import com.loginradius.sdk.models.requestmodels.AuthUserRegistrationModel;
 import com.loginradius.sdk.models.requestmodels.PhoneAuthenticationModel;
 import com.loginradius.sdk.models.requestmodels.ResetPasswordByOTPModel;
 import com.loginradius.sdk.models.responsemodels.AccessToken;
-import com.loginradius.sdk.models.responsemodels.SMSResponseData;
+import com.loginradius.sdk.models.responsemodels.SmsResponseData;
 import com.loginradius.sdk.models.responsemodels.otherobjects.DeleteResponse;
 import com.loginradius.sdk.models.responsemodels.otherobjects.ExistResponse;
 import com.loginradius.sdk.models.responsemodels.otherobjects.PostResponse;
@@ -48,12 +48,13 @@ public class PhoneAuthenticationApi {
    // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
    // <param name="loginUrl">Url where the user is logging from</param>
    // <param name="smsTemplate">SMS Template name</param>
+   // <param name="options"></param>
    // <returns>Response containing User Profile Data and access token</returns>
    // 9.2.3	    
 		
 		
    public void loginByPhone(PhoneAuthenticationModel phoneAuthenticationModel, String fields,
-      String loginUrl, String smsTemplate, final AsyncHandler<AccessToken<Identity>> handler) {
+      String loginUrl, String smsTemplate, String options, final AsyncHandler<AccessToken<Identity>> handler) {
 
       if (phoneAuthenticationModel == null) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("phoneAuthenticationModel"));
@@ -72,6 +73,10 @@ public class PhoneAuthenticationApi {
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(smsTemplate)) {
         queryParameters.put("smsTemplate", smsTemplate);
+      }
+
+      if (!LoginRadiusValidator.isNullOrWhiteSpace(options)) {
+        queryParameters.put("options", options);
       }
 
       String resourcePath = "identity/v2/auth/login";
@@ -97,11 +102,13 @@ public class PhoneAuthenticationApi {
    // </summary>
    // <param name="phone">New Phone Number</param>
    // <param name="smsTemplate">SMS Template name</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
    // <returns>Response Containing Validation Data and SMS Data</returns>
    // 10.4	    
 		
 		
-   public void forgotPasswordByPhoneOTP(String phone, String smsTemplate, final AsyncHandler<UserProfilePostResponse<SMSResponseData>> handler) {      
+   public void forgotPasswordByPhoneOTP(String phone, String smsTemplate,
+      Boolean isVoiceOtp, final AsyncHandler<UserProfilePostResponse<SmsResponseData>> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(phone)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("phone"));
@@ -114,6 +121,10 @@ public class PhoneAuthenticationApi {
         queryParameters.put("smsTemplate", smsTemplate);
       }
 
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
+      }
+
       JsonObject bodyParameters = new JsonObject();
       bodyParameters.addProperty("phone", phone);
 
@@ -123,8 +134,8 @@ public class PhoneAuthenticationApi {
 			
         @Override
         public void onSuccess(String response) {
-          TypeToken<UserProfilePostResponse<SMSResponseData>> typeToken = new TypeToken<UserProfilePostResponse<SMSResponseData>>() {};
-          UserProfilePostResponse<SMSResponseData> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<UserProfilePostResponse<SmsResponseData>> typeToken = new TypeToken<UserProfilePostResponse<SmsResponseData>>() {};
+          UserProfilePostResponse<SmsResponseData> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -177,12 +188,13 @@ public class PhoneAuthenticationApi {
    // <param name="phone">New Phone Number</param>
    // <param name="fields">The fields parameter filters the API response so that the response only includes a specific set of fields</param>
    // <param name="smsTemplate">SMS Template name</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
    // <returns>Response containing User Profile Data and access token</returns>
    // 11.1.1	    
 		
 		
    public void phoneVerificationByOTP(String otp, String phone,
-      String fields, String smsTemplate, final AsyncHandler<AccessToken<Identity>> handler) {      
+      String fields, String smsTemplate, Boolean isVoiceOtp, final AsyncHandler<AccessToken<Identity>> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(otp)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("otp"));
@@ -202,6 +214,10 @@ public class PhoneAuthenticationApi {
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(smsTemplate)) {
         queryParameters.put("smsTemplate", smsTemplate);
+      }
+
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
       }
 
       JsonObject bodyParameters = new JsonObject();
@@ -231,12 +247,13 @@ public class PhoneAuthenticationApi {
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="otp">The Verification Code</param>
    // <param name="smsTemplate">SMS Template name</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
    // <returns>Response containing Definition of Complete Validation data</returns>
    // 11.1.2	    
 		
 		
    public void phoneVerificationOTPByAccessToken(String accessToken, String otp,
-      String smsTemplate, final AsyncHandler<PostResponse> handler) {      
+      String smsTemplate, Boolean isVoiceOtp, final AsyncHandler<PostResponse> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
@@ -253,6 +270,10 @@ public class PhoneAuthenticationApi {
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(smsTemplate)) {
         queryParameters.put("smsTemplate", smsTemplate);
+      }
+
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
       }
 
       String resourcePath = "identity/v2/auth/phone/otp";
@@ -278,11 +299,13 @@ public class PhoneAuthenticationApi {
    // </summary>
    // <param name="phone">New Phone Number</param>
    // <param name="smsTemplate">SMS Template name</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
    // <returns>Response Containing Validation Data and SMS Data</returns>
    // 11.2.1	    
 		
 		
-   public void phoneResendVerificationOTP(String phone, String smsTemplate, final AsyncHandler<UserProfilePostResponse<SMSResponseData>> handler) {      
+   public void phoneResendVerificationOTP(String phone, String smsTemplate,
+      Boolean isVoiceOtp, final AsyncHandler<UserProfilePostResponse<SmsResponseData>> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(phone)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("phone"));
@@ -295,6 +318,10 @@ public class PhoneAuthenticationApi {
         queryParameters.put("smsTemplate", smsTemplate);
       }
 
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
+      }
+
       JsonObject bodyParameters = new JsonObject();
       bodyParameters.addProperty("phone", phone);
 
@@ -304,8 +331,8 @@ public class PhoneAuthenticationApi {
 			
         @Override
         public void onSuccess(String response) {
-          TypeToken<UserProfilePostResponse<SMSResponseData>> typeToken = new TypeToken<UserProfilePostResponse<SMSResponseData>>() {};
-          UserProfilePostResponse<SMSResponseData> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<UserProfilePostResponse<SmsResponseData>> typeToken = new TypeToken<UserProfilePostResponse<SmsResponseData>>() {};
+          UserProfilePostResponse<SmsResponseData> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -322,12 +349,13 @@ public class PhoneAuthenticationApi {
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="phone">New Phone Number</param>
    // <param name="smsTemplate">SMS Template name</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
    // <returns>Response Containing Validation Data and SMS Data</returns>
    // 11.2.2	    
 		
 		
    public void phoneResendVerificationOTPByToken(String accessToken, String phone,
-      String smsTemplate, final AsyncHandler<UserProfilePostResponse<SMSResponseData>> handler) {      
+      String smsTemplate, Boolean isVoiceOtp, final AsyncHandler<UserProfilePostResponse<SmsResponseData>> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
@@ -345,6 +373,10 @@ public class PhoneAuthenticationApi {
         queryParameters.put("smsTemplate", smsTemplate);
       }
 
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
+      }
+
       JsonObject bodyParameters = new JsonObject();
       bodyParameters.addProperty("phone", phone);
 
@@ -354,8 +386,8 @@ public class PhoneAuthenticationApi {
 			
         @Override
         public void onSuccess(String response) {
-          TypeToken<UserProfilePostResponse<SMSResponseData>> typeToken = new TypeToken<UserProfilePostResponse<SMSResponseData>>() {};
-          UserProfilePostResponse<SMSResponseData> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<UserProfilePostResponse<SmsResponseData>> typeToken = new TypeToken<UserProfilePostResponse<SmsResponseData>>() {};
+          UserProfilePostResponse<SmsResponseData> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -372,12 +404,13 @@ public class PhoneAuthenticationApi {
    // <param name="accessToken">Uniquely generated identifier key by LoginRadius that is activated after successful authentication.</param>
    // <param name="phone">New Phone Number</param>
    // <param name="smsTemplate">SMS Template name</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
    // <returns>Response Containing Validation Data and SMS Data</returns>
    // 11.5	    
 		
 		
    public void updatePhoneNumber(String accessToken, String phone,
-      String smsTemplate, final AsyncHandler<UserProfilePostResponse<SMSResponseData>> handler) {      
+      String smsTemplate, Boolean isVoiceOtp, final AsyncHandler<UserProfilePostResponse<SmsResponseData>> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(accessToken)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("accessToken"));
@@ -395,6 +428,10 @@ public class PhoneAuthenticationApi {
         queryParameters.put("smsTemplate", smsTemplate);
       }
 
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
+      }
+
       JsonObject bodyParameters = new JsonObject();
       bodyParameters.addProperty("phone", phone);
 
@@ -404,8 +441,8 @@ public class PhoneAuthenticationApi {
 			
         @Override
         public void onSuccess(String response) {
-          TypeToken<UserProfilePostResponse<SMSResponseData>> typeToken = new TypeToken<UserProfilePostResponse<SMSResponseData>>() {};
-          UserProfilePostResponse<SMSResponseData> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<UserProfilePostResponse<SmsResponseData>> typeToken = new TypeToken<UserProfilePostResponse<SmsResponseData>>() {};
+          UserProfilePostResponse<SmsResponseData> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -499,12 +536,13 @@ public class PhoneAuthenticationApi {
    // <param name="verificationUrl">Email verification url</param>
    // <param name="welcomeEmailTemplate">Name of the welcome email template</param>
    // <param name="emailTemplate">Name of the email template</param>
+   // <param name="isVoiceOtp">Boolean, pass true if you wish to trigger voice OTP</param>
    // <returns>Response containing Definition of Complete Validation, UserProfile data and Access Token</returns>
    // 17.1.2	    
 		
 		
    public void userRegistrationByPhone(AuthUserRegistrationModel authUserRegistrationModel, String sott,
-      String fields, String options, String smsTemplate, String verificationUrl, String welcomeEmailTemplate, String emailTemplate, final AsyncHandler<UserProfilePostResponse<AccessToken<Identity>>> handler) {
+      String fields, String options, String smsTemplate, String verificationUrl, String welcomeEmailTemplate, String emailTemplate, Boolean isVoiceOtp, final AsyncHandler<UserProfilePostResponse<AccessToken<Identity>>> handler) {
 
       if (authUserRegistrationModel == null) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("authUserRegistrationModel"));
@@ -540,6 +578,10 @@ public class PhoneAuthenticationApi {
 
       if (!LoginRadiusValidator.isNullOrWhiteSpace(emailTemplate)) {
         queryParameters.put("emailTemplate", emailTemplate);
+      }
+
+      if (isVoiceOtp != null && isVoiceOtp) {
+        queryParameters.put("isVoiceOtp", String.valueOf(isVoiceOtp));
       }
 
       String resourcePath = "identity/v2/auth/register";
