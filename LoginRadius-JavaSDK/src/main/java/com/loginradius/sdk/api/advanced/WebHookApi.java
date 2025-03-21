@@ -15,9 +15,9 @@ import com.google.gson.reflect.TypeToken;
 import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Map;
-import com.loginradius.sdk.models.responsemodels.*;
 import com.loginradius.sdk.models.responsemodels.otherobjects.*;
 import com.loginradius.sdk.models.requestmodels.*;
+import com.loginradius.sdk.models.responsemodels.*;
 
 
 public class WebHookApi {
@@ -35,11 +35,11 @@ public class WebHookApi {
    // This API is used to get details of a webhook subscription by Id
    // </summary>
    // <param name="hookId">Unique ID of the webhook</param>
-   // <returns>Response Containing List of Webhhook Data</returns>
+   // <returns>Response containing Definition for Complete WebHook data</returns>
    // 40.1	    
 		
 		
-   public void getWebhookSubscriptionDetail(String hookId, final AsyncHandler<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> handler) {      
+   public void getWebhookSubscriptionDetail(String hookId, final AsyncHandler<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(hookId)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("hookId"));
@@ -55,8 +55,8 @@ public class WebHookApi {
 			
         @Override
         public void onSuccess(String response) {
-          TypeToken<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> typeToken = new TypeToken<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>>() {};
-          ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> typeToken = new TypeToken<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>() {};
+          com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -183,11 +183,11 @@ public class WebHookApi {
    // <summary>
    // This API is used to get the list of all the webhooks
    // </summary>
-   // <returns>Response Containing List of Webhhook Data</returns>
+   // <returns></returns>
    // 40.5	    
 		
 		
-   public void listAllWebhooks(final AsyncHandler<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> handler) {
+   public void listAllWebhooks(final AsyncHandler<ListReturn<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> handler) {
 			
       Map<String, String> queryParameters = new HashMap<String, String>();
       queryParameters.put("apikey", LoginRadiusSDK.getApiKey());
@@ -199,8 +199,8 @@ public class WebHookApi {
 			
         @Override
         public void onSuccess(String response) {
-          TypeToken<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> typeToken = new TypeToken<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>>() {};
-          ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<ListReturn<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> typeToken = new TypeToken<ListReturn<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>>() {};
+          ListReturn<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -214,11 +214,11 @@ public class WebHookApi {
    // <summary>
    // This API is used to retrieve all the webhook events.
    // </summary>
-   // <returns>Model Class containing Definition for WebHookEventModel Property</returns>
+   // <returns></returns>
    // 40.6	    
 		
 		
-   public void getWebhookEvents(final AsyncHandler<WebHookEventModel> handler) {
+   public void getWebhookEvents(final AsyncHandler<ListReturn<WebHookEventModel>> handler) {
 			
       Map<String, String> queryParameters = new HashMap<String, String>();
       queryParameters.put("apikey", LoginRadiusSDK.getApiKey());
@@ -230,8 +230,8 @@ public class WebHookApi {
 			
         @Override
         public void onSuccess(String response) {
-          TypeToken<WebHookEventModel> typeToken = new TypeToken<WebHookEventModel>() {};
-          WebHookEventModel successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<ListReturn<WebHookEventModel>> typeToken = new TypeToken<ListReturn<WebHookEventModel>>() {};
+          ListReturn<WebHookEventModel> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 
