@@ -6892,17 +6892,16 @@ webhookAuthenticationModel.setBasicAuth(webhookAuthCredentials);
 webHookSubscribeModel.setAuthentication(webhookAuthenticationModel);
 
 WebHookApi webHookApi = new WebHookApi();
-webHookApi.createWebhookSubscription( webHookSubscribeModel ,  new AsyncHandler<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> (){
+webHookApi.createWebhookSubscription( webHookSubscribeModel ,  new AsyncHandler<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> (){
 
 @Override
-  public void onFailure(ErrorResponse errorResponse) {
-  System.out.println(errorResponse.getDescription());
-  }
-@Override
-  public void onSuccess(ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> response) {
-  System.out.println(response.getData().get(0).getId());
-	System.out.println(response.getData().get(0).getTargetUrl());
-  }
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel response) {
+  System.out.println(response.getId());
+ }
 });
 
 ```
@@ -6918,15 +6917,15 @@ String hookId = "<hookId>"; //Required
 WebHookSubscriptionUpdateModel webHookSubscriptionUpdateModel = new WebHookSubscriptionUpdateModel(); //Required
 
 WebHookApi webHookApi = new WebHookApi();
-webHookApi.updateWebhookSubscription(hookId,  webHookSubscriptionUpdateModel ,  new AsyncHandler<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> (){
+webHookApi.updateWebhookSubscription(hookId,  webHookSubscriptionUpdateModel ,  new AsyncHandler<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
  System.out.println(errorResponse.getDescription());
  }
  @Override
- public void onSuccess(ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> response) {
-  System.out.println(response.getCount());
+ public void onSuccess(com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel response) {
+  System.out.println(response.getId());
  }
 });
 
