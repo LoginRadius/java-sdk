@@ -6867,21 +6867,36 @@ List of APIs in this Section:<br>
 ```Java
 
 WebHookSubscribeModel webHookSubscribeModel = new WebHookSubscribeModel(); //Required
-webHookSubscribeModel.setEvent("event"); 
-webHookSubscribeModel.setName("name"); 
-webHookSubscribeModel.setTargetUrl("targetUrl"); 
+webHookSubscribeModel.setEvent("eventname"); 
+webHookSubscribeModel.setName("webhookname"); 
+webHookSubscribeModel.setTargetUrl("webhookurl");
+//Custom Headers
+Map<String, String> headers = new HashMap<String, String>();
+headers.put("Content-Type", "application/json");
+webHookSubscribeModel.setHeaders(headers);
+
+//Setup Webhook Authentication
+WebhookAuthCredentials webhookAuthCredentials=new WebhookAuthCredentials();
+webhookAuthCredentials.setUsername("");
+webhookAuthCredentials.setPassword("");
+	
+WebhookAuthenticationModel webhookAuthenticationModel=new WebhookAuthenticationModel();
+webhookAuthenticationModel.setAuthType("Basic");
+webhookAuthenticationModel.setBasicAuth(webhookAuthCredentials);
+	
+webHookSubscribeModel.setAuthentication(webhookAuthCredentials);
 
 WebHookApi webHookApi = new WebHookApi();
 webHookApi.createWebhookSubscription( webHookSubscribeModel ,  new AsyncHandler<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> (){
 
 @Override
- public void onFailure(ErrorResponse errorResponse) {
- System.out.println(errorResponse.getDescription());
- }
- @Override
- public void onSuccess(ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> response) {
-  System.out.println(response.getCount());
- }
+  public void onFailure(ErrorResponse errorResponse) {
+  System.out.println(errorResponse.getDescription());
+  }
+@Override
+  public void onSuccess(ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> response) {
+    System.out.println(response.getCount());
+  }
 });
 
 ```

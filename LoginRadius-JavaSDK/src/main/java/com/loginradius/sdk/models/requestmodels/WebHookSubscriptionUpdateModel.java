@@ -27,7 +27,7 @@ import com.loginradius.sdk.models.requestmodels.*;
         private Map<String,String> queryParams;
 		
 		@SerializedName("Authentication")
-        private WebhookAuthCredentials authentication;
+        private WebhookAuthenticationModel authentication;
 
 
 
@@ -58,13 +58,13 @@ import com.loginradius.sdk.models.requestmodels.*;
 		// <summary>
 		//	Authentication details for the webhook
 		// </summary>
-		public WebhookAuthCredentials getAuthentication() {
+		public WebhookAuthenticationModel getAuthentication() {
 			return authentication;
 		}
 		// <summary>
 		//	Authentication details for the webhook
 		// </summary>
-		public void setAuthentication(WebhookAuthCredentials authentication) {
+		public void setAuthentication(WebhookAuthenticationModel authentication) {
 			this.authentication = authentication;
 		}
     }
