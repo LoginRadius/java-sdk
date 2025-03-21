@@ -6942,15 +6942,15 @@ webHookApi.updateWebhookSubscription(hookId,  webHookSubscriptionUpdateModel ,  
 String hookId = "<hookId>"; //Required
 
 WebHookApi webHookApi = new WebHookApi();
-webHookApi.getWebhookSubscriptionDetail(hookId ,  new AsyncHandler<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> (){
+webHookApi.getWebhookSubscriptionDetail(hookId ,  new AsyncHandler<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
  System.out.println(errorResponse.getDescription());
  }
  @Override
- public void onSuccess(ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> response) {
-  System.out.println(response.getCount());
+ public void onSuccess(com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel response) {
+  System.out.println(response.getId());
  }
 });
 
@@ -6969,15 +6969,15 @@ webHookApi.getWebhookSubscriptionDetail(hookId ,  new AsyncHandler<ListData<com.
 
 
 WebHookApi webHookApi = new WebHookApi();
-webHookApi.listAllWebhooks( new AsyncHandler<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> (){
+webHookApi.listAllWebhooks( new AsyncHandler<ListReturn<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
  System.out.println(errorResponse.getDescription());
  }
  @Override
- public void onSuccess(ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> response) {
-  System.out.println(response.getCount());
+ public void onSuccess(ListReturn<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> response) {
+  System.out.println(response.getData().get(0).getId());
  }
 });
 
@@ -6996,15 +6996,15 @@ webHookApi.listAllWebhooks( new AsyncHandler<ListData<com.loginradius.sdk.models
 
 
 WebHookApi webHookApi = new WebHookApi();
-webHookApi.getWebhookEvents( new AsyncHandler<WebHookEventModel> (){
+webHookApi.getWebhookEvents( new AsyncHandler<ListReturn<WebHookEventModel>> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
  System.out.println(errorResponse.getDescription());
  }
  @Override
- public void onSuccess(WebHookEventModel response) {
-  System.out.println(response.getData());
+ public void onSuccess(ListReturn<WebHookEventModel> response) {
+  System.out.println(response.getData().get(0).getData());
  }
 });
 
