@@ -71,11 +71,11 @@ public class WebHookApi {
    // This API is used to create a new webhook subscription on your LoginRadius site.
    // </summary>
    // <param name="webHookSubscribeModel">Model Class containing Definition of payload for Webhook Subscribe API</param>
-   // <returns>Response Containing List of Webhhook Data</returns>
+   // <returns>Response containing Definition for Complete WebHook data</returns>
    // 40.2	    
 		
 		
-   public void createWebhookSubscription(com.loginradius.sdk.models.requestmodels.WebHookSubscribeModel webHookSubscribeModel, final AsyncHandler<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> handler) {
+   public void createWebhookSubscription(com.loginradius.sdk.models.requestmodels.WebHookSubscribeModel webHookSubscribeModel, final AsyncHandler<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> handler) {
 
       if (webHookSubscribeModel == null) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("webHookSubscribeModel"));
@@ -91,8 +91,8 @@ public class WebHookApi {
 			
         @Override
         public void onSuccess(String response) {
-          TypeToken<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> typeToken = new TypeToken<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>>() {};
-          ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> typeToken = new TypeToken<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>() {};
+          com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -144,11 +144,11 @@ public class WebHookApi {
    // </summary>
    // <param name="hookId">Unique ID of the webhook</param>
    // <param name="webHookSubscriptionUpdateModel">Model Class containing Definition for WebHookSubscriptionUpdateModel Property</param>
-   // <returns>Response Containing List of Webhhook Data</returns>
+   // <returns>Response containing Definition for Complete WebHook data</returns>
    // 40.4	    
 		
 		
-   public void updateWebhookSubscription(String hookId, WebHookSubscriptionUpdateModel webHookSubscriptionUpdateModel, final AsyncHandler<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> handler) {      
+   public void updateWebhookSubscription(String hookId, WebHookSubscriptionUpdateModel webHookSubscriptionUpdateModel, final AsyncHandler<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> handler) {      
 
       if (LoginRadiusValidator.isNullOrWhiteSpace(hookId)) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("hookId"));
@@ -168,8 +168,8 @@ public class WebHookApi {
 			
         @Override
         public void onSuccess(String response) {
-          TypeToken<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> typeToken = new TypeToken<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>>() {};
-          ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> typeToken = new TypeToken<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>() {};
+          com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 

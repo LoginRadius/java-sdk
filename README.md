@@ -6875,6 +6875,11 @@ Map<String, String> headers = new HashMap<String, String>();
 headers.put("Content-Type", "application/json");
 webHookSubscribeModel.setHeaders(headers);
 
+//Query Param
+Map<String, String> queryParams = new HashMap<String, String>();
+queryParams.put("paramname", "value");
+webHookSubscribeModel.setQueryParams(queryParams);
+
 //Setup Webhook Authentication
 WebhookAuthCredentials webhookAuthCredentials=new WebhookAuthCredentials();
 webhookAuthCredentials.setUsername("");
@@ -6884,7 +6889,7 @@ WebhookAuthenticationModel webhookAuthenticationModel=new WebhookAuthenticationM
 webhookAuthenticationModel.setAuthType("Basic");
 webhookAuthenticationModel.setBasicAuth(webhookAuthCredentials);
 	
-webHookSubscribeModel.setAuthentication(webhookAuthCredentials);
+webHookSubscribeModel.setAuthentication(webhookAuthenticationModel);
 
 WebHookApi webHookApi = new WebHookApi();
 webHookApi.createWebhookSubscription( webHookSubscribeModel ,  new AsyncHandler<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> (){
@@ -6895,7 +6900,8 @@ webHookApi.createWebhookSubscription( webHookSubscribeModel ,  new AsyncHandler<
   }
 @Override
   public void onSuccess(ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> response) {
-    System.out.println(response.getCount());
+  System.out.println(response.getData().get(0).getId());
+	System.out.println(response.getData().get(0).getTargetUrl());
   }
 });
 
