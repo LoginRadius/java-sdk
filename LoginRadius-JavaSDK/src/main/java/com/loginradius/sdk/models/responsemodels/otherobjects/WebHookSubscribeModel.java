@@ -50,7 +50,7 @@ import com.google.gson.annotations.SerializedName;
         private Map<String,String> queryParams;
 		
 		@SerializedName("Authentication")
-        private JsonObject authentication;
+        private WebHookAuthentication authentication;
 
 
 
@@ -177,13 +177,13 @@ import com.google.gson.annotations.SerializedName;
 		// <summary>
 		//	Authentication details for the webhook
 		// </summary>
-		public JsonObject getAuthentication() {
+		public WebHookAuthentication getAuthentication() {
 			return authentication;
 		}
 		// <summary>
 		//	Authentication details for the webhook
 		// </summary>
-		public void setAuthentication(JsonObject authentication) {
+		public void setAuthentication(WebHookAuthentication authentication) {
 			this.authentication = authentication;
 		}
     }

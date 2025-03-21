@@ -6980,7 +6980,6 @@ webHookApi.listAllWebhooks( new AsyncHandler<ListReturn<com.loginradius.sdk.mode
   System.out.println(response.getData().get(0).getId());
  }
 });
-
 ```
 
   
@@ -6996,15 +6995,15 @@ webHookApi.listAllWebhooks( new AsyncHandler<ListReturn<com.loginradius.sdk.mode
 
 
 WebHookApi webHookApi = new WebHookApi();
-webHookApi.getWebhookEvents( new AsyncHandler<ListReturn<WebHookEventModel>> (){
+webHookApi.getWebhookEvents( new AsyncHandler<WebHookEventModel> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {
  System.out.println(errorResponse.getDescription());
  }
  @Override
- public void onSuccess(ListReturn<WebHookEventModel> response) {
-  System.out.println(response.getData().get(0).getData());
+ public void onSuccess(WebHookEventModel response) {
+  System.out.println(response.getData());
  }
 });
 

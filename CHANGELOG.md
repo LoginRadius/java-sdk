@@ -5,6 +5,10 @@
 
 Release on **March 22, 2025**
 
+## Enhancements
+
+Deprecated old Webhook APIs and added new Webhook APIs with advanced features such as custom header support, query parameter support, and Webhook authentication methods including Bearer Token and Basic Auth.
+
 ## Added following APIs:
 - `getWebhookSubscriptionDetail`
 - `createWebhookSubscription`

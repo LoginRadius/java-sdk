@@ -183,7 +183,7 @@ public class WebHookApi {
    // <summary>
    // This API is used to get the list of all the webhooks
    // </summary>
-   // <returns></returns>
+   // <returns>Response Containing List of Webhhook Data</returns>
    // 40.5	    
 		
 		
@@ -214,11 +214,11 @@ public class WebHookApi {
    // <summary>
    // This API is used to retrieve all the webhook events.
    // </summary>
-   // <returns></returns>
+   // <returns>Model Class containing Definition for WebHookEventModel Property</returns>
    // 40.6	    
 		
 		
-   public void getWebhookEvents(final AsyncHandler<ListReturn<WebHookEventModel>> handler) {
+   public void getWebhookEvents(final AsyncHandler<WebHookEventModel> handler) {
 			
       Map<String, String> queryParameters = new HashMap<String, String>();
       queryParameters.put("apikey", LoginRadiusSDK.getApiKey());
@@ -230,8 +230,8 @@ public class WebHookApi {
 			
         @Override
         public void onSuccess(String response) {
-          TypeToken<ListReturn<WebHookEventModel>> typeToken = new TypeToken<ListReturn<WebHookEventModel>>() {};
-          ListReturn<WebHookEventModel> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<WebHookEventModel> typeToken = new TypeToken<WebHookEventModel>() {};
+          WebHookEventModel successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 
