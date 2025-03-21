@@ -1,6 +1,24 @@
 > **LoginRadius Java SDK Change Log** provides information regarding what has changed, more specifically what changes, improvements and bug fix has been made to the SDK. For more details please refer to the [LoginRadius API Documention(https://www.loginradius.com/docs/api/v2/deployment/sdk-libraries/java-library/)
 
 
+# Version 11.7.0
+
+Release on **March 22, 2025**
+
+## Added following APIs:
+- `getWebhookSubscriptionDetail`
+- `createWebhookSubscription`
+- `deleteWebhookSubscription `
+- `updateWebhookSubscription`
+- `listAllWebhooks`
+- `getWebhookEvents`
+
+## Removed (Deprecated) APIs:
+- `webHookUnsubscribe`
+- `webhookTest`
+- `webHookSubscribe `
+- `getWebHookSubscribedURLs`
+
 # Version 11.6.0
 
 Release on **July 02, 2024**

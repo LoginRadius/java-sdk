@@ -1,7 +1,7 @@
 /* 
  * 
  * Created by LoginRadius Development Team
-   Copyright 2019 LoginRadius Inc. All rights reserved.
+   Copyright 2025 LoginRadius Inc. All rights reserved.
    
  */
 
