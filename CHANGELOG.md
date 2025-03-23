@@ -3,25 +3,36 @@
 
 # Version 11.7.0
 
-Release on **March 22, 2025**
+**Release Date:** March 24, 2025
 
 ## Enhancements
 
-Deprecated old Webhook APIs and added new Webhook APIs with advanced features such as custom header support, query parameter support, and Webhook authentication methods including Bearer Token and Basic Auth.
+We've introduced a brand-new set of Webhook APIs, designed with enhanced functionality and flexibility. These new APIs support advanced features including:
 
-## Added following APIs:
-- `getWebhookSubscriptionDetail`
-- `createWebhookSubscription`
-- `deleteWebhookSubscription `
-- `updateWebhookSubscription`
-- `listAllWebhooks`
-- `getWebhookEvents`
+- Custom header configuration  
+- Query parameter support  
+- Webhook authentication methods (Bearer Token and Basic Auth)
 
-## Removed (Deprecated) APIs:
-- `webHookUnsubscribe`
-- `webhookTest`
-- `webHookSubscribe `
-- `getWebHookSubscribedURLs`
+As part of this upgrade, the legacy Webhook APIs have been deprecated in favor of the new, more robust versions.
+
+## Newly Added APIs
+
+- `getWebhookSubscriptionDetail` – Retrieve detailed information about a specific webhook subscription  
+- `createWebhookSubscription` – Create a new webhook subscription with advanced configuration options  
+- `deleteWebhookSubscription` – Remove an existing webhook subscription  
+- `updateWebhookSubscription` – Modify an existing webhook subscription  
+- `listAllWebhooks` – Retrieve a list of all configured webhook subscriptions  
+- `getWebhookEvents` – Fetch available webhook events supported by the system  
+
+## Deprecated APIs
+
+The following legacy APIs have been deprecated:
+
+- `webHookUnsubscribe`  
+- `webhookTest`  
+- `webHookSubscribe`  
+- `getWebHookSubscribedURLs`  
+
 
 # Version 11.6.0
 
