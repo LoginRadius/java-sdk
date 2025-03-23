@@ -3,7 +3,7 @@ package com.loginradius.sdk.util;
 /* 
  * 
  * Created by LoginRadius Development Team on 02/06/2017
-   Copyright 2019 LoginRadius Inc. All rights reserved.
+   Copyright 2025 LoginRadius Inc. All rights reserved.
    
  */
 

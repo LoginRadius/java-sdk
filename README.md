@@ -6849,111 +6849,201 @@ nativeSocialApi.accessTokenViaCustomJWTToken(idToken, providername ,  new AsyncH
 
 List of APIs in this Section:<br>
 
-* POST : [Webhook Subscribe](#WebHookSubscribe-post-)<br>
-* GET : [Webhook Subscribed URLs](#GetWebHookSubscribedURLs-get-)<br>
-* GET : [Webhook Test](#WebhookTest-get-)<br>
-* DELETE : [WebHook Unsubscribe](#WebHookUnsubscribe-delete-)<br>
+* POST : [Create Webhook Subscription](#CreateWebhookSubscription-post-)<br>
+* GET : [Get Webhook Subscription Detail](#GetWebhookSubscriptionDetail-get-)<br>
+* PUT : [Update Webhook Subscription](#UpdateWebhookSubscription-put-)<br>
+* GET : [List All Webhooks](#ListAllWebhooks-get-)<br>
+* GET : [Get Webhook Events](#GetWebhookEvents-get-)<br>
+* DELETE : [Delete Webhook Subscription](#DeleteWebhookSubscription-delete-)<br>
 
 
 
 
-<h6 id="WebHookSubscribe-post-">Webhook Subscribe (POST)</h6>
 
- API can be used to configure a WebHook on your LoginRadius site. Webhooks also work on subscribe and notification model, subscribe your hook and get a notification. Equivalent to RESThook but these provide security on basis of signature and RESThook work on unique URL. Following are the events that are allowed by LoginRadius to trigger a WebHook service call. [More info](https://www.loginradius.com/docs/api/v2/integrations/webhooks/webhook-subscribe)
+<h6 id="CreateWebhookSubscription-post-">Create Webhook Subscription (POST)</h6>
 
-```java
+ This API is used to create a new webhook subscription on your LoginRadius site. [More info](https://www.loginradius.com/docs/api/v2/integrations/webhooks/create-webhook-subscription/)
 
-WebHookSubscribeModel webHookSubscribeModel = new WebHookSubscribeModel(); //Required
-webHookSubscribeModel.setEvent("event"); 
-webHookSubscribeModel.setTargetUrl("targetUrl"); 
-
-WebHookApi webHookApi = new WebHookApi();
-webHookApi.webHookSubscribe( webHookSubscribeModel ,  new AsyncHandler<PostResponse> (){
-
-@Override
- public void onFailure(ErrorResponse errorResponse) {
- System.out.println(errorResponse.getDescription());
- }
- @Override
- public void onSuccess(PostResponse response) {
-  System.out.println(response.getIsPosted());
- }
-});
-
-```
-
-  
-
-
-
-
-<h6 id="GetWebHookSubscribedURLs-get-">Webhook Subscribed URLs (GET)</h6>
-
- This API is used to fatch all the subscribed URLs, for particular event [More info](https://www.loginradius.com/docs/api/v2/integrations/webhooks/webhook-subscribed-urls)
-
-```java
-
-String event = "<event>"; //Required
-
-WebHookApi webHookApi = new WebHookApi();
-webHookApi.getWebHookSubscribedURLs(event ,  new AsyncHandler<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> (){
-
-@Override
- public void onFailure(ErrorResponse errorResponse) {
- System.out.println(errorResponse.getDescription());
- }
- @Override
- public void onSuccess(ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> response) {
-  System.out.println(response.getCount());
- }
-});
-
-```
-
-  
-
-
-
-
-<h6 id="WebhookTest-get-">Webhook Test (GET)</h6>
-
- API can be used to test a subscribed WebHook. [More info](https://www.loginradius.com/docs/api/v2/integrations/webhooks/webhook-test)
-
-```java
-
-
-WebHookApi webHookApi = new WebHookApi();
-webHookApi.webhookTest( new AsyncHandler<EntityPermissionAcknowledgement> (){
-
-@Override
- public void onFailure(ErrorResponse errorResponse) {
- System.out.println(errorResponse.getDescription());
- }
- @Override
- public void onSuccess(EntityPermissionAcknowledgement response) {
-  System.out.println(response.getIsAllowed());
- }
-});
-
-```
-
-  
-
-
-
-
-<h6 id="WebHookUnsubscribe-delete-">WebHook Unsubscribe (DELETE)</h6>
-
- API can be used to unsubscribe a WebHook configured on your LoginRadius site. [More info](https://www.loginradius.com/docs/api/v2/integrations/webhooks/webhook-unsubscribe)
-
-```java
+```Java
 
 WebHookSubscribeModel webHookSubscribeModel = new WebHookSubscribeModel(); //Required
-webHookSubscribeModel.setEvent("event"); 
-webHookSubscribeModel.setTargetUrl("targetUrl"); 
+webHookSubscribeModel.setEvent("eventname"); 
+webHookSubscribeModel.setName("webhookname"); 
+webHookSubscribeModel.setTargetUrl("webhookurl");
+//Custom Headers
+Map<String, String> headers = new HashMap<String, String>();
+headers.put("Content-Type", "application/json");
+webHookSubscribeModel.setHeaders(headers);
+
+//Query Param
+Map<String, String> queryParams = new HashMap<String, String>();
+queryParams.put("paramname", "value");
+webHookSubscribeModel.setQueryParams(queryParams);
+
+//Setup Webhook Authentication
+WebhookAuthCredentials webhookAuthCredentials=new WebhookAuthCredentials();
+webhookAuthCredentials.setUsername("");
+webhookAuthCredentials.setPassword("");
+	
+WebhookAuthenticationModel webhookAuthenticationModel=new WebhookAuthenticationModel();
+webhookAuthenticationModel.setAuthType("Basic");
+webhookAuthenticationModel.setBasicAuth(webhookAuthCredentials);
+	
+webHookSubscribeModel.setAuthentication(webhookAuthenticationModel);
 
 WebHookApi webHookApi = new WebHookApi();
-webHookApi.webHookUnsubscribe( webHookSubscribeModel ,  new AsyncHandler<DeleteResponse> (){
+webHookApi.createWebhookSubscription( webHookSubscribeModel ,  new AsyncHandler<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel response) {
+  System.out.println(response.getId());
+ }
+});
+
+```
+
+  
+<h6 id="UpdateWebhookSubscription-put-">Update Webhook Subscription (PUT)</h6>
+
+ This API is used to update a webhook subscription [More info](https://www.loginradius.com/docs/api/v2/integrations/webhooks/update-webhook-subscription/)
+
+```Java
+
+String hookId = "<hookId>"; //Required
+WebHookSubscriptionUpdateModel webHookSubscriptionUpdateModel = new WebHookSubscriptionUpdateModel(); //Required
+
+//Custom Headers
+Map<String, String> headers = new HashMap<String, String>();
+headers.put("Content-Type", "application/json");
+webHookSubscriptionUpdateModel.setHeaders(headers);
+
+//Query Param
+Map<String, String> queryParams = new HashMap<String, String>();
+queryParams.put("paramname", "value");
+webHookSubscriptionUpdateModel.setQueryParams(queryParams);
+
+//Setup Webhook Authentication
+	
+WebhookAuthenticationModel webhookAuthenticationModel=new WebhookAuthenticationModel();
+webhookAuthenticationModel.setAuthType("Bearer");
+WebhookBearerToken webhookBearerToken=new WebhookBearerToken();
+webhookBearerToken.setToken("tokenValue");
+webhookAuthenticationModel.setBearerToken(webhookBearerToken);
+
+webHookSubscriptionUpdateModel.setAuthentication(webhookAuthenticationModel);
+
+WebHookApi webHookApi = new WebHookApi();
+webHookApi.updateWebhookSubscription(hookId,  webHookSubscriptionUpdateModel ,  new AsyncHandler<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel response) {
+  System.out.println(response.getId());
+ }
+});
+
+```
+
+
+
+<h6 id="GetWebhookSubscriptionDetail-get-">Get Webhook Subscription Detail (GET)</h6>
+
+ This API is used to get details of a webhook subscription by Id [More info](https://www.loginradius.com/docs/api/v2/integrations/webhooks/get-webhook-subscription-details/)
+
+```Java
+
+String hookId = "<hookId>"; //Required
+
+WebHookApi webHookApi = new WebHookApi();
+webHookApi.getWebhookSubscriptionDetail(hookId ,  new AsyncHandler<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel response) {
+  System.out.println(response.getId());
+ }
+});
+
+```
+
+  
+
+
+
+
+<h6 id="ListAllWebhooks-get-">List All Webhooks (GET)</h6>
+
+ This API is used to get the list of all the webhooks [More info](https://www.loginradius.com/docs/api/v2/integrations/webhooks/list-all-webhooks/)
+
+```Java
+
+
+WebHookApi webHookApi = new WebHookApi();
+webHookApi.listAllWebhooks( new AsyncHandler<ListReturn<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(ListReturn<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> response) {
+  System.out.println(response.getData().get(0).getId());
+ }
+});
+```
+
+  
+
+
+
+
+<h6 id="GetWebhookEvents-get-">Get Webhook Events (GET)</h6>
+
+ This API is used to retrieve all the webhook events. [More info](https://www.loginradius.com/docs/api/v2/integrations/webhooks/get-webhook-events/)
+
+```Java
+
+
+WebHookApi webHookApi = new WebHookApi();
+webHookApi.getWebhookEvents( new AsyncHandler<WebHookEventModel> (){
+
+@Override
+ public void onFailure(ErrorResponse errorResponse) {
+ System.out.println(errorResponse.getDescription());
+ }
+ @Override
+ public void onSuccess(WebHookEventModel response) {
+  System.out.println(response.getData());
+ }
+});
+
+```
+
+  
+
+
+
+
+<h6 id="DeleteWebhookSubscription-delete-">Delete Webhook Subscription (DELETE)</h6>
+
+ This API is used to delete webhook subscription [More info](https://www.loginradius.com/docs/api/v2/integrations/webhooks/delete-webhook-subscription/)
+
+```Java
+
+String hookId = "<hookId>"; //Required
+
+WebHookApi webHookApi = new WebHookApi();
+webHookApi.deleteWebhookSubscription(hookId ,  new AsyncHandler<DeleteResponse> (){
 
 @Override
  public void onFailure(ErrorResponse errorResponse) {

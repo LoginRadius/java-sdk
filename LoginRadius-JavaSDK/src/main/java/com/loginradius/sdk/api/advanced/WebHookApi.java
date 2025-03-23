@@ -1,26 +1,23 @@
 /* 
  * 
  * Created by LoginRadius Development Team
-   Copyright 2019 LoginRadius Inc. All rights reserved.
+   Copyright 2025 LoginRadius Inc. All rights reserved.
 */
 
 package com.loginradius.sdk.api.advanced;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import com.loginradius.sdk.helper.*;
+import com.loginradius.sdk.util.*;
 import com.google.gson.Gson;
+import java.util.Iterator;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
-import com.loginradius.sdk.helper.JsonDeserializer;
-import com.loginradius.sdk.helper.LoginRadiusRequest;
-import com.loginradius.sdk.helper.LoginRadiusValidator;
-import com.loginradius.sdk.models.responsemodels.EntityPermissionAcknowledgement;
-import com.loginradius.sdk.models.responsemodels.ListData;
-import com.loginradius.sdk.models.responsemodels.otherobjects.DeleteResponse;
-import com.loginradius.sdk.models.responsemodels.otherobjects.PostResponse;
-import com.loginradius.sdk.util.AsyncHandler;
-import com.loginradius.sdk.util.ErrorResponse;
-import com.loginradius.sdk.util.LoginRadiusSDK;
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Map;
+import com.loginradius.sdk.models.responsemodels.otherobjects.*;
+import com.loginradius.sdk.models.requestmodels.*;
+import com.loginradius.sdk.models.responsemodels.*;
 
 
 public class WebHookApi {
@@ -35,32 +32,31 @@ public class WebHookApi {
    
    
    // <summary>
-   // This API is used to fatch all the subscribed URLs, for particular event
+   // This API is used to get details of a webhook subscription by Id
    // </summary>
-   // <param name="event">Allowed events: Login, Register, UpdateProfile, ResetPassword, ChangePassword, emailVerification, AddEmail, RemoveEmail, BlockAccount, DeleteAccount, SetUsername, AssignRoles, UnassignRoles, SetPassword, LinkAccount, UnlinkAccount, UpdatePhoneId, VerifyPhoneNumber, CreateCustomObject, UpdateCustomobject, DeleteCustomObject</param>
-   // <returns>Response Containing List of Webhhook Data</returns>
+   // <param name="hookId">Unique ID of the webhook</param>
+   // <returns>Response containing Definition for Complete WebHook data</returns>
    // 40.1	    
 		
 		
-   public void getWebHookSubscribedURLs(String event, final AsyncHandler<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> handler) {      
+   public void getWebhookSubscriptionDetail(String hookId, final AsyncHandler<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> handler) {      
 
-      if (LoginRadiusValidator.isNullOrWhiteSpace(event)) {
-        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("event"));
+      if (LoginRadiusValidator.isNullOrWhiteSpace(hookId)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("hookId"));
       }
 			
       Map<String, String> queryParameters = new HashMap<String, String>();
       queryParameters.put("apikey", LoginRadiusSDK.getApiKey());
       queryParameters.put("apisecret", LoginRadiusSDK.getApiSecret());
-      queryParameters.put("event", event);
 
-      String resourcePath = "api/v2/webhook";
+      String resourcePath = "v2/manage/webhooks/" + hookId;
             
       LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
 			
         @Override
         public void onSuccess(String response) {
-          TypeToken<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> typeToken = new TypeToken<ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>>() {};
-          ListData<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> typeToken = new TypeToken<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>() {};
+          com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -72,14 +68,14 @@ public class WebHookApi {
    }
    
    // <summary>
-   // API can be used to configure a WebHook on your LoginRadius site. Webhooks also work on subscribe and notification model, subscribe your hook and get a notification. Equivalent to RESThook but these provide security on basis of signature and RESThook work on unique URL. Following are the events that are allowed by LoginRadius to trigger a WebHook service call.
+   // This API is used to create a new webhook subscription on your LoginRadius site.
    // </summary>
    // <param name="webHookSubscribeModel">Model Class containing Definition of payload for Webhook Subscribe API</param>
-   // <returns>Response containing Definition of Complete Validation data</returns>
+   // <returns>Response containing Definition for Complete WebHook data</returns>
    // 40.2	    
 		
 		
-   public void webHookSubscribe(com.loginradius.sdk.models.requestmodels.WebHookSubscribeModel webHookSubscribeModel, final AsyncHandler<PostResponse> handler) {
+   public void createWebhookSubscription(com.loginradius.sdk.models.requestmodels.WebHookSubscribeModel webHookSubscribeModel, final AsyncHandler<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> handler) {
 
       if (webHookSubscribeModel == null) {
         throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("webHookSubscribeModel"));
@@ -89,14 +85,14 @@ public class WebHookApi {
       queryParameters.put("apikey", LoginRadiusSDK.getApiKey());
       queryParameters.put("apisecret", LoginRadiusSDK.getApiSecret());
 
-      String resourcePath = "api/v2/webhook";
+      String resourcePath = "v2/manage/webhooks";
             
       LoginRadiusRequest.execute("POST", resourcePath, queryParameters, gson.toJson(webHookSubscribeModel), new AsyncHandler<String>() {
 			
         @Override
         public void onSuccess(String response) {
-          TypeToken<PostResponse> typeToken = new TypeToken<PostResponse>() {};
-          PostResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          TypeToken<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> typeToken = new TypeToken<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>() {};
+          com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 
@@ -108,62 +104,134 @@ public class WebHookApi {
    }
    
    // <summary>
-   // API can be used to test a subscribed WebHook.
+   // This API is used to delete webhook subscription
    // </summary>
-   // <returns>Response containing Definition of Complete Validation data</returns>
+   // <param name="hookId">Unique ID of the webhook</param>
+   // <returns>Response containing Definition of Delete Request</returns>
    // 40.3	    
 		
 		
-   public void webhookTest(final AsyncHandler<EntityPermissionAcknowledgement> handler) {
-			
-      Map<String, String> queryParameters = new HashMap<String, String>();
-      queryParameters.put("apikey", LoginRadiusSDK.getApiKey());
-      queryParameters.put("apisecret", LoginRadiusSDK.getApiSecret());
+   public void deleteWebhookSubscription(String hookId, final AsyncHandler<DeleteResponse> handler) {      
 
-      String resourcePath = "api/v2/webhook/test";
-            
-      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
-			
-        @Override
-        public void onSuccess(String response) {
-          TypeToken<EntityPermissionAcknowledgement> typeToken = new TypeToken<EntityPermissionAcknowledgement>() {};
-          EntityPermissionAcknowledgement successResponse = JsonDeserializer.deserializeJson(response,typeToken);
-          handler.onSuccess(successResponse);
-        }
-
-        @Override
-        public void onFailure(ErrorResponse errorResponse) {
-          handler.onFailure(errorResponse);
-        }
-      });
-   }
-   
-   // <summary>
-   // API can be used to unsubscribe a WebHook configured on your LoginRadius site.
-   // </summary>
-   // <param name="webHookSubscribeModel">Model Class containing Definition of payload for Webhook Subscribe API</param>
-   // <returns>Response containing Definition of Delete Request</returns>
-   // 40.4	    
-		
-		
-   public void webHookUnsubscribe(com.loginradius.sdk.models.requestmodels.WebHookSubscribeModel webHookSubscribeModel, final AsyncHandler<DeleteResponse> handler) {
-
-      if (webHookSubscribeModel == null) {
-        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("webHookSubscribeModel"));
+      if (LoginRadiusValidator.isNullOrWhiteSpace(hookId)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("hookId"));
       }
 			
       Map<String, String> queryParameters = new HashMap<String, String>();
       queryParameters.put("apikey", LoginRadiusSDK.getApiKey());
       queryParameters.put("apisecret", LoginRadiusSDK.getApiSecret());
 
-      String resourcePath = "api/v2/webhook";
+      String resourcePath = "v2/manage/webhooks/" + hookId;
             
-      LoginRadiusRequest.execute("DELETE", resourcePath, queryParameters, gson.toJson(webHookSubscribeModel), new AsyncHandler<String>() {
+      LoginRadiusRequest.execute("DELETE", resourcePath, queryParameters, null, new AsyncHandler<String>() {
 			
         @Override
         public void onSuccess(String response) {
           TypeToken<DeleteResponse> typeToken = new TypeToken<DeleteResponse>() {};
           DeleteResponse successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to update a webhook subscription
+   // </summary>
+   // <param name="hookId">Unique ID of the webhook</param>
+   // <param name="webHookSubscriptionUpdateModel">Model Class containing Definition for WebHookSubscriptionUpdateModel Property</param>
+   // <returns>Response containing Definition for Complete WebHook data</returns>
+   // 40.4	    
+		
+		
+   public void updateWebhookSubscription(String hookId, WebHookSubscriptionUpdateModel webHookSubscriptionUpdateModel, final AsyncHandler<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> handler) {      
+
+      if (LoginRadiusValidator.isNullOrWhiteSpace(hookId)) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("hookId"));
+      }
+
+      if (webHookSubscriptionUpdateModel == null) {
+        throw new IllegalArgumentException(LoginRadiusValidator.getValidationMessage("webHookSubscriptionUpdateModel"));
+      }
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("apikey", LoginRadiusSDK.getApiKey());
+      queryParameters.put("apisecret", LoginRadiusSDK.getApiSecret());
+
+      String resourcePath = "v2/manage/webhooks/" + hookId;
+            
+      LoginRadiusRequest.execute("PUT", resourcePath, queryParameters, gson.toJson(webHookSubscriptionUpdateModel), new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> typeToken = new TypeToken<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>() {};
+          com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to get the list of all the webhooks
+   // </summary>
+   // <returns>Response Containing List of Webhhook Data</returns>
+   // 40.5	    
+		
+		
+   public void listAllWebhooks(final AsyncHandler<ListReturn<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> handler) {
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("apikey", LoginRadiusSDK.getApiKey());
+      queryParameters.put("apisecret", LoginRadiusSDK.getApiSecret());
+
+      String resourcePath = "v2/manage/webhooks";
+            
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<ListReturn<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>> typeToken = new TypeToken<ListReturn<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel>>() {};
+          ListReturn<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> successResponse = JsonDeserializer.deserializeJson(response,typeToken);
+          handler.onSuccess(successResponse);
+        }
+
+        @Override
+        public void onFailure(ErrorResponse errorResponse) {
+          handler.onFailure(errorResponse);
+        }
+      });
+   }
+   
+   // <summary>
+   // This API is used to retrieve all the webhook events.
+   // </summary>
+   // <returns>Model Class containing Definition for WebHookEventModel Property</returns>
+   // 40.6	    
+		
+		
+   public void getWebhookEvents(final AsyncHandler<WebHookEventModel> handler) {
+			
+      Map<String, String> queryParameters = new HashMap<String, String>();
+      queryParameters.put("apikey", LoginRadiusSDK.getApiKey());
+      queryParameters.put("apisecret", LoginRadiusSDK.getApiSecret());
+
+      String resourcePath = "v2/manage/webhooks/events";
+            
+      LoginRadiusRequest.execute("GET", resourcePath, queryParameters, null, new AsyncHandler<String>() {
+			
+        @Override
+        public void onSuccess(String response) {
+          TypeToken<WebHookEventModel> typeToken = new TypeToken<WebHookEventModel>() {};
+          WebHookEventModel successResponse = JsonDeserializer.deserializeJson(response,typeToken);
           handler.onSuccess(successResponse);
         }
 
