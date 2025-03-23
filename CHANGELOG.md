@@ -11,7 +11,8 @@ We've introduced a brand-new set of Webhook APIs, designed with enhanced functio
 
 - Custom header configuration  
 - Query parameter support  
-- Webhook authentication methods (Bearer Token and Basic Auth)
+- Webhook authentication methods (Bearer Token and Basic Auth)  
+- Support for a custom `Name` parameter to label each webhook subscription
 
 As part of this upgrade, the legacy Webhook APIs have been deprecated in favor of the new, more robust versions.
 
