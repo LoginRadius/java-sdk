@@ -6916,6 +6916,26 @@ webHookApi.createWebhookSubscription( webHookSubscribeModel ,  new AsyncHandler<
 String hookId = "<hookId>"; //Required
 WebHookSubscriptionUpdateModel webHookSubscriptionUpdateModel = new WebHookSubscriptionUpdateModel(); //Required
 
+//Custom Headers
+Map<String, String> headers = new HashMap<String, String>();
+headers.put("Content-Type", "application/json");
+webHookSubscriptionUpdateModel.setHeaders(headers);
+
+//Query Param
+Map<String, String> queryParams = new HashMap<String, String>();
+queryParams.put("paramname", "value");
+webHookSubscriptionUpdateModel.setQueryParams(queryParams);
+
+//Setup Webhook Authentication
+	
+WebhookAuthenticationModel webhookAuthenticationModel=new WebhookAuthenticationModel();
+webhookAuthenticationModel.setAuthType("Bearer");
+WebhookBearerToken webhookBearerToken=new WebhookBearerToken();
+webhookBearerToken.setToken("tokenValue");
+webhookAuthenticationModel.setBearerToken(webhookBearerToken);
+
+webHookSubscriptionUpdateModel.setAuthentication(webhookAuthenticationModel);
+
 WebHookApi webHookApi = new WebHookApi();
 webHookApi.updateWebhookSubscription(hookId,  webHookSubscriptionUpdateModel ,  new AsyncHandler<com.loginradius.sdk.models.responsemodels.otherobjects.WebHookSubscribeModel> (){
 
