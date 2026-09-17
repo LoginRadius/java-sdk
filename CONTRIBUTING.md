@@ -1,41 +1,44 @@
-# Contributing
+# Contributing to the v12 Java SDK
 
-[Java SDK](https://github.com/LoginRadius/java-sdk) is [MIT](LICENSE) licensed and accepts contributions via GitHub pull requests. This document outlines some of the conventions on development workflow, commit message formatting, contact points, and other resources to make it easier to get your contribution accepted.
+Thank you for taking the time. This SDK is **generated**, which changes how
+contributions work — please read this before opening a pull request.
 
-## Getting Started
+## Files under `v12/` are not edited by hand
 
-- Fork the repository on GitHub.
-- If you find any bug or Improvement in our existing code-base, please create a pull request as mentioned in Contribution Flow.
+The client, facade, tests, examples, demo and docs are all produced from the
+LoginRadius OpenAPI specification and a shared behavioural contract, then copied
+into this repository. A change committed here is overwritten by the next
+release, and it would not reach the other LoginRadius SDKs.
 
-## Contribution Flow
+So a pull request that edits files under `v12/` cannot be merged, however good
+the change is. This is not a judgement on the contribution — it is that the
+change has to be made where the code comes from.
 
-This is a rough outline of what a contributor's workflow looks like:
+## Please open an issue instead
 
-- Create a separate branch from the `dev` branch to base your work.
-- Make commits of logical units.
-- Make sure your commit messages are in the proper format (see below).
-- Push your changes to a topic branch in your fork of the repository.
-- Submit a pull request to the original repository.
-- **Please ensure that you raise a PR on the `dev` branch instead of `master`.**
+Describe what you expected and what happened. Useful detail:
 
-#### Commit Messages
+- the SDK version, and the operation or option involved
+- a minimal snippet that reproduces it
+- for a wrong request: the parameter you set and what reached the API
 
-Please follow the below format while writing commit messages:
+We apply the fix at the source, so it arrives in the next release rather than
+being patched into a file that the release would overwrite.
 
+## If the API itself is wrong
+
+Some problems are in the specification rather than the SDK: a missing endpoint,
+an operation that declares the wrong field name, a response that does not match
+what the API returns. Those cannot be fixed in a client at all. Report them the
+same way and say what the API actually did — we route them to the API team.
+
+## Running the SDK locally
+
+You do not need any of the generation machinery to build or test what is here:
+
+```bash
+mvn -B package
 ```
-  title: One line description about your change
-  <Blank Line>
-  description: An optional description of your changes.
-```
 
-Thanks for your contributions!
-
-## Code of Conduct
-
-### Our Pledge
-
-In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to make participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
-
-### Our Responsibilities
-
-Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.
+The demo under `demo/` runs against a real tenant; see its README for the
+credentials it needs. Never commit a filled `.env`.

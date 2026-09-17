@@ -1,28 +1,21 @@
-# Make sure to ignore Eclipse files
-.classpath
-.project
-.settings
-.html
+*.class
 
-# Macisms
-.DS_Store
-# Where maven compiles by default
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
 
-
-#IntelliJ project files
-*.iml
-.idea
-
-.bash_profile
-
-# Java Files that should be ignored
-.class
-
-# Package Files
+# Package Files #
+*.jar
 *.war
 *.ear
 
-# Backup files
-*.bak
-scratch
-/target/
+# exclude jar for gradle wrapper
+!gradle/wrapper/*.jar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# build files
+**/target
+target
+.gradle
+build
