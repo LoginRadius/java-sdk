@@ -97,7 +97,7 @@ class ErrorTest {
 
   @Test
   void carriesAHintForStatusesWithoutAnEnvelope() {
-    // The hints come from manifest/sdk.yaml so all four SDKs say the same thing
+    // The hints come from the shared SDK manifest so all four SDKs say the same thing
     // for a bare 401 or 403.
     assertFalse(from(401, "").description().isEmpty());
     assertFalse(from(403, "").description().isEmpty());

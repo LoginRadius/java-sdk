@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
  *
  * <p>Every case here mirrors one in the Go suite ({@code loginradius_test.go})
  * and the Node suite ({@code __tests__/request-options.test.ts}), asserting the
- * same concrete values from {@code manifest/sdk.yaml}. The manifest is the
+ * same concrete values from {@code the shared SDK manifest}. The manifest is the
  * contract; these are what stop one language drifting away from it quietly.
  *
  * <p>A manifest change is <em>supposed</em> to break these. Update every

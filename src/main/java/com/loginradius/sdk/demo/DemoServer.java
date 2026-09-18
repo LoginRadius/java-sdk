@@ -76,7 +76,7 @@ public final class DemoServer {
     // shared. This is a prefix context, so it also catches /demo.css.
     server.createContext("/", DemoServer::serveUi);
 
-    // The API surface comes from DemoRoutes, generated from manifest/sdk.yaml.
+    // The API surface comes from DemoRoutes, generated from the shared SDK manifest.
     // Registering from the table (rather than by hand) is what keeps every
     // language's demo on the same endpoints: method checking and session
     // enforcement are applied uniformly here instead of being re-implemented,

@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Test;
  * port matches the known-working algorithm rather than merely matching itself.
  *
  * <p>If this fails, fix the implementation, not the expectation. The shared
- * parameters live in sdk-factory's manifest/sdk.yaml.
+ * parameters live in the SDK generator's shared configuration.
  */
 class CryptoParityTest {
 

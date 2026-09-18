@@ -1338,7 +1338,7 @@ public class ApiClient {
      * with no configured value are left alone rather than blanked, so the
      * resulting URL still names the variable that was not set.
      *
-     * <p>Added by sdk-factory's post-generate hook, not by openapi-generator.
+     * <p>Added by the LoginRadius SDK generator, not by openapi-generator.
      */
     protected String resolveServerVariables(String baseUrl) {
         if (baseUrl == null || baseUrl.indexOf('{') < 0 || serverVariables == null) {
