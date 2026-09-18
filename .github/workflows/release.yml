@@ -1,7 +1,8 @@
-# Maintained in SDK-FACTORY: languages/java/static/.github/workflows/release.yml.mustache
-# An edit made in this repository is overwritten by the next sync — change it there.
+# GENERATED FILE — do not edit it in this repository.
+# This workflow is produced alongside the rest of this SDK and is overwritten
+# whenever the SDK is regenerated. Raise changes where the SDK is generated.
 #
-# Replaces the pre-factory maven-publish.yml, which deployed on every push to
+# Replaces the previous maven-publish.yml, which deployed on every push to
 # master, built --file LoginRadius-JavaSDK/pom.xml (the pom is at the root now),
 # ran JDK 16 against a Java-17 pom, and never passed
 # -Psign-artifacts — so Central would have rejected the artifacts anyway.

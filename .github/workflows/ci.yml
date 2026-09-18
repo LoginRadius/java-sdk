@@ -1,8 +1,9 @@
-# Maintained in SDK-FACTORY: languages/java/static/.github/workflows/ci.yml.mustache
-# An edit made in this repository is overwritten by the next sync — change it there.
+# GENERATED FILE — do not edit it in this repository.
+# This workflow is produced alongside the rest of this SDK and is overwritten
+# whenever the SDK is regenerated. Raise changes where the SDK is generated.
 #
-# The steps mirror languages/java/lang.yaml `verify:` (the factory's own gate),
-# with the pinned maven:3-eclipse-temurin-17 image replaced by setup-java.
+# These steps mirror this SDK's own build verification, with the pinned
+# maven:3-eclipse-temurin-17 image replaced by setup-java.
 name: CI
 
 on:
@@ -27,8 +28,7 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          # The pom's <java.version>, set from manifest/sdk.yaml
-          # languages.java.javaVersion. Bump both together.
+          # Matches the pom's <java.version>. Bump both together.
           java-version: '17'
           cache: maven
 
@@ -49,9 +49,7 @@ jobs:
       #
       # So `mvn spotless:check` fails before it formats anything — it would make
       # this workflow permanently red while saying nothing about the code. The
-      # factory does not run it either (languages/java/lang.yaml postRender is
-      # empty, unlike Go's gofmt and Node's prettier), so Java formatting is
-      # currently unenforced on both sides rather than enforced in one.
-      # Fixing that means bumping google-java-format in the pom patch in
-      # languages/java/hooks/post-generate.sh and accepting a whole-tree
-      # reformat — a separate change from wiring up CI.
+      # SDK's own build does not run it either, so Java formatting is currently
+      # unenforced rather than enforced in one place. Fixing that means bumping
+      # google-java-format in the pom and accepting a whole-tree reformat — a
+      # separate change from wiring up CI.
