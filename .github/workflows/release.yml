@@ -1,0 +1,139 @@
+# Maintained in SDK-FACTORY: languages/java/static/.github/workflows/release.yml.mustache
+# An edit made in this repository is overwritten by the next sync — change it there.
+#
+# Replaces the pre-factory maven-publish.yml, which deployed on every push to
+# master, built --file LoginRadius-JavaSDK/pom.xml (the pom is at the root now),
+# ran JDK 16 against a Java-17 pom, and never passed
+# -Psign-artifacts — so Central would have rejected the artifacts anyway.
+#
+# Two gates stand in front of a release, and both are deliberate:
+#   1. the 'release' GitHub Environment, which should have required reviewers;
+#   2. autoPublish=false on central-publishing-maven-plugin, so the bundle is
+#      uploaded and validated but a human presses Publish in the Central
+#      Portal. A version on Central can never be replaced.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Existing tag to publish (e.g. v12.0.0-rc.1)'
+        required: true
+        type: string
+      dry_run:
+        description: 'Build and sign only — do not upload to Central'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Publish com.loginradius.sdk:java-sdk to Maven Central
+    runs-on: ubuntu-latest
+    # Requires a human approval on the 'release' environment. The GPG key and
+    # Central token belong on that environment, not on the repository, so no
+    # other workflow can reach them.
+    environment: release
+    permissions:
+      contents: write   # create the GitHub Release
+    steps:
+      - name: Resolve tag
+        id: tag
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "name=${{ inputs.tag }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "name=${{ github.ref_name }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.tag.outputs.name }}
+          fetch-depth: 0
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+          # Writes a settings.xml whose <server> id matches
+          # <publishingServerId>central</publishingServerId> in the pom, and
+          # imports the signing key. The values below are ENV VAR NAMES, not
+          # the secrets themselves — that is this action's contract.
+          server-id: central
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_CENTRAL_TOKEN
+          gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+
+      # The pom <version>, the tag and the generated SDK version are three
+      # independent facts until something compares them.
+      - name: Tag matches the pom and the SDK version
+        run: |
+          expected='12.0.0-rc.1'
+          pom="$(mvn -B -q -DforceStdout help:evaluate -Dexpression=project.version)"
+          tag='${{ steps.tag.outputs.name }}'
+          if [ "${pom}" != "${expected}" ]; then
+            echo "::error::pom version ${pom} does not match the generated SDK version ${expected}"
+            exit 1
+          fi
+          if [ "${tag}" != "v${expected}" ]; then
+            echo "::error::tag ${tag} does not match the generated SDK version v${expected}"
+            exit 1
+          fi
+
+      - name: Test
+        run: mvn -B test
+
+      # -Psign-artifacts carries BOTH halves of publishing: maven-gpg-plugin
+      # (Central rejects unsigned artifacts) and central-publishing-maven-plugin
+      # (Central Portal takes an uploaded bundle, not a deploy to a URL).
+      # Without the profile this is a no-op deploy that silently publishes
+      # nothing, which is what the workflow this replaces did.
+      - name: Verify and sign
+        env:
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+        run: mvn -B -Psign-artifacts verify
+
+      - name: Upload the bundle to Central
+        if: ${{ github.event_name == 'push' || inputs.dry_run == false }}
+        env:
+          MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
+          MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_PASSWORD }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+          MAVEN_OPTS: ${{ secrets.MAVEN_OPTS }}
+        # Stops at 'validated'. Finish the release by pressing Publish at
+        # https://central.sonatype.com/publishing/deployments
+        run: mvn -B -Psign-artifacts deploy -DskipTests
+
+      - name: Upload the artifacts to this run
+        uses: actions/upload-artifact@v4
+        with:
+          name: maven-artifacts
+          path: |
+            target/*.jar
+            target/*.asc
+          if-no-files-found: error
+
+      - name: Create the GitHub Release
+        if: ${{ github.event_name == 'push' || inputs.dry_run == false }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.tag.outputs.name }}
+        run: |
+          if gh release view "${TAG}" >/dev/null 2>&1; then
+            echo "release ${TAG} already exists — nothing to do"
+            exit 0
+          fi
+          PRERELEASE='--prerelease'
+          gh release create "${TAG}" --verify-tag --title "${TAG}" \
+            --notes-file CHANGELOG.md ${PRERELEASE}

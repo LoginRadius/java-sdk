@@ -1,0 +1,57 @@
+# Maintained in SDK-FACTORY: languages/java/static/.github/workflows/ci.yml.mustache
+# An edit made in this repository is overwritten by the next sync — change it there.
+#
+# The steps mirror languages/java/lang.yaml `verify:` (the factory's own gate),
+# with the pinned maven:3-eclipse-temurin-17 image replaced by setup-java.
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build and test (JDK 17)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          # The pom's <java.version>, set from manifest/sdk.yaml
+          # languages.java.javaVersion. Bump both together.
+          java-version: '17'
+          cache: maven
+
+      - name: Package
+        run: mvn -B -q -DskipTests package
+
+      # Deliberately not -q: a gate should show the test count, not just its
+      # exit code. A run that executed zero tests must not look like a pass.
+      - name: Test
+        run: mvn -B test
+
+      # NO spotless step, deliberately. The generator's pom configures
+      # spotless 2.43.0 with google-java-format 1.8, and spotless refuses that
+      # combination on JVM 17 outright:
+      #
+      #   You are running Spotless on JVM 17. This requires google-java-format
+      #   of at least 1.10.0 (you are using 1.8).
+      #
+      # So `mvn spotless:check` fails before it formats anything — it would make
+      # this workflow permanently red while saying nothing about the code. The
+      # factory does not run it either (languages/java/lang.yaml postRender is
+      # empty, unlike Go's gofmt and Node's prettier), so Java formatting is
+      # currently unenforced on both sides rather than enforced in one.
+      # Fixing that means bumping google-java-format in the pom patch in
+      # languages/java/hooks/post-generate.sh and accepting a whole-tree
+      # reformat — a separate change from wiring up CI.

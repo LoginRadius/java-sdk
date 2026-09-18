@@ -1,5 +1,7 @@
 # LoginRadius Java SDK — v12
 
+[![CI](https://github.com/LoginRadius/java-sdk/actions/workflows/ci.yml/badge.svg)](https://github.com/LoginRadius/java-sdk/actions/workflows/ci.yml)
+
 Official Java SDK for the [LoginRadius](https://www.loginradius.com) Customer
 Identity and Access Management (CIAM) platform, generated from the LoginRadius
 OpenAPI specification: every operation is present, the models match the wire
