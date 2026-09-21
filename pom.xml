@@ -120,13 +120,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.3.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>test-jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
                 <configuration>
                     <excludes>
                         <!-- Demo sources compile with the SDK for verification,
@@ -174,6 +167,7 @@
                 <version>3.6.3</version>
                 <configuration>
                     <doclint>none</doclint>
+                        <excludePackageNames>com.loginradius.sdk.demo:com.loginradius.sdk.examples</excludePackageNames>
                     <windowtitle>LoginRadius Java</windowtitle>
                     <doctitle><![CDATA[<h1>LoginRadius Java</h1>]]></doctitle>
                     <bottom><![CDATA[<i>Copyright &#169; 2026 LoginRadius, Inc. All Rights Reserved.</i>]]></bottom>
@@ -198,6 +192,14 @@
                         </goals>
                     </execution>
                 </executions>
+            
+                    <configuration>
+                        <excludes>
+                            <exclude>com/loginradius/sdk/demo/**</exclude>
+                            <exclude>demo/**</exclude>
+                            <exclude>com/loginradius/sdk/examples/**</exclude>
+                        </excludes>
+                    </configuration>
             </plugin>
             <!-- Use spotless plugin to automatically format code, remove unused import, etc
                  To apply changes directly to the file, run `mvn spotless:apply`
