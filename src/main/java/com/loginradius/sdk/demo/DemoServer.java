@@ -261,7 +261,7 @@ public final class DemoServer {
   /**
    * Serves the demo's static assets from the classpath: {@code index.html} at
    * "/", and anything else under {@code /demo/} by name — {@code demo.css}
-   * among them, which is rendered from the factory's shared template so every
+   * among them, which is generated from a shared template so every
    * SDK's demo looks the same.
    *
    * <p>Serving the whole directory rather than only index.html: a page that
