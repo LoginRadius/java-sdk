@@ -1,0 +1,55 @@
+# GENERATED FILE — do not edit it in this repository.
+# This workflow is produced alongside the rest of this SDK and is overwritten
+# whenever the SDK is regenerated. Raise changes where the SDK is generated.
+#
+# These steps mirror this SDK's own build verification, with the pinned
+# maven:3-eclipse-temurin-17 image replaced by setup-java.
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build and test (JDK 17)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          # Matches the pom's <java.version>. Bump both together.
+          java-version: '17'
+          cache: maven
+
+      - name: Package
+        run: mvn -B -q -DskipTests package
+
+      # Deliberately not -q: a gate should show the test count, not just its
+      # exit code. A run that executed zero tests must not look like a pass.
+      - name: Test
+        run: mvn -B test
+
+      # NO spotless step, deliberately. The generator's pom configures
+      # spotless 2.43.0 with google-java-format 1.8, and spotless refuses that
+      # combination on JVM 17 outright:
+      #
+      #   You are running Spotless on JVM 17. This requires google-java-format
+      #   of at least 1.10.0 (you are using 1.8).
+      #
+      # So `mvn spotless:check` fails before it formats anything — it would make
+      # this workflow permanently red while saying nothing about the code. The
+      # SDK's own build does not run it either, so Java formatting is currently
+      # unenforced rather than enforced in one place. Fixing that means bumping
+      # google-java-format in the pom and accepting a whole-tree reformat — a
+      # separate change from wiring up CI.
