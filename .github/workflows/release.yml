@@ -67,14 +67,41 @@ jobs:
           java-version: '17'
           cache: maven
           # Writes a settings.xml whose <server> id matches
-          # <publishingServerId>central</publishingServerId> in the pom, and
-          # imports the signing key. The values below are ENV VAR NAMES, not
-          # the secrets themselves — that is this action's contract.
+          # <publishingServerId>central</publishingServerId> in the pom. The
+          # values below are ENV VAR NAMES, not the secrets themselves — that
+          # is this action's contract.
+          #
+          # gpg-private-key is deliberately NOT set here. setup-java pipes that
+          # value straight into `gpg --import`, which accepts an ASCII-armored
+          # export and nothing else; a base64-encoded secret fails with a bare
+          # "The process '/usr/bin/gpg' failed with exit code 2". The key is
+          # imported by the step below instead, which takes either form — the
+          # same one the pre-factory workflow used, so an existing secret keeps
+          # working untouched.
           server-id: central
           server-username: MAVEN_USERNAME
           server-password: MAVEN_CENTRAL_TOKEN
-          gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
+
+      # Pinned to a commit, not a tag: a tag on a third-party action can be
+      # repointed at any time, and this step is handed the signing key.
+      # e89d4093 is v6.3.0.
+      - name: Import the signing key
+        uses: crazy-max/ghaction-import-gpg@e89d40939c28e39f97cf32126055eeae86ba74ec
+        with:
+          gpg_private_key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+
+      # Prove a SECRET key actually landed in the keyring. Importing a public
+      # key succeeds quietly and then fails much later with "no secret key",
+      # by which point the run has done real work.
+      - name: Verify the key is usable for signing
+        run: |
+          if [ "$(gpg --list-secret-keys 2>/dev/null | grep -c '^sec')" -eq 0 ]; then
+            echo "::error::no secret key in the keyring — MAVEN_GPG_PRIVATE_KEY is not a private key export"
+            exit 1
+          fi
+          gpg --list-secret-keys --keyid-format=long | grep '^sec'
 
       # The pom <version>, the tag and the generated SDK version are three
       # independent facts until something compares them.
